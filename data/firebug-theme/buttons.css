@@ -1,0 +1,16 @@
+/* See license.txt for terms of usage */
+
+/*************************************************************************************************/
+/* Main Buttons */
+
+.theme-firebug #fbMinimizeButton {
+    list-style-image: url(chrome://firebug/skin/win/minimize.svg);
+}
+
+.theme-firebug #fbDetachButton {
+    list-style-image: url(chrome://firebug/skin/win/detach.svg);
+}
+
+.theme-firebug #fbCloseButton {
+    list-style-image: url(chrome://firebug/skin/win/deactivate.svg);
+}

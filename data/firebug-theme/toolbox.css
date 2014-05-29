@@ -1,0 +1,68 @@
+/* See license.txt for terms of usage */
+
+/*************************************************************************************************/
+/* Toolbox */
+
+.theme-firebug #toolbox-buttons {
+    display: none;
+}
+
+.theme-firebug .devtools-tabbar {
+    border-bottom-width: 0;
+    box-shadow: none;
+    font-family: Segoe UI;
+    -moz-appearance: none;
+    border-bottom: 1px solid rgb(170, 188, 207);
+    background-color: rgb(219, 234, 249);
+    background-image: linear-gradient(rgba(253, 253, 253, 0.2), rgba(253, 253, 253, 0));
+}
+
+/*************************************************************************************************/
+/* Panel tabs */
+
+.theme-firebug #toolbox-tabs .devtools-tab {
+    margin: 3px 0 0 0;
+    padding: 0 2px 0 0; 
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: #565656;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    margin-bottom: -1;
+}
+
+.theme-firebug #toolbox-tabs .devtools-tab:hover {
+    border: 1px solid #C8C8C8;
+    border-bottom: 1px solid transparent;
+    background-color: transparent;
+}
+
+.theme-firebug #toolbox-tabs .devtools-tab[selected] {
+    background-color: rgb(247, 251, 254);
+    border: 1px solid rgb(170, 188, 207);
+    border-bottom: 1px solid rgb(247, 251, 254);
+    color: inherit;
+    box-shadow: none;
+}
+
+.theme-firebug .devtools-tab spacer,
+.theme-firebug .devtools-tab image {
+    display: none;
+}
+
+.theme-firebug .toolbox-tab label {
+    margin: 0;
+}
+
+/*************************************************************************************************/
+/* Options Tab */
+
+.theme-firebug #toolbox-tabs #toolbox-tab-options image {
+    display: inline;
+}
+
+.theme-firebug #toolbox-tabs #toolbox-tab-options {
+    border: 0;
+}

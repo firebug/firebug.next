@@ -1,0 +1,9 @@
+{
+  "name": "firebug.next",
+  "title": "firebug.next",
+  "id": "firebug.next",
+  "description": "Next Firebug generation built on top of native Firefox developer tools",
+  "author": "Jan Odvarko",
+  "license": "BSD License",
+  "version": "0.1"
+}

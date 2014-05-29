@@ -1,4 +1,4 @@
-firebug.next
+Firebug.next
 ============
 
-Next Firebug generation build on top of native Firefox developer tools
+Next Firebug generation built on top of native Firefox developer tools
