@@ -1,0 +1,39 @@
+
+# Junk that could exist anywhere:
+.DS_Store
+*.swp
+*.tmp
+.*.gz
+*.patch
+
+# Temporary files created by Eclipse
+.tmp*
+
+# Editor junk
+*.project
+/.pydevproject
+/.settings/
+/.settings.xml
+/.settings.xml.old
+/.idea/
+*.iws
+*.ids
+*.iml
+*.ipr
+
+# Build Files
+/extension/build/
+/extension/release/
+/tests/FBTest/release/
+/trace/FBTrace/release/
+*.graphml
+/extension/bz-locale/
+
+# Files from NPM
+/extension/node_modules/
+
+# Extensions
+/extension/firebug@software.joehewitt.com
+
+# Bash
+*.sh
