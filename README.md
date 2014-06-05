@@ -34,3 +34,4 @@ Further Resources
 -----------------
 
 * Add-on SDK: https://developer.mozilla.org/en-US/Add-ons/SDK
+* DevTools API: https://developer.mozilla.org/en-US/docs/Tools/DevToolsAPI
