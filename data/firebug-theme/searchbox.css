@@ -4,7 +4,7 @@
 /* Search Box */
 
 .theme-firebug textbox[type="fbSearchBox"] {
-    -moz-binding: url("resource://helloworld-at-jetpack/helloworld/data/searchBox.xml#searchBox");
+    -moz-binding: url("resource://firebug-next-at-jetpack/firebug-next/data/searchBox.xml#searchBox");
 }
 .theme-firebug textbox[type="fbSearchBox"] .panelFocusBound {
     -moz-user-focus: normal;
