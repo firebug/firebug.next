@@ -33,6 +33,7 @@ about how to use `cfx` command line tool.
 Further Resources
 -----------------
 
+* Firebug.next wiki: https://getfirebug.com/wiki/index.php/Firebug.next
 * Add-on SDK: https://developer.mozilla.org/en-US/Add-ons/SDK
 * DevTools API: https://developer.mozilla.org/en-US/docs/Tools/DevToolsAPI
 * Coding Style: https://github.com/mozilla/addon-sdk/wiki/Coding-style-guide
