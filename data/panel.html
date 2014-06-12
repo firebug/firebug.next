@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <style type="text/css">
-    body {
-        background-color: rgb(253, 253, 253);
-    }
-    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+body {
+  background-color: white;
+}
+</style>
+<script>
+// Register listener for 'message' sent from the
+// HelloWorldPanel (chrome scope)
+window.addEventListener("message", event => {
+  var list = document.getElementById("messageList");
+  var item = document.createElement("li");
+  item.textContent = event.data;
+  list.appendChild(item);
+
+  // Port to debugee (toolbox.target)
+  // xxxHonza: the port represents communication channel to
+  // the remote debugger server.
+  // window.port = event.ports[0];
+}, false);
+</script>
 </head>
 <body>
   <h1>Hello World</h1>
-  <button id="mybutton">click me</button>
-  <script>
-  </script>
+  <button id="sendMessage">Send Message</button>
+  <ul id="messageList"></ul>
 </body>
 </html>
