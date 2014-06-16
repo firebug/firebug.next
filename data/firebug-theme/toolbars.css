@@ -10,8 +10,13 @@
     background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
 
-.theme-firebug #panelToolbar {
+.theme-firebug #panelToolbar,
+.theme-firebug .devtools-toolbar {
     padding: 3px;
+}
+
+.theme-firebug .devtools-toolbar {
+    height: 28px;
 }
 
 /*************************************************************************************************/
