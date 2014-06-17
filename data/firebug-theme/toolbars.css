@@ -15,6 +15,11 @@
     padding: 3px;
 }
 
+.theme-firebug #panelSideBox #panelToolbar {
+    height: 27px;
+    padding: 0;
+}
+
 .theme-firebug .devtools-toolbar {
     height: 28px;
 }
