@@ -5,5 +5,13 @@
   "description": "Next Firebug generation built on top of native Firefox developer tools",
   "author": "Jan Odvarko",
   "license": "BSD License",
-  "version": "0.1"
+  "version": "0.1",
+  "homepage": "https://getfirebug.com/",
+  "preferences": [{
+    "name": "debugStartup",
+    "title": "Execute start-up sequence for debugging",
+    "description": "Allows performing custom startup sequence useful when debugging",
+    "type": "bool",
+    "value": false
+  }]
 }
