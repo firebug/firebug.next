@@ -5,7 +5,7 @@
 const { Cu } = require("chrome");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
-const { Trace } = require("./trace.js");
+const { Trace } = require("./core/trace.js");
 
 // Import 'devtools' object
 Cu.import("resource://gre/modules/devtools/Loader.jsm")
