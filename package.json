@@ -13,5 +13,11 @@
     "description": "Allows performing custom startup sequence useful when debugging",
     "type": "bool",
     "value": false
+  }, {
+    "name": "ObjectShortIteratorMax",
+    "title": "",
+    "description": "",
+    "type": "integer",
+    "value": 3
   }]
 }
