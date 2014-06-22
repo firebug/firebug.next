@@ -66,10 +66,10 @@
 /*************************************************************************************************/
 /* Options Tab */
 
-.theme-firebug #toolbox-tabs #toolbox-tab-options image {
+.theme-firebug #toolbox-option-container #toolbox-tab-options image {
     display: inline;
 }
 
-.theme-firebug #toolbox-tabs #toolbox-tab-options {
+.theme-firebug #toolbox-option-container #toolbox-tab-options {
     border: 0;
 }
