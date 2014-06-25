@@ -4,9 +4,13 @@
 @import "console.css";
 @import "panel.css";
 
-body {
+/* All necessary styles related to DomTree should be here */
+
+.domTable {
     font-size: 11px;
     font-family: Segoe UI;
 }
 
-/* All necessary styles related to DomTree should be here */
+.domTable > tbody > tr > td {
+    border-bottom: 1px solid #EFEFEF;
+}
