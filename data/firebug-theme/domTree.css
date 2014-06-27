@@ -3,6 +3,7 @@
 @import "dom.css";
 @import "console.css";
 @import "panel.css";
+@import "panelbase.css";
 
 /* All necessary styles related to DomTree should be here */
 
