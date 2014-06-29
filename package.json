@@ -14,9 +14,21 @@
     "type": "bool",
     "value": false
   }, {
+    "name": "stringCropLength",
+    "title": "String cropping",
+    "description": "Default length limit for cropped strings",
+    "type": "integer",
+    "value": 50
+  }, {
+    "name": "displayedAttributeValueLimit",
+    "title": "Attribute value length",
+    "description": "Maximal number of characters for displayed attribute values inside HTML Panel",
+    "type": "integer",
+    "value": 1024
+  }, {
     "name": "ObjectShortIteratorMax",
-    "title": "",
-    "description": "",
+    "title": "Iterator limit",
+    "description": "How many properties to show in object summaries",
     "type": "integer",
     "value": 3
   }]

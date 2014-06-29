@@ -1,8 +1,17 @@
 /* See license.txt for terms of usage */
 
+@import "dom.css";
+@import "console.css";
+@import "panel.css";
+@import "panelbase.css";
+
+/* All necessary styles related to DomTree should be here */
+
 .domTable {
-    width: 100%;
     font-size: 11px;
+    font-family: Segoe UI;
 }
 
-/* All styles relate to DomTree should be here */
+.domTable > tbody > tr > td {
+    border-bottom: 1px solid #EFEFEF;
+}
