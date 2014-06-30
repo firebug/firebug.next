@@ -31,7 +31,8 @@
 /*************************************************************************************************/
 /* Toolbar Buttons */
 
-.theme-firebug toolbarbutton {
+.theme-firebug toolbarbutton,
+.theme-firebug #toolbox-tab-options {
     -moz-appearance: none;
     margin-right: 1px;
     border: 1px solid transparent;
@@ -39,7 +40,8 @@
     color: #141414;
 }
 
-.theme-firebug toolbarbutton:hover:not([disabled="true"]) {
+.theme-firebug toolbarbutton:hover:not([disabled="true"]),
+.theme-firebug #toolbox-tab-options:hover:not([disabled="true"]):not([selected="true"]) {
     border-color: rgba(0, 0, 0, 0.2);
     background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
         rgba(255, 255, 255, 0.2)) no-repeat;
@@ -61,7 +63,8 @@
     background-repeat: no-repeat;
 }
 
-.theme-firebug toolbarbutton:hover:active:not([disabled="true"]) {
+.theme-firebug toolbarbutton:hover:active:not([disabled="true"]),
+.theme-firebug #toolbox-tab-options:hover:active:not([disabled="true"]):not([selected="true"]) {
     border-color: rgba(0, 0, 0, 0.3);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset,
         0 0 2px rgba(0, 0, 0, 0.05);
