@@ -3,10 +3,9 @@
 /*************************************************************************************************/
 /* Toolbox */
 
-/* xxxHonza: blocked by issue #15
 .theme-firebug .devtools-side-splitter {
     border: 0;
-}*/
+}
 
 .theme-firebug #output-container {
     background-color: white;
