@@ -3,10 +3,36 @@
 /*************************************************************************************************/
 /* Toolbox */
 
+.theme-firebug {
+  font-size: 11px;
+}
+
 .theme-firebug .devtools-side-splitter {
-    border: 0;
+  border: 0;
 }
 
 .theme-firebug #output-container {
-    background-color: white;
+  background-color: white;
+}
+
+.domTableWrapper {
+  margin-top: 15px;
+  overflow-y: auto;
+  border: 1px solid #EFEFEF;
+}
+
+/* Override .cm-s-mozilla a[class] font-style
+from chrome://browser/skin/devtools/webconsole.css */
+.message-body .objectLink {
+  font-style: normal !important;
+}
+
+.message-location > .filename,
+.message-location > .line-number {
+  color: rgb(0, 0, 255);
+  font-weight: bold;
+}
+
+.message-location {
+  width: 12em;
 }
