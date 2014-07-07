@@ -601,6 +601,7 @@ of an error log is affected (higher than other logs). */
 
 /*************************************************************************************************/
 
+.objectLink-object .nodeName,
 .objectLink-NamedNodeMap .nodeName,
 .objectLink-NamedNodeMap .objectEqual,
 .objectLink-NamedNodeMap .arrayLeftBracket,
@@ -608,6 +609,10 @@ of an error log is affected (higher than other logs). */
 .objectLink-Attr .attrEqual,
 .objectLink-Attr .attrTitle {
     color: rgb(0, 0, 136)
+}
+
+.objectLink-object .nodeName {
+    font-weight: normal;
 }
 
 /*************************************************************************************************/
