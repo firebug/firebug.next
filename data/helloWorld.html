@@ -2,30 +2,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="firebug-theme/domTree.css" rel="stylesheet" type="text/css" />
+
 <style type="text/css">
 body {
   background-color: white;
 }
 </style>
-<script>
-// Register listener for 'message' sent from the
-// HelloWorldPanel (chrome scope)
-window.addEventListener("message", event => {
-  var list = document.getElementById("messageList");
-  var item = document.createElement("li");
-  item.textContent = event.data;
-  list.appendChild(item);
 
-  // Port to debugee (toolbox.target)
-  // xxxHonza: the port represents communication channel to
-  // the remote debugger server.
-  // window.port = event.ports[0];
-}, false);
+<script>
 </script>
+
 </head>
-<body>
-  <h1>Hello World</h1>
-  <button id="sendMessage">Send Message</button>
-  <ul id="messageList"></ul>
+<body id="content">
 </body>
 </html>
