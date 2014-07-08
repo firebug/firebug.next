@@ -3,7 +3,7 @@
   "title": "firebug-next",
   "id": "firebug-next",
   "description": "Next Firebug generation built on top of native Firefox developer tools",
-  "author": "Jan Odvarko",
+  "author": "Firebug Working Group",
   "license": "BSD License",
   "version": "0.1",
   "homepage": "https://getfirebug.com/",
@@ -25,6 +25,12 @@
     "description": "Maximal number of characters for displayed attribute values inside HTML Panel",
     "type": "integer",
     "value": 1024
+  }, {
+    "name": "ObjectLongIteratorMax",
+    "title": "Iterator limit",
+    "description": "How many properties to show in object summaries",
+    "type": "integer",
+    "value": 25
   }, {
     "name": "ObjectShortIteratorMax",
     "title": "Iterator limit",
