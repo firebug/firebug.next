@@ -19,7 +19,7 @@
 .breakpointHeader > .twisty,
 .computedStyle.hasSelectors > .stylePropName,
 .cookieRow > .cookieNameCol > .cookieNameLabel {
-    background-image: url(chrome://firebug/skin/win/twistyClosed.svg);
+    background-image: url(chrome://firebug/skin/twistyClosed.svg);
     background-repeat: no-repeat;
     background-position: 2px calc(0.5em - 3px);
     min-height: 12px;
@@ -43,7 +43,7 @@
 .breakpointBlock.opened > .breakpointHeader > .twisty,
 .computedStyle.hasSelectors.opened > .stylePropName,
 .cookieRow.opened > .cookieNameCol > .cookieNameLabel {
-    background-image: url(chrome://firebug/skin/win/twistyOpen.svg);
+    background-image: url(chrome://firebug/skin/twistyOpen.svg);
     background-repeat: no-repeat;
     min-height: 12px;
 }

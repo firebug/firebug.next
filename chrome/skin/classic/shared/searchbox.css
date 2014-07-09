@@ -4,7 +4,7 @@
 /* Search Box */
 
 .theme-firebug textbox[type="fbSearchBox"] {
-    -moz-binding: url("resource://firebug-next-at-jetpack/firebug-next/data/searchBox.xml#searchBox");
+    -moz-binding: url("chrome://firebug/skin/searchBox.xml#searchBox");
 }
 .theme-firebug textbox[type="fbSearchBox"] .panelFocusBound {
     -moz-user-focus: normal;
@@ -59,21 +59,21 @@
 
 .theme-firebug .fbsearch-icon {
     cursor: default !important;
-    background: url(resource://firebug-next-at-jetpack/firebug-next/data/search.svg) no-repeat 0 0;
+    background: url(chrome://firebug/skin/search.svg) no-repeat 0 0;
     width: 16px;
     height: 16px;
 }
 
 .theme-firebug .fbsearch-textbox[active-search="true"] > .fbsearch-icon {
-    background-image: url(resource://firebug-next-at-jetpack/firebug-next/data/searchCancel.svg);
+    background-image: url(chrome://firebug/skin/searchCancel.svg);
 }
 
 .theme-firebug .fbsearch-icon:hover {
-    filter: url(resource://firebug-next-at-jetpack/firebug-next/data/filters.svg#darken);
+    filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug .fbsearch-icon:active {
-    filter: url(resource://firebug-next-at-jetpack/firebug-next/data/filters.svg#deepDarken);
+    filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug #fbSearchOptionsPanel {
@@ -92,12 +92,12 @@
 }
 
 .theme-firebug .fbsearch-options-buttons.prev {
-    list-style-image: url("resource://firebug-next-at-jetpack/firebug-next/data/searchPrevious.svg");
+    list-style-image: url("chrome://firebug/skin/searchPrevious.svg");
     border-left: none;
 }
 
 .theme-firebug .fbsearch-options-buttons.next {
-    list-style-image: url("resource://firebug-next-at-jetpack/firebug-next/data/searchNext.svg");
+    list-style-image: url("chrome://firebug/skin/searchNext.svg");
 }
 
 .theme-firebug .fbsearch-options-buttons.next:-moz-locale-dir(ltr) {
@@ -114,12 +114,12 @@
 }
 
 .theme-firebug .fbsearch-options-buttons:hover {
-    filter: url(resource://firebug-next-at-jetpack/firebug-next/data/filters.svg#darken);
+    filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug .fbsearch-options-buttons:active {
     box-shadow: 0 1px 2px rgba(10,31,51,.2) inset;
-    filter: url(resource://firebug-next-at-jetpack/firebug-next/data/filters.svg#deepDarken);
+    filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug textbox[type="fbSearchBox"] > panel {
