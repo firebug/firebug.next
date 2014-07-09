@@ -10,7 +10,7 @@ Firebug is free and open source software distributed under the
 
 Repository Structure
 --------------------
-Structure of the extension follows Jetpack standards. It's generated using
+Structure of the extension follows Jetpack standards. It's generated using the
 `cfx` tool
 
 * **data** Stylesheets, images, localization files, etc. 
@@ -19,16 +19,16 @@ Structure of the extension follows Jetpack standards. It's generated using
 
 Hacking on Firebug.next
 -----------------------
-1. Get Add-ons SDK: `git clone https://github.com/mozilla/addon-sdk`
-2. Switch into `devtools` branch
-3. Add-on SDK requires Python 2.5, 2.6, or 2.7 [download](http://python.org/download/)
-4. Activate `cfx` command line tool (coming from Add-ons SDK). Run `source bin/activate` in
-Add-ons SDK directory. [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
-about how to install and activate Add-ons SDK.
-5. Get Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
-6. Run `cfx run -o` in Firebug.next directory to launch Firefox with auto-created clean profile.
+1. Get the Add-on SDK: `git clone https://github.com/mozilla/addon-sdk`
+2. Switch into the `devtools` branch
+3. The Add-on SDK requires Python 2.5, 2.6, or 2.7 [download](http://python.org/download/)
+4. Activate the `cfx` command line tool (included in Add-on SDK). Run `source bin/activate` in
+the Add-on SDK directory. [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
+about how to install and activate the Add-on SDK.
+5. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
+6. Run `cfx run -o` in the Firebug.next directory to launch Firefox with an auto-created clean profile.
 [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
-about how to use `cfx` command line tool.
+about how to use the `cfx` command line tool.
 
 Further Resources
 -----------------

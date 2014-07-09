@@ -4,7 +4,7 @@
 /* Search Box */
 
 .theme-firebug textbox[type="fbSearchBox"] {
-    -moz-binding: url("resource://firebug-next-at-jetpack/firebug-next/data/searchBox.xml#searchBox");
+    -moz-binding: url("chrome://firebug/skin/searchBox.xml#searchBox");
 }
 .theme-firebug textbox[type="fbSearchBox"] .panelFocusBound {
     -moz-user-focus: normal;
@@ -69,11 +69,11 @@
 }
 
 .theme-firebug .fbsearch-icon:hover {
-    filter: url(resource://firebugui/filters.svg#darken);
+    filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug .fbsearch-icon:active {
-    filter: url(resource://firebugui/filters.svg#deepDarken);
+    filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug #fbSearchOptionsPanel {
@@ -114,12 +114,12 @@
 }
 
 .theme-firebug .fbsearch-options-buttons:hover {
-    filter: url(resource://firebugui/filters.svg#darken);
+    filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug .fbsearch-options-buttons:active {
     box-shadow: 0 1px 2px rgba(10,31,51,.2) inset;
-    filter: url(resource://firebugui/filters.svg#deepDarken);
+    filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug textbox[type="fbSearchBox"] > panel {

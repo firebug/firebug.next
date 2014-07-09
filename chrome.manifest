@@ -1,0 +1,7 @@
+skin firebug classic/1.0    chrome/skin/classic/shared/
+
+skin firebug-os classic/1.0 chrome/skin/classic/win/
+skin firebug-os classic/1.0 chrome/skin/classic/mac/ os=Darwin
+skin firebug-os classic/1.0 chrome/skin/classic/linux/ os=Linux
+
+locale  firebug en-US       chrome/locale/en-US/
