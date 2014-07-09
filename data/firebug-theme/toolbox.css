@@ -72,6 +72,11 @@
     display: inline;
 }
 
+.theme-firebug #toolbox-option-container #toolbox-tab-options[selected] image {
+    filter: url(chrome://browser/skin/devtools/filters.svg#invert) !important;
+    opacity: 0.6;
+}
+
 .theme-firebug #toolbox-option-container #toolbox-tab-options {
     border: 0;
 }
