@@ -27,14 +27,14 @@
     "value": 1024
   }, {
     "name": "ObjectLongIteratorMax",
-    "title": "Iterator limit",
-    "description": "How many properties to show in object summaries",
+    "title": "Long iterator limit",
+    "description": "How many properties to show in long object summaries",
     "type": "integer",
     "value": 25
   }, {
     "name": "ObjectShortIteratorMax",
-    "title": "Iterator limit",
-    "description": "How many properties to show in object summaries",
+    "title": "Short iterator limit",
+    "description": "How many properties to show in short object summaries",
     "type": "integer",
     "value": 3
   }]
