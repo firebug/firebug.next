@@ -30,12 +30,11 @@
 .theme-firebug .devtools-sidebar-tabs > tabs > tab {
     margin: 3px 0 0 0;
     padding: 0 2px 0 0; 
-    border: 1px solid transparent;
+    border: 1px solid transparent !important;
     border-radius: 4px 4px 0 0;
     font-size: 11px;
     font-weight: bold;
     color: #565656;
-    border-bottom: 1px solid transparent;
     box-shadow: none;
     margin-bottom: -1;
 }
@@ -44,7 +43,7 @@
 .theme-firebug #toolbox-sidetabs .devtools-tab:hover,
 .theme-firebug #toolbox-tab-options:hover,
 .theme-firebug .devtools-sidebar-tabs > tabs > tab:hover {
-    border: 1px solid #C8C8C8;
+    border: 1px solid #C8C8C8 !important;
     border-bottom: 1px solid transparent;
 }
 
