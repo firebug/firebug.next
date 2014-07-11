@@ -1,0 +1,34 @@
+/* See license.txt for terms of usage */
+
+/*************************************************************************************************/
+/* MarkupView */
+
+.theme-firebug .theme-fg-color3 {
+  color: blue;
+}
+
+.theme-firebug .open,
+.theme-firebug .close,
+.theme-firebug .attr-name.theme-fg-color2 {
+  color: rgb(0, 0, 136);
+}
+
+.theme-firebug .attr-value.theme-fg-color6 {
+  color: red;
+}
+
+.theme-firebug .theme-comment {
+  color: rgb(0, 100, 0);
+}
+
+.theme-firebug .theme-twisty {
+  background-size: 11px 11px;
+  background-position: 0 1px;
+  background-image: url("chrome://firebug/skin/twistyClosed.svg");
+}
+
+.theme-firebug .theme-twisty[open] {
+  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+  background-size: 11px 11px;
+  background-position: 0 1px;
+}
