@@ -85,5 +85,5 @@
 }
 
 .theme-firebug #toolbox-option-container #toolbox-tab-options {
-    border: 0;
+    border: 1px solid transparent;
 }
