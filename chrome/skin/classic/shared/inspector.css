@@ -4,4 +4,14 @@
 /* Inspector */
 
 /* TODO: all inspector Firebug theme styles should go here */
+.theme-firebug #command-button-pick {
+    list-style-image: url(chrome://firebug/skin/inspect.svg);
+}
 
+.theme-firebug #command-button-pick:hover {
+    filter: url(chrome://firebug/skin/filters.svg#darken);
+}
+
+.theme-firebug #command-button-pick:active {
+    filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+}
