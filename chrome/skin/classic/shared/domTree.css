@@ -8,10 +8,10 @@
 /* All necessary styles related to DomTree should be here */
 
 .domTable {
-    font-size: 11px;
-    font-family: Segoe UI;
+  font-size: 11px;
+  font-family: Segoe UI;
 }
 
 .domTable > tbody > tr > td {
-    border-bottom: 1px solid #EFEFEF;
+  border-bottom: 1px solid #EFEFEF;
 }
