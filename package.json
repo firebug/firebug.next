@@ -37,5 +37,11 @@
     "description": "How many properties to show in short object summaries",
     "type": "integer",
     "value": 3
+  }, {
+    "name": "useDefaultLocale",
+    "title": "Use (en-US) locale",
+    "description": "Disregard the current Firefox locale and use (en-US) locale as default.",
+    "type": "bool",
+    "value": false
   }]
 }

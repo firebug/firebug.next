@@ -1,178 +1,178 @@
 /* See license.txt for terms of usage */
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Search Box */
 
 .theme-firebug textbox[type="fbSearchBox"] {
-    -moz-binding: url("chrome://firebug/skin/searchBox.xml#searchBox");
+  -moz-binding: url("chrome://firebug/skin/searchBox.xml#searchBox");
 }
 .theme-firebug textbox[type="fbSearchBox"] .panelFocusBound {
-    -moz-user-focus: normal;
+  -moz-user-focus: normal;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 
 .theme-firebug #fbSearchBox {
-    min-width: 100px;
-    height: 22px;
+  min-width: 100px;
+  height: 22px;
 }
 
 .theme-firebug #fbSearchBox:-moz-locale-dir(ltr) {
-    margin: 5px 10px 4px 0;
+  margin: 5px 10px 4px 0;
 }
 
 .theme-firebug #fbSearchBox:-moz-locale-dir(rtl) {
-    margin: 5px 0 4px 10px;
+  margin: 5px 0 4px 10px;
 }
 
 .theme-firebug .fbsearch-textbox[status="notfound"] {
-    background-color: #FF6666 !important;
-    color: #FFFFFF;
+  background-color: #FF6666 !important;
+  color: #FFFFFF;
 }
 
 .theme-firebug .fbsearch-textbox[status="wraparound"] {
-    background-image: url(chrome://global/skin/icons/wrap.png);
-    background-position: calc(100% - 5px) center;
-    background-repeat: no-repeat;
+  background-image: url(chrome://global/skin/icons/wrap.png);
+  background-position: calc(100% - 5px) center;
+  background-repeat: no-repeat;
 }
 
 .theme-firebug .fbsearch-textbox {
-    -moz-appearance: none;
-    -moz-box-align: center;
-    margin: 0;
-    border: 1px solid #96969D;
-    font: message-box;
-    font-size: 11px;
-    font-size-adjust: inherit;
-    height: 21px;
+  -moz-appearance: none;
+  -moz-box-align: center;
+  margin: 0;
+  border: 1px solid #96969D;
+  font: message-box;
+  font-size: 11px;
+  font-size-adjust: inherit;
+  height: 21px;
 }
 
 .theme-firebug .fbsearch-textbox:-moz-locale-dir(ltr) {
-    border-radius: 2px 0 0 2px;
-    padding: 0 2px 0 4px;
+  border-radius: 2px 0 0 2px;
+  padding: 0 2px 0 4px;
 }
 
 .theme-firebug .fbsearch-textbox:-moz-locale-dir(rtl) {
-    border-radius: 0 2px 2px 0;
-    padding: 0 4px 0 2px;
+  border-radius: 0 2px 2px 0;
+  padding: 0 4px 0 2px;
 }
 
 .theme-firebug .fbsearch-icon {
-    cursor: default !important;
-    background: url(chrome://firebug/skin/search.svg) no-repeat 0 0;
-    width: 16px;
-    height: 16px;
+  cursor: default !important;
+  background: url(chrome://firebug/skin/search.svg) no-repeat 0 0;
+  width: 16px;
+  height: 16px;
 }
 
 .theme-firebug .fbsearch-textbox[active-search="true"] > .fbsearch-icon {
-    background-image: url(chrome://firebug/skin/searchCancel.svg);
+  background-image: url(chrome://firebug/skin/searchCancel.svg);
 }
 
 .theme-firebug .fbsearch-icon:hover {
-    filter: url(chrome://firebug/skin/filters.svg#darken);
+  filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug .fbsearch-icon:active {
-    filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug #fbSearchOptionsPanel {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .theme-firebug .fbsearch-options-buttons {
-    -moz-appearance: none;
-    margin: 0;
-    border: 1px solid ThreeDShadow;
-    border-radius: 0;
-    padding: 1px 5px;
-    line-height: 1em;
-    width: 22px;
-    height: 21px;
+  -moz-appearance: none;
+  margin: 0;
+  border: 1px solid ThreeDShadow;
+  border-radius: 0;
+  padding: 1px 5px;
+  line-height: 1em;
+  width: 22px;
+  height: 21px;
 }
 
 .theme-firebug .fbsearch-options-buttons.prev {
-    list-style-image: url("chrome://firebug/skin/searchPrevious.svg");
-    border-left: none;
+  list-style-image: url("chrome://firebug/skin/searchPrevious.svg");
+  border-left: none;
 }
 
 .theme-firebug .fbsearch-options-buttons.next {
-    list-style-image: url("chrome://firebug/skin/searchNext.svg");
+  list-style-image: url("chrome://firebug/skin/searchNext.svg");
 }
 
 .theme-firebug .fbsearch-options-buttons.next:-moz-locale-dir(ltr) {
-    border-radius: 0 2px 2px 0;
-    border-left: none;
+  border-radius: 0 2px 2px 0;
+  border-left: none;
 }
 
 .theme-firebug .fbsearch-options-buttons.next:-moz-locale-dir(rtl) {
-    border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
 }
 
 .theme-firebug .fbsearch-options-buttons.prev:-moz-locale-dir(rtl) {
-    border-right: none;
+  border-right: none;
 }
 
 .theme-firebug .fbsearch-options-buttons:hover {
-    filter: url(chrome://firebug/skin/filters.svg#darken);
+  filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug .fbsearch-options-buttons:active {
-    box-shadow: 0 1px 2px rgba(10,31,51,.2) inset;
-    filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+  box-shadow: 0 1px 2px rgba(10,31,51,.2) inset;
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug textbox[type="fbSearchBox"] > panel {
-    /* This prevents the drop shadow from appearing See nsLayoutUtils::GetFrameTransparency*/
-    border-radius: 1px;
+  /* This prevents the drop shadow from appearing See nsLayoutUtils::GetFrameTransparency*/
+  border-radius: 1px;
 }
 
 .theme-firebug .fbSearchBox-attention textbox {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 .theme-firebug .fbsearch-splitter {
-    min-width: 6px;
-    -moz-margin-start: -3px;
-    border: medium none;
-    background: none repeat scroll 0% 0% transparent;
+  min-width: 6px;
+  -moz-margin-start: -3px;
+  border: medium none;
+  background: none repeat scroll 0% 0% transparent;
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/******************************************************************************/
 /* Case sensitive/insensitive search */
 
 .theme-firebug #fbSearchBoxIsSensitive,
 .theme-firebug #fbSearchBoxIsNotSensitive {
-    padding-bottom: 8px;
+  padding-bottom: 8px;
 }
 
 .theme-firebug #fbSearchBoxIsSensitive {
-    display: none;
+  display: none;
 }
 
 .theme-firebug .fbSearchBox-autoSensitive #fbSearchBoxIsSensitive {
-    display: block;
+  display: block;
 }
 
 .theme-firebug .fbSearchBox-autoSensitive #fbSearchBoxIsNotSensitive {
-    display: none;
+  display: none;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Win */
 
 .theme-firebug .fbsearch-textbox {
-    border: 1px solid rgb(170, 188, 207);
+  border: 1px solid rgb(170, 188, 207);
 }
 
 .theme-firebug .fbsearch-options-buttons {
-    border: 1px solid rgb(170, 188, 207);
+  border: 1px solid rgb(170, 188, 207);
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Search Box Splitter */
 
 .theme-firebug .fbsearch-splitter {
-    margin-left: 10px;
+  margin-left: 10px;
 }

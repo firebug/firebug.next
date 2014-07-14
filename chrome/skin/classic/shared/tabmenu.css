@@ -1,37 +1,37 @@
 /* See license.txt for terms of usage */
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Panel Tab Menu */
 
 .theme-firebug .devtools-tab > .panelTabMenu .menuTarget {
-    visibility: collapse;
+  visibility: collapse;
 }
 
 .theme-firebug .devtools-tab > .panelTabMenu .menuPopup:-moz-locale-dir(rtl) {
-    direction: rtl;
+  direction: rtl;
 }
 
 .theme-firebug .devtools-tab[selected="true"] > .panelTabMenu {
-    margin-right: 3px;
-    width: 11px;
-    height: 10px;
+  margin-right: 3px;
+  width: 11px;
+  height: 10px;
 }
 
 .theme-firebug .devtools-tab[selected="true"] > .panelTabMenu .menuTarget,
 .theme-firebug .devtools-tab:focus > .panelTabMenu .menuTarget {
-    background: url(chrome://firebug/skin/optionsMenuTarget.svg) no-repeat center;
-    width: 11px;
-    height: 10px;
-    vertical-align: middle;
-    visibility: visible;
-    display: block;
+  background: url(chrome://firebug/skin/optionsMenuTarget.svg) no-repeat center;
+  width: 11px;
+  height: 10px;
+  vertical-align: middle;
+  visibility: visible;
+  display: block;
 }
 
 .theme-firebug .devtools-tab[selected="true"]:hover > .panelTabMenu .menuTarget {
-    background-image: url(chrome://firebug/skin/optionsMenuTargetHover.svg);
+  background-image: url(chrome://firebug/skin/optionsMenuTargetHover.svg);
 }
 
 .theme-firebug .devtools-tab[selected="true"]:active > .panelTabMenu .menuTarget {
-    filter: url(resource://firebugui/filters.svg#darken);
+  filter: url(resource://firebugui/filters.svg#darken);
 }
 
