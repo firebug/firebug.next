@@ -109,18 +109,52 @@
 /*************************************************************************************************/
 /* Toolbox Controls */
 
+.theme-firebug #toolbox-controls {
+  margin-right: 2px;
+}
+
+.theme-firebug #toolbox-controls toolbarbutton {
+  margin-left: 0 !important;
+  width: 14px;
+  min-width: 14px;
+}
+
 .theme-firebug #toolbox-controls toolbarbutton:hover {
   background: none;
   box-shadow: none;
 }
 
 .theme-firebug #command-button-pick:hover {
+  background: none !important;
   border: 1px transparent solid !important;
   box-shadow: none !important;
 }
 
-.theme-firebug #command-button-pick:hover {
-  background: none !important;
+.theme-firebug #toolbox-dock-side > image,
+.theme-firebug #toolbox-dock-bottom > image {
+  background-image: url("chrome://firebug/skin/minimize.svg");
 }
 
+.theme-firebug #toolbox-dock-side > image {
+  transform:rotate(-90deg);
+}
+
+.theme-firebug #toolbox-dock-bottom > image {
+  transform:rotate(0deg);
+}
+
+.theme-firebug #toolbox-dock-window > image {
+  background-image: url("chrome://firebug/skin/detach.svg");
+}
+
+.theme-firebug #toolbox-close > image {
+  background-image: url("chrome://firebug/skin/close.svg");
+}
+
+.theme-firebug #toolbox-dock-side > image,
+.theme-firebug #toolbox-dock-bottom > image,
+.theme-firebug #toolbox-dock-window > image,
+.theme-firebug #toolbox-close > image {
+  filter: none !important;
+}
 
