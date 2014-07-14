@@ -10,18 +10,18 @@
 
 .theme-firebug .breadcrumbs-widget-item {
   position: relative;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-right: 0;
+  padding-left: 0;
   color: rgb(20, 20, 20) !important;
 }
 
 .theme-firebug .breadcrumbs-widget-item:not(:first-child):before {
   content: " ";
   position: absolute;
-  width: 10px;
-  background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat 0% 45%;
+  width: 20px;
+  background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat center;
+  transform: scaleX(-1);
 }
-
 
 .theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-id,
 .theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-tag,
