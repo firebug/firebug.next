@@ -5,3 +5,17 @@
 
 /* TODO: all inspector Firebug theme styles should go here */
 
+/*************************************************************************************************/
+/* Ancestor path / Breadcrumbs */
+
+.theme-firebug .breadcrumbs-widget-item {
+  color: rgb(20, 20, 20) !important;
+}
+
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-id,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-tag,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-pseudo-classes,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-classes {
+  color: rgb(20, 20, 20); /* Foreground (Text) - Firebug */
+  font-weight: bold;
+}
