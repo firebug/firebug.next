@@ -72,18 +72,55 @@
   background-color: white;
 }
 
-/******************************************************************************/
+/*************************************************************************************************/
+/* Element Picker */
+
+.theme-firebug #command-button-pick {
+  background: none !important;
+  border: 1px transparent solid !important;
+  box-shadow: none !important;
+}
+
+/*************************************************************************************************/
 /* Options Tab */
 
-.theme-firebug #toolbox-option-container #toolbox-tab-options image {
+.theme-firebug #toolbox-tab-options {
+  border: 1px solid transparent;
+}
+
+.theme-firebug #toolbox-tab-options image {
   display: inline;
 }
 
-.theme-firebug #toolbox-option-container #toolbox-tab-options[selected] image {
+.theme-firebug #toolbox-tab-options:hover {
+  border: 1px transparent solid !important;
+  box-shadow: none !important;
+}
+
+.theme-firebug #toolbox-tab-options[selected] {
+  border: 1px transparent solid !important;
+}
+
+.theme-firebug #toolbox-tab-options[selected] image {
   filter: url(chrome://browser/skin/devtools/filters.svg#invert) !important;
   opacity: 0.6;
 }
 
-.theme-firebug #toolbox-option-container #toolbox-tab-options {
-  border: 1px solid transparent;
+/*************************************************************************************************/
+/* Toolbox Controls */
+
+.theme-firebug #toolbox-controls toolbarbutton:hover {
+  background: none;
+  box-shadow: none;
 }
+
+.theme-firebug #command-button-pick:hover {
+  border: 1px transparent solid !important;
+  box-shadow: none !important;
+}
+
+.theme-firebug #command-button-pick:hover {
+  background: none !important;
+}
+
+
