@@ -5,3 +5,66 @@
 
 /* TODO: all inspector Firebug theme styles should go here */
 
+/*************************************************************************************************/
+/* Ancestor path / Breadcrumbs */
+
+.theme-firebug .breadcrumbs-widget-item {
+  position: relative;
+  padding-right: 0;
+  padding-left: 0;
+  color: rgb(20, 20, 20) !important;
+}
+
+.theme-firebug .breadcrumbs-widget-item:not(:first-child):before {
+  content: " ";
+  position: absolute;
+  width: 20px;
+  background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat center;
+  transform: scaleX(-1);
+}
+
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-id,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-tag,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-pseudo-classes,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-classes {
+  color: rgb(20, 20, 20);
+  font-weight: bold;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down {
+  padding: 0 0;
+  box-shadow: none;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up:hover,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down:hover {
+  border: 1px transparent solid !important;
+  box-shadow: none !important;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up:active,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down:active {
+  background: none !important;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up > .toolbarbutton-icon {
+  background: url("chrome://global/skin/arrow/arrow-lft-sharp.gif") no-repeat 0 center / 5px 9px;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down > .toolbarbutton-icon {
+  background: url("chrome://global/skin/arrow/arrow-lft-sharp.gif") no-repeat 0 center / 5px 9px;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up:not([disabled]):active:hover > .toolbarbutton-icon,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down:not([disabled]):active:hover > .toolbarbutton-icon {
+  background-position: 0 center;
+}
+
+/* todo: temporary solution, hide the inspector searchbox */
+.theme-firebug #inspector-searchbox {
+  display: none;
+}
+.theme-firebug #inspector-toolbar {
+  padding-right: 2px;
+}
