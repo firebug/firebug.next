@@ -72,7 +72,7 @@
   background-color: white;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Element Picker */
 
 .theme-firebug #command-button-pick {
@@ -81,7 +81,19 @@
   box-shadow: none !important;
 }
 
-/*************************************************************************************************/
+.theme-firebug #command-button-pick {
+  list-style-image: url(chrome://firebug/skin/inspect.svg);
+}
+
+.theme-firebug #command-button-pick:hover {
+  /*filter: url(chrome://firebug/skin/filters.svg#darken);*/
+}
+
+.theme-firebug #command-button-pick:active {
+/*  filter: url(chrome://firebug/skin/filters.svg#deepDarken);*/
+}
+
+/******************************************************************************/
 /* Options Tab */
 
 .theme-firebug #toolbox-tab-options {
@@ -106,7 +118,7 @@
   opacity: 0.6;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Toolbox Controls */
 
 .theme-firebug #toolbox-controls toolbarbutton:hover {
@@ -122,5 +134,3 @@
 .theme-firebug #command-button-pick:hover {
   background: none !important;
 }
-
-

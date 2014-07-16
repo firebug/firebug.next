@@ -1,21 +1,6 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Inspector */
-
-.theme-firebug #command-button-pick {
-  list-style-image: url(chrome://firebug/skin/inspect.svg);
-}
-
-.theme-firebug #command-button-pick:hover {
-  filter: url(chrome://firebug/skin/filters.svg#darken);
-}
-
-.theme-firebug #command-button-pick:active {
-  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
-}
-
-/******************************************************************************/
 /* Ancestor path / Breadcrumbs */
 
 .theme-firebug .breadcrumbs-widget-item {
