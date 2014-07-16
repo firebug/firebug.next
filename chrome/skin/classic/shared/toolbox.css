@@ -85,7 +85,7 @@
 /* Options Tab */
 
 .theme-firebug #toolbox-tab-options {
-  border: 1px solid transparent;
+  border: 1px solid transparent !important;
 }
 
 .theme-firebug #toolbox-tab-options image {
@@ -115,8 +115,8 @@
 
 .theme-firebug #toolbox-controls toolbarbutton {
   margin-left: 0 !important;
-  width: 14px;
-  min-width: 14px;
+  width: 12px;
+  min-width: 12px;
 }
 
 .theme-firebug #toolbox-controls toolbarbutton:hover {
