@@ -1,231 +1,231 @@
 /* See license.txt for terms of usage */
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Panel Toolbar */
 
 .theme-firebug #panelToolbarBox,
 .theme-firebug toolbar {
-    border-bottom: 1px solid rgb(170, 188, 207);
-    background-color: rgb(219, 234, 249) !important;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  border-bottom: 1px solid rgb(170, 188, 207);
+  background-color: rgb(219, 234, 249) !important;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
 
 .theme-firebug #panelToolbar,
 .theme-firebug .devtools-toolbar {
-    padding: 3px;
+  padding: 3px;
 }
 
 .theme-firebug #panelToolbar {
-    height: 27px;
+  height: 27px;
 }
 
 .theme-firebug #panelSideBox #panelToolbar {
-    height: 27px;
-    padding: 0;
+  height: 27px;
+  padding: 0;
 }
 
 .theme-firebug .devtools-toolbar {
-    height: 28px;
+  height: 28px;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Toolbar Buttons */
 
 .theme-firebug toolbarbutton,
 .theme-firebug #toolbox-tab-options {
-    -moz-appearance: none;
-    margin-right: 1px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    color: #141414;
+  -moz-appearance: none;
+  margin-right: 1px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #141414;
 }
 
 .theme-firebug toolbarbutton:hover:not([disabled="true"]),
 .theme-firebug #toolbox-tab-options:hover:not([disabled="true"]):not([selected="true"]) {
-    border-color: rgba(0, 0, 0, 0.2);
-    background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.2)) no-repeat;
-    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
-        0 0 2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+  background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)) no-repeat;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
+    0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
   [selected="true"],
   [open="true"]):not(.panelStatusLabel):not([disabled="true"]) {
-    border-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
   [selected="true"],
   [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not([type="menu-button"]) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
-    background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
+  background-repeat: no-repeat;
 }
 
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]),
 .theme-firebug #toolbox-tab-options:hover:active:not([disabled="true"]):not([selected="true"]) {
-    border-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset,
-        0 0 2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset,
+    0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
-    background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
+  background-repeat: no-repeat;
 }
 
 .theme-firebug toolbarbutton[type="menu-button"] {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .theme-firebug toolbarbutton[type="menu-button"] > .toolbarbutton-menubutton-button {
-    -moz-appearance: none;
-    border-radius: 0;
-    padding: 1px 6px;
+  -moz-appearance: none;
+  border-radius: 0;
+  padding: 1px 6px;
 }
 
 .theme-firebug .toolbarbutton-menu-dropmarker,
 .theme-firebug .toolbarbutton-menubutton-dropmarker {
-    -moz-appearance: none !important;
-    list-style-image: url(chrome://firebug/skin/dropMarker.svg);
-    -moz-box-pack: center;
-    -moz-box-align: center;
+  -moz-appearance: none !important;
+  list-style-image: url(chrome://firebug/skin/dropMarker.svg);
+  -moz-box-pack: center;
+  -moz-box-align: center;
 }
 
 .theme-firebug toolbarbutton[type="menu-button"]:not(:hover):not(:active):not(:-moz-any([checked="true"], [selected="true"], [open="true"])) > :-moz-any(.toolbarbutton-menu-dropmarker, .toolbarbutton-menubutton-dropmarker)::before {
-    content: "";
-    display: -moz-box;
-    width: 1px;
-    height: 15px;
-    -moz-margin-start: -7px;
-    -moz-margin-end: 7px;
-    background-color: rgba(0, 0, 0, 0.15);
+  content: "";
+  display: -moz-box;
+  width: 1px;
+  height: 15px;
+  -moz-margin-start: -7px;
+  -moz-margin-end: 7px;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .theme-firebug toolbarbutton[type=menu-button]:-moz-any(:hover,
   [checked="true"], [selected="true"], [open]) > .toolbarbutton-menubutton-button {
-    -moz-border-end: 1px solid rgba(0, 0, 0, 0.2);
+  -moz-border-end: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .theme-firebug toolbarbutton[type="menu-button"][open="true"]:not([disabled="true"]) >
   .toolbarbutton-menubutton-dropmarker {
-    border-color: rgba(0, 0, 0, 0.3);
-    background: transparent linear-gradient(rgba(0, 0, 0, 0.1), transparent) no-repeat;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  border-color: rgba(0, 0, 0, 0.3);
+  background: transparent linear-gradient(rgba(0, 0, 0, 0.1), transparent) no-repeat;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .theme-firebug toolbarbutton > label,
 .theme-firebug toolbarbutton > toolbarbutton {
-    margin: 0;
-    border: none;
-    padding: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
 }
 
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(ltr),
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(ltr) > toolbarbutton {
-    padding-right: 0;
+  padding-right: 0;
 }
 
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(rtl),
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(rtl) > toolbarbutton {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .theme-firebug toolbarbutton[disabled="true"] {
-    color: graytext;
+  color: graytext;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Win */
 
 .theme-firebug toolbarbutton {
-    padding: 1px 6px;
+  padding: 1px 6px;
 }
 
 .theme-firebug .toolbar-text-button > .toolbarbutton-icon:not([src]),
 .theme-firebug .toolbar-text-menubutton > .toolbarbutton-icon:not([src]),
 .theme-firebug toolbarbutton[type="menu"] > .toolbarbutton-icon:not([src]) {
-    display: none;
+  display: none;
 }
 
 .theme-firebug .toolbar-text-menubutton:hover:active,
 .theme-firebug .toolbar-text-menubutton[open="true"] {
-    padding: 4px 5px 2px 7px;
+  padding: 4px 5px 2px 7px;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Drop Down Buttons */
 
 .theme-firebug .toolbarbutton-menu-dropmarker {
-    padding: 3px 7px;
+  padding: 3px 7px;
 }
 
 
 .theme-firebug toolbarbutton[type="menu-button"] {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .theme-firebug toolbarbutton[type="menu-button"] > .toolbarbutton-menubutton-button {
-    -moz-appearance: none;
-    border-radius: 0;
-    padding: 1px 6px;
+  -moz-appearance: none;
+  border-radius: 0;
+  padding: 1px 6px;
 }
 
 .theme-firebug .toolbarbutton-menu-dropmarker,
 .theme-firebug .toolbarbutton-menubutton-dropmarker {
-    -moz-appearance: none !important;
-    list-style-image: url(chrome://firebug/skin/dropMarker.svg);
-    -moz-box-pack: center;
-    -moz-box-align: center;
+  -moz-appearance: none !important;
+  list-style-image: url(chrome://firebug/skin/dropMarker.svg);
+  -moz-box-pack: center;
+  -moz-box-align: center;
 }
 
 .theme-firebug toolbarbutton[type="menu-button"]:not(:hover):not(:active):not(:-moz-any([checked="true"], [selected="true"], [open="true"])) > :-moz-any(.toolbarbutton-menu-dropmarker, .toolbarbutton-menubutton-dropmarker)::before {
-    content: "";
-    display: -moz-box;
-    width: 1px;
-    height: 15px;
-    -moz-margin-start: -7px;
-    -moz-margin-end: 7px;
-    background-color: rgba(0, 0, 0, 0.15);
+  content: "";
+  display: -moz-box;
+  width: 1px;
+  height: 15px;
+  -moz-margin-start: -7px;
+  -moz-margin-end: 7px;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .theme-firebug toolbarbutton[type="menu-button"]:-moz-any(:hover, [checked="true"], [selected="true"], [open]) > .toolbarbutton-menubutton-button {
-    -moz-border-end: 1px solid rgba(0, 0, 0, 0.2);
+  -moz-border-end: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .theme-firebug toolbarbutton[type="menu-button"][open="true"]:not([disabled="true"]) > .toolbarbutton-menubutton-dropmarker {
-    border-color: rgba(0, 0, 0, 0.3);
-    background: transparent linear-gradient(rgba(0, 0, 0, 0.1), transparent) no-repeat;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  border-color: rgba(0, 0, 0, 0.3);
+  background: transparent linear-gradient(rgba(0, 0, 0, 0.1), transparent) no-repeat;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .theme-firebug toolbarbutton > label,
 .theme-firebug toolbarbutton > toolbarbutton {
-    margin: 0;
-    border: none;
-    padding: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
 }
 
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(ltr),
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(ltr) > toolbarbutton {
-    padding-right: 0;
+  padding-right: 0;
 }
 
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(rtl),
 .theme-firebug toolbarbutton[type="menu"]:-moz-locale-dir(rtl) > toolbarbutton {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .theme-firebug toolbarbutton[disabled="true"] {
-    color: graytext;
+  color: graytext;
 }
 
 .theme-firebug .panelStatusLabel[selected="true"] {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .theme-firebug .panelStatusLabel > .toolbarbutton-icon {
-    margin: 0;
+  margin: 0;
 }
 

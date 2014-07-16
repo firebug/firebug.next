@@ -19,10 +19,10 @@
 .breakpointHeader > .twisty,
 .computedStyle.hasSelectors > .stylePropName,
 .cookieRow > .cookieNameCol > .cookieNameLabel {
-    background-image: url(chrome://firebug/skin/twistyClosed.svg);
-    background-repeat: no-repeat;
-    background-position: 2px calc(0.5em - 3px);
-    min-height: 12px;
+  background-image: url(chrome://firebug/skin/twistyClosed.svg);
+  background-repeat: no-repeat;
+  background-position: 2px calc(0.5em - 3px);
+  min-height: 12px;
 }
 
 .foldableGroup.opened > .groupHeader > .twisty,
@@ -43,32 +43,32 @@
 .breakpointBlock.opened > .breakpointHeader > .twisty,
 .computedStyle.hasSelectors.opened > .stylePropName,
 .cookieRow.opened > .cookieNameCol > .cookieNameLabel {
-    background-image: url(chrome://firebug/skin/twistyOpen.svg);
-    background-repeat: no-repeat;
-    min-height: 12px;
+  background-image: url(chrome://firebug/skin/twistyOpen.svg);
+  background-repeat: no-repeat;
+  min-height: 12px;
 }
 
 .hasHeaders .netHrefLabel,
 .netInfoHeadersTable .netHeader,
 .netHrefLabel,
 .cookieRow > .cookieNameCol > .cookieNameLabel {
-    background-position: 2px 50%;
+  background-position: 2px 50%;
 }
 
-/************************************************************************************************/
+/******************************************************************************/
 /* Watch side panel */
 
 .closeButton {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: url(chrome://firebug/skin/win/close.svg) no-repeat 0 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(chrome://firebug/skin/win/close.svg) no-repeat 0 0;
 }
 
 .closeButton:hover {
-    filter: url(resource://firebugui/filters.svg#darken);
+  filter: url(resource://firebugui/filters.svg#darken);
 }
 
 .closeButton:active {
-    filter: url(resource://firebugui/filters.svg#deepDarken);
+  filter: url(resource://firebugui/filters.svg#deepDarken);
 }

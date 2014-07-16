@@ -1,47 +1,47 @@
 /* See license.txt for terms of usage */
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Panel Splitter */
 
 #panelSplitter {
-    background-color: rgb(221,221,221) !important;
-    border: none;
-    min-width: 5px;
-    max-width: 5px;
+  background-color: rgb(221,221,221) !important;
+  border: none;
+  min-width: 5px;
+  max-width: 5px;
 }
 
 #panelSplitter[orient="vertical"] {
-    min-height: 5px;
-    max-height: 5px;
-    min-width: 0;
-    max-width: none;
+  min-height: 5px;
+  max-height: 5px;
+  min-width: 0;
+  max-width: none;
 }
 
 #panelSplitter > #panelSplitterBox {
-    visibility: visible;
-    height: 28px;
-    width: 6px;
-    background-color: -moz-dialog;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2));
-    border-bottom: 1px solid #A0A0A0;
-    cursor: default;
-    margin: 0;
-    padding: 1px 0;
+  visibility: visible;
+  height: 28px;
+  width: 6px;
+  background-color: -moz-dialog;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2));
+  border-bottom: 1px solid #A0A0A0;
+  cursor: default;
+  margin: 0;
+  padding: 1px 0;
 }
 
 #panelSplitter[orient=vertical] > #panelSplitterBox {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Win */
 
 #panelSplitter {
-    background-color: rgb(231, 241, 251) !important;
+  background-color: rgb(231, 241, 251) !important;
 }
 
 #panelSplitter > #panelSplitterBox {
-    background-color: rgb(219, 234, 249);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
-    border-bottom: 1px solid rgb(170, 188, 207);
+  background-color: rgb(219, 234, 249);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  border-bottom: 1px solid rgb(170, 188, 207);
 }
