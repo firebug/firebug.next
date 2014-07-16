@@ -81,16 +81,21 @@
   box-shadow: none !important;
 }
 
+/* Remove the original button image */
+.theme-firebug #command-button-pick > image {
+  background-image: none;
+}
+
 .theme-firebug #command-button-pick {
   list-style-image: url(chrome://firebug/skin/inspect.svg);
 }
 
 .theme-firebug #command-button-pick:hover {
-  /*filter: url(chrome://firebug/skin/filters.svg#darken);*/
+  filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug #command-button-pick:active {
-/*  filter: url(chrome://firebug/skin/filters.svg#deepDarken);*/
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 /******************************************************************************/
