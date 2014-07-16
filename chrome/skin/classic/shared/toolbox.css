@@ -28,15 +28,14 @@
 .theme-firebug #toolbox-tabs .devtools-tab,
 .theme-firebug #toolbox-sidetabs .devtools-tab,
 .theme-firebug .devtools-sidebar-tabs > tabs > tab {
-  margin: 3px 0 0 0;
-  padding: 0 2px 0 0; 
+  margin: 3px 0 -1px 0;
+  padding: 0 2px 1px 0;
   border: 1px solid transparent !important;
   border-radius: 4px 4px 0 0;
   font-size: 11px;
   font-weight: bold;
   color: #565656;
   box-shadow: none;
-  margin-bottom: -1;
 }
 
 .theme-firebug #toolbox-tabs .devtools-tab:hover,

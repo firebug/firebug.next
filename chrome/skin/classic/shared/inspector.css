@@ -23,7 +23,7 @@
 .theme-firebug .breadcrumbs-widget-item:not(:first-child):before {
   content: " ";
   position: absolute;
-  width: 20px;
+  width: 18px;
   background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat center;
   transform: scaleX(-1);
 }
