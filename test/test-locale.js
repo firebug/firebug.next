@@ -2,7 +2,7 @@
 
 "use strict";
 
-const { Trace } = require("./core/trace.js");
+const { Trace, TraceError } = require("./core/trace.js").get(module.id);
 const { Locale } = require("./core/locale.js");
 
 exports["test locale (sync)"] = function(assert) {
