@@ -7,10 +7,6 @@
   font-size: 11px;
 }
 
-.theme-firebug .devtools-side-splitter {
-  border: 0;
-}
-
 .theme-firebug #output-container {
   background-color: white;
 }
