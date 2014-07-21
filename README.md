@@ -38,3 +38,4 @@ Further Resources
 * DevTools API: https://developer.mozilla.org/en-US/docs/Tools/DevToolsAPI
 * Coding Style: https://github.com/mozilla/addon-sdk/wiki/Coding-style-guide
 * DevTools Extension Examples: https://github.com/mozilla/addon-sdk/tree/devtools/examples
+* DevTools/Hacking: https://wiki.mozilla.org/DevTools/Hacking
