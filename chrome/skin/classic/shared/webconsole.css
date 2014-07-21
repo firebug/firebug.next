@@ -1,7 +1,7 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Toolbox */
+/* WebConsole */
 
 .theme-firebug {
   font-size: 11px;
@@ -31,4 +31,8 @@ from chrome://browser/skin/devtools/webconsole.css */
 
 .message-location {
   width: 13em;
+}
+
+.theme-firebug #webconsole-sidebar > tabs {
+  height: 28px;
 }
