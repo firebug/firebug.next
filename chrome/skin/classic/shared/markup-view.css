@@ -32,3 +32,7 @@
   background-size: 11px 11px;
   background-position: 0 1px;
 }
+
+.theme-firebug .theme-selected {
+  background-color: #3399ff;
+}
