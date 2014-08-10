@@ -38,3 +38,5 @@
 # Bash
 *.sh
 *.bat
+!launch.sh
+*.launchenv
