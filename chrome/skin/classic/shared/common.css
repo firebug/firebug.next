@@ -1,0 +1,37 @@
+/* See license.txt for terms of usage */
+
+.devtools-autocomplete-popup {
+    -moz-appearance: none;
+    background-color: #F0F0F0;
+    border: 1px solid #BEBEBE;
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    /* Remove xul panel shadow */
+    -moz-window-shadow: none !important;
+}
+
+.devtools-autocomplete-listbox {
+    cursor: default;
+    font-family: monospace;
+    white-space: pre;
+    background-color: white;
+    border: 1px solid #BEBEBE;
+    border-radius: 3px;
+    margin: 2px;
+    direction: ltr;
+}
+
+.devtools-autocomplete-listbox > richlistitem,
+.devtools-autocomplete-listbox > richlistitem[selected] {
+    color: #666666;
+    margin-right: 1px;
+}
+
+.devtools-autocomplete-listbox.firebug-theme > richlistitem[selected],
+.devtools-autocomplete-listbox.firebug-theme > richlistitem:hover {
+    background-color: highlight;
+    border-color: highlight;
+    color: highlighttext !important;
+}
