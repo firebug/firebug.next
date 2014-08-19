@@ -37,12 +37,12 @@ from chrome://browser/skin/devtools/webconsole.css */
   height: 28px;
 }
 
-.jsterm-input-container {
+.theme-firebug .jsterm-input-container {
   border-top: 1px solid #CCCCCC;
   border-top-style: solid;
 }
 
-.jsterm-input-node {
+.theme-firebug .jsterm-input-node {
   background-image: url(chrome://firebug/skin/command.svg);
   background-repeat: no-repeat;
   background-size: 16px 16px;
