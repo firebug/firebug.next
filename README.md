@@ -26,7 +26,9 @@ Hacking on Firebug.next
 the Add-on SDK directory. [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to install and activate the Add-on SDK.
 5. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
-6. Run `cfx run -o` in the Firebug.next directory to launch Firefox with an auto-created clean profile.
+6. Run `cfx run -o` in the Firebug.next directory to launch Firefox (you need
+Firefox [Nightly build](https://nightly.mozilla.org/) at this moment)
+with an auto-created clean profile.
 [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to use the `cfx` command line tool.
 
