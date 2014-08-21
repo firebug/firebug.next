@@ -3,3 +3,6 @@
 /******************************************************************************/
 /* Style Editor */
 
+.theme-firebug #style-editor-options {
+  display: none;
+}
