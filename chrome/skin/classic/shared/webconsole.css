@@ -33,9 +33,16 @@ from chrome://browser/skin/devtools/webconsole.css */
   width: 13em;
 }
 
+/* See license.txt for terms of usage */
+
+/*
+Disable the DOM side panel for now.
+See also: https://github.com/firebug/firebug.next/issues/56
 .theme-firebug #webconsole-sidebar > tabs {
   height: 28px;
 }
+*/
+
 
 .theme-firebug .jsterm-input-container {
   border-top: 1px solid #CCCCCC;
