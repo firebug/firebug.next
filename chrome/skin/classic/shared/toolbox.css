@@ -141,17 +141,12 @@
   box-shadow: none !important;
 }
 
-.theme-firebug #toolbox-dock-side > image,
 .theme-firebug #toolbox-dock-bottom > image {
-  background-image: url("chrome://firebug/skin/minimize.svg");
+  background-image: url("chrome://firebug/skin/attachAtBottom.svg");
 }
 
 .theme-firebug #toolbox-dock-side > image {
-  transform:rotate(-90deg);
-}
-
-.theme-firebug #toolbox-dock-bottom > image {
-  transform:rotate(0deg);
+  background-image: url("chrome://firebug/skin/attachAtSide.svg");
 }
 
 .theme-firebug #toolbox-dock-window > image {
