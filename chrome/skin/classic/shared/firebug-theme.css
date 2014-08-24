@@ -720,7 +720,7 @@ div.CodeMirror span.eval-text {
 }
 
 .devtools-separator {
-  margin: 0 2px;
+  margin: 0 4px;
   width: 2px;
   background-image: linear-gradient(hsla(204,45%,98%,0), hsla(204,45%,98%,.1), hsla(204,45%,98%,0)),
                     linear-gradient(hsla(206,37%,4%,0), hsla(206,37%,4%,.6), hsla(206,37%,4%,0)),
@@ -730,13 +730,8 @@ div.CodeMirror span.eval-text {
   background-position: 0, 1px, 2px;
 }
 
-#toolbox-buttons:empty + .devtools-separator,
-.devtools-separator[invisible] {
+#toolbox-buttons:empty + .devtools-separator {
   visibility: hidden;
-}
-
-#toolbox-controls-separator {
-  margin: 0;
 }
 
 /* Command buttons */
@@ -933,9 +928,6 @@ div.CodeMirror span.eval-text {
   border-color: transparent;
   border-width: 0;
   -moz-padding-start: 1px;
-}
-#toolbox-tab-options > image {
-  margin: 0 8px;
 }
 
 .hidden-labels-box:not(.visible) > label,
