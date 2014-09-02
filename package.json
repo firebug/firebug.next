@@ -7,7 +7,7 @@
   "license": "BSD License",
   "version": "0.1.0",
   "homepage": "https://getfirebug.com/",
-  "main": "lib/main",
+  "main": "lib/index",
   "preferences": [{
     "name": "debugStartup",
     "title": "Execute start-up sequence for debugging",
