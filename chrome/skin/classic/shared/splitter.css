@@ -30,7 +30,7 @@
 }
 
 #panelSplitter[orient=vertical] > #panelSplitterBox {
-  visibility: hidden;
+  visibility: visible;
 }
 
 /******************************************************************************/

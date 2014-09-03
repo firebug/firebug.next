@@ -43,8 +43,7 @@ code {
 
 /******************************************************************************/
 
-.collapsed,
-[collapsed="true"] {
+.collapsed,[collapsed="true"] {
   display: none;
 }
 
