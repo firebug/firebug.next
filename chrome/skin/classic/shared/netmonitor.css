@@ -1,0 +1,96 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Header and Footer */
+
+.theme-firebug .theme-sidebar {
+  background-color: white;
+}
+
+.theme-firebug #requests-menu-toolbar {
+  height: 16px;
+}
+
+.theme-firebug .requests-menu-header {
+  cursor: pointer;
+  -moz-user-select: none;
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
+  padding: 0 !important;
+  font-weight: bold;
+  background: linear-gradient(
+          rgba(255, 255, 255, 0.05),
+          rgba(0, 0, 0, 0.05)),
+      radial-gradient(1px 60% at right,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 80%) repeat-x #C8D2DC;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.theme-firebug #requests-menu-footer {
+  background-color: rgb(200, 210, 220);
+  height: 16px;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-firebug .requests-menu-header-button {
+  transition: none;
+  min-height: 17px;
+}
+
+.theme-firebug .requests-header-menu-button[sorted] {
+  background-color: #AAC3DC;
+}
+
+.theme-firebug .requests-menu-header-button:not(:active)[sorted=descending] {
+  background: url(chrome://firebug/skin/arrowDown.svg) no-repeat calc(100% - 4px);
+}
+
+.theme-firebug .requests-menu-header-button:not(:active)[sorted=ascending] {
+  background: url(chrome://firebug/skin/arrowUp.svg) no-repeat calc(100% - 4px);
+}
+
+.theme-firebug .requests-header-menu:hover:active {
+  background-image: linear-gradient(
+          rgba(0, 0, 0, 0.1),
+          transparent),
+      radial-gradient(1px 60% at right,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 80%);
+}
+
+/******************************************************************************/
+/* HTTP Entries */
+
+.theme-firebug .side-menu-widget-item {
+  background: white;
+  height: 17px;
+  line-height: 15px;
+  border-bottom: 1px solid #EFEFEF;
+  margin: 0;
+  padding: 0;
+}
+
+.theme-firebug .side-menu-widget-item:hover {
+  background: #EFEFEF;
+}
+
+.theme-firebug .requests-menu-subitem {
+  padding: 1px;
+}
+
+/******************************************************************************/
+/* Column Values Colors */
+
+.theme-firebug .requests-menu-subitem.requests-menu-icon-and-file {
+  font-weight: bold;
+}
+
+.theme-firebug .requests-menu-subitem.requests-menu-status-and-method {
+  color: rgb(128, 128, 128);
+}
+
+.theme-firebug .requests-menu-subitem.requests-menu-size {
+  text-align: right;
+}

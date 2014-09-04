@@ -55,9 +55,14 @@
   min-width: 5px;
   max-width: 5px;
   box-align: start;
+
+  /* xxxHonza: Is there a better way how to make use the splitter-box is
+  displayed at the top within the splitter? */
+  -moz-box-align: start;
+  -moz-box-pack: start;
 }
 
-.theme-firebug .devtools-side-splitter > .panelSplitterBox {
+.theme-firebug .devtools-side-splitter > #panelSplitterBox {
   visibility: visible;
   height: 28px;
   width: 6px;
