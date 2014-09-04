@@ -1,34 +1,45 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Toolbox */
+/* Toolbox & Panel Tabs */
 
 .theme-firebug #toolbox-buttons {
   display: none;
 }
 
 .theme-firebug .devtools-tabbar,
-.theme-firebug .devtools-sidebar-tabs > tabs {
+.theme-firebug .devtools-sidebar-tabs tabs {
   border-bottom-width: 0;
   box-shadow: none;
   font-family: Segoe UI;
   -moz-appearance: none;
-  border-bottom: 1px solid rgb(170, 188, 207);
   background-color: rgb(219, 234, 249);
   background-image: linear-gradient(rgba(253, 253, 253, 0.2), rgba(253, 253, 253, 0));
 }
 
+/* Only apply bottom-border for:
+  1) The main tab list.
+  2) The side tab list if there is no scroll-box that has its own border. */
+.theme-firebug .devtools-tabbar,
 .theme-firebug .devtools-sidebar-tabs > tabs {
+  border-bottom: 1px solid rgb(170, 188, 207);
+}
+
+.theme-firebug .devtools-sidebar-tabs tabs,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox {
   height: 28px;
   background-color: rgb(219, 234, 249) !important;
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
 
-/******************************************************************************/
-/* Panel tabs */
+.theme-firebug .devtools-sidebar-tabs tabscrollbox {
+  -moz-binding: url("chrome://firebug/skin/tabScrollBox.xml#tabScrollBox");
+  min-height: 28px;
+  border-bottom: 1px solid rgb(170, 188, 207);
+}
 
 .theme-firebug .devtools-tab,
-.theme-firebug .devtools-sidebar-tabs > tabs > tab {
+.theme-firebug .devtools-sidebar-tabs tab {
   margin: 3px 0 -1px 0;
   padding: 0 2px 1px 0;
   border: 1px solid transparent !important;
@@ -40,14 +51,14 @@
 }
 
 .theme-firebug .devtools-tab:hover,
-.theme-firebug .devtools-sidebar-tabs > tabs > tab:hover {
+.theme-firebug .devtools-sidebar-tabs tab:hover {
   border: 1px solid #C8C8C8 !important;
   border-bottom: 1px solid transparent;
 }
 
 .theme-firebug .devtools-tab[selected],
 .theme-firebug #toolbox-sidetabs .devtools-tab[selected],
-.theme-firebug .devtools-sidebar-tabs > tabs > tab[selected] {
+.theme-firebug .devtools-sidebar-tabs tab[selected] {
   background-color: rgb(247, 251, 254);
   border: 1px solid rgb(170, 188, 207) !important;
   border-bottom-width: 0 !important;
@@ -65,11 +76,11 @@
 }
 
 .theme-firebug #panelSideBox .devtools-tab[selected],
-.theme-firebug .devtools-sidebar-tabs > tabs > tab[selected] {
+.theme-firebug .devtools-sidebar-tabs tab[selected] {
   background-color: white;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Element Picker */
 
 .theme-firebug #command-button-pick {
@@ -78,7 +89,7 @@
   box-shadow: none !important;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Options Tab */
 
 .theme-firebug #toolbox-tab-options {
@@ -104,7 +115,7 @@
   opacity: 0.6;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Toolbox Controls */
 
 .theme-firebug #toolbox-controls {
@@ -151,3 +162,51 @@
   filter: none !important;
 }
 
+/******************************************************************************/
+/* Tab scrollbox and autorepeat buttons */
+
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down {
+    -moz-appearance: none;
+    width: 18px;
+    margin: 3px 0px 4px;
+    padding: 0px;
+    border: 1px solid rgb(170,188,207);
+    border-bottom: none;
+    border-top: none;
+}
+
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:not([disabled="true"]):hover,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:not([disabled="true"]):hover {
+    border-top-width: 1px;
+    padding-top: 1px;
+}
+
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up[disabled="true"],
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down[disabled="true"] {
+    opacity: 0.4;
+}
+
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up {
+    border-left-style: none;
+    /*border-top-right-radius: 2px;*/
+}
+
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:-moz-locale-dir(rtl) {
+    border-left-style: solid;
+    border-right-style: none;
+    /*border-top-left-radius: 2px;
+    border-top-right-radius: 0px;*/
+}
+
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down {
+    border-right-style: none;
+    /*border-top-left-radius: 2px;*/
+}
+
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:-moz-locale-dir(rtl) {
+    border-left-style: none;
+    border-right-style: solid;
+    /*border-top-left-radius: 0px;
+    border-top-right-radius: 2px;*/
+}
