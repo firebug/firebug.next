@@ -20,36 +20,33 @@
 
 .theme-firebug .devtools-sidebar-tabs > tabs {
   height: 28px;
+  background-color: rgb(219, 234, 249) !important;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
 
 /******************************************************************************/
 /* Panel tabs */
 
-.theme-firebug #toolbox-tabs .devtools-tab,
-.theme-firebug #toolbox-sidetabs .devtools-tab,
+.theme-firebug .devtools-tab,
 .theme-firebug .devtools-sidebar-tabs > tabs > tab {
-  margin: 3px 0 0 0;
-  padding: 0 2px 0 0; 
+  margin: 3px 0 -1px 0;
+  padding: 0 2px 1px 0;
   border: 1px solid transparent !important;
   border-radius: 4px 4px 0 0;
   font-size: 11px;
   font-weight: bold;
   color: #565656;
   box-shadow: none;
-  margin-bottom: -1;
 }
 
-.theme-firebug #toolbox-tabs .devtools-tab:hover,
-.theme-firebug #toolbox-sidetabs .devtools-tab:hover,
-.theme-firebug #toolbox-tab-options:hover,
+.theme-firebug .devtools-tab:hover,
 .theme-firebug .devtools-sidebar-tabs > tabs > tab:hover {
   border: 1px solid #C8C8C8 !important;
   border-bottom: 1px solid transparent;
 }
 
-.theme-firebug #toolbox-tabs .devtools-tab[selected],
+.theme-firebug .devtools-tab[selected],
 .theme-firebug #toolbox-sidetabs .devtools-tab[selected],
-.theme-firebug #toolbox-tab-options[selected],
 .theme-firebug .devtools-sidebar-tabs > tabs > tab[selected] {
   background-color: rgb(247, 251, 254);
   border: 1px solid rgb(170, 188, 207) !important;
@@ -102,20 +99,21 @@
 /* Options Tab */
 
 .theme-firebug #toolbox-tab-options {
-  border: 1px solid transparent;
+  margin-right: 4px;
+}
+
+.theme-firebug #toolbox-tab-options::before {
+  content: url(chrome://firebug/skin/options.svg);
+  display: block;
+  margin: 4px 7px 0;
 }
 
 .theme-firebug #toolbox-tab-options image {
-  display: inline;
+  display: none;
 }
 
-.theme-firebug #toolbox-tab-options:hover {
-  border: 1px transparent solid !important;
-  box-shadow: none !important;
-}
-
-.theme-firebug #toolbox-tab-options[selected] {
-  border: 1px transparent solid !important;
+.theme-firebug #toolbox-tab-options:not([selected]):hover::before {
+  filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
 .theme-firebug #toolbox-tab-options[selected] image {
@@ -126,16 +124,46 @@
 /******************************************************************************/
 /* Toolbox Controls */
 
+.theme-firebug #toolbox-controls {
+  margin-right: 2px;
+}
+
+.theme-firebug #toolbox-controls toolbarbutton {
+  margin-left: 0 !important;
+  width: 12px;
+  min-width: 12px;
+}
+
 .theme-firebug #toolbox-controls toolbarbutton:hover {
   background: none;
   box-shadow: none;
 }
 
 .theme-firebug #command-button-pick:hover {
+  background: none !important;
   border: 1px transparent solid !important;
   box-shadow: none !important;
 }
 
-.theme-firebug #command-button-pick:hover {
-  background: none !important;
+.theme-firebug #toolbox-dock-bottom > image {
+  background-image: url("chrome://firebug/skin/attachAtBottom.svg");
+}
+
+.theme-firebug #toolbox-dock-side > image {
+  background-image: url("chrome://firebug/skin/attachAtSide.svg");
+}
+
+.theme-firebug #toolbox-dock-window > image {
+  background-image: url("chrome://firebug/skin/detach.svg");
+}
+
+.theme-firebug #toolbox-close > image {
+  background-image: url("chrome://firebug/skin/close.svg");
+}
+
+.theme-firebug #toolbox-dock-side > image,
+.theme-firebug #toolbox-dock-bottom > image,
+.theme-firebug #toolbox-dock-window > image,
+.theme-firebug #toolbox-close > image {
+  filter: none !important;
 }

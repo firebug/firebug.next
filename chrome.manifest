@@ -1,3 +1,4 @@
+content firebug             chrome/content/
 skin firebug classic/1.0    chrome/skin/classic/shared/
 
 skin firebug-os classic/1.0 chrome/skin/classic/win/

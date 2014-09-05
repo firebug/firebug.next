@@ -26,7 +26,11 @@ Hacking on Firebug.next
 the Add-on SDK directory. [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to install and activate the Add-on SDK.
 5. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
-6. Run `cfx run -o` in the Firebug.next directory to launch Firefox with an auto-created clean profile.
+6. (Optional) Install [FBTrace](https://github.com/firebug/tracing-console) in your Firefox dev profile
+7. Run `cfx run -o` in the Firebug.next directory to launch Firefox (you need
+Firefox [Nightly build](https://nightly.mozilla.org/) at this moment)
+with an auto-created clean profile. 
+If you wish to run it with FBTrace, use `cfx run -o --profiledir=<yourProfileDir>`.
 [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to use the `cfx` command line tool.
 
@@ -38,3 +42,4 @@ Further Resources
 * DevTools API: https://developer.mozilla.org/en-US/docs/Tools/DevToolsAPI
 * Coding Style: https://github.com/mozilla/addon-sdk/wiki/Coding-style-guide
 * DevTools Extension Examples: https://github.com/mozilla/addon-sdk/tree/devtools/examples
+* DevTools/Hacking: https://wiki.mozilla.org/DevTools/Hacking

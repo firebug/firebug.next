@@ -45,3 +45,26 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
   border-bottom: 1px solid rgb(170, 188, 207);
 }
+
+/******************************************************************************/
+/* Built-in side-box splitter */
+
+.theme-firebug .devtools-side-splitter {
+  background-color: rgb(231, 241, 251) !important;
+  border: none;
+  min-width: 5px;
+  max-width: 5px;
+  box-align: start;
+}
+
+.theme-firebug .devtools-side-splitter > .panelSplitterBox {
+  visibility: visible;
+  height: 28px;
+  width: 6px;
+  background-color: rgb(219, 234, 249);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  border-bottom: 1px solid rgb(170, 188, 207);
+  cursor: default;
+  margin: 0;
+  padding: 1px 0;
+}

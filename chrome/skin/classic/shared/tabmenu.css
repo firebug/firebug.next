@@ -32,6 +32,7 @@
 }
 
 .theme-firebug .devtools-tab[selected="true"]:active > .panelTabMenu .menuTarget {
-  filter: url(resource://firebugui/filters.svg#darken);
+  /* Remove this filter since it cause the menu target to
+  (almost) disappear when clicked
+  filter: url(resource://firebugui/filters.svg#darken); */
 }
-

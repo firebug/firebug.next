@@ -1,12 +1,13 @@
 {
   "name": "firebug-next",
-  "title": "firebug-next",
-  "id": "firebug-next",
+  "title": "Firebug.next",
+  "id": "firebug-next@getfirebug.com",
   "description": "Next Firebug generation built on top of native Firefox developer tools",
   "author": "Firebug Working Group",
   "license": "BSD License",
-  "version": "0.1",
+  "version": "0.1.0",
   "homepage": "https://getfirebug.com/",
+  "main": "lib/index",
   "preferences": [{
     "name": "debugStartup",
     "title": "Execute start-up sequence for debugging",

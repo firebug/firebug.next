@@ -1,14 +1,10 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Toolbox */
+/* WebConsole */
 
 .theme-firebug {
   font-size: 11px;
-}
-
-.theme-firebug .devtools-side-splitter {
-  border: 0;
 }
 
 .theme-firebug #output-container {
@@ -36,3 +32,26 @@ from chrome://browser/skin/devtools/webconsole.css */
 .message-location {
   width: 13em;
 }
+
+/* See license.txt for terms of usage */
+
+/*
+Disable the DOM side panel for now.
+See also: https://github.com/firebug/firebug.next/issues/56
+.theme-firebug #webconsole-sidebar > tabs {
+  height: 28px;
+}
+*/
+
+
+.theme-firebug .jsterm-input-container {
+  border-top: 1px solid #CCCCCC;
+  border-top-style: solid;
+}
+
+.theme-firebug .jsterm-input-node {
+  background-image: url(chrome://firebug/skin/command.svg);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+
