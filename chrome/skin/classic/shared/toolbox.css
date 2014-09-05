@@ -74,8 +74,7 @@
 
 .theme-firebug #command-button-pick {
   background: none !important;
-  border: 1px transparent solid !important;
-  box-shadow: none !important;
+  margin: 3px;
 }
 
 /* Remove the original button image */
