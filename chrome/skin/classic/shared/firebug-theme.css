@@ -536,8 +536,7 @@ div.CodeMirror span.eval-text {
 
 /* Text input */
 
-.devtools-textinput,
-.devtools-searchinput {
+.devtools-textinput {
   -moz-appearance: none;
   margin: 0 3px;
   border: 1px solid;
@@ -546,19 +545,7 @@ div.CodeMirror span.eval-text {
 }
 
 .devtools-searchinput {
-  margin-top: 1px;
-  margin-bottom: 1px;
-  padding: 0;
-  -moz-padding-start: 22px;
-  -moz-padding-end: 12px;
-  background-position: 8px center;
-  background-size: 11px 11px;
-  background-repeat: no-repeat;
-  font-size: inherit;
-}
-
-.devtools-searchinput:-moz-locale-dir(rtl) {
-  background-position: calc(100% - 8px) center;
+    display: none;
 }
 
 .devtools-searchinput > .textbox-input-box > .textbox-search-icons {
