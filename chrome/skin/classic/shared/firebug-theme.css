@@ -638,15 +638,20 @@ div.CodeMirror span.eval-text {
    */
   padding: 0 3px;
   margin: 0;
-  min-width: 78px;
+  /*min-width: 78px; */
   text-align: center;
   color: inherit;
-  -moz-box-flex: 1;
+  /*-moz-box-flex: 1;*/
   border-width: 0;
   border-radius: 0;
-  position: static;
-  -moz-margin-start: -1px;
+  /*position: static;*/
+  /*-moz-margin-start: -1px;*/
   text-shadow: none;
+}
+
+.devtools-sidebar-tabs > tabs > tab > hbox {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .devtools-sidebar-tabs > tabs > tab {
