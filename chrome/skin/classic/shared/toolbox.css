@@ -70,11 +70,24 @@
 }
 
 /******************************************************************************/
+/* Firebug Menu Button */
+
+.theme-firebug #firebug-menu {
+  margin: 3px;
+  margin-right: 0;
+}
+
+.theme-firebug #firebug-menu .toolbarbutton-menu-dropmarker {
+  visibility: collapse;
+}
+
+/******************************************************************************/
 /* Element Picker */
 
 .theme-firebug #command-button-pick {
   background: none !important;
   margin: 3px;
+  margin-left: 0;
 }
 
 /* Remove the original button image */
