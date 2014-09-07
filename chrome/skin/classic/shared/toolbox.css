@@ -69,16 +69,45 @@
   background-color: white;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
+/* Firebug Menu Button */
+
+.theme-firebug #firebug-menu {
+  margin: 3px;
+  margin-right: 0;
+}
+
+.theme-firebug #firebug-menu .toolbarbutton-menu-dropmarker {
+  visibility: collapse;
+}
+
+/******************************************************************************/
 /* Element Picker */
 
 .theme-firebug #command-button-pick {
   background: none !important;
-  border: 1px transparent solid !important;
-  box-shadow: none !important;
+  margin: 3px;
+  margin-left: 0;
 }
 
-/*************************************************************************************************/
+/* Remove the original button image */
+.theme-firebug #command-button-pick > image {
+  background-image: none;
+}
+
+.theme-firebug #command-button-pick {
+  list-style-image: url(chrome://firebug/skin/inspect.svg);
+}
+
+.theme-firebug #command-button-pick:hover {
+  filter: url(chrome://firebug/skin/filters.svg#darken);
+}
+
+.theme-firebug #command-button-pick:active {
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+}
+
+/******************************************************************************/
 /* Options Tab */
 
 .theme-firebug #toolbox-tab-options {
@@ -104,7 +133,7 @@
   opacity: 0.6;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Toolbox Controls */
 
 .theme-firebug #toolbox-controls {
@@ -150,4 +179,3 @@
 .theme-firebug #toolbox-close > image {
   filter: none !important;
 }
-
