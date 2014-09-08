@@ -39,6 +39,13 @@
   box-shadow: none;
 }
 
+/* In order to hide bottom-border of side panel tabs we need
+ to make the parent element overflow visible, so child element
+ can move one pixel down to hide the bottom border. */
+.theme-firebug .devtools-sidebar-tabs > tabs {
+   overflow: visible;
+}
+
 .theme-firebug .devtools-tab:hover,
 .theme-firebug .devtools-sidebar-tabs > tabs > tab:hover {
   border: 1px solid #C8C8C8 !important;
