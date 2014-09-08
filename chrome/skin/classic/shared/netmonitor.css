@@ -94,3 +94,40 @@
 .theme-firebug .requests-menu-subitem.requests-menu-size {
   text-align: right;
 }
+
+/******************************************************************************/
+/* Timings */
+
+.theme-firebug .requests-menu-timings-box {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.2));
+  height: 15px;
+}
+
+.theme-firebug .requests-menu-timings-total {
+  color: #808080;
+  min-width: 16px;
+}
+
+.theme-firebug .requests-menu-timings-box.blocked {
+  background-color: rgba(235, 83, 104, 0.8); /* red */
+}
+
+.theme-firebug .requests-menu-timings-box.dns {
+  background-color: rgba(223, 128, 255, 0.8); /* pink */
+}
+
+.theme-firebug .requests-menu-timings-box.connect {
+  background-color: rgba(217, 102, 41, 0.8); /* orange */
+}
+
+.theme-firebug .requests-menu-timings-box.send {
+  background-color: rgba(70, 175, 227, 0.8); /* light blue */
+}
+
+.theme-firebug .requests-menu-timings-box.wait {
+  background-color: rgba(94, 136, 176, 0.8); /* blue grey */
+}
+
+.theme-firebug .requests-menu-timings-box.receive {
+  background-color: rgba(112, 191, 83, 0.8); /* green */
+}
