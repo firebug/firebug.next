@@ -72,12 +72,12 @@
 /******************************************************************************/
 /* Firebug Menu Button */
 
-.theme-firebug #firebug-menu {
+.theme-firebug #firebug-menu-button {
   margin: 3px;
   margin-right: 0;
 }
 
-.theme-firebug #firebug-menu .toolbarbutton-menu-dropmarker {
+.theme-firebug #firebug-menu-button .toolbarbutton-menu-dropmarker {
   visibility: collapse;
 }
 
