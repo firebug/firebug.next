@@ -50,6 +50,13 @@
   box-shadow: none;
 }
 
+/* In order to hide bottom-border of side panel tabs we need
+ to make the parent element overflow visible, so child element
+ can move one pixel down to hide the bottom border. */
+.theme-firebug .devtools-sidebar-tabs > tabs {
+   overflow: visible;
+}
+
 .theme-firebug .devtools-tab:hover,
 .theme-firebug .devtools-sidebar-tabs tab:hover {
   border: 1px solid #C8C8C8 !important;
@@ -81,12 +88,41 @@
 }
 
 /******************************************************************************/
+/* Firebug Menu Button */
+
+.theme-firebug #firebug-menu-button {
+  margin: 3px;
+  margin-right: 0;
+}
+
+.theme-firebug #firebug-menu-button .toolbarbutton-menu-dropmarker {
+  visibility: collapse;
+}
+
+/******************************************************************************/
 /* Element Picker */
 
 .theme-firebug #command-button-pick {
   background: none !important;
-  border: 1px transparent solid !important;
-  box-shadow: none !important;
+  margin: 3px;
+  margin-left: 0;
+}
+
+/* Remove the original button image */
+.theme-firebug #command-button-pick > image {
+  background-image: none;
+}
+
+.theme-firebug #command-button-pick {
+  list-style-image: url(chrome://firebug/skin/inspect.svg);
+}
+
+.theme-firebug #command-button-pick:hover {
+  filter: url(chrome://firebug/skin/filters.svg#darken);
+}
+
+.theme-firebug #command-button-pick:active {
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 /******************************************************************************/
