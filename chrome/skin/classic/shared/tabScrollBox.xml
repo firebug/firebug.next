@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- See license.txt for terms of usage -->
+
+<bindings xmlns="http://www.mozilla.org/xbl"
+  xmlns:xbl="http://www.mozilla.org/xbl"
+  xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+
+<!-- Derive new widget from the existing <arrowscrollbox>. We want to use it
+for <tabbox> and inserting it in between <tabs> and <tab> binding causes an
+exception since <tab> expects <tabs> as the parent.
+The solution is inserting the scroll-box around the <tabs> element and
+override the _getScrollableElements method to refer the right children list -->
+
+<binding id="tabScrollBox"
+  extends="chrome://global/content/bindings/scrollbox.xml#arrowscrollbox">
+  <implementation>
+    <method name="_getScrollableElements">
+      <body><![CDATA[
+        return this.firstChild.childNodes;
+      ]]></body>
+    </method>
+  </implementation>
+</binding>
+
+</bindings>
