@@ -85,6 +85,10 @@
   padding: 1px;
 }
 
+.theme-firebug .side-menu-widget-item.selected {
+  background: #EFEFEF;
+}
+
 /******************************************************************************/
 /* Column Values Colors */
 
