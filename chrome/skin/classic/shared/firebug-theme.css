@@ -8,7 +8,7 @@
 }
 
 .theme-sidebar {
-  background: #f7f7f7; /* Background - Sidebars */
+  background: white; /* Background - Sidebars */
   color: #18191a;
 }
 
@@ -164,7 +164,7 @@
 
 .theme-toolbar,
 .devtools-toolbar,
-.devtools-sidebar-tabs > tabs,
+.devtools-sidebar-tabs tabs,
 .CodeMirror-dialog { /* General toolbar styling */
   color: #585959;
   background-color: #f0f1f2;
@@ -382,7 +382,7 @@ div.CodeMirror span.eval-text {
 
 /* Toolbars */
 .devtools-toolbar,
-.devtools-sidebar-tabs > tabs {
+.devtools-sidebar-tabs tabs {
   -moz-appearance: none;
   padding: 0;
   border-width: 0;
@@ -611,26 +611,26 @@ div.CodeMirror span.eval-text {
   margin: 0;
 }
 
-.devtools-sidebar-tabs > tabpanels {
+.devtools-sidebar-tabs tabpanels {
   -moz-appearance: none;
   background: transparent;
   padding: 0;
   border: 0;
 }
 
-.devtools-sidebar-tabs > tabs {
+.devtools-sidebar-tabs tabs {
   position: static;
   font: inherit;
   margin-bottom: 0;
   overflow: hidden;
 }
 
-.devtools-sidebar-tabs > tabs > .tabs-right,
-.devtools-sidebar-tabs > tabs > .tabs-left {
+.devtools-sidebar-tabs .tabs-right,
+.devtools-sidebar-tabs .tabs-left {
   display: none;
 }
 
-.devtools-sidebar-tabs > tabs > tab {
+.devtools-sidebar-tabs tab {
   -moz-appearance: none;
   /* We want to match the height of a toolbar with a toolbarbutton
    * First, we need to replicated the padding of toolbar (4px),
@@ -638,32 +638,37 @@ div.CodeMirror span.eval-text {
    */
   padding: 0 3px;
   margin: 0;
-  min-width: 78px;
+  /*min-width: 78px; */
   text-align: center;
   color: inherit;
-  -moz-box-flex: 1;
+  /*-moz-box-flex: 1;*/
   border-width: 0;
   border-radius: 0;
-  position: static;
-  -moz-margin-start: -1px;
+  /*position: static;*/
+  /*-moz-margin-start: -1px;*/
   text-shadow: none;
 }
 
-.devtools-sidebar-tabs > tabs > tab {
+.devtools-sidebar-tabs tab > hbox {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.devtools-sidebar-tabs tab {
   background-size: calc(100% - 1px) 100%, 1px 100%;
   background-repeat: no-repeat;
   background-position: 1px, 0;
 }
 
-.devtools-sidebar-tabs > tabs > tab:not(:last-of-type) {
+.devtools-sidebar-tabs tab:not(:last-of-type) {
   background-size: calc(100% - 2px) 100%, 1px 100%;
 }
 
-.devtools-sidebar-tabs:-moz-locale-dir(rtl) > tabs > tab {
+.devtools-sidebar-tabs:-moz-locale-dir(rtl) tab {
   background-position: calc(100% - 1px), 100%;
 }
 
-.devtools-sidebar-tabs > tabs > tab {
+.devtools-sidebar-tabs tab {
   background-color: transparent;
 }
 
