@@ -1,11 +1,6 @@
 /* See license.txt for terms of usage */
 
-/*************************************************************************************************/
-/* Inspector */
-
-/* TODO: all inspector Firebug theme styles should go here */
-
-/*************************************************************************************************/
+/******************************************************************************/
 /* Ancestor path / Breadcrumbs */
 
 .theme-firebug .breadcrumbs-widget-item {
@@ -70,6 +65,7 @@
 .theme-firebug #inspector-searchbox {
   display: none;
 }
+
 .theme-firebug #inspector-toolbar {
   padding-right: 2px;
 }
