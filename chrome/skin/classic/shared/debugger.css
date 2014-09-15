@@ -1,0 +1,40 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Debugger Panel Styles */
+
+/* Toolbar controls */
+
+.theme-firebug #debugger-toolbar .devtools-toolbarbutton:not([label]) > .toolbarbutton-icon,
+.theme-firebug #sources-toolbar .devtools-toolbarbutton:not([label]) > .toolbarbutton-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-firebug #resume {
+  list-style-image: url(chrome://firebug/skin/continue.svg);
+}
+
+.theme-firebug #resume[checked] {
+  list-style-image: url(chrome://firebug/skin/continue.svg);
+}
+
+.theme-firebug #resume ~ toolbarbutton {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.theme-firebug #resume:not([checked]) ~ toolbarbutton {
+  opacity: 0.5;
+}
+
+.theme-firebug #step-over {
+  list-style-image: url(chrome://firebug/skin/stepOver.svg);
+}
+
+.theme-firebug #step-in {
+  list-style-image: url(chrome://firebug/skin/stepInto.svg);
+}
+
+.theme-firebug #step-out {
+  list-style-image: url(chrome://firebug/skin/stepOut.svg);
+}
