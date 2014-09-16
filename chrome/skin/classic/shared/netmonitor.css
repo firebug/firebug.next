@@ -1,6 +1,15 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
+/* Toolbar */
+
+/* The toolbar should take the entire horizontal space, since there will
+be toggle-side-panels button at the end at some point */
+.theme-firebug #network-table #panelToolbar {
+  -moz-box-flex: 1;
+}
+
+/******************************************************************************/
 /* Header and Footer */
 
 .theme-firebug .theme-sidebar {
