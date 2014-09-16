@@ -16,3 +16,7 @@
 .theme-firebug .panelSplitterBox {
   -moz-box-flex: 0;
 }
+
+.theme-firebug .stylesheet-details-container .devtools-side-splitter {
+  display: none;
+}
