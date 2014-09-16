@@ -19,10 +19,13 @@
 
 /* Only apply bottom-border for:
   1) The main tab list.
-  2) The side tab list if there is no scroll-box that has its own border. */
+  2) The side tab list if there is no scroll-box that has its own border.
+
+  Use !important to override even the rule in webconsole.css that uses
+  ID in the selector. */
 .theme-firebug .devtools-tabbar,
 .theme-firebug .devtools-sidebar-tabs > tabs {
-  border-bottom: 1px solid rgb(170, 188, 207);
+  border-bottom: 1px solid rgb(170, 188, 207) !important;
 }
 
 .theme-firebug .devtools-sidebar-tabs tabs,
@@ -85,6 +88,11 @@
 .theme-firebug #panelSideBox .devtools-tab[selected],
 .theme-firebug .devtools-sidebar-tabs tab[selected] {
   background-color: white;
+}
+
+.theme-firebug #panelSideBox .devtools-tab:first-child,
+.theme-firebug .devtools-sidebar-tabs tab:first-child {
+  margin-left: 3px;
 }
 
 /******************************************************************************/

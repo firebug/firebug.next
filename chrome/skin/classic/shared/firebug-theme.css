@@ -268,7 +268,9 @@ div.CodeMirror span.eval-text {
 
 .theme-twisty {
   cursor: pointer;
-  background-position: 0 -14px;
+  background-image: url("chrome://firebug/skin/twistyClosed.svg");
+  background-position: 0 calc(0.5em - 3px);
+  background-size: 11px 11px;
 }
 
 .theme-twisty:-moz-focusring {
@@ -276,7 +278,7 @@ div.CodeMirror span.eval-text {
 }
 
 .theme-twisty[open] {
-  background-position: -14px -14px;
+  background-image: url("chrome://firebug/skin/twistyOpen.svg");
 }
 
 .theme-twisty[invisible] {
@@ -414,8 +416,8 @@ div.CodeMirror span.eval-text {
 }
 
 /* Toolbar buttons */
-.devtools-menulist,
-.devtools-toolbarbutton {
+.devtools-menulist /*,
+.devtools-toolbarbutton */ {
   -moz-appearance: none;
   -moz-box-align: center;
   background: transparent;
@@ -430,13 +432,13 @@ div.CodeMirror span.eval-text {
   transition: background 0.05s ease-in-out;
 }
 
-.devtools-menulist:-moz-focusring,
-.devtools-toolbarbutton:-moz-focusring {
+.devtools-menulist:-moz-focusring /*,
+.devtools-toolbarbutton:-moz-focusring */ {
   outline: 1px dotted hsla(210,30%,85%,0.7);
   outline-offset: -4px;
 }
 
-.devtools-toolbarbutton[standalone] {
+/*.devtools-toolbarbutton[standalone] {
   -moz-margin-end: 5px;
   border-width: 1px;
   border-style: solid;
@@ -484,6 +486,7 @@ div.CodeMirror span.eval-text {
 .devtools-toolbarbutton > .toolbarbutton-menubutton-button > .toolbarbutton-icon {
   -moz-margin-end: 4px;
 }
+*/
 
 .devtools-menulist > .menulist-dropmarker {
   -moz-appearance: none;
@@ -493,6 +496,7 @@ div.CodeMirror span.eval-text {
   min-width: 16px;
 }
 
+/*
 .devtools-toolbarbutton[type=menu] > .toolbarbutton-menu-dropmarker,
 .devtools-toolbarbutton[type=menu-button] > .toolbarbutton-menubutton-dropmarker {
   -moz-appearance: none !important;
@@ -500,6 +504,7 @@ div.CodeMirror span.eval-text {
   -moz-box-align: center;
   padding: 0 3px;
 }
+*/
 
 /* Menu type buttons and checked states */
 .devtools-option-toolbarbutton {
@@ -514,13 +519,13 @@ div.CodeMirror span.eval-text {
   opacity: 1;
 }
 
-/* Toolbar button groups */
+/* Toolbar button groups
 .devtools-toolbarbutton-group > .devtools-toolbarbutton {
   margin-left: 1px;
   margin-right: 1px;
   outline-offset: -3px;
   box-shadow: none;
-}
+}*/
 
 .devtools-toolbarbutton-group > .devtools-toolbarbutton:last-child {
   -moz-margin-end: 0;
