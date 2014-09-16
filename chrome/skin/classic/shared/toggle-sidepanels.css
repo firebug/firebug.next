@@ -1,0 +1,32 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Toggle Side Panels Visibility */
+
+.theme-firebug .fbToggleSidePanels {
+  padding: 2px 2px;
+}
+
+.theme-firebug .fbToggleSidePanels:-moz-locale-dir(ltr),
+.theme-firebug .fbToggleSidePanels.closed:-moz-locale-dir(rtl) {
+  list-style-image: url(chrome://firebug/skin/collapseSidePanels.svg);
+}
+
+.theme-firebug .fbToggleSidePanels:-moz-locale-dir(rtl),
+.theme-firebug .fbToggleSidePanels.closed:-moz-locale-dir(ltr) {
+  list-style-image: url(chrome://firebug/skin/expandSidePanels.svg);
+}
+
+.theme-firebug .fbToggleSidePanels:hover {
+  filter: url(chrome://firebug/skin/filters.svg#darken);
+}
+
+.theme-firebug .fbToggleSidePanels:active {
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+}
+
+.theme-firebug .fbToggleSidePanelsBox {
+  -moz-box-flex: 1;
+  -moz-box-align: end;
+  -moz-box-pack: end;
+}
