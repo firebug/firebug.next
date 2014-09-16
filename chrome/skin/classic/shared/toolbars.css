@@ -39,6 +39,10 @@
   color: #141414;
 }
 
+.theme-firebug toolbarbutton[type="menu-button"] {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
 .theme-firebug toolbarbutton:hover:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.2);
   background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
@@ -50,8 +54,9 @@
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
   [selected="true"],
   [open="true"]):not(.panelStatusLabel):not([disabled="true"]) {
-  border-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
+    0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
