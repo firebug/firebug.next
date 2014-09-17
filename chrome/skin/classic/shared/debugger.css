@@ -6,7 +6,7 @@
 /* Sources toolbar */
 
 .theme-firebug #black-box {
-  list-style-image: url(debugger-blackbox.png);
+  list-style-image: url(blackBox.svg);
 }
 
 .theme-firebug #toggle-breakpoints {
@@ -14,7 +14,6 @@
 }
 
 .theme-firebug #toggle-breakpoints[checked] {
-  filter: url(chrome://firebug/skin/filters.svg#brightenedGrayscale);
 }
 
 .theme-firebug #sources-toolbar .devtools-toolbarbutton:not([label]) {
@@ -23,12 +22,13 @@
 
 .theme-firebug #sources-toolbar .devtools-toolbarbutton:not([label])[checked] {
   -moz-image-region: rect(0px,16px,16px,0px);
+  filter: url(chrome://firebug/skin/filters.svg#brightenedGrayscale);
 }
 
 /* Debugger unblackbox button */
 
 .theme-firebug #black-boxed-message-button > .button-box > .button-icon {
-  background-image: url(debugger-blackbox.png);
+  background-image: url(blackBox.svg);
   background-size: 16px 16px;
   -moz-margin-end: 0;
 }
