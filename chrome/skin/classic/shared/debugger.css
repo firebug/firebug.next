@@ -1,0 +1,70 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Debugger Panel Styles */
+
+/* Sources toolbar */
+
+.theme-firebug #black-box {
+  list-style-image: url(blackBox.svg);
+}
+
+.theme-firebug #toggle-breakpoints {
+  list-style-image: url(breakpoint.svg);
+}
+
+.theme-firebug #toggle-breakpoints[checked] {
+}
+
+.theme-firebug #sources-toolbar .devtools-toolbarbutton:not([label]) {
+  -moz-image-region: rect(0px,16px,16px,0px);
+}
+
+.theme-firebug #sources-toolbar .devtools-toolbarbutton:not([label])[checked] {
+  -moz-image-region: rect(0px,16px,16px,0px);
+  filter: url(chrome://firebug/skin/filters.svg#brightenedGrayscale);
+}
+
+/* Debugger unblackbox button */
+
+.theme-firebug #black-boxed-message-button > .button-box > .button-icon {
+  background-image: url(blackBox.svg);
+  background-size: 16px 16px;
+  -moz-margin-end: 0;
+}
+
+/* Toolbar controls */
+
+.theme-firebug #debugger-toolbar .devtools-toolbarbutton:not([label]) > .toolbarbutton-icon,
+.theme-firebug #sources-toolbar .devtools-toolbarbutton:not([label]) > .toolbarbutton-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-firebug #resume {
+  list-style-image: url(chrome://firebug/skin/continue.svg);
+}
+
+.theme-firebug #resume[checked] {
+  list-style-image: url(chrome://firebug/skin/continue.svg);
+}
+
+.theme-firebug #resume ~ toolbarbutton {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.theme-firebug #resume:not([checked]) ~ toolbarbutton {
+  opacity: 0.5;
+}
+
+.theme-firebug #step-over {
+  list-style-image: url(chrome://firebug/skin/stepOver.svg);
+}
+
+.theme-firebug #step-in {
+  list-style-image: url(chrome://firebug/skin/stepInto.svg);
+}
+
+.theme-firebug #step-out {
+  list-style-image: url(chrome://firebug/skin/stepOut.svg);
+}
