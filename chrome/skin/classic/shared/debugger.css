@@ -68,3 +68,8 @@
 .theme-firebug #step-out {
   list-style-image: url(chrome://firebug/skin/stepOut.svg);
 }
+
+.theme-firebug #instruments-pane-toggle,
+.theme-firebug #debugger-options {
+  display: none;
+}
