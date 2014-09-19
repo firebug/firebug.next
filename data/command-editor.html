@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
-<!-- xxxHonza: The title is used by ToolSidebar,
-  but what about localization? -->
-<title>DOM</title>
-</head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="./codemirror.css">
+  <script src="./codemirror-compressed.js"></script>
 <style type="text/css">
 body {
-  background-color: white;
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: white;
+  overflow: hidden;
+}
+
+pre {
+  margin: 0;
 }
 </style>
+</head>
 <body>
-<pre>TODO: use CodeMirror</pre>
+  <pre class="input"></pre>
 </body>
+<script>
+function onEvaluate(editor) {
+  sendCommand({
+    type: "evaluate",
+    value: editor.getValue(),
+  });
+}
+
+function onEscape(editor) {
+  sendCommand({
+    type: "escape",
+    value: editor.getValue(),
+  });
+}
+
+// Create and setup the CM editor instance.
+var editor = CodeMirror(document.querySelector(".input"), {
+  autofocus: true,
+  mode: "javascript",
+  readOnly: false,
+  lineNumbers: true,
+  matchBrackets: true,
+  value: "",
+  extraKeys: {
+    "Cmd-Enter": onEvaluate,
+    "Ctrl-Enter": onEvaluate,
+    "Esc": onEscape,
+  }
+});
+</script>
 </html>
