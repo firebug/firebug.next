@@ -10,6 +10,14 @@ be toggle-side-panels button at the end at some point */
 }
 
 /******************************************************************************/
+/* Sidebar */
+
+/* Hide the original toggle side-bar button */
+.theme-firebug toolbarbutton#details-pane-toggle {
+  display: none;
+}
+
+/******************************************************************************/
 /* Header and Footer */
 
 .theme-firebug .theme-sidebar {
