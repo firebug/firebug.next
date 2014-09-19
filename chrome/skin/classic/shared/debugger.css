@@ -10,7 +10,7 @@
 }
 
 .theme-firebug #toggle-breakpoints {
-  list-style-image: url(breakpoint.svg);
+  list-style-image: url(toggleBreakpoints.svg);
 }
 
 .theme-firebug #toggle-breakpoints[checked] {
@@ -42,7 +42,7 @@
 }
 
 .theme-firebug #resume {
-  list-style-image: url(chrome://firebug/skin/continue.svg);
+  list-style-image: url(chrome://firebug/skin/pause.svg);
 }
 
 .theme-firebug #resume[checked] {
@@ -67,4 +67,9 @@
 
 .theme-firebug #step-out {
   list-style-image: url(chrome://firebug/skin/stepOut.svg);
+}
+
+.theme-firebug #instruments-pane-toggle,
+.theme-firebug #debugger-options {
+  display: none;
 }
