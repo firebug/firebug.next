@@ -17,6 +17,7 @@
 
 .theme-firebug #panelToolbar {
   height: 27px;
+  -moz-box-flex: 1;
 }
 
 .theme-firebug #panelSideBox #panelToolbar {

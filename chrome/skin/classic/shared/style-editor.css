@@ -20,3 +20,9 @@
 .theme-firebug .stylesheet-details-container .devtools-side-splitter {
   display: none;
 }
+
+/* xxxHonza: if the flex is set to 1 the height of the toolbar
+in the Style Editor panel is 26px and not 27px why? FIX ME */
+.theme-firebug #panelToolbar {
+  -moz-box-flex: 0 !important;
+}
