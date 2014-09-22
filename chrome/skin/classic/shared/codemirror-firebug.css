@@ -15,9 +15,9 @@
   background-color: lightgoldenrodyellow;
 }
 
-
 .theme-firebug .CodeMirror-activeline-background {
-  background: #00FFFF;
+  /*background: #00FFFF;*/
+  background: rgb(219, 236, 247);
 }
 
 /* Text indent from the breakpoint column */
@@ -98,19 +98,19 @@
 .theme-firebug .breakpoint {
   background-image: url(chrome://firebug/skin/breakpoint.svg);
   background-repeat: no-repeat;
-  padding: 7px;
+  margin-right: 2px;
 }
 
 .theme-firebug .breakpointLoading {
   background-image: url(chrome://firebug/skin/loading.svg);
   background-repeat: no-repeat;
-  padding: 7px;
+  margin-right: 2px;
 }
 
 .theme-firebug .breakpoint.condition {
   background-image: url(chrome://firebug/skin/breakpointCondition.svg), url(chrome://firebug/skin/breakpoint.svg);
   background-position: center;
-  padding: 6px;
+  margin-right: 2px;
 }
 
 .theme-firebug .breakpoint.disabled:not(.debugLocation) {
