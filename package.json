@@ -44,5 +44,11 @@
     "description": "Disregard the current Firefox locale and use (en-US) locale as default.",
     "type": "bool",
     "value": false
+  }, {
+    "name": "replaceTabs",
+    "title": "Number of spaces for displaying tabs",
+    "description": "The number of spaces used for displaying tabs inside the Script panel",
+    "type": "integer",
+    "value": 4
   }]
 }

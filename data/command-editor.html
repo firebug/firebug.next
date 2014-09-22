@@ -24,21 +24,21 @@ pre {
 </body>
 <script>
 function onEvaluate(editor) {
-  sendCommand({
+  sendMessage({
     type: "evaluate",
     value: editor.getValue(),
   });
 }
 
 function onEscape(editor) {
-  sendCommand({
+  sendMessage({
     type: "escape",
     value: editor.getValue(),
   });
 }
 
 // Create and setup the CM editor instance.
-var editor = CodeMirror(document.querySelector(".input"), {
+this.editor = CodeMirror(document.querySelector(".input"), {
   autofocus: true,
   mode: "javascript",
   readOnly: false,
