@@ -17,6 +17,7 @@
 
 .theme-firebug #panelToolbar {
   height: 27px;
+  -moz-box-flex: 1;
 }
 
 .theme-firebug #panelSideBox #panelToolbar {
@@ -39,6 +40,12 @@
   color: #141414;
 }
 
+/* We might want to change this if toolbar buttons have icons,
+but for now do not allocate an extra space for images */
+.theme-firebug toolbarbutton > image {
+  -moz-margin-end: 0;
+}
+
 .theme-firebug toolbarbutton[type="menu-button"] {
   border-color: rgba(0, 0, 0, 0.1);
 }
@@ -57,13 +64,6 @@
   border-color: rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
     0 0 2px rgba(0, 0, 0, 0.05);
-}
-
-.theme-firebug toolbarbutton:-moz-any([checked="true"],
-  [selected="true"],
-  [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not([type="menu-button"]) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
-  background-repeat: no-repeat;
 }
 
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]) {
@@ -142,7 +142,7 @@
 /* Win */
 
 .theme-firebug toolbarbutton {
-  padding: 1px 6px;
+  padding: 1px 3px;
 }
 
 .theme-firebug .toolbar-text-button > .toolbarbutton-icon:not([src]),

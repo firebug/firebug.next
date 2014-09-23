@@ -101,6 +101,7 @@
 .theme-firebug #firebug-menu-button {
   margin: 3px;
   margin-right: 0;
+  padding-right: 6px;
 }
 
 .theme-firebug #firebug-menu-button .toolbarbutton-menu-dropmarker {
@@ -175,12 +176,6 @@
 .theme-firebug #toolbox-controls toolbarbutton:hover {
   background: none;
   box-shadow: none;
-}
-
-.theme-firebug #command-button-pick:hover {
-  background: none !important;
-  border: 1px transparent solid !important;
-  box-shadow: none !important;
 }
 
 .theme-firebug #toolbox-dock-bottom > image {
