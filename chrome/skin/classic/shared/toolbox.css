@@ -178,12 +178,6 @@
   box-shadow: none;
 }
 
-.theme-firebug #command-button-pick:hover {
-  background: none !important;
-  border: 1px transparent solid !important;
-  box-shadow: none !important;
-}
-
 .theme-firebug #toolbox-dock-bottom > image {
   background-image: url("chrome://firebug/skin/attachAtBottom.svg");
 }
