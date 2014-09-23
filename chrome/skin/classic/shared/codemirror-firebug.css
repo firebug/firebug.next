@@ -20,8 +20,20 @@
   background: rgb(219, 236, 247);
 }
 
-/* Text indent from the breakpoint column */
+/* Highlight for a line that represents a stack frame's location. */
+.theme-firebug .debug-line {
+   background: rgb(255,255,224);
+   box-shadow:
+     0 1px 0 0 #D9D9B6,
+     0 -1px 0 0 #D9D9B6;
+}
 
+/* Active debug-line has different background than selected line */
+.theme-firebug .debug-line .CodeMirror-activeline-background {
+  background: transparent;
+}
+
+/* Text indent from the breakpoint column */
 .theme-firebug pre {
   padding-left: 10px;
 }
@@ -92,6 +104,11 @@
   min-width: 1ch;
 }
 
+/* Line number indent from the breakpoint */
+.theme-firebug .CodeMirror-linenumber.CodeMirror-gutter-elt {
+  padding-left: 10px;
+}
+
 /******************************************************************************/
 /* Breakpoints */
 
@@ -120,15 +137,14 @@
 /******************************************************************************/
 /* Debug Location */
 
-.theme-firebug .CodeMirror-debugLocation .CodeMirror-gutter-elt .debugLocation {
+.theme-firebug .debug-line .CodeMirror-gutter-elt .debugLocation {
   background-image: url(chrome://firebug/skin/executionPointer.svg);
   background-position: 2px 0;
   color: #000000;
   background-repeat: no-repeat;
-  padding: 7px;
 }
 
-.theme-firebug .CodeMirror-debugLocation .CodeMirror-gutter-elt .breakpoint {
+.theme-firebug .debug-line .CodeMirror-gutter-elt .breakpoint {
   background-image: url(chrome://firebug/skin/executionPointer.svg), url(chrome://firebug/skin/breakpoint.svg);
   background-position: 2px 0, 0 0;
 }
