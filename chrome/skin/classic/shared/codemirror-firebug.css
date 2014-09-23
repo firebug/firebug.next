@@ -139,14 +139,14 @@
 
 .theme-firebug .debug-line .CodeMirror-gutter-elt .debugLocation {
   background-image: url(chrome://firebug/skin/executionPointer.svg);
-  background-position: 2px 0;
+  background-position: 1px 0;
   color: #000000;
   background-repeat: no-repeat;
 }
 
 .theme-firebug .debug-line .CodeMirror-gutter-elt .breakpoint {
   background-image: url(chrome://firebug/skin/executionPointer.svg), url(chrome://firebug/skin/breakpoint.svg);
-  background-position: 2px 0, 0 0;
+  background-position: 1px 0, 0 0;
 }
 
 .theme-firebug .CodeMirror-debugLocation {
