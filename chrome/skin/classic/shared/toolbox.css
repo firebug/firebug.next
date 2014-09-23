@@ -101,7 +101,15 @@
 .theme-firebug #firebug-menu-button {
   margin: 3px;
   margin-right: 0;
-  padding-right: 6px;
+  padding: 1px 3px;
+}
+
+.theme-firebug #firebug-menu-button:hover {
+  filter: url(chrome://firebug/skin/filters.svg#darken);
+}
+
+.theme-firebug #firebug-menu-button:active {
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug #firebug-menu-button .toolbarbutton-menu-dropmarker {
