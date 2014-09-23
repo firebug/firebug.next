@@ -146,3 +146,45 @@
 .theme-firebug #debugger-options {
   display: none;
 }
+
+/* Callstack Panel */
+
+.theme-firebug #callstack-list {
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+.theme-firebug #callstack-list .dbg-classic-stackframe-title {
+  color: blue;
+  font-weight: normal;
+}
+
+.theme-firebug #callstack-list .side-menu-widget-item {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.theme-firebug #callstack-list .dbg-classic-stackframe::after {
+  content: "()";
+  color: rgb(0, 100, 0);
+}
+
+.theme-firebug #callstack-list .dbg-classic-stackframe-details-url,
+.theme-firebug #callstack-list .dbg-classic-stackframe-details-sep,
+.theme-firebug #callstack-list .dbg-classic-stackframe-details-line {
+  color: blue;
+  font-weight: bold;
+}
+
+.theme-firebug #callstack-list .side-menu-widget-item {
+  margin: 0;
+}
+
+.theme-firebug #callstack-list .side-menu-widget-item.selected {
+  background-color: lightgoldenrodyellow;
+  color: blue;
+}
+
+.theme-light #callstack-list .side-menu-widget-item:first-child {
+  border-top: none;
+}
