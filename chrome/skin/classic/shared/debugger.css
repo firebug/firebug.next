@@ -71,6 +71,23 @@
   font-style: normal;
 }
 
+.theme-firebug .checkbox-check {
+  -moz-appearance: none;
+  border: none;
+  background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
+}
+
+.theme-firebug checkbox:not([checked="true"]) > .checkbox-check,
+.theme-firebug checkbox:not([checked="true"]) ~ * {
+  opacity: 0.5;
+}
+
+.theme-firebug checkbox[checked="true"] > .checkbox-check {
+  -moz-appearance: none;
+  border: none;
+  background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
+}
+
 .theme-firebug #sources-pane .dbg-breakpoint-checkbox {
   padding-right: 0;
   margin-right: 0;
