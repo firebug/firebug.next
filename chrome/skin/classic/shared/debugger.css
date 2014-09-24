@@ -3,6 +3,79 @@
 /******************************************************************************/
 /* Debugger Panel Styles */
 
+/* Sources Panel */
+
+.theme-firebug #sources-pane > tabs {
+  display: none;
+}
+
+.theme-firebug #sources-pane .dbg-source-item {
+  padding: 0;
+  padding-left: 17px;
+}
+
+.theme-firebug #sources-pane .side-menu-widget-item-contents {
+  padding: 2px;
+}
+
+.theme-firebug #sources-pane .side-menu-widget-group-title {
+  border-bottom: none;
+  margin: 0;
+  padding: 2px 4px;
+  background: #F0F0F0 linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent) repeat-x;
+  font-size: inherit;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+}
+
+.theme-firebug #sources-pane .side-menu-widget-group-title label {
+  padding-left: 17px;
+  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+  background-position: 0 calc(0.5em - 3px);
+  background-size: 11px 11px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* Sources Panel Breakpoints */
+
+.theme-light .side-menu-widget-item .side-menu-widget-item-other {
+  background-color: white;
+}
+
+.theme-light .side-menu-widget-item.selected .side-menu-widget-item-other {
+  background-color: white;
+}
+
+.theme-light .side-menu-widget-item.selected .side-menu-widget-item-other {
+  background-color: white;
+}
+
+.theme-firebug #sources-pane .dbg-breakpoint {
+  padding: 0;
+  padding-left: 27px;
+}
+
+.theme-light .side-menu-widget-item.selected .side-menu-widget-item-other.selected {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(24, 25, 26);
+}
+
+.theme-firebug #sources-pane .dbg-breakpoint:last-child {
+  padding-bottom: 3px;
+}
+
+.theme-firebug #sources-pane .dbg-breakpoint-text {
+  color: rgb(0, 100, 0);
+  font-style: normal;
+}
+
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox {
+  padding-right: 0;
+  margin-right: 0;
+}
+
 /* Sources toolbar */
 
 .theme-firebug #black-box {
@@ -72,4 +145,143 @@
 .theme-firebug #instruments-pane-toggle,
 .theme-firebug #debugger-options {
   display: none;
+}
+
+/* Callstack Panel */
+
+.theme-firebug #callstack-list {
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+.theme-firebug #callstack-list .dbg-classic-stackframe-title {
+  color: blue;
+  font-weight: normal;
+}
+
+.theme-firebug #callstack-list .side-menu-widget-item {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.theme-firebug #callstack-list .dbg-classic-stackframe::after {
+  content: "()";
+  color: rgb(0, 100, 0);
+}
+
+.theme-firebug #callstack-list .dbg-classic-stackframe-details-url,
+.theme-firebug #callstack-list .dbg-classic-stackframe-details-sep,
+.theme-firebug #callstack-list .dbg-classic-stackframe-details-line {
+  color: blue;
+  font-weight: bold;
+}
+
+.theme-firebug #callstack-list .side-menu-widget-item {
+  margin: 0;
+}
+
+.theme-firebug #callstack-list .side-menu-widget-item.selected {
+  background-color: lightgoldenrodyellow;
+  color: blue;
+}
+
+.theme-light #callstack-list .side-menu-widget-item:first-child {
+  border-top: none;
+}
+
+/******************************************************************************/
+/* Breadcrumbs */
+
+/* Breadcrumbs Separators (reset selection styles) */
+.theme-firebug .breadcrumbs-widget-item[checked],
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-id,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-tag,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-pseudo-classes,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-classes {
+  background-color: transparent;
+  font-weight: bold;
+  color: black;
+}
+
+/* The first rule is there only to make sure the default rule from
+widgets.css is overwritten. */
+.theme-firebug .breadcrumbs-widget-item[checked] + .breadcrumbs-widget-item,
+.theme-firebug .breadcrumbs-widget-item {
+  padding-left: 13px;
+  background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat center;
+  background-position: 0 10px;
+}
+
+.theme-firebug .breadcrumbs-widget-item:first-child {
+  padding-left: 10px;
+  background: none;
+}
+
+.theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item-id {
+  display: none;
+}
+
+.theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item-tag {
+  cursor: pointer;
+}
+
+/******************************************************************************/
+/* Breadcrumbs Scroll Buttons */
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up,
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down {
+  -moz-appearance: none;
+  width: 15px !important;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgb(170,188,207);
+  border-bottom: none;
+  border-top: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up:not([disabled="true"]):hover,
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:not([disabled="true"]):hover {
+  border-top-width: 1px;
+  padding-top: 1px;
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up[disabled="true"],
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down[disabled="true"] {
+  opacity: 0.4;
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up:hover,
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up {
+  background-image: url("chrome://global/skin/arrow/arrow-lft.gif") ;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-left-style: none;
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:hover,
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down {
+  background-image: url("chrome://global/skin/arrow/arrow-rit.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-right-style: none;
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up[disabled="true"] {
+  list-style-image: url("chrome://global/skin/arrow/arrow-lft-dis.gif");
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down[disabled="true"] {
+  list-style-image: url("chrome://global/skin/arrow/arrow-rit-dis.gif");
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up:-moz-locale-dir(rtl) {
+  border-left-style: solid;
+  border-right-style: none;
+}
+
+.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:-moz-locale-dir(rtl) {
+  border-left-style: none;
+  border-right-style: solid;
 }

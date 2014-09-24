@@ -142,7 +142,7 @@ but for now do not allocate an extra space for images */
 /* Win */
 
 .theme-firebug toolbarbutton {
-  padding: 1px 6px;
+  padding: 1px 3px;
 }
 
 .theme-firebug .toolbar-text-button > .toolbarbutton-icon:not([src]),
