@@ -117,6 +117,19 @@
 }
 
 /******************************************************************************/
+/* Tools Menu Button */
+
+.theme-firebug #firebug-tools-menu {
+  margin: 3px;
+  margin-right: 0;
+  padding: 1px 3px;
+}
+
+.theme-firebug #firebug-tools-menu:hover {
+  filter: url(chrome://firebug/skin/filters.svg#darken);
+}
+
+/******************************************************************************/
 /* Element Picker */
 
 .theme-firebug #command-button-pick {
