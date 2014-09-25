@@ -20,16 +20,15 @@ Structure of the extension follows Jetpack standards. It's generated using the
 Hacking on Firebug.next
 -----------------------
 1. Get the Add-on SDK: `git clone https://github.com/mozilla/addon-sdk`
-2. Switch into the `devtools` branch
-3. The Add-on SDK requires Python 2.5, 2.6, or 2.7 [download](http://python.org/download/)
-4. Activate the `cfx` command line tool (included in Add-on SDK). Run `source bin/activate` in
+2. The Add-on SDK requires Python 2.5, 2.6, or 2.7 [download](http://python.org/download/)
+3. Activate the `cfx` command line tool (included in Add-on SDK). Run `source bin/activate` in
 the Add-on SDK directory. [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to install and activate the Add-on SDK.
-5. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
-6. (Optional) Install [FBTrace](https://github.com/firebug/tracing-console) in your Firefox dev profile
-7. Run `cfx run -o` in the Firebug.next directory to launch Firefox (you need
+4. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
+5. (Optional) Install [FBTrace](https://github.com/firebug/tracing-console) in your Firefox dev profile
+6. Run `cfx run -o` in the Firebug.next directory to launch Firefox (you need
 Firefox [Nightly build](https://nightly.mozilla.org/) at this moment)
-with an auto-created clean profile. 
+with an auto-created clean profile.
 If you wish to run it with FBTrace, use `cfx run -o --profiledir=<yourProfileDir>`.
 [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to use the `cfx` command line tool.

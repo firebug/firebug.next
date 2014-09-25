@@ -1,0 +1,13 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Command Editor */
+
+.theme-firebug #sidebar-panel-commandEditor {
+  -moz-box-orient: vertical;
+}
+
+.theme-firebug #sidebar-panel-commandEditor #panelToolbarBox {
+  border-bottom: none;
+  border-top: 1px solid rgb(170, 188, 207);
+}
