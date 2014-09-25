@@ -1,0 +1,60 @@
+/* See license.txt for terms of usage */
+
+/* Splitters */
+.devtools-side-splitter {
+  -moz-margin-start: 0;
+}
+
+/* Autocomplete Popup */
+.theme-firebug .devtools-autocomplete-popup {
+  -moz-appearance: none;
+  background: #F0F0F0;
+  border: 1px solid #BEBEBE;
+  border-radius: 5px;
+  font-size: 13px;
+  overflow-x: hidden;
+  padding: 1px;
+}
+
+.theme-firebug .devtools-autocomplete-listbox {
+  -moz-appearance: none !important;
+  cursor: default;
+  font-family: monospace;
+  background-color: white;
+  border: 1px solid #BEBEBE !important;
+  border-radius: 3px;
+  margin: 1px;
+  direction: ltr;
+}
+
+.theme-firebug .devtools-autocomplete-listbox > richlistitem,
+.theme-firebug .devtools-autocomplete-listbox > richlistitem[selected] {
+  width: 100%;
+  padding: 0 4px;
+  border-radius: 0;
+}
+
+.theme-firebug .devtools-autocomplete-listbox > richlistitem:hover > .autocomplete-value {
+  background-color: #DCDCDC;
+  border-color: #DCDCDC;
+}
+
+.theme-firebug .devtools-autocomplete-listbox > richlistitem[selected] > .autocomplete-value {
+  background-color: highlight;
+  border-color: highlight;
+  color: highlighttext !important;
+}
+
+.theme-firebug .devtools-autocomplete-listbox > richlistitem > .initial-value,
+.theme-firebug .devtools-autocomplete-listbox > richlistitem > .autocomplete-value {
+  margin: 0;
+  padding: 1px 0;
+}
+
+.theme-firebug .devtools-autocomplete-listbox > richlistitem > .autocomplete-value {
+  color: #666666;
+}
+
+.theme-firebug .devtools-autocomplete-listbox > richlistitem > .autocomplete-count {
+  text-align: right;
+}

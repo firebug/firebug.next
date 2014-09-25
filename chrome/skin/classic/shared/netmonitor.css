@@ -1,0 +1,159 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Toolbar */
+
+/* The toolbar should take the entire horizontal space, since there will
+be toggle-side-panels button at the end at some point */
+.theme-firebug #network-table #panelToolbar {
+  -moz-box-flex: 1;
+}
+
+/******************************************************************************/
+/* Sidebar */
+
+/* Hide the original toggle side-bar button */
+.theme-firebug toolbarbutton#details-pane-toggle {
+  display: none;
+}
+
+/******************************************************************************/
+/* Header and Footer */
+
+.theme-firebug .theme-sidebar {
+  background-color: white;
+}
+
+.theme-firebug #network-table .side-menu-widget-container {
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+.theme-firebug #requests-menu-toolbar {
+  height: 16px;
+}
+
+.theme-firebug .requests-menu-header {
+  cursor: pointer;
+  -moz-user-select: none;
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
+  padding: 0 !important;
+  font-weight: bold;
+  background: linear-gradient(
+          rgba(255, 255, 255, 0.05),
+          rgba(0, 0, 0, 0.05)),
+      radial-gradient(1px 60% at right,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 80%) repeat-x #C8D2DC;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.theme-firebug #requests-menu-footer {
+  background-color: rgb(200, 210, 220);
+  height: 16px;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-firebug .requests-menu-header-button {
+  transition: none;
+  min-height: 17px;
+}
+
+.theme-firebug .requests-header-menu-button[sorted] {
+  background-color: #AAC3DC;
+}
+
+.theme-firebug .requests-menu-header-button:not(:active)[sorted=descending] {
+  background: url(chrome://firebug/skin/arrowDown.svg) no-repeat calc(100% - 4px);
+}
+
+.theme-firebug .requests-menu-header-button:not(:active)[sorted=ascending] {
+  background: url(chrome://firebug/skin/arrowUp.svg) no-repeat calc(100% - 4px);
+}
+
+.theme-firebug .requests-header-menu:hover:active {
+  background-image: linear-gradient(
+          rgba(0, 0, 0, 0.1),
+          transparent),
+      radial-gradient(1px 60% at right,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 80%);
+}
+
+/******************************************************************************/
+/* HTTP Entries */
+
+.theme-firebug .side-menu-widget-item {
+  background: white;
+  height: 17px;
+  line-height: 15px;
+  border-bottom: 1px solid #EFEFEF;
+  margin: 0;
+  padding: 0;
+}
+
+.theme-firebug .side-menu-widget-item:hover {
+  background: #EFEFEF;
+}
+
+.theme-firebug .requests-menu-subitem {
+  padding: 1px;
+}
+
+.theme-firebug .side-menu-widget-item.selected {
+  background: #EFEFEF;
+}
+
+/******************************************************************************/
+/* Column Values Colors */
+
+.theme-firebug .requests-menu-subitem.requests-menu-icon-and-file {
+  font-weight: bold;
+}
+
+.theme-firebug .requests-menu-subitem.requests-menu-status-and-method {
+  color: rgb(128, 128, 128);
+}
+
+.theme-firebug .requests-menu-subitem.requests-menu-size {
+  text-align: right;
+}
+
+/******************************************************************************/
+/* Timings */
+
+.theme-firebug .requests-menu-timings-box {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.2));
+  height: 16px;
+}
+
+.theme-firebug .requests-menu-timings-total {
+  color: #808080;
+  min-width: 16px;
+}
+
+.theme-firebug .requests-menu-timings-box.blocked {
+  background-color: rgba(235, 83, 104, 0.8); /* red */
+}
+
+.theme-firebug .requests-menu-timings-box.dns {
+  background-color: rgba(223, 128, 255, 0.8); /* pink */
+}
+
+.theme-firebug .requests-menu-timings-box.connect {
+  background-color: rgba(217, 102, 41, 0.8); /* orange */
+}
+
+.theme-firebug .requests-menu-timings-box.send {
+  background-color: rgba(70, 175, 227, 0.8); /* light blue */
+}
+
+.theme-firebug .requests-menu-timings-box.wait {
+  background-color: rgba(94, 136, 176, 0.8); /* blue grey */
+}
+
+.theme-firebug .requests-menu-timings-box.receive {
+  background-color: rgba(112, 191, 83, 0.8); /* green */
+}
