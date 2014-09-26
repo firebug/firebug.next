@@ -36,7 +36,7 @@
 }
 
 .theme-firebug .devtools-sidebar-tabs tabscrollbox {
-  -moz-binding: url("chrome://firebug/skin/tabScrollBox.xml#tabScrollBox");
+  -moz-binding: url("chrome://firebug.next/skin/tabScrollBox.xml#tabScrollBox");
   min-height: 28px;
   border-bottom: 1px solid rgb(170, 188, 207);
 }
@@ -105,11 +105,11 @@
 }
 
 .theme-firebug #firebug-menu-button:hover {
-  filter: url(chrome://firebug/skin/filters.svg#darken);
+  filter: url(chrome://firebug.next/skin/filters.svg#darken);
 }
 
 .theme-firebug #firebug-menu-button:active {
-  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+  filter: url(chrome://firebug.next/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug #firebug-menu-button .toolbarbutton-menu-dropmarker {
@@ -126,7 +126,7 @@
 }
 
 .theme-firebug #firebug-tools-menu:hover {
-  filter: url(chrome://firebug/skin/filters.svg#darken);
+  filter: url(chrome://firebug.next/skin/filters.svg#darken);
 }
 
 /******************************************************************************/
@@ -144,15 +144,15 @@
 }
 
 .theme-firebug #command-button-pick {
-  list-style-image: url(chrome://firebug/skin/inspect.svg);
+  list-style-image: url(chrome://firebug.next/skin/inspect.svg);
 }
 
 .theme-firebug #command-button-pick:hover {
-  filter: url(chrome://firebug/skin/filters.svg#darken);
+  filter: url(chrome://firebug.next/skin/filters.svg#darken);
 }
 
 .theme-firebug #command-button-pick:active {
-  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+  filter: url(chrome://firebug.next/skin/filters.svg#deepDarken);
 }
 
 /******************************************************************************/
@@ -163,7 +163,7 @@
 }
 
 .theme-firebug #toolbox-tab-options::before {
-  content: url(chrome://firebug/skin/options.svg);
+  content: url(chrome://firebug.next/skin/options.svg);
   display: block;
   margin: 4px 7px 0;
 }
@@ -173,7 +173,7 @@
 }
 
 .theme-firebug #toolbox-tab-options:not([selected]):hover::before {
-  filter: url(chrome://firebug/skin/filters.svg#darken);
+  filter: url(chrome://firebug.next/skin/filters.svg#darken);
 }
 
 .theme-firebug #toolbox-tab-options[selected] image {
@@ -200,19 +200,19 @@
 }
 
 .theme-firebug #toolbox-dock-bottom > image {
-  background-image: url("chrome://firebug/skin/attachAtBottom.svg");
+  background-image: url("chrome://firebug.next/skin/attachAtBottom.svg");
 }
 
 .theme-firebug #toolbox-dock-side > image {
-  background-image: url("chrome://firebug/skin/attachAtSide.svg");
+  background-image: url("chrome://firebug.next/skin/attachAtSide.svg");
 }
 
 .theme-firebug #toolbox-dock-window > image {
-  background-image: url("chrome://firebug/skin/detach.svg");
+  background-image: url("chrome://firebug.next/skin/detach.svg");
 }
 
 .theme-firebug #toolbox-close > image {
-  background-image: url("chrome://firebug/skin/close.svg");
+  background-image: url("chrome://firebug.next/skin/close.svg");
 }
 
 .theme-firebug #toolbox-dock-side > image,

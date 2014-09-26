@@ -144,26 +144,26 @@
 }
 
 :-moz-any(.logRow-command) .logCounter:not([count]) {
-  background-image: url(chrome://firebug/skin/command.svg);
+  background-image: url(chrome://firebug.next/skin/command.svg);
 }
 
 :-moz-any(.logRow-info) .logCounter:not([count]) {
-  background-image: url(chrome://firebug/skin/info.svg);
+  background-image: url(chrome://firebug.next/skin/info.svg);
 }
 
 :-moz-any(.logRow-loading) .logCounter:not([count]) {
-  background-image: url(chrome://firebug/skin/loading.svg);
+  background-image: url(chrome://firebug.next/skin/loading.svg);
 }
 
 :-moz-any(.logRow-warn,
           .logRow-warningMessage) .logCounter:not([count]) {
-  background-image: url(chrome://firebug/skin/warning.svg);
+  background-image: url(chrome://firebug.next/skin/warning.svg);
 }
 
 :-moz-any(.logRow-error,
           .logRow-assert,
           .logRow-errorMessage) .logCounter:not([count]) {
-  background-image: url(chrome://firebug/skin/error.svg);
+  background-image: url(chrome://firebug.next/skin/error.svg);
 }
 
 /******************************************************************************/
@@ -277,7 +277,7 @@ of an error log is affected (higher than other logs). */
 
 /* Used for a message explaining missing stack trace for an error log */
 .errorTrace .descriptionBox {
-  background-image: url(chrome://firebug/skin/info.svg);
+  background-image: url(chrome://firebug.next/skin/info.svg);
   background-repeat: no-repeat;
   padding: 0 0 2px 20px;
 }
@@ -319,7 +319,7 @@ of an error log is affected (higher than other logs). */
 .errorColCaret {
   width: 7px;
   height: 9px;
-  background: url(chrome://firebug/skin/errorColumnIndicator.svg) no-repeat 100% 100%;
+  background: url(chrome://firebug.next/skin/errorColumnIndicator.svg) no-repeat 100% 100%;
   display: inline-block;
   vertical-align: top;
   margin-left: 1px;
@@ -332,12 +332,12 @@ of an error log is affected (higher than other logs). */
   width: 12px;
   height: 12px;
   vertical-align: baseline;
-  background: url(chrome://firebug/skin/breakpoint.svg) no-repeat center center;
+  background: url(chrome://firebug.next/skin/breakpoint.svg) no-repeat center center;
   opacity: 0.1;
 }
 
 .breakpointWaiting .errorBreak {
-  background: url(chrome://firebug/skin/loading.svg) no-repeat center center;
+  background: url(chrome://firebug.next/skin/loading.svg) no-repeat center center;
   margin: 0 4px 0 0;
   width: 14px;
   height: 14px;
@@ -378,7 +378,7 @@ of an error log is affected (higher than other logs). */
 }
 
 .profilerRunning .logRow {
-  background: transparent url(chrome://firebug/skin/loading.svg) no-repeat 2px 0 !important;
+  background: transparent url(chrome://firebug.next/skin/loading.svg) no-repeat 2px 0 !important;
   padding-left: 22px !important;
 }
 
@@ -471,11 +471,11 @@ of an error log is affected (higher than other logs). */
 }
 
 .headerSorted > .headerCellBox {
-  background: url(chrome://firebug/skin/arrowDown.svg) no-repeat calc(100% - 4px);
+  background: url(chrome://firebug.next/skin/arrowDown.svg) no-repeat calc(100% - 4px);
 }
 
 .headerSorted.sortedAscending > .headerCellBox {
-  background-image: url(chrome://firebug/skin/arrowUp.svg);
+  background-image: url(chrome://firebug.next/skin/arrowUp.svg);
 }
 
 .headerCell:hover:active {
@@ -863,7 +863,7 @@ of an error log is affected (higher than other logs). */
 }
 
 .logRow-spy.loading .spyHead .spyRow .spyIcon {
-  background-image: url(chrome://firebug/skin/loading.svg);
+  background-image: url(chrome://firebug.next/skin/loading.svg);
 }
 
 .logRow-spy.loaded:not(.error) .spyHead .spyRow .spyIcon {
@@ -872,7 +872,7 @@ of an error log is affected (higher than other logs). */
 }
 
 .logRow-spy.error .spyHead .spyRow .spyIcon {
-  background-image: url(chrome://firebug/skin/error.svg);
+  background-image: url(chrome://firebug.next/skin/error.svg);
   background-position: 2px 2px;
   background-size: 13px;
 }

@@ -9,20 +9,20 @@
 
 .theme-firebug .fbToggleSidePanels:-moz-locale-dir(ltr),
 .theme-firebug .fbToggleSidePanels.closed:-moz-locale-dir(rtl) {
-  list-style-image: url(chrome://firebug/skin/collapseSidePanels.svg);
+  list-style-image: url(chrome://firebug.next/skin/collapseSidePanels.svg);
 }
 
 .theme-firebug .fbToggleSidePanels:-moz-locale-dir(rtl),
 .theme-firebug .fbToggleSidePanels.closed:-moz-locale-dir(ltr) {
-  list-style-image: url(chrome://firebug/skin/expandSidePanels.svg);
+  list-style-image: url(chrome://firebug.next/skin/expandSidePanels.svg);
 }
 
 .theme-firebug .fbToggleSidePanels:hover {
-  filter: url(chrome://firebug/skin/filters.svg#darken);
+  filter: url(chrome://firebug.next/skin/filters.svg#darken);
 }
 
 .theme-firebug .fbToggleSidePanels:active {
-  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+  filter: url(chrome://firebug.next/skin/filters.svg#deepDarken);
 }
 
 .theme-firebug .fbToggleSidePanelsBox {

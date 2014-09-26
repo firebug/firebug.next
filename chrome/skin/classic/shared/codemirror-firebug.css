@@ -113,19 +113,19 @@
 /* Breakpoints */
 
 .theme-firebug .breakpoint {
-  background-image: url(chrome://firebug/skin/breakpoint.svg);
+  background-image: url(chrome://firebug.next/skin/breakpoint.svg);
   background-repeat: no-repeat;
   margin-right: 2px;
 }
 
 .theme-firebug .breakpointLoading {
-  background-image: url(chrome://firebug/skin/loading.svg);
+  background-image: url(chrome://firebug.next/skin/loading.svg);
   background-repeat: no-repeat;
   margin-right: 2px;
 }
 
 .theme-firebug .breakpoint.condition {
-  background-image: url(chrome://firebug/skin/breakpointCondition.svg), url(chrome://firebug/skin/breakpoint.svg);
+  background-image: url(chrome://firebug.next/skin/breakpointCondition.svg), url(chrome://firebug.next/skin/breakpoint.svg);
   background-position: center;
   margin-right: 2px;
 }
@@ -138,14 +138,14 @@
 /* Debug Location */
 
 .theme-firebug .debug-line .CodeMirror-gutter-elt .debugLocation {
-  background-image: url(chrome://firebug/skin/executionPointer.svg);
+  background-image: url(chrome://firebug.next/skin/executionPointer.svg);
   background-position: 1px 0;
   color: #000000;
   background-repeat: no-repeat;
 }
 
 .theme-firebug .debug-line .CodeMirror-gutter-elt .breakpoint {
-  background-image: url(chrome://firebug/skin/executionPointer.svg), url(chrome://firebug/skin/breakpoint.svg);
+  background-image: url(chrome://firebug.next/skin/executionPointer.svg), url(chrome://firebug.next/skin/breakpoint.svg);
   background-position: 1px 0, 0 0;
 }
 

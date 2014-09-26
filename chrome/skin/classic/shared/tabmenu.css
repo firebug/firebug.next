@@ -19,7 +19,7 @@
 
 .theme-firebug .devtools-tab[selected="true"] > .panelTabMenu .menuTarget,
 .theme-firebug .devtools-tab:focus > .panelTabMenu .menuTarget {
-  background: url(chrome://firebug/skin/optionsMenuTarget.svg) no-repeat center;
+  background: url(chrome://firebug.next/skin/optionsMenuTarget.svg) no-repeat center;
   width: 11px;
   height: 10px;
   vertical-align: middle;
@@ -28,7 +28,7 @@
 }
 
 .theme-firebug .devtools-tab[selected="true"]:hover > .panelTabMenu .menuTarget {
-  background-image: url(chrome://firebug/skin/optionsMenuTargetHover.svg);
+  background-image: url(chrome://firebug.next/skin/optionsMenuTargetHover.svg);
 }
 
 .theme-firebug .devtools-tab[selected="true"]:active > .panelTabMenu .menuTarget {

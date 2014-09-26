@@ -66,11 +66,11 @@ be toggle-side-panels button at the end at some point */
 }
 
 .theme-firebug .requests-menu-header-button:not(:active)[sorted=descending] {
-  background: url(chrome://firebug/skin/arrowDown.svg) no-repeat calc(100% - 4px);
+  background: url(chrome://firebug.next/skin/arrowDown.svg) no-repeat calc(100% - 4px);
 }
 
 .theme-firebug .requests-menu-header-button:not(:active)[sorted=ascending] {
-  background: url(chrome://firebug/skin/arrowUp.svg) no-repeat calc(100% - 4px);
+  background: url(chrome://firebug.next/skin/arrowUp.svg) no-repeat calc(100% - 4px);
 }
 
 .theme-firebug .requests-header-menu:hover:active {

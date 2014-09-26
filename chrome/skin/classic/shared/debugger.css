@@ -31,7 +31,7 @@
 
 .theme-firebug #sources-pane .side-menu-widget-group-title label {
   padding-left: 17px;
-  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+  background-image: url("chrome://firebug.next/skin/twistyOpen.svg");
   background-position: 0 calc(0.5em - 3px);
   background-size: 11px 11px;
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@
 .theme-firebug .checkbox-check {
   -moz-appearance: none;
   border: none;
-  background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
+  background: url("chrome://firebug.next/skin/breakpoint.svg") no-repeat 50% 50%;
 }
 
 .theme-firebug checkbox:not([checked="true"]) > .checkbox-check,
@@ -85,7 +85,7 @@
 .theme-firebug checkbox[checked="true"] > .checkbox-check {
   -moz-appearance: none;
   border: none;
-  background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
+  background: url("chrome://firebug.next/skin/breakpoint.svg") no-repeat 50% 50%;
 }
 
 .theme-firebug #sources-pane .dbg-breakpoint-checkbox {
@@ -112,7 +112,7 @@
 
 .theme-firebug #sources-toolbar .devtools-toolbarbutton:not([label])[checked] {
   -moz-image-region: rect(0px,16px,16px,0px);
-  filter: url(chrome://firebug/skin/filters.svg#brightenedGrayscale);
+  filter: url(chrome://firebug.next/skin/filters.svg#brightenedGrayscale);
 }
 
 /* Debugger unblackbox button */
@@ -132,11 +132,11 @@
 }
 
 .theme-firebug #resume {
-  list-style-image: url(chrome://firebug/skin/pause.svg);
+  list-style-image: url(chrome://firebug.next/skin/pause.svg);
 }
 
 .theme-firebug #resume[checked] {
-  list-style-image: url(chrome://firebug/skin/continue.svg);
+  list-style-image: url(chrome://firebug.next/skin/continue.svg);
 }
 
 .theme-firebug #resume ~ toolbarbutton {
@@ -148,15 +148,15 @@
 }
 
 .theme-firebug #step-over {
-  list-style-image: url(chrome://firebug/skin/stepOver.svg);
+  list-style-image: url(chrome://firebug.next/skin/stepOver.svg);
 }
 
 .theme-firebug #step-in {
-  list-style-image: url(chrome://firebug/skin/stepInto.svg);
+  list-style-image: url(chrome://firebug.next/skin/stepInto.svg);
 }
 
 .theme-firebug #step-out {
-  list-style-image: url(chrome://firebug/skin/stepOut.svg);
+  list-style-image: url(chrome://firebug.next/skin/stepOut.svg);
 }
 
 .theme-firebug #instruments-pane-toggle,
@@ -227,7 +227,7 @@ widgets.css is overwritten. */
 .theme-firebug .breadcrumbs-widget-item[checked] + .breadcrumbs-widget-item,
 .theme-firebug .breadcrumbs-widget-item {
   padding-left: 13px;
-  background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat center;
+  background: url(chrome://firebug.next/skin/statusPathSeparator.svg) no-repeat center;
   background-position: 0 10px;
 }
 
