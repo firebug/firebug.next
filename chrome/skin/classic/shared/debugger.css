@@ -71,18 +71,20 @@
   font-style: normal;
 }
 
-.theme-firebug .checkbox-check {
+/* Breakpoint Checkbox */
+
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox .checkbox-check {
   -moz-appearance: none;
   border: none;
   background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
 }
 
-.theme-firebug checkbox:not([checked="true"]) > .checkbox-check,
-.theme-firebug checkbox:not([checked="true"]) ~ * {
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox:not([checked="true"]) > .checkbox-check,
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox:not([checked="true"]) ~ * {
   opacity: 0.5;
 }
 
-.theme-firebug checkbox[checked="true"] > .checkbox-check {
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox[checked="true"] > .checkbox-check {
   -moz-appearance: none;
   border: none;
   background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
