@@ -1,10 +1,5 @@
 /* See license.txt for terms of usage */
 
-/* Splitters */
-.devtools-side-splitter {
-  -moz-margin-start: 0;
-}
-
 /* Autocomplete Popup */
 .theme-firebug .devtools-autocomplete-popup {
   -moz-appearance: none;
