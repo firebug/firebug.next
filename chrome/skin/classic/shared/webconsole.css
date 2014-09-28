@@ -50,14 +50,33 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
   background-size: 16px 16px;
 }
 
-/* xxxHonza: how to display console filter buttons bullets properly? */
+/******************************************************************************/
+/* Filter Buttons */
+
+.theme-firebug .webconsole-filter-button {
+  line-height: 10px;
+}
+
 .theme-firebug .webconsole-filter-button > .toolbarbutton-menubutton-button:before {
-  display: none;
+  font-size: 3px;
+  display: inline;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 4px;
+  border-width: 1px;
+  border-style: solid;
+  padding-left: 5px;
+  vertical-align: calc(50% - 3px);
 }
 
 /******************************************************************************/
 /* Remote logging */
 
 .theme-firebug .message[category=server] > .indent {
-  -moz-border-end: solid orange 6px;
+  -moz-border-end: solid rgb(144, 176, 144) 6px;
+}
+
+.webconsole-filter-button[category="server"] > .toolbarbutton-menubutton-button:before {
+  background-image: linear-gradient(rgb(144, 176, 144), rgb(99, 151, 99));
+  border-color: rgb(76, 143, 76);
 }
