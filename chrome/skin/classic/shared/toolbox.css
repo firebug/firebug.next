@@ -11,7 +11,7 @@
 .theme-firebug .devtools-sidebar-tabs tabs {
   border-bottom-width: 0;
   box-shadow: none;
-  font-family: Segoe UI;
+  font-family: Lucida Grande, Tahoma, sans-serif;
   -moz-appearance: none;
   background-color: rgb(219, 234, 249);
   background-image: linear-gradient(rgba(253, 253, 253, 0.2), rgba(253, 253, 253, 0));
