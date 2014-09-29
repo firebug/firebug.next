@@ -80,3 +80,12 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
   background-image: linear-gradient(rgb(144, 176, 144), rgb(99, 151, 99));
   border-color: rgb(76, 143, 76);
 }
+
+/******************************************************************************/
+/* Search Box */
+
+/* xxxHonza: Hide the search box for now. This must be fixed see also:
+https://github.com/firebug/firebug.next/issues/81 */
+.theme-firebug .hud-filter-box.devtools-searchinput {
+  display: none;
+}
