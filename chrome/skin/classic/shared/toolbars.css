@@ -3,8 +3,8 @@
 /******************************************************************************/
 /* Panel Toolbar */
 
-.theme-firebug #panelToolbarBox,
 .theme-firebug toolbar {
+  -moz-appearance: none;
   border-bottom: 1px solid rgb(170, 188, 207);
   background-color: rgb(219, 234, 249) !important;
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
@@ -16,12 +16,12 @@
 }
 
 .theme-firebug #panelToolbar {
-  height: 27px;
+  height: 28px;
   -moz-box-flex: 1;
 }
 
 .theme-firebug #panelSideBox #panelToolbar {
-  height: 27px;
+  height: 28px;
   padding: 0;
 }
 
