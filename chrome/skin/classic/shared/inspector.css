@@ -7,18 +7,19 @@
 
 .theme-firebug .breadcrumbs-widget-item[checked] + .breadcrumbs-widget-item,
 .theme-firebug .breadcrumbs-widget-item {
-  margin: 0;
-  padding-left: 8px;
-  padding-right: 3px;
-  background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat center;
-  background-position: 0 10px;
+  margin: 0 0 0 5px;
+  min-width: 0;
+  padding: 0;
   color: black;
-  min-width: 10px;
 }
 
-.theme-firebug .breadcrumbs-widget-item:first-child {
-  padding-left: 10px;
-  background: none;
+.theme-firebug .breadcrumbs-widget-item:not(:first-child)::before {
+  content: url(chrome://firebug/skin/statusPathSeparator.svg);
+  position: relative;
+  left: -5px;
+  margin: 0;
+  padding: 0;
+  width: 5px;
 }
 
 .theme-firebug .breadcrumbs-widget-item[checked],
@@ -36,7 +37,7 @@
 
 .theme-firebug .breadcrumbs-widget-container .scrollbutton-up,
 .theme-firebug .breadcrumbs-widget-container .scrollbutton-down {
-  padding: 0 0;
+  padding: 0;
   box-shadow: none;
 }
 
