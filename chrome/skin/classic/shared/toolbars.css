@@ -32,6 +32,7 @@
 /******************************************************************************/
 /* Toolbar Buttons */
 
+.theme-firebug .breadcrumbs-widget-item,
 .theme-firebug toolbarbutton {
   -moz-appearance: none;
   margin-right: 1px;
@@ -51,6 +52,7 @@ but for now do not allocate an extra space for images */
   border-color: rgba(0, 0, 0, 0.1);
 }
 
+.theme-firebug .breadcrumbs-widget-item:hover,
 .theme-firebug toolbarbutton:hover:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.2);
   background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
