@@ -3,8 +3,8 @@
 /******************************************************************************/
 /* Panel Toolbar */
 
-.theme-firebug #panelToolbarBox,
 .theme-firebug toolbar {
+  -moz-appearance: none;
   border-bottom: 1px solid rgb(170, 188, 207);
   background-color: rgb(219, 234, 249) !important;
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
@@ -16,12 +16,12 @@
 }
 
 .theme-firebug #panelToolbar {
-  height: 27px;
+  height: 28px;
   -moz-box-flex: 1;
 }
 
 .theme-firebug #panelSideBox #panelToolbar {
-  height: 27px;
+  height: 28px;
   padding: 0;
 }
 
@@ -32,6 +32,7 @@
 /******************************************************************************/
 /* Toolbar Buttons */
 
+.theme-firebug .breadcrumbs-widget-item,
 .theme-firebug toolbarbutton {
   -moz-appearance: none;
   margin-right: 1px;
@@ -51,6 +52,7 @@ but for now do not allocate an extra space for images */
   border-color: rgba(0, 0, 0, 0.1);
 }
 
+.theme-firebug .breadcrumbs-widget-item:hover,
 .theme-firebug toolbarbutton:hover:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.2);
   background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
