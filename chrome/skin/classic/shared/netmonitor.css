@@ -9,6 +9,10 @@ be toggle-side-panels button at the end at some point */
   -moz-box-flex: 1;
 }
 
+#requests-menu-perf-notice-button {
+  list-style-image: url(chrome://firebug/skin/profile.svg);
+}
+
 /******************************************************************************/
 /* Sidebar */
 
