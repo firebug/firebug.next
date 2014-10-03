@@ -9,15 +9,25 @@
   border-bottom: 1px solid rgb(170, 188, 207);
 }
 
-.theme-firebug .variables-view-scope .devtools-toolbar {
-  background-color: rgb(219, 234, 249) !important;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
-  font-weight: bold;
-  color: rgb(88, 89, 89);
+.theme-firebug .variables-view-scope > .title {
+  height: auto;
+  border: none;
 }
 
+.theme-firebug .variables-view-scope .title .theme-twisty {
+  display: none;
+}
+
+.theme-firebug .variables-view-scope .devtools-toolbar,
 .theme-firebug .variables-view-scope:focus .devtools-toolbar {
-  color: rgb(88, 89, 89);
+  border-bottom: none;
+  margin: 0;
+  padding: 2px 4px;
+  background: #F0F0F0 linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent) repeat-x;
+  font-size: inherit;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
 }
 
 .theme-firebug .variables-view-searchinput {
