@@ -33,3 +33,22 @@
 .theme-firebug .variables-view-searchinput {
   background-image: url(chrome://firebug/skin/filter.svg);
 }
+
+.theme-firebug .variables-view-delete:not([disabled="true"]),
+.theme-firebug .variables-view-delete:hover:not([disabled="true"]),
+.theme-firebug toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
+  width: 16px;
+  padding: 0;
+  margin-right: 3px !important;
+  border: none;
+  background: url(chrome://firebug/skin/close.svg) center no-repeat;
+  box-shadow: none;
+}
+
+.theme-firebug .variables-view-delete:hover:not([disabled="true"]) {
+  filter: url(chrome://firebug/skin/filters.svg#darken);
+}
+
+.theme-firebug toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
+  filter: url(chrome://firebug/skin/filters.svg#deepDarken);
+}
