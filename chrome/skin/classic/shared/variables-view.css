@@ -14,7 +14,7 @@
   border: none;
 }
 
-.theme-firebug .variables-view-scope .title .theme-twisty {
+.theme-firebug .variables-view-scope > .title > .theme-twisty {
   display: none;
 }
 
