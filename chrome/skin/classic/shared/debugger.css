@@ -135,6 +135,7 @@
 
 .theme-firebug #resume {
   list-style-image: url(chrome://firebug/skin/pause.svg);
+  -moz-image-region: auto;
 }
 
 .theme-firebug #resume[checked] {
