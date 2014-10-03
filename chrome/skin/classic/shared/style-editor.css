@@ -26,3 +26,17 @@ in the Style Editor panel is 26px and not 27px why? FIX ME */
 .theme-firebug #panelToolbar {
   -moz-box-flex: 0 !important;
 }
+
+.theme-firebug .stylesheet-enabled {
+  background-image: url(chrome://firebug/skin/blackBox.svg);
+  background-size: 16px 16px;
+  background-position: center;
+}
+
+.theme-firebug .splitview-nav > li:not(.splitview-active) .stylesheet-enabled {
+  filter: none;
+}
+
+.theme-firebug .disabled > .stylesheet-enabled {
+  opacity: 0.5;
+}
