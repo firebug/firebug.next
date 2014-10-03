@@ -19,3 +19,7 @@
 .theme-firebug .variables-view-scope:focus .devtools-toolbar {
   color: rgb(88, 89, 89);
 }
+
+.theme-firebug .variables-view-searchinput {
+  background-image: url(chrome://firebug/skin/filter.svg);
+}
