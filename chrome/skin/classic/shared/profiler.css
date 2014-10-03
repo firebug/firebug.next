@@ -3,3 +3,8 @@
 /******************************************************************************/
 /* Performance */
 
+#record-button,
+#empty-notice button,
+#recording-notice button {
+  list-style-image: url(chrome://firebug/skin/profile.svg);
+}
