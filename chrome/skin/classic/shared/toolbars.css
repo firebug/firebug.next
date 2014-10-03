@@ -96,6 +96,8 @@ but for now do not allocate an extra space for images */
   list-style-image: url(chrome://firebug/skin/dropMarker.svg);
   -moz-box-pack: center;
   -moz-box-align: center;
+  margin: 0;
+  padding: 0 3px;
 }
 
 .theme-firebug toolbarbutton[type="menu-button"]:not(:hover):not(:active):not(:-moz-any([checked="true"], [selected="true"], [open="true"])) > :-moz-any(.toolbarbutton-menu-dropmarker, .toolbarbutton-menubutton-dropmarker)::before {
