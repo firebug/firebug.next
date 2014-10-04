@@ -306,13 +306,3 @@ widgets.css is overwritten. */
   border-left-style: none;
   border-right-style: solid;
 }
-
-/******************************************************************************/
-/* Search Box */
-
-/* xxxHonza: hide the default SearchBox in the Debugger panel.
- See also: Move functionality of the search field within the Debugger panel
- to the general search field #76 */
-.theme-firebug #debugger-toolbar .devtools-searchinput {
-  display: none;
-}
