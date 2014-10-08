@@ -42,7 +42,3 @@
   (almost) disappear when clicked
   filter: url(chrome://firebug/skin/filters.svg#darken); */
 }
-
-.theme-firebug .devtools-sidebar-tabs tabs > tab {
-  -moz-binding: url("chrome://firebug/skin/tab.xml#tab");
-}
