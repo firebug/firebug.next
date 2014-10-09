@@ -135,6 +135,7 @@
 
 .theme-firebug #resume {
   list-style-image: url(chrome://firebug/skin/pause.svg);
+  -moz-image-region: auto;
 }
 
 .theme-firebug #resume[checked] {
@@ -305,14 +306,4 @@ widgets.css is overwritten. */
 .theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:-moz-locale-dir(rtl) {
   border-left-style: none;
   border-right-style: solid;
-}
-
-/******************************************************************************/
-/* Search Box */
-
-/* xxxHonza: hide the default SearchBox in the Debugger panel.
- See also: Move functionality of the search field within the Debugger panel
- to the general search field #76 */
-.theme-firebug #debugger-toolbar .devtools-searchinput {
-  display: none;
 }
