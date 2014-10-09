@@ -8,7 +8,7 @@
 .theme-firebug .breadcrumbs-widget-item {
   margin: 0 0 0 10px;
   min-width: 0;
-  padding: 2px;
+  padding: 0;
   color: black;
   line-height: 18px;
   min-height: 18px;
@@ -22,7 +22,7 @@
   content: url(chrome://firebug/skin/statusPathSeparator.svg);
   position: relative;
   left: -3px;
-  margin: 0 5px 0 -5px;
+  margin: 0 0 0 -5px;
   padding: 0;
   width: 5px;
 }
