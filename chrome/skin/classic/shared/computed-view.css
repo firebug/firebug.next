@@ -3,3 +3,50 @@
 /******************************************************************************/
 /* Computed View */
 
+.property-view,
+.property-content {
+  background-color: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.property-name {
+  font-weight: bold;
+}
+
+.property-value, .other-property-value {
+  background: none;
+}
+
+@media (min-resolution: 2dppx) {
+  .property-value, .other-property-value {
+    background-image: none;
+  }
+}
+
+.property-value {
+  padding-left: 0;
+}
+
+/* From skin */
+.matchedselectors > p {
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.matchedselectors > p:first-of-type {
+  border-top-width: 0;
+}
+
+.matchedselectors > p:last-of-type {
+  border-bottom-width: 0;
+}
+
+/* Take away these two :visited rules to get a core dumper     */
+/* See https://bugzilla.mozilla.org/show_bug.cgi?id=575675#c30 */
+
+.link,
+.link:visited {
+  font-family: Lucida Grande, sans-serif;
+  font-weight: bold;
+  color: blue;
+}
