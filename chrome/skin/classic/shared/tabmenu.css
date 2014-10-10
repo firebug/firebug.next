@@ -3,20 +3,24 @@
 /******************************************************************************/
 /* Panel Tab Menu */
 
+.theme-firebug .devtools-sidebar-tabs tab .panelTabMenu .menuTarget,
 .theme-firebug .devtools-tab > .panelTabMenu .menuTarget {
   visibility: collapse;
 }
 
+.theme-firebug .devtools-sidebar-tabs tab .panelTabMenu .menuPopup:-moz-locale-dir(rtl),
 .theme-firebug .devtools-tab > .panelTabMenu .menuPopup:-moz-locale-dir(rtl) {
   direction: rtl;
 }
 
+.theme-firebug .devtools-sidebar-tabs tab[selected="true"] > .panelTabMenu,
 .theme-firebug .devtools-tab[selected="true"] > .panelTabMenu {
   margin-right: 3px;
   width: 11px;
   height: 10px;
 }
 
+.theme-firebug .devtools-sidebar-tabs tab[selected="true"] > .panelTabMenu .menuTarget,
 .theme-firebug .devtools-tab[selected="true"] > .panelTabMenu .menuTarget,
 .theme-firebug .devtools-tab:focus > .panelTabMenu .menuTarget {
   background: url(chrome://firebug/skin/optionsMenuTarget.svg) no-repeat center;
@@ -27,12 +31,14 @@
   display: block;
 }
 
+.theme-firebug .devtools-sidebar-tabs tab[selected="true"]:hover > .panelTabMenu .menuTarget,
 .theme-firebug .devtools-tab[selected="true"]:hover > .panelTabMenu .menuTarget {
   background-image: url(chrome://firebug/skin/optionsMenuTargetHover.svg);
 }
 
+.theme-firebug .devtools-sidebar-tabs tab[selected="true"]:active > .panelTabMenu .menuTarget,
 .theme-firebug .devtools-tab[selected="true"]:active > .panelTabMenu .menuTarget {
   /* Remove this filter since it cause the menu target to
   (almost) disappear when clicked
-  filter: url(resource://firebugui/filters.svg#darken); */
+  filter: url(chrome://firebug/skin/filters.svg#darken); */
 }

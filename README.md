@@ -19,20 +19,17 @@ Structure of the extension follows Jetpack standards. It's generated using the
 
 Hacking on Firebug.next
 -----------------------
-1. Get the Add-on SDK: `git clone https://github.com/mozilla/addon-sdk`
-2. Switch into the `devtools` branch
-3. The Add-on SDK requires Python 2.5, 2.6, or 2.7 [download](http://python.org/download/)
-4. Activate the `cfx` command line tool (included in Add-on SDK). Run `source bin/activate` in
-the Add-on SDK directory. [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
+1. Get the Add-on SDK: `git clone https://github.com/mozilla/addon-sdk`<br/>
+about how to use the Add-on SDK.
+2. Get Python 2.5, 2.6, or 2.7: [download](http://python.org/download/) (required by Add-on SDK)
+[Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to install and activate the Add-on SDK.
+3. Get [JPM](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm): `git clone https://github.com/mozilla/jpm`
+4. Switch to the JPM folder and [install](https://www.npmjs.org/doc/cli/npm-install.html) and [link](https://www.npmjs.org/doc/cli/npm-link.html) it via `npm install` and `npm link`. (Also needs to be done after fetching the latest changes to the JPM repo.)
 5. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
 6. (Optional) Install [FBTrace](https://github.com/firebug/tracing-console) in your Firefox dev profile
-7. Run `cfx run -o` in the Firebug.next directory to launch Firefox (you need
-Firefox [Nightly build](https://nightly.mozilla.org/) at this moment)
-with an auto-created clean profile. 
-If you wish to run it with FBTrace, use `cfx run -o --profiledir=<yourProfileDir>`.
-[Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
-about how to use the `cfx` command line tool.
+7. Run `jpm run -o <path to Add-on SDK> -b <file path to your Firefox binary>` in the Firebug.next directory to launch Firefox (you need Firefox [Nightly build](https://nightly.mozilla.org/) at the moment), which automatically creates a clean profile.
+If you wish to run it with an existing profile (e.g. to include FBTrace), first create a new profile via the [Profile Manager](https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-firefox-profiles), and then run `jpm run -o <path to Add-on SDK> -b <file path to your Firefox binary> -p <path to your Firefox profile (needs to start with /)>`.
 
 Further Resources
 -----------------

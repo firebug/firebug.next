@@ -71,6 +71,25 @@
   font-style: normal;
 }
 
+/* Breakpoint Checkbox */
+
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox .checkbox-check {
+  -moz-appearance: none;
+  border: none;
+  background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
+}
+
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox:not([checked="true"]) > .checkbox-check,
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox:not([checked="true"]) ~ * {
+  opacity: 0.5;
+}
+
+.theme-firebug #sources-pane .dbg-breakpoint-checkbox[checked="true"] > .checkbox-check {
+  -moz-appearance: none;
+  border: none;
+  background: url("chrome://firebug/skin/breakpoint.svg") no-repeat 50% 50%;
+}
+
 .theme-firebug #sources-pane .dbg-breakpoint-checkbox {
   padding-right: 0;
   margin-right: 0;
@@ -116,6 +135,7 @@
 
 .theme-firebug #resume {
   list-style-image: url(chrome://firebug/skin/pause.svg);
+  -moz-image-region: auto;
 }
 
 .theme-firebug #resume[checked] {
@@ -157,6 +177,7 @@
 .theme-firebug #callstack-list .dbg-classic-stackframe-title {
   color: blue;
   font-weight: normal;
+  font-family: monospace;
 }
 
 .theme-firebug #callstack-list .side-menu-widget-item {
@@ -167,6 +188,7 @@
 .theme-firebug #callstack-list .dbg-classic-stackframe::after {
   content: "()";
   color: rgb(0, 100, 0);
+  font-family: monospace;
 }
 
 .theme-firebug #callstack-list .dbg-classic-stackframe-details-url,

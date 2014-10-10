@@ -1,0 +1,4 @@
+{
+  "esnext": "true",
+  "predef": [ "require", "exports", "module" ]
+}

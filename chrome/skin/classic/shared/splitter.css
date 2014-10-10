@@ -28,8 +28,9 @@
   background-color: rgb(231, 241, 251) !important;
   border: none;
   min-width: 5px;
-  max-width: 5px;
   box-align: start;
+
+  -moz-margin-start: -1px;
 
   /* xxxHonza: Is there a better way how to make use the splitter-box is
   displayed at the top within the splitter? */

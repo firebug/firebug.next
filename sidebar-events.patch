@@ -1,0 +1,61 @@
+diff --git a/lib/console/consoleOverlay.js b/lib/console/consoleOverlay.js
+index 914a6a5..7b27421 100644
+--- a/lib/console/consoleOverlay.js
++++ b/lib/console/consoleOverlay.js
+@@ -70,6 +70,9 @@ const ConsoleOverlay = Class(
+     this.onVariablesViewOpen = this.onVariablesViewOpen.bind(this);
+     this.onVariablesViewFetched = this.onVariablesViewFetched.bind(this);
+     this.onSidebarClosed = this.onSidebarClosed.bind(this);
++
++    this.onSidebarCreated = this.onSidebarCreated.bind(this);
++    this.onSidebarDestroyed = this.onSidebarDestroyed.bind(this);
+   },
+ 
+   onReady: function(options) {
+@@ -90,6 +93,9 @@ const ConsoleOverlay = Class(
+     jsterm.on("variablesview-fetched", this.onVariablesViewFetched);
+     jsterm.on("sidebar-closed", this.onSidebarClosed);
+ 
++    jsterm.on("sidebar-created", this.onSidebarCreated);
++    jsterm.on("sidebar-destroyed", this.onSidebarDestroyed);
++
+     // Install custom proxy to intercept console.* API and customize
+     // rendering (using registered reps).
+     this.overlayProxy();
+@@ -111,6 +117,9 @@ const ConsoleOverlay = Class(
+     jsterm.off("variablesview-open", this.onVariablesViewOpen);
+     jsterm.off("variablesview-fetched", this.onVariablesViewFetched);
+     jsterm.off("sidebar-closed", this.onSidebarClosed);
++
++    jsterm.off("sidebar-created", this.onSidebarCreated);
++    jsterm.off("sidebar-destroyed", this.onSidebarDestroyed);
+   },
+ 
+   getSidePanels: function() {
+@@ -147,11 +156,26 @@ const ConsoleOverlay = Class(
+   },
+ 
+   // Sidebar Events
++
+   onSidebarClosed: function(eventId) {
+     this.updateSideSplitterTheme();
+   },
+ 
++  onSidebarCreated: function(eventId, sidebar) {
++    sidebar.on("show", () => {
++      FBTrace.sysout("!!! on side bar show");
++    });
++
++    sidebar.on("hide", () => {
++      FBTrace.sysout("!!! on side bar hide");
++    });
++  },
++
++  onSidebarDestroyed: function(eventId, sidebar) {
++  },
++
+   // VariablesView Events
++
+   onVariablesViewOpen: function(eventId, view, options) {
+     Trace.sysout("consoleOverlay.onVariablesViewOpen; ", arguments);
+ 

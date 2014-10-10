@@ -18,11 +18,11 @@
 }
 
 .theme-firebug #fbSearchBox:-moz-locale-dir(ltr) {
-  margin: 5px 10px 4px 0;
+  margin: 5px 0 4px 0;
 }
 
 .theme-firebug #fbSearchBox:-moz-locale-dir(rtl) {
-  margin: 5px 0 4px 10px;
+  margin: 5px 0 4px 0;
 }
 
 .theme-firebug .fbsearch-textbox[status="notfound"] {
@@ -42,7 +42,6 @@
   margin: 0;
   border: 1px solid #96969D;
   font: message-box;
-  font-size: 11px;
   font-size-adjust: inherit;
   height: 21px;
 }
@@ -168,11 +167,4 @@
 
 .theme-firebug .fbsearch-options-buttons {
   border: 1px solid rgb(170, 188, 207);
-}
-
-/******************************************************************************/
-/* Search Box Splitter */
-
-.theme-firebug .fbsearch-splitter {
-  margin-left: 10px;
 }
