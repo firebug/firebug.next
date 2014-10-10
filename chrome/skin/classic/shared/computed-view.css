@@ -41,9 +41,6 @@
   border-bottom-width: 0;
 }
 
-/* Take away these two :visited rules to get a core dumper     */
-/* See https://bugzilla.mozilla.org/show_bug.cgi?id=575675#c30 */
-
 .link,
 .link:visited {
   font-family: Lucida Grande, sans-serif;
