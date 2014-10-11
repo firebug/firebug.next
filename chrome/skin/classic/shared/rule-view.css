@@ -76,3 +76,25 @@
     border: 1px solid #a0a0a0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
+
+/******************************************************************************/
+/* Disable/Enable */
+
+.ruleview-rule .theme-checkbox {
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-image: url(chrome://firebug/skin/disable.svg);
+  background-position:0 0;
+}
+
+.ruleview-rule .theme-checkbox:not([checked]){
+    filter: url(chrome://firebug/skin/filters.svg#grayscale);
+}
+
+.ruleview-rule .theme-checkbox[checked] {
+  background-position: 0 0;
+}
+
+.ruleview-property:not(:hover) .ruleview-enableproperty {
+    visibility: hidden;
+}
