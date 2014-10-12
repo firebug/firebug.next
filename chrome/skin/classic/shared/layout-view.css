@@ -3,3 +3,41 @@
 /******************************************************************************/
 /* Layout View */
 
+div#margins {
+    border-color: #E3CA98;
+    opacity: 1;
+    outline: none;
+}
+
+div#borders {
+    background-color: #FFEF83;
+    border-color: #D1C57A;
+}
+
+div#padding {
+    border-color: #ACE2AC;
+    outline: 1px solid #D1C57A;
+}
+
+div#content {
+    background-color: #B3E5FF;
+    border-color: #9BBFD1;
+}
+
+#main, #borders, #content {
+    border-style: solid;
+}
+
+#main, #header {
+    font-family: sans-serif;
+}
+
+div#main {
+    border-color: #929292;
+    color: black;
+    font-size: 11px;
+}
+
+div#header {
+    font-size: 12px;
+}
