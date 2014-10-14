@@ -18,7 +18,7 @@
 }
 
 .theme-bg-darker {
-  background: #EFEFEF;
+  background: #efefef;
 }
 
 .theme-selected,
@@ -34,8 +34,8 @@
 
 .theme-link,
 .cm-s-mozilla .cm-link,
-.CodeMirror-Tern-type { /* blue */
-  color: hsl(208,56%,40%);
+.CodeMirror-Tern-type {
+  color: blue;
 }
 
 /*
@@ -83,8 +83,8 @@
 .cm-s-mozilla .cm-number,
 .variable-or-property .token-number,
 .variable-or-property[return] > .title > .name,
-.variable-or-property[scope] > .title > .name { /* green */
-  color: hsl(72,100%,27%);
+.variable-or-property[scope] > .title > .name {
+  color: #18191A;
 }
 
 .CodeMirror-Tern-completion-number:before {
@@ -123,8 +123,8 @@
 
 .theme-fg-color5,
 .cm-s-mozilla .cm-bracket,
-.cm-s-mozilla .cm-keyword { /* Yellow */
-  color: #a18650;
+.cm-s-mozilla .cm-keyword {
+  color: #18191A;
 }
 
 .theme-fg-color6,
