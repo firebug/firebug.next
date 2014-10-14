@@ -552,6 +552,7 @@ div.CodeMirror span.eval-text {
   background-size: 11px 11px;
   background-repeat: no-repeat;
   font-size: inherit;
+  border-color: #aabccf;
 }
 
 .devtools-searchinput:-moz-locale-dir(rtl) {

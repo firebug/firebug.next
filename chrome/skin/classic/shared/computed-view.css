@@ -54,3 +54,10 @@
   font-weight: bold;
   color: blue;
 }
+
+/******************************************************************************/
+/* Filter field */
+
+.theme-firebug .devtools-searchinput {
+  background-image: url(chrome://firebug/skin/filter.svg);
+}
