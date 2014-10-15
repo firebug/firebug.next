@@ -10,7 +10,7 @@ const { Trace, TraceError } = require("./core/trace.js").get(module.id);
 // Import 'devtools' object
 Cu.import("resource://gre/modules/devtools/Loader.jsm")
 
-exports["test helloWorldPanel (async)"] = function(assert, done) {
+exports["test domPanel (async)"] = function(assert, done) {
   let browser = getMostRecentBrowserWindow();
 
   // Open a new browser tab.
@@ -27,9 +27,9 @@ exports["test helloWorldPanel (async)"] = function(assert, done) {
   function onPageLoad() {
     tabBrowser.removeEventListener("load", onPageLoad, true);
 
-    var panelId = "dev-panel-firebug-nextjetpack-helloWorldPanelTitle";
+    var panelId = "dev-panel-firebug-nextgetfirebug-com-DOM";
     var tool = browser.gDevTools.getToolDefinition(panelId);
-    assert.ok(tool, "Hello World tool must exists!");
+    assert.ok(tool, "The DOM tool must exist!");
 
     // Get debugging target for the new tab.
     let target = devtools.TargetFactory.forTab(newTab);
@@ -38,7 +38,7 @@ exports["test helloWorldPanel (async)"] = function(assert, done) {
     browser.gDevTools.showToolbox(target, panelId).then(function(toolbox) {
       var panel = toolbox.getCurrentPanel();
 
-      assert.ok(panel.id == panelId, "Hello World panel is loaded!");
+      assert.ok(panel.id == panelId, "DOM panel is loaded!");
 
       closeTab(newTab);
       done();
