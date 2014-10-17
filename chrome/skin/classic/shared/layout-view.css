@@ -5,18 +5,22 @@
 
 div#margins {
   outline: none;
+  background-color: rgb(237, 250, 181);
 }
 
 div#borders {
   border-color: #D1C57A;
+  background-color: rgb(143, 143, 143);
 }
 
 div#padding {
   outline: 1px solid #D1C57A;
+  background-color: rgb(174, 171, 231);
 }
 
 div#content {
   border-color: #9BBFD1;
+  background-color: rgb(183, 226, 243);
 }
 
 #main, #borders, #content {
