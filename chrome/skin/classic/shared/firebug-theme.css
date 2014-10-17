@@ -171,6 +171,23 @@
   border-color: #aaa;
 }
 
+.table-widget-column-header {
+  font-weight: bold !important;
+  color: #000000;
+}
+
+.table-widget-cell > .console-string {
+  color:#FF0000 !important;
+}
+
+.table-widget-column-header[sorted="descending"]:not(:active) {
+  background: url(chrome://firebug/skin/arrowDown.svg) no-repeat calc(100% - 4px);
+}
+
+.table-widget-column-header[sorted="ascending"]:not(:active) {
+  background: url(chrome://firebug/skin/arrowUp.svg) no-repeat calc(100% - 4px);
+}
+
 .ruleview-colorswatch,
 .computedview-colorswatch,
 .ruleview-bezierswatch {
@@ -385,6 +402,7 @@ div.CodeMirror span.eval-text {
   height: 24px;
   line-height: 24px;
   box-sizing: border-box;
+  background: #C5CBD9;
 }
 
 .devtools-toolbar {
