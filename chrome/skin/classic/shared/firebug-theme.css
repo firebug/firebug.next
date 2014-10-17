@@ -182,10 +182,12 @@
 
 .table-widget-column-header[sorted="descending"]:not(:active) {
   background: url(chrome://firebug/skin/arrowDown.svg) no-repeat calc(100% - 4px);
+  background-color: #C5CBD9;
 }
 
 .table-widget-column-header[sorted="ascending"]:not(:active) {
   background: url(chrome://firebug/skin/arrowUp.svg) no-repeat calc(100% - 4px);
+  background-color: #C5CBD9;
 }
 
 .ruleview-colorswatch,
