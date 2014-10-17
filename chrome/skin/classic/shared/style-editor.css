@@ -40,3 +40,10 @@ in the Style Editor panel is 26px and not 27px why? FIX ME */
 .theme-firebug .disabled > .stylesheet-enabled {
   opacity: 0.5;
 }
+
+/******************************************************************************/
+/* Media Side Bar */
+
+.theme-firebug .stylesheet-sidebar {
+  display: none !important;
+}
