@@ -2,3 +2,30 @@
 
 /******************************************************************************/
 /* Media Rules */
+
+.theme-firebug .media-rule-label {
+  border-bottom-color: #cddae5; /* Grey */
+}
+
+.theme-firebug .media-rule-label {
+  padding: 4px;
+  cursor: pointer;
+  border-bottom: 1px solid;
+}
+
+.theme-firebug .media-rule-line {
+  -moz-padding-start: 4px;
+}
+
+.theme-firebug .media-rule-label {
+  display: flex;
+}
+
+.theme-firebug .media-rule-condition {
+  flex: 1;
+  overflow: hidden;
+}
+
+.theme-firebug .media-condition-unmatched {
+  color: grey;
+}
