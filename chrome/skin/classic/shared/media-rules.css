@@ -4,21 +4,15 @@
 /* Media Rules */
 
 .theme-firebug .media-rule-label {
-  border-bottom-color: #cddae5; /* Grey */
-}
-
-.theme-firebug .media-rule-label {
+  font: message-box;
   padding: 4px;
   cursor: pointer;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #cddae5; /* Grey */
+  display: flex;
 }
 
 .theme-firebug .media-rule-line {
   -moz-padding-start: 4px;
-}
-
-.theme-firebug .media-rule-label {
-  display: flex;
 }
 
 .theme-firebug .media-rule-condition {
