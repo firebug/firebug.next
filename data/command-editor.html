@@ -3,24 +3,33 @@
 <head>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="./codemirror.css">
+  <link rel="stylesheet" href="../chrome/skin/classic/shared/codemirror-firebug.css">
+
   <script src="./codemirror-compressed.js"></script>
 <style type="text/css">
+html {
+  height: 100%;
+}
+
 body {
-  position: absolute;
   width: 100%;
   margin: 0;
   padding: 0;
   background: white;
   overflow: hidden;
+  height: 100%;
 }
 
 pre {
   margin: 0;
+  height: 100%;
+  /* For some reasons this declaration is necessary to display the cursor. */
+  min-height: 1em;
 }
 </style>
 </head>
 <body>
-  <pre class="input"></pre>
+  <pre class="input theme-firebug"></pre>
 </body>
 <script>
 function onEvaluate(editor) {
