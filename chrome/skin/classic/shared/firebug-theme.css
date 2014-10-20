@@ -172,6 +172,9 @@
 }
 
 .table-widget-column-header {
+  font-family:sans-serif;
+  /*height: 20px !important;*/
+  min-height: 20px !important;
   font-weight: bold !important;
   color: #000000;
 }
@@ -404,7 +407,7 @@ div.CodeMirror span.eval-text {
   height: 24px;
   line-height: 24px;
   box-sizing: border-box;
-  background: #C5CBD9;
+  background: linear-gradient(#EEEFF4, #c5cbd9);
 }
 
 .devtools-toolbar {
