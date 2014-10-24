@@ -19,8 +19,7 @@ Structure of the extension follows Jetpack standards. It's generated using the
 
 Hacking on Firebug.next
 -----------------------
-1. Get the Add-on SDK: `git clone https://github.com/mozilla/addon-sdk`<br/>
-about how to use the Add-on SDK.
+1. Get the Add-on SDK: `git clone https://github.com/mozilla/addon-sdk`
 2. Get Python 2.5, 2.6, or 2.7: [download](http://python.org/download/) (required by Add-on SDK)
 [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
 about how to install and activate the Add-on SDK.
