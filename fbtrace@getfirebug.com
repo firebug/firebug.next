@@ -1,1 +1,0 @@
-C:\src\github.com\firebug\tracing-console

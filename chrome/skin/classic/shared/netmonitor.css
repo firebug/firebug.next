@@ -14,6 +14,13 @@ be toggle-side-panels button at the end at some point */
 }
 
 /******************************************************************************/
+/* Filter field */
+
+.theme-firebug .devtools-searchinput {
+  background-image: url(chrome://firebug/skin/filter.svg);
+}
+
+/******************************************************************************/
 /* Sidebar */
 
 /* Hide the original toggle side-bar button */

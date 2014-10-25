@@ -1,0 +1,23 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+
+#requests-menu-perf-notice-button {
+  -moz-appearance: none;
+  border: 1px solid rgb(112, 112, 112);
+  background-color: #E6E6E6;
+  color: rgba(0,0,0,.8);
+  border-radius: 3px;
+}
+
+.theme-firebug #requests-menu-reload-notice-button {
+  -moz-appearance: none;
+  font-size: medium;
+  font-weight: 101;
+  color: rgba(0,0,0,.8);
+  border: 1px solid rgb(112, 112, 112);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 3px;
+}
