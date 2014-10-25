@@ -3,3 +3,29 @@
 /******************************************************************************/
 /* Font Inspector */
 
+.theme-firebug .font-info {
+  font-family: Lucida Grande, Tahoma, sans-serif;
+}
+
+.theme-firebug h1 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.theme-firebug .font-is-local,
+.theme-firebug .font-is-remote,
+.theme-firebug .font-format-url {
+  color: #808080;
+}
+
+.theme-firebug .font-css-name {
+  font-family: monospace;
+}
+
+.theme-firebug .font:nth-child(2n) {
+  background-color: #fff;
+}
+
+.theme-firebug .font-css-code {
+  background-color: #f0f0f0;
+}
