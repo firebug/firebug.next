@@ -75,7 +75,7 @@ but for now do not allocate an extra space for images */
   background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1) inset, 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
   */
-  background-color: rgb(210, 234, 242);
+  background-color: rgb(215, 232, 240);
   border: 1px solid #9A9A9A;
   padding: 0;
 }
