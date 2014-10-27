@@ -1,4 +1,4 @@
-Firebug.next
+Firebug.next [![Build Status](https://travis-ci.org/firebug/firebug.next.png)](https://travis-ci.org/firebug/firebug.next)
 ============
 
 Next Firebug generation built on top of native Firefox developer tools
