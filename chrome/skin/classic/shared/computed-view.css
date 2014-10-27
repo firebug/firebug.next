@@ -6,6 +6,8 @@
 .property-view,
 .property-content {
   background-color: inherit;
+  font-family: Lucida Grande,Tahoma,sans-serif;
+  font-size: 11px;
 }
 
 .property-view {

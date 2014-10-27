@@ -1,12 +1,11 @@
-var main = require("./main");
+/* See license.txt for terms of usage */
+
+"use strict";
+
+var { main, Firebug } = require("../lib/index.js");
 
 exports["test main"] = function(assert) {
-  assert.pass("Unit test running!");
-};
-
-exports["test main async"] = function(assert, done) {
-  assert.pass("async Unit test running!");
-  done();
+  assert.ok(Firebug, "The Firebug object must exist!");
 };
 
 require("sdk/test").run(exports);

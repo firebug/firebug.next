@@ -70,7 +70,6 @@
   background-position: 0 center;
 }
 
-/* todo: temporary solution, hide the inspector searchbox */
 .theme-firebug #inspector-searchbox {
   display: none;
 }

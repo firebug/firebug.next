@@ -35,14 +35,12 @@ pre {
 function onEvaluate(editor) {
   sendMessage({
     type: "evaluate",
-    value: editor.getValue(),
   });
 }
 
 function onEscape(editor) {
   sendMessage({
     type: "escape",
-    value: editor.getValue(),
   });
 }
 
