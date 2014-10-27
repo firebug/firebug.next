@@ -3,9 +3,10 @@
 "use strict";
 
 const { Cu } = require("chrome");
+const { main, onUnload } = require("../lib/index.js");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
-const { Trace, TraceError } = require("../lib/core/trace.js").get(module.id);
+const { setTimeout } = require("sdk/timers");
 
 // Import 'devtools' object
 Cu.import("resource://gre/modules/devtools/Loader.jsm")
@@ -13,9 +14,11 @@ Cu.import("resource://gre/modules/devtools/Loader.jsm")
 exports["test domPanel (async)"] = function(assert, done) {
   let browser = getMostRecentBrowserWindow();
 
+  main({loadReason: "install"});
+
   // Open a new browser tab.
   // xxxHonza: use proper test page URL FIX ME
-  let url = "https://getfirebug.com/tests/head/console/api/log.html";
+  let url = "about:blank";
   let newTab = openTab(browser, url, {
     inBackground: false
   });
@@ -40,8 +43,14 @@ exports["test domPanel (async)"] = function(assert, done) {
 
       assert.ok(panel.id == panelId, "DOM panel is loaded!");
 
-      closeTab(newTab);
-      done();
+      // Wait till the panel is refreshed and asynchronously quit the test.
+      panel.once("refreshed", function() {
+        setTimeout(function() {
+          onUnload();
+          closeTab(newTab);
+          done();
+        });
+      });
     }).then(null, console.error);
   }
 
