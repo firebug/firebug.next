@@ -6,21 +6,31 @@ const { Cu } = require("chrome");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
 const { openToolbox } = require("dev/utils");
-const { Trace, TraceError } = require("../lib/core/trace.js").get(module.id);
+const { Trace, TraceError } = require("../lib/core/trace").get(module.id);
+const { main } = require("../lib/index");
 
 // Import 'devtools' object
 Cu.import("resource://gre/modules/devtools/Loader.jsm");
 
 exports["test Command Editor"] = function(assert, done) {
+  main({loadReason: "install"});
   // TODO put the logic in a util file.
   let sidePanelId = "commandEditor";
-  let promise = new Promise((resolve) => {
-    openToolbox("webconsole").then((toolbox) => {
-      let panel = toolbox.getCurrentPanel()._firebugPanelOverlay;
-      panel.toggleSidebar();
-      console.log("step 1");
-      panel.once("show", () => {
-        console.log("step 2");
+  // Workaround for https://github.com/mozilla/addon-sdk/pull/1688
+  let promise = openToolbox({prototype: {}, id: "webconsole"}).then((toolbox) => {
+    let panel = toolbox.getCurrentPanel();
+    /*(function({emit}) {
+      panel._firebugPanelOverlay.emit = function(...args) {
+        console.log("EMITTING", ...args);
+        emit.apply(panel._firebugPanelOverlay, args);
+      };
+    })(panel._firebugPanelOverlay);*/
+    panel._firebugPanelOverlay.toggleSidebar();
+    return new Promise((resolve) => {
+      console.log("?????", panel);
+      panel.once("sidebar-created", () => {
+        // xxxFlorent: not running this callback...
+        console.log("!!!!!");
         let sidebar = panel._firebugPanelOverlay.sidebar;
         sidebar.select(sidePanelId);
         resolve(sidebar.getTab(sidePanelId));
@@ -33,6 +43,7 @@ exports["test Command Editor"] = function(assert, done) {
     let iframe = sidePanel.querySelector(".iframe-commandEditor");
     let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
     let { editor } = editorWin;
+    console.log(editor);
   });
   // Open a new browser tab.
   // xxxHonza: use proper test page URL FIX ME
