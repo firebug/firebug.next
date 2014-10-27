@@ -35,7 +35,7 @@ exports["test domPanel (async)"] = function(assert, done) {
     // Get debugging target for the new tab.
     let target = devtools.TargetFactory.forTab(newTab);
 
-    // Open toolbox with the Hello World panel selected
+    // Open toolbox with the DOM panel selected
     browser.gDevTools.showToolbox(target, panelId).then(function(toolbox) {
       let panel = toolbox.getCurrentPanel();
 
