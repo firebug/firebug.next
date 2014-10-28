@@ -44,8 +44,11 @@ exports["test Console clear button"] = function(assert, done) {
       let overlay = panel._firebugPanelOverlay;
       assert.ok(overlay, "The Console panel must be overlaid");
 
+      let doc = overlay.getPanelDocument();
+      let clearButton = doc.querySelector(".webconsole-clear-console-button");
+      assert.ok(clearButton, "The clear button must exist");
+
       waitForMessage(panel, () => {
-        let doc = overlay.getPanelDocument();
         let log = doc.querySelector(".message[category=console] .console-string");
         assert.ok(log, "There must be a log in the Console panel");
 
