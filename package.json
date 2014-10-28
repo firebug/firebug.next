@@ -8,6 +8,9 @@
   "version": "0.1.0",
   "homepage": "https://getfirebug.com/",
   "main": "lib/index",
+  "devDependencies": {
+    "addon-httpd": "0.0.1"
+  },
   "preferences": [{
     "name": "debugStartup",
     "title": "Execute start-up sequence for debugging",

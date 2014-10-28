@@ -38,6 +38,7 @@
   cursor: pointer;
 }
 
+/******************************************************************************/
 /* Sources Panel Breakpoints */
 
 .theme-light .side-menu-widget-item .side-menu-widget-item-other {
@@ -71,6 +72,7 @@
   font-style: normal;
 }
 
+/******************************************************************************/
 /* Breakpoint Checkbox */
 
 .theme-firebug #sources-pane .dbg-breakpoint-checkbox .checkbox-check {
@@ -95,6 +97,7 @@
   margin-right: 0;
 }
 
+/******************************************************************************/
 /* Sources toolbar */
 
 .theme-firebug #black-box {
@@ -125,6 +128,7 @@
   -moz-margin-end: 0;
 }
 
+/******************************************************************************/
 /* Toolbar controls */
 
 .theme-firebug #debugger-toolbar .devtools-toolbarbutton:not([label]) > .toolbarbutton-icon,
@@ -167,6 +171,7 @@
   display: none;
 }
 
+/******************************************************************************/
 /* Callstack Panel */
 
 .theme-firebug #callstack-list {
@@ -306,4 +311,11 @@ widgets.css is overwritten. */
 .theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:-moz-locale-dir(rtl) {
   border-left-style: none;
   border-right-style: solid;
+}
+
+/******************************************************************************/
+/* Search Box */
+
+.theme-firebug #debugger-toolbar .devtools-searchinput {
+  display: none;
 }

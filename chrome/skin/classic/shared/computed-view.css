@@ -3,3 +3,63 @@
 /******************************************************************************/
 /* Computed View */
 
+.property-view,
+.property-content {
+  background-color: inherit;
+  font-family: Lucida Grande,Tahoma,sans-serif;
+  font-size: 11px;
+}
+
+.property-view {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.property-view .theme-twisty {
+  background-position: 0px calc(0.5em - 4px);
+}
+
+.property-name {
+  font-weight: bold;
+}
+
+.property-value, .other-property-value {
+  background: none;
+}
+
+@media (min-resolution: 2dppx) {
+  .property-value, .other-property-value {
+    background-image: none;
+  }
+}
+
+.property-value {
+  padding-left: 0;
+}
+
+/* From skin */
+.matchedselectors > p {
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.matchedselectors > p:first-of-type {
+  border-top-width: 0;
+}
+
+.matchedselectors > p:last-of-type {
+  border-bottom-width: 0;
+}
+
+.link,
+.link:visited {
+  font-family: Lucida Grande, sans-serif;
+  font-weight: bold;
+  color: blue;
+}
+
+/******************************************************************************/
+/* Filter field */
+
+.theme-firebug .devtools-searchinput {
+  background-image: url(chrome://firebug/skin/filter.svg);
+}

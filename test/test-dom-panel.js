@@ -3,19 +3,20 @@
 "use strict";
 
 const { Cu } = require("chrome");
+const { loadFirebug } = require("./common.js");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
-const { Trace, TraceError } = require("./core/trace.js").get(module.id);
+const { setTimeout } = require("sdk/timers");
 
-// Import 'devtools' object
-Cu.import("resource://gre/modules/devtools/Loader.jsm")
+const { devtools } = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
 
-exports["test helloWorldPanel (async)"] = function(assert, done) {
+exports["test DOM panel"] = function(assert, done) {
   let browser = getMostRecentBrowserWindow();
 
+  loadFirebug();
+
   // Open a new browser tab.
-  // xxxHonza: use proper test page URL FIX ME
-  let url = "https://getfirebug.com/tests/head/console/api/log.html";
+  let url = "about:blank";
   let newTab = openTab(browser, url, {
     inBackground: false
   });
@@ -23,25 +24,30 @@ exports["test helloWorldPanel (async)"] = function(assert, done) {
   // Wait till the tab is loaded.
   // xxxHonza: there is a lot of logs in the console:
   // Bug 1022658 - Heavy logging in the console slows down unit test execution
-  var tabBrowser = getBrowserForTab(newTab);
+  let tabBrowser = getBrowserForTab(newTab);
   function onPageLoad() {
     tabBrowser.removeEventListener("load", onPageLoad, true);
 
-    var panelId = "dev-panel-firebug-nextjetpack-helloWorldPanelTitle";
-    var tool = browser.gDevTools.getToolDefinition(panelId);
-    assert.ok(tool, "Hello World tool must exists!");
+    let panelId = "dev-panel-firebug-nextgetfirebug-com-DOM";
+    let tool = browser.gDevTools.getToolDefinition(panelId);
+    assert.ok(tool, "The DOM tool must exist!");
 
     // Get debugging target for the new tab.
     let target = devtools.TargetFactory.forTab(newTab);
 
-    // Open toolbox with the Hello World panel selected
+    // Open toolbox with the DOM panel selected
     browser.gDevTools.showToolbox(target, panelId).then(function(toolbox) {
-      var panel = toolbox.getCurrentPanel();
+      let panel = toolbox.getCurrentPanel();
 
-      assert.ok(panel.id == panelId, "Hello World panel is loaded!");
+      assert.ok(panel.id == panelId, "DOM panel is loaded!");
 
-      closeTab(newTab);
-      done();
+      // Wait till the panel is refreshed and asynchronously quit the test.
+      panel.once("refreshed", function() {
+        setTimeout(function() {
+          closeTab(newTab);
+          done();
+        });
+      });
     }).then(null, console.error);
   }
 

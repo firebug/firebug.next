@@ -66,6 +66,13 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
 }
 
 /******************************************************************************/
+/* Filter field */
+
+.theme-firebug .hud-console-filter-toolbar .devtools-searchinput {
+  display: none;
+}
+
+/******************************************************************************/
 /* Remote logging */
 
 .theme-firebug .message[category=server] > .indent {
