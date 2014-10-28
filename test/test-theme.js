@@ -2,18 +2,16 @@
 
 "use strict";
 
-const { main, onUnload } = require("../lib/index.js");
+const { loadFirebug } = require("./common.js");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 
-exports["test-theme"] = function(assert) {
+exports["test Firebug theme"] = function(assert) {
   let browser = getMostRecentBrowserWindow();
 
-  main({loadReason: "install"});
+  loadFirebug();
 
   let theme = browser.gDevTools.getThemeDefinition("firebug");
   assert.ok(theme, "The Firebug theme must exist!");
-
-  onUnload();
 };
 
 require("sdk/test").run(exports);
