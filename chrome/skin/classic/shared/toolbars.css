@@ -66,10 +66,8 @@ but for now do not allocate an extra space for images */
   [selected="true"],
   [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not(#resume) {
   border-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
-    0 0 2px rgba(0, 0, 0, 0.05);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset, 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]) {
