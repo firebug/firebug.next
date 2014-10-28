@@ -22,18 +22,15 @@
 *.ipr
 
 # Build Files
-/extension/build/
-/extension/release/
-/tests/FBTest/release/
-/trace/FBTrace/release/
+/build/
+/release/
 *.graphml
-/extension/bz-locale/
 
 # Files from NPM
-/extension/node_modules/
+/node_modules/
 
 # Extensions
-/extension/firebug@software.joehewitt.com
+/firebug@software.joehewitt.com
 
 # Bash
 *.sh
