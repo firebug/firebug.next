@@ -2,10 +2,9 @@
 
 "use strict";
 
-var { main } = require("../lib/index.js");
 const { Locale } = require("../lib/core/locale.js");
 
-exports["test locale (sync)"] = function(assert) {
+exports["test Locale module API"] = function(assert) {
   let text;
 
   // 1 item

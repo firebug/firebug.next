@@ -3,17 +3,17 @@
 "use strict";
 
 const { Cu } = require("chrome");
-const { main, onUnload } = require("../lib/index.js");
+const { loadFirebug } = require("./common.js");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
 const { setTimeout } = require("sdk/timers");
 
 const { devtools } = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
 
-exports["test domPanel (async)"] = function(assert, done) {
+exports["test DOM panel"] = function(assert, done) {
   let browser = getMostRecentBrowserWindow();
 
-  main({loadReason: "install"});
+  loadFirebug();
 
   // Open a new browser tab.
   let url = "about:blank";
@@ -44,7 +44,6 @@ exports["test domPanel (async)"] = function(assert, done) {
       // Wait till the panel is refreshed and asynchronously quit the test.
       panel.once("refreshed", function() {
         setTimeout(function() {
-          onUnload();
           closeTab(newTab);
           done();
         });
