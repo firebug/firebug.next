@@ -33,5 +33,6 @@
 /firebug@software.joehewitt.com
 
 # Bash
+*.sh~
 *.sh
 *.bat
