@@ -7,34 +7,32 @@ const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
 const { openToolbox } = require("dev/utils");
 const { Trace, TraceError } = require("../lib/core/trace").get(module.id);
-const { main } = require("../lib/index");
+const { loadFirebug } = require("./common");
+const { setTimeout } = require("sdk/timers");
 
 // Import 'devtools' object
 Cu.import("resource://gre/modules/devtools/Loader.jsm");
 
 exports["test Command Editor"] = function(assert, done) {
-  main({loadReason: "install"});
+  loadFirebug();
   // TODO put the logic in a util file.
   let sidePanelId = "commandEditor";
   // Workaround for https://github.com/mozilla/addon-sdk/pull/1688
   let promise = openToolbox({prototype: {}, id: "webconsole"}).then((toolbox) => {
-    let panel = toolbox.getCurrentPanel();
-    /*(function({emit}) {
-      panel._firebugPanelOverlay.emit = function(...args) {
-        console.log("EMITTING", ...args);
-        emit.apply(panel._firebugPanelOverlay, args);
-      };
-    })(panel._firebugPanelOverlay);*/
-    panel._firebugPanelOverlay.toggleSidebar();
-    return new Promise((resolve) => {
-      console.log("?????", panel);
-      panel.once("sidebar-created", () => {
-        // xxxFlorent: not running this callback...
-        console.log("!!!!!");
-        let sidebar = panel._firebugPanelOverlay.sidebar;
-        sidebar.select(sidePanelId);
-        resolve(sidebar.getTab(sidePanelId));
+    return new Promise((resolve, reject) => {
+      let panel = toolbox.getCurrentPanel();
+      let jsterm = panel._firebugPanelOverlay.getTerminal();
+      jsterm.once("sidebar-created", () => {
+        // xxxFlorent: any sidebar looks to be null here, I have to use a timer...
+        setTimeout(() => {
+          let sidebar = panel._firebugPanelOverlay.sidebar;
+          if (!sidebar)
+            reject(new Error("can't get the sidebar"));
+          sidebar.select(sidePanelId);
+          resolve(sidebar.getTab(sidePanelId));
+        }, 1000);
       });
+      panel._firebugPanelOverlay.toggleSidebar();
     });
   });
 
@@ -44,7 +42,7 @@ exports["test Command Editor"] = function(assert, done) {
     let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
     let { editor } = editorWin;
     console.log(editor);
-  });
+  }, (error) => console.error(error));
   // Open a new browser tab.
   // xxxHonza: use proper test page URL FIX ME
   var panelId = "";
