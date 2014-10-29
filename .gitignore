@@ -5,6 +5,7 @@
 *.tmp
 .*.gz
 *.patch
+*~
 
 # Temporary files created by Eclipse
 .tmp*
@@ -33,6 +34,5 @@
 /firebug@software.joehewitt.com
 
 # Bash
-*.sh~
 *.sh
 *.bat
