@@ -278,14 +278,6 @@ div.CodeMirror span.eval-text {
 }
 
 /* Use white twisty when next to a selected item in markup view */
-.theme-selected ~ .theme-twisty {
-  background-position: -28px -14px;
-}
-
-.theme-selected ~ .theme-twisty[open] {
-  background-position: -42px -14px;
-}
-
 .theme-checkbox {
   display: inline-block;
   border: 0;
