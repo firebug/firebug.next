@@ -62,12 +62,13 @@ but for now do not allocate an extra space for images */
     0 0 2px rgba(0, 0, 0, 0.05);
 }
 
+/* Note the special selector part for the #resume button. */
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
   [selected="true"],
-  [open="true"]):not(.panelStatusLabel):not([disabled="true"]) {
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
-    0 0 2px rgba(0, 0, 0, 0.05);
+  [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not(#resume) {
+  border-color: rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset, 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]) {
