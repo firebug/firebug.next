@@ -95,7 +95,6 @@ exports["test Command Editor"] = function(assert, done) {
       observer.disconnect();
       // Flattening the addedNodes of the records.
       let addedNodes = [].concat(...records.map(x => Array.from(x.addedNodes)));
-      console.log(addedNodes);
       if (addedNodes.length === 2) {
         let log = addedNodes[1].querySelector(".console-string");
         callback(log);
