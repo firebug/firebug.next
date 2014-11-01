@@ -78,7 +78,7 @@ exports["test Command Editor"] = function(assert, done) {
 
   function checkResult(expected, panel) {
     return new Promise((resolve) => {
-      waitForMessage(panel, assert, (log) => {
+      waitForMessage(panel, (log) => {
         assert.ok(log.textContent === `"${expected}"`, "the evaluated " +
           "expression should give this result : " + expected);
         resolve();
