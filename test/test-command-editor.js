@@ -65,14 +65,14 @@ exports["test Command Editor"] = function(assert, done) {
 
     editor.setValue(instructions);
 
-    selectInEditor(editor, win, {line: 0, ch: selectionStart},
+    selectInEditor(editor, {line: 0, ch: selectionStart},
       {line: 0, ch: instructions.length});
 
     triggerEvaluate(win);
   }
 
   function runWithNoSelection(editor, sidePanel, win) {
-    selectInEditor(editor, win, {line: 0, ch: 0}, {line: 0, ch: 0});
+    selectInEditor(editor, {line: 0, ch: 0}, {line: 0, ch: 0});
     triggerEvaluate(win);
   }
 
@@ -106,8 +106,8 @@ exports["test Command Editor"] = function(assert, done) {
     observer.observe(doc.getElementById("output-container"), {childList: true});
   }
 
-  // xxxFlorent: find a way to get the window from the editor object (if possible ?)
-  function selectInEditor(editor, win, start, end) {
+  function selectInEditor(editor, start, end) {
+    let win = Cu.getGlobalForObject(editor);
     let cloneIntoCMScope = (pos) =>
       Wrapper.cloneIntoContentScope(win, pos);
 
