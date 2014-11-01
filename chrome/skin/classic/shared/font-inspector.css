@@ -29,3 +29,9 @@
 .theme-firebug .font-css-code {
   background-color: #f0f0f0;
 }
+
+.theme-firebug .font-url {
+  display: inline;
+  border: none;
+  color: #18191A;
+}
