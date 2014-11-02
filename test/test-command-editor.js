@@ -19,7 +19,8 @@ exports["test Command Editor"] = function(assert, done) {
   // TODO put the logic in a util file.
   let sidePanelId = "commandEditor";
   // Workaround for https://github.com/mozilla/addon-sdk/pull/1688
-  let promise = openToolbox({prototype: {}, id: "webconsole"}).then((toolbox) => {
+  let promise = openToolbox({prototype: {}, id: "webconsole"})
+    .then((toolbox) => {
     return new Promise((resolve, reject) => {
       let panel = toolbox.getCurrentPanel();
       let jsterm = panel._firebugPanelOverlay.getTerminal();
@@ -42,14 +43,19 @@ exports["test Command Editor"] = function(assert, done) {
     let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
     let { editor } = editorWin;
 
-    // Create a false Promise to promise-chain everything.
-    return new Promise((resolve) => resolve())
+    // Promise-chain everything. Note that runWithSelection and
+    // runWithNoSelection are synchronous and checkResult is async
+    // (it returns a new Promise).
+    return Promise.resolve()
       .then(() => runWithSelection(editor, sidePanel, editorWin))
       .then(() => checkResult("selection", panel))
       .then(() => runWithNoSelection(editor, sidePanel, editorWin))
       .then(() => checkResult("no selection", panel))
       .then(() => done());
-  }).catch((ex) => console.error(ex));
+  }).catch((ex) => {
+    console.error(ex);
+    TraceError.sysout("Error while executing test-command-editor", ex);
+  });
 
 
   // Helpers
