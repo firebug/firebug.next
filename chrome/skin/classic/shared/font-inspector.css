@@ -3,6 +3,25 @@
 /******************************************************************************/
 /* Font Inspector */
 
+html.theme-firebug,
+.theme-firebug body,
+.theme-firebug #root {
+  height: 100%;
+}
+
+.theme-firebug body {
+  padding-bottom: 2px;
+}
+
+.theme-firebug #root {
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-firebug #all-fonts {
+  flex: 1 0 0;
+}
+
 .theme-firebug .font-info {
   font-family: Lucida Grande, Tahoma, sans-serif;
 }
@@ -34,4 +53,15 @@
   display: inline;
   border: none;
   color: #18191A;
+}
+
+.theme-firebug #showall {
+  position: static;
+  border: none;
+  background-color: transparent;
+  color: blue;
+}
+
+.theme-firebug #showall:hover {
+  text-decoration: underline;
 }
