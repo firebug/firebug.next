@@ -104,6 +104,10 @@
   list-style-image: url(blackBox.svg);
 }
 
+.theme-firebug #pretty-print {
+  list-style-image: url(prettyPrint.svg);
+}
+
 .theme-firebug #toggle-breakpoints {
   list-style-image: url(toggleBreakpoints.svg);
 }
