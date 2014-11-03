@@ -161,6 +161,7 @@
 
 .theme-firebug #toolbox-tab-options {
   margin-right: 4px;
+  background-color: white;
 }
 
 .theme-firebug #toolbox-tab-options::before {
