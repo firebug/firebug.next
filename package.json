@@ -22,6 +22,7 @@
   "engines": {
     "firefox": ">=35.0a2 <=*"
   },
+  "updateURL": "https://getfirebug.com/releases/firebug/3.0/update.rdf",
   "license": "BSD License",
   "homepage": "https://getfirebug.com/",
   "main": "lib/index",
