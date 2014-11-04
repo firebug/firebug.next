@@ -215,3 +215,23 @@ be toggle-side-panels button at the end at some point */
   fill: rgba(84, 235, 159, 0.8); /* cyan */
   background: rgba(84, 235, 159, 0.8);
 }
+
+/******************************************************************************/
+/* Headers side panel */
+
+.theme-firebug .devtools-toolbar {
+  position: relative;
+  border-bottom: none;
+  margin: 0 0 4px 0;
+  padding: 2px 4px;
+  background: #F0F0F0 linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent) repeat-x;
+  font-size: inherit;
+  font-weight: bold;
+  height: auto;
+  color: black;
+  cursor: pointer;
+}
+
+.theme-firebug .devtools-toolbar > .name {
+  cursor: pointer;
+}
