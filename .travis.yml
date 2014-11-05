@@ -11,7 +11,7 @@ before_script:
 - npm install jpm -g
 - npm install mozilla-download -g
 - cd ..
-- mozilla-download --branch fx-team -c tinderbox firefox
+- mozilla-download --branch fx-team -c tinderbox firefox --host ftp.mozilla.org
 - cd $TRAVIS_BUILD_DIR
 
 script:
