@@ -3,16 +3,13 @@
 "use strict";
 
 const { Cu } = require("chrome");
-const { getMostRecentBrowserWindow } = require("sdk/window/utils");
-const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
 const { openToolbox } = require("dev/utils");
 const { Trace, TraceError } = require("../lib/core/trace").get(module.id);
 const { Wrapper } = require("../lib/core/wrapper");
 const { loadFirebug } = require("./common");
-const { setTimeout } = require("sdk/timers");
 
 // Import 'devtools' object
-Cu.import("resource://gre/modules/devtools/Loader.jsm");
+const { devtools } = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
 
 exports["test Command Editor"] = function(assert, done) {
   loadFirebug();
@@ -25,12 +22,13 @@ exports["test Command Editor"] = function(assert, done) {
       let panel = toolbox.getCurrentPanel();
       let jsterm = panel._firebugPanelOverlay.getTerminal();
       jsterm.once("sidebar-created", (eventName, sidebar) => {
-        if (!sidebar)
+        if (!sidebar) {
           reject(new Error("can't get the sidebar"));
-        setTimeout(() => {
+        }
+        sidebar.once("select", () => {
           sidebar.select(sidePanelId);
           resolve({panel: panel, sidePanel: sidebar.getTab(sidePanelId)});
-        }, 300);
+        });
       });
       panel._firebugPanelOverlay.toggleSidebar();
     });
@@ -38,9 +36,23 @@ exports["test Command Editor"] = function(assert, done) {
 
   promise.then(({panel, sidePanel}) => {
     let iframe = sidePanel.querySelector(".iframe-commandEditor");
-    if (iframe == null)
-      console.error("iframe is null");
+    if (iframe == null) {
+      throw new Error("iframe is null");
+    }
+
+    // Adding editorWin to the next promise handler.
     let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
+
+    return new Promise((resolve, reject) => {
+      let doResolve = () => resolve({panel, sidePanel, editorWin});
+      if (editorWin.document.readyState !== "complete") {
+        editorWin.addEventListener("load", doResolve);
+      }
+      else {
+        doResolve();
+      }
+    });
+  }).then(({panel, sidePanel, editorWin}) => {
     let { editor } = editorWin;
 
     // Promise-chain everything. Note that runWithSelection and
@@ -60,14 +72,10 @@ exports["test Command Editor"] = function(assert, done) {
 
   // Helpers
   function runWithSelection(editor, sidePanel, win) {
-    let instructions = "var a = \"no selection\";";
+    let instructions = "let a = \"no selection\";";
     instructions += "window.a || \"selection\";";
 
     let selectionStart = instructions.indexOf(";")+1;
-
-    // expected results:
-    let RES_NO_SELECTION = 'no selection';
-    let RES_SELECTION = 'selection';
 
     editor.setValue(instructions);
 
@@ -97,7 +105,7 @@ exports["test Command Editor"] = function(assert, done) {
   function waitForMessage(panel, callback) {
     let win = panel.hud.iframeWindow;
     let doc = win.document;
-    var observer = new win.MutationObserver((records) => {
+    let observer = new win.MutationObserver((records) => {
       observer.disconnect();
       // Flattening the addedNodes of the records.
       let addedNodes = [].concat(...records.map(x => Array.from(x.addedNodes)));
@@ -126,12 +134,10 @@ exports["test Command Editor"] = function(assert, done) {
     );
   }
 
-  function triggerEvaluate(win) {
+  function triggerEvaluate(editorWin) {
     // xxxFlorent: maybe better to send events? or is that fine?
-    let message = Wrapper.cloneIntoContentScope(win, {
-      type: "evaluate"
-    });
-    win.sendMessage(message);
+    let sidePanelDoc = editorWin.parent.document;
+    sidePanelDoc.querySelector("#firebug-commandeditor-run").click();
   }
 };
 
