@@ -23,6 +23,7 @@
     "firefox": ">=35.0a2 <=*"
   },
   "updateURL": "https://getfirebug.com/releases/firebug/3.0/update.rdf",
+  "icon": "chrome://firebug/skin/firebugBig.png",
   "license": "BSD License",
   "homepage": "https://getfirebug.com/",
   "main": "lib/index",
