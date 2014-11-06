@@ -2,8 +2,8 @@
 
 /* This theme is based on light-theme.css */
 
-.theme-body {
-  background: #fcfcfc; /* Background - Editor */
+.theme-firebug .theme-body {
+  background: white; /* Background - Editor */
   color: #18191a;
 }
 
