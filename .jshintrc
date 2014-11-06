@@ -1,4 +1,5 @@
 {
   "esnext": "true",
-  "predef": [ "require", "exports", "module" ]
+  "predef": [ "require", "exports", "module" ],
+  "curly": "true"
 }
