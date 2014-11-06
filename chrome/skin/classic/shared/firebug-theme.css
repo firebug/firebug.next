@@ -357,6 +357,13 @@ div.CodeMirror span.eval-text {
   border-bottom: 0;
 }
 
+.devtools-toolbarbutton {
+  -moz-appearance: none;
+  border: 1px solid #C4C4C4;
+  background-color: #E9E9E9;
+  color: #292E33;
+}
+
 .devtools-horizontal-splitter {
   border-bottom: 1px solid #aaa;
 }
