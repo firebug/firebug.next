@@ -13,7 +13,8 @@ Repository Structure
 Structure of the extension follows Jetpack standards. It's generated using the
 `cfx` tool
 
-* **data** Stylesheets, images, localization files, etc. 
+* **data** HTML pages, etc.
+* **chrome** Stylesheets, localization files, etc.
 * **lib** Firebug extension javascript files.
 * **test** Directory with test files
 
