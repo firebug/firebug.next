@@ -25,7 +25,7 @@ exports["test Command Editor"] = function(assert, done) {
         if (!sidebar) {
           reject(new Error("can't get the sidebar"));
         }
-        sidebar.once("select", () => {
+        sidebar.once(sidePanelId + "-ready", () => {
           sidebar.select(sidePanelId);
           resolve({panel: panel, sidePanel: sidebar.getTab(sidePanelId)});
         });
@@ -40,19 +40,8 @@ exports["test Command Editor"] = function(assert, done) {
       throw new Error("iframe is null");
     }
 
-    // Adding editorWin to the next promise handler.
     let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
 
-    return new Promise((resolve, reject) => {
-      let doResolve = () => resolve({panel, sidePanel, editorWin});
-      if (editorWin.document.readyState !== "complete") {
-        editorWin.addEventListener("load", doResolve);
-      }
-      else {
-        doResolve();
-      }
-    });
-  }).then(({panel, sidePanel, editorWin}) => {
     let { editor } = editorWin;
 
     // Promise-chain everything. Note that runWithSelection and
@@ -111,17 +100,21 @@ exports["test Command Editor"] = function(assert, done) {
     let [expectedMatchSel, childSel] = expectedSelector.split(" ");
     panel.hud.ui.once("new-messages", (event, messages) => {
       let logNodes = Array.from(messages).reduce((nodes, message) => {
-        if (message.node.matches(expectedMatchSel))
+        if (message.node.matches(expectedMatchSel)) {
           nodes.push(message.node.querySelector(childSel));
+        }
         return nodes;
       }, []);
 
-      if (logNodes.length === 1)
+      if (logNodes.length === 1) {
         callback(logNodes[0]);
-      else if (logNodes.length > 1)
+      }
+      else if (logNodes.length > 1) {
         console.error("more than 1 match found in waitForMessage");
-      else
+      }
+      else {
         console.log("no matching log yet");
+      }
     });
   }
 
@@ -140,7 +133,6 @@ exports["test Command Editor"] = function(assert, done) {
   }
 
   function triggerEvaluate(editorWin) {
-    // xxxFlorent: maybe better to send events? or is that fine?
     let sidePanelDoc = editorWin.parent.document;
     sidePanelDoc.querySelector("#firebug-commandeditor-run").click();
   }
