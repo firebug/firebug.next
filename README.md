@@ -13,12 +13,13 @@ Repository Structure
 Structure of the extension follows Jetpack standards. It's generated using the
 `cfx` tool
 
-* **data** Stylesheets, images, localization files, etc. 
+* **data** HTML pages, etc.
+* **chrome** Stylesheets, localization files, etc.
 * **lib** Firebug extension javascript files.
 * **test** Directory with test files
 
-Hacking on Firebug.next
------------------------
+Hacking on Firebug.next (aka Firebug 3)
+---------------------------------------
 1. Get the Add-on SDK: `git clone https://github.com/mozilla/addon-sdk`
 2. Get Python 2.5, 2.6, or 2.7: [download](http://python.org/download/) (required by Add-on SDK)
 [Read more](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)

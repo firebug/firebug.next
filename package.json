@@ -1,13 +1,39 @@
 {
-  "name": "firebug-next",
-  "title": "Firebug.next",
-  "id": "firebug-next@getfirebug.com",
+  "name": "firebug",
+  "title": "Firebug",
+  "id": "firebug@software.joehewitt.com",
   "description": "Next Firebug generation built on top of native Firefox developer tools",
+  "version": "3.0.0-alpha.1",
   "author": "Firebug Working Group",
+  "contributors": [
+    "Jan Odvarko (Mozilla Corp.)",
+    "Sebastian Zartner",
+    "Florent Fayolle",
+    "Simon Lindholm",
+    "Thomas Andersen",
+    "Belakhdar Abdeldjalil",
+    "Aakash Tyagi",
+    "Farshid Beheshti",
+    "Jakob Kaltenbrunner",
+    "Nicolas Joseph",
+    "Kartik Maji",
+    "Erik Vold"
+  ],
+  "engines": {
+    "firefox": ">=35.0a2 <=*"
+  },
+  "updateURL": "https://getfirebug.com/releases/firebug/3.0/update.rdf",
+  "icon": "chrome://firebug/skin/firebugBig.png",
   "license": "BSD License",
-  "version": "0.1.0",
   "homepage": "https://getfirebug.com/",
   "main": "lib/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firebug/firebug.next"
+  },
+  "bugs": {
+    "url": "https://github.com/firebug/firebug.next/issues"
+  },
   "devDependencies": {
     "addon-httpd": "0.0.1"
   },

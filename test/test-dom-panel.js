@@ -28,7 +28,7 @@ exports["test DOM panel"] = function(assert, done) {
   function onPageLoad() {
     tabBrowser.removeEventListener("load", onPageLoad, true);
 
-    let panelId = "dev-panel-firebug-nextgetfirebug-com-DOM";
+    let panelId = "dev-panel-firebugsoftware-joehewitt-com-DOM";
     let tool = browser.gDevTools.getToolDefinition(panelId);
     assert.ok(tool, "The DOM tool must exist!");
 

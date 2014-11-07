@@ -169,6 +169,10 @@ be toggle-side-panels button at the end at some point */
   background-color: rgba(112, 191, 83, 0.8); /* green */
 }
 
+.theme-firebug .requests-menu-subitem.requests-menu-waterfall {
+  background-image: none;
+}
+
 /******************************************************************************/
 /* Charts */
 
