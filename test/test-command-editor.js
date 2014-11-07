@@ -101,23 +101,28 @@ exports["test Command Editor"] = function(assert, done) {
   }
 
 
-  // Taken from test/test-console-clear.js
+
   function waitForMessage(panel, callback) {
-    let win = panel.hud.iframeWindow;
-    let doc = win.document;
-    let observer = new win.MutationObserver((records) => {
-      observer.disconnect();
-      // Flattening the addedNodes of the records.
-      let addedNodes = [].concat(...records.map(x => Array.from(x.addedNodes)));
-      if (addedNodes.length === 2) {
-        let log = addedNodes[1].querySelector(".console-string");
-        callback(log);
-      }
-      else {
-        assert.ok(false, "a log should appear");
-      }
+    let overlay = panel._firebugPanelOverlay;
+    let doc = overlay.getPanelDocument();
+    let expectedSelector = ".message[category=output] .console-string";
+    let log = doc.querySelector(expectedSelector);
+
+    let [expectedMatchSel, childSel] = expectedSelector.split(" ");
+    panel.hud.ui.once("new-messages", (event, messages) => {
+      let logNodes = Array.from(messages).reduce((nodes, message) => {
+        if (message.node.matches(expectedMatchSel))
+          nodes.push(message.node.querySelector(childSel));
+        return nodes;
+      }, []);
+
+      if (logNodes.length === 1)
+        callback(logNodes[0]);
+      else if (logNodes.length > 1)
+        console.error("more than 1 match found in waitForMessage");
+      else
+        console.log("no matching log yet");
     });
-    observer.observe(doc.getElementById("output-container"), {childList: true});
   }
 
   function selectInEditor(editor, start, end) {
