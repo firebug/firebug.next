@@ -283,21 +283,10 @@
   border-top-right-radius: 2px;*/
 }
 
-.theme-firebug #toolbox-tabs arrowscrollbox,
-.theme-firebug #toolbox-tabs arrowscrollbox > .arrowscrollbox-scrollbox,
-.theme-firebug #toolbox-tabs arrowscrollbox > .arrowscrollbox-scrollbox .scrollbox-innerbox {
-  background-color: transparent;
-  outline: none;
-  border: none;
-}
-
+/* Make sure the bottom tab border blends with the content.
+Note that overflow: visible can't be used since the scroll box needs
+it to scroll the inner content (tab strip). */
 .theme-firebug #toolbox-tabs arrowscrollbox > .arrowscrollbox-scrollbox {
-  /* The scrolling logic needs this */
-  /*overflow: visible;*/
-}
-
-.theme-firebug #toolbox-tabs arrowscrollbox > .arrowscrollbox-scrollbox .scrollbox-innerbox,
-.theme-firebug #toolbox-tabs arrowscrollbox,
-.theme-firebug #toolbox-tabs {
-  overflow: visible;
+  margin-bottom: -1px;
+  padding-bottom: 1px;
 }
