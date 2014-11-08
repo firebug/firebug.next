@@ -286,6 +286,7 @@
 /* Make sure the bottom tab border blends with the content.
 Note that overflow: visible can't be used since the scroll box needs
 it to scroll the inner content (tab strip). */
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .arrowscrollbox-scrollbox,
 .theme-firebug #toolbox-tabs arrowscrollbox > .arrowscrollbox-scrollbox {
   margin-bottom: -1px;
   padding-bottom: 1px;
