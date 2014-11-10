@@ -217,21 +217,21 @@ be toggle-side-panels button at the end at some point */
 }
 
 /******************************************************************************/
-/* Headers side panel */
+/* Side panels */
 
-.theme-firebug .devtools-toolbar {
-  position: relative;
-  border-bottom: none;
-  margin: 0 0 4px 0;
-  padding: 2px 4px;
-  background: #F0F0F0 linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent) repeat-x;
-  font-size: inherit;
-  font-weight: bold;
-  height: auto;
-  color: black;
-  cursor: pointer;
+.theme-firebug #network-inspector-view .variables-view-scope > .title > .theme-twisty {
+  display: block;
 }
 
 .theme-firebug .devtools-toolbar > .name {
   cursor: pointer;
+}
+
+.theme-firebug .variables-view-variable > .title > .name,
+.theme-firebug .variables-view-variable > .title > .separator {
+  font-weight: bold;
+}
+
+.theme-firebug .variables-view-variable > .title > .value {
+  color: #18191A;
 }

@@ -97,8 +97,8 @@
 .cm-s-mozilla .cm-def,
 .cm-s-mozilla .cm-property,
 .cm-s-mozilla .cm-qualifier,
-.variables-view-variable > .title > .name { /* blue */
-  color: hsl(208,56%,40%);
+.variables-view-variable > .title > .name {
+  color: #18191A;
 }
 
 .CodeMirror-Tern-completion-object:before {
@@ -131,8 +131,8 @@
 .cm-s-mozilla .cm-string,
 .cm-s-mozilla .cm-string-2,
 .variable-or-property .token-string,
-.CodeMirror-Tern-farg { /* Orange */
-  color: hsl(24,85%,39%);
+.CodeMirror-Tern-farg {
+  color: red;
 }
 
 .CodeMirror-Tern-completion-string:before,
