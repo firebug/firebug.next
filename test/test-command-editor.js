@@ -52,6 +52,7 @@ exports["test Command Editor"] = function(assert, done) {
       .then(() => checkResult("selection", panel))
       .then(() => runWithNoSelection(editor, sidePanel, editorWin))
       .then(() => checkResult("no selection", panel))
+      .then(() => clearBeforeDone(editor, panel))
       .then(() => done());
   }).catch((ex) => {
     console.error(ex);
@@ -89,7 +90,11 @@ exports["test Command Editor"] = function(assert, done) {
     });
   }
 
-
+  function clearBeforeDone(editor, panel) {
+    editor.setValue("");
+    panel._firebugPanelOverlay.clearConsole();
+    panel._firebugPanelOverlay.toggleSidebar();
+  }
 
   function waitForMessage(panel, callback) {
     let overlay = panel._firebugPanelOverlay;
