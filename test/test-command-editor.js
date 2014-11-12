@@ -85,7 +85,10 @@ exports["test Command Editor"] = function(assert, done) {
     let log = doc.querySelector(expectedSelector);
 
     let [expectedMatchSel, childSel] = expectedSelector.split(" ");
-    panel.hud.ui.once("new-messages", (event, messages) => {
+
+    function onMessages(event, messages) {
+      console.log("onMessages; size " + messages.size);
+
       let logNodes = Array.from(messages).reduce((nodes, message) => {
         if (message.node.matches(expectedMatchSel)) {
           nodes.push(message.node.querySelector(childSel));
@@ -94,15 +97,18 @@ exports["test Command Editor"] = function(assert, done) {
       }, []);
 
       if (logNodes.length === 1) {
+        panel.hud.ui.off("new-messages", onMessages);
         callback(logNodes[0]);
       }
       else if (logNodes.length > 1) {
-        console.error("more than 1 match found in waitForMessage");
+        console.log("more than 1 match found in waitForMessage");
       }
       else {
         console.log("no matching log yet");
       }
-    });
+    };
+
+    panel.hud.ui.on("new-messages", onMessages);
   }
 
   function selectInEditor(editor, start, end) {
