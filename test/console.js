@@ -27,7 +27,7 @@ function waitForMessage(toolbox, config) {
   function onMessages(event, messages) {
     let doc = consoleOverlay.getPanelDocument();
     let result = doc.querySelectorAll(config.cssSelector);
-    if (result) {
+    if (result.length) {
       frame.off("new-messages", onMessages);
       deferred.resolve(result);
     }
