@@ -3,62 +3,42 @@
 "use strict";
 
 const { Cu } = require("chrome");
-const { openToolbox } = require("dev/utils");
+const { openToolbox } = require("./common");
+const { openSidePanel } = require("./console");
 const { Trace, TraceError } = require("../lib/core/trace").get(module.id);
 const { Wrapper } = require("../lib/core/wrapper");
-const { loadFirebug } = require("./common");
-
-// Import 'devtools' object
-const { devtools } = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
 
 exports["test Command Editor"] = function(assert, done) {
-  loadFirebug();
-  // TODO put the logic in a util file.
-  let sidePanelId = "commandEditor";
-  // Workaround for https://github.com/mozilla/addon-sdk/pull/1688
-  let promise = openToolbox({prototype: {}, id: "webconsole"})
-    .then((toolbox) => {
-    return new Promise((resolve, reject) => {
-      let panel = toolbox.getCurrentPanel();
-      let jsterm = panel._firebugPanelOverlay.getTerminal();
-      jsterm.once("sidebar-created", (eventName, sidebar) => {
-        if (!sidebar) {
-          reject(new Error("can't get the sidebar"));
-        }
-        sidebar.once(sidePanelId + "-ready", () => {
-          sidebar.select(sidePanelId);
-          resolve({panel: panel, sidePanel: sidebar.getTab(sidePanelId)});
-        });
-      });
-      panel._firebugPanelOverlay.toggleSidebar();
+  let config = {
+    panelId: "webconsole",
+  };
+
+  openToolbox(config).then(({toolbox, cleanUp}) => {
+    openSidePanel(toolbox, "commandEditor").then(({panel, sidePanel}) => {
+      let iframe = sidePanel.querySelector(".iframe-commandEditor");
+      if (iframe == null) {
+        throw new Error("iframe is null");
+      }
+
+      let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
+
+      let { editor } = editorWin;
+
+      // Promise-chain everything. Note that runWithSelection and
+      // runWithNoSelection are synchronous and checkResult is async
+      // (it returns a new Promise).
+      return Promise.resolve()
+        .then(() => runWithSelection(editor, sidePanel, editorWin))
+        .then(() => checkResult("selection", panel))
+        .then(() => runWithNoSelection(editor, sidePanel, editorWin))
+        .then(() => checkResult("no selection", panel))
+        .then(() => clearBeforeDone(editor, panel))
+        .then(() => cleanUp(done));
+    }).catch((ex) => {
+      console.error(ex);
+      TraceError.sysout("Error while executing test-command-editor", ex);
     });
   });
-
-  promise.then(({panel, sidePanel}) => {
-    let iframe = sidePanel.querySelector(".iframe-commandEditor");
-    if (iframe == null) {
-      throw new Error("iframe is null");
-    }
-
-    let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
-
-    let { editor } = editorWin;
-
-    // Promise-chain everything. Note that runWithSelection and
-    // runWithNoSelection are synchronous and checkResult is async
-    // (it returns a new Promise).
-    return Promise.resolve()
-      .then(() => runWithSelection(editor, sidePanel, editorWin))
-      .then(() => checkResult("selection", panel))
-      .then(() => runWithNoSelection(editor, sidePanel, editorWin))
-      .then(() => checkResult("no selection", panel))
-      .then(() => clearBeforeDone(editor, panel))
-      .then(() => done());
-  }).catch((ex) => {
-    console.error(ex);
-    TraceError.sysout("Error while executing test-command-editor", ex);
-  });
-
 
   // Helpers
   function runWithSelection(editor, sidePanel, win) {
@@ -96,6 +76,8 @@ exports["test Command Editor"] = function(assert, done) {
     panel._firebugPanelOverlay.toggleSidebar();
   }
 
+  // xxxHonza: waitForMessage() API from console.js module
+  // should be utilized.
   function waitForMessage(panel, callback) {
     let overlay = panel._firebugPanelOverlay;
     let doc = overlay.getPanelDocument();
@@ -125,8 +107,7 @@ exports["test Command Editor"] = function(assert, done) {
 
   function selectInEditor(editor, start, end) {
     let win = Cu.getGlobalForObject(editor);
-    let cloneIntoCMScope = (pos) =>
-      Wrapper.cloneIntoContentScope(win, pos);
+    let cloneIntoCMScope = (pos) => Wrapper.cloneIntoContentScope(win, pos);
 
     // Focusing looks to be required to select text in CodeMirror.
     editor.focus();
@@ -142,6 +123,5 @@ exports["test Command Editor"] = function(assert, done) {
     sidePanelDoc.querySelector("#firebug-commandeditor-run").click();
   }
 };
-
 
 require("sdk/test").run(exports);
