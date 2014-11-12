@@ -24,16 +24,16 @@ function waitForMessage(toolbox, config) {
     return deferred.promise;
   }
 
-  function onMessage(event, messages) {
+  function onMessages(event, messages) {
     let doc = consoleOverlay.getPanelDocument();
-    let result = doc.querySelector(config.cssSelector);
+    let result = doc.querySelectorAll(config.cssSelector);
     if (result) {
-      frame.off("new-messages", onMessage);
+      frame.off("new-messages", onMessages);
       deferred.resolve(result);
     }
   }
 
-  frame.on("new-messages", onMessage);
+  frame.on("new-messages", onMessages);
 
   return deferred.promise;
 }

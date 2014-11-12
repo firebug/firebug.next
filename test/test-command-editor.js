@@ -4,7 +4,7 @@
 
 const { Cu } = require("chrome");
 const { openToolbox } = require("./common");
-const { openSidePanel } = require("./console");
+const { openSidePanel, waitForMessage } = require("./console");
 const { Trace, TraceError } = require("../lib/core/trace").get(module.id);
 const { Wrapper } = require("../lib/core/wrapper");
 
@@ -21,52 +21,51 @@ exports["test Command Editor"] = function(assert, done) {
       }
 
       let editorWin = XPCNativeWrapper.unwrap(iframe.contentWindow);
-
       let { editor } = editorWin;
 
       // Promise-chain everything. Note that runWithSelection and
       // runWithNoSelection are synchronous and checkResult is async
       // (it returns a new Promise).
-      return Promise.resolve()
-        .then(() => runWithSelection(editor, sidePanel, editorWin))
-        .then(() => checkResult("selection", panel))
-        .then(() => runWithNoSelection(editor, sidePanel, editorWin))
-        .then(() => checkResult("no selection", panel))
-        .then(() => clearBeforeDone(editor, panel))
-        .then(() => cleanUp(done));
-    }).catch((ex) => {
-      console.error(ex);
-      TraceError.sysout("Error while executing test-command-editor", ex);
+      return Promise.resolve().
+        then(() => runWithSelection(panel, editor, sidePanel, editorWin)).
+        then(() => checkResult(toolbox, "\"selection\"", panel)).
+        then(() => runWithNoSelection(panel, editor, sidePanel, editorWin)).
+        then(() => checkResult(toolbox, "\"no selection\"", panel)).
+        then(() => clearBeforeDone(editor, panel)).
+        then(() => cleanUp(done));
     });
   });
 
-  // Helpers
-  function runWithSelection(editor, sidePanel, win) {
+  // Helpers (defined in scope of the test, so assert API is available)
+
+  function runWithSelection(panel, editor, sidePanel, win) {
     let instructions = "let a = \"no selection\";";
     instructions += "window.a || \"selection\";";
 
-    let selectionStart = instructions.indexOf(";")+1;
+    let selectionStart = instructions.indexOf(";") + 1;
 
     editor.setValue(instructions);
 
     selectInEditor(editor, {line: 0, ch: selectionStart},
       {line: 0, ch: instructions.length});
 
-    triggerEvaluate(win);
+    triggerEvaluate(panel, win);
   }
 
-  function runWithNoSelection(editor, sidePanel, win) {
+  function runWithNoSelection(panel, editor, sidePanel, win) {
     selectInEditor(editor, {line: 0, ch: 0}, {line: 0, ch: 0});
-    triggerEvaluate(win);
+    triggerEvaluate(panel, win);
   }
 
-  function checkResult(expected, panel) {
-    return new Promise((resolve) => {
-      waitForMessage(panel, (log) => {
-        assert.ok(log.textContent === `"${expected}"`, "the evaluated " +
-          "expression should give this result : " + expected);
-        resolve();
-      });
+  function checkResult(toolbox, expected, panel) {
+    let config = {
+      cssSelector: ".message[category=output] .console-string"
+    };
+
+    return waitForMessage(toolbox, config).then(result => {
+      assert.equal(result.length, 1, "There must be one output message");
+      assert.equal(result[0].textContent, expected, "the evaluated " +
+        "expression should give this result : " + expected);
     });
   }
 
@@ -74,41 +73,6 @@ exports["test Command Editor"] = function(assert, done) {
     editor.setValue("");
     panel._firebugPanelOverlay.clearConsole();
     panel._firebugPanelOverlay.toggleSidebar();
-  }
-
-  // xxxHonza: waitForMessage() API from console.js module
-  // should be utilized.
-  function waitForMessage(panel, callback) {
-    let overlay = panel._firebugPanelOverlay;
-    let doc = overlay.getPanelDocument();
-    let expectedSelector = ".message[category=output] .console-string";
-    let log = doc.querySelector(expectedSelector);
-
-    let [expectedMatchSel, childSel] = expectedSelector.split(" ");
-
-    function onMessages(event, messages) {
-      console.log("onMessages; size " + messages.size);
-
-      let logNodes = Array.from(messages).reduce((nodes, message) => {
-        if (message.node.matches(expectedMatchSel)) {
-          nodes.push(message.node.querySelector(childSel));
-        }
-        return nodes;
-      }, []);
-
-      if (logNodes.length === 1) {
-        panel.hud.ui.off("new-messages", onMessages);
-        callback(logNodes[0]);
-      }
-      else if (logNodes.length > 1) {
-        console.log("more than 1 match found in waitForMessage");
-      }
-      else {
-        console.log("no matching log yet");
-      }
-    };
-
-    panel.hud.ui.on("new-messages", onMessages);
   }
 
   function selectInEditor(editor, start, end) {
@@ -124,7 +88,8 @@ exports["test Command Editor"] = function(assert, done) {
     );
   }
 
-  function triggerEvaluate(editorWin) {
+  function triggerEvaluate(panel, editorWin) {
+    panel._firebugPanelOverlay.clearConsole();
     let sidePanelDoc = editorWin.parent.document;
     sidePanelDoc.querySelector("#firebug-commandeditor-run").click();
   }
