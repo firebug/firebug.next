@@ -38,5 +38,39 @@ function waitForMessage(toolbox, config) {
   return deferred.promise;
 }
 
+/**
+ * xxxHonza: TODO description
+ *
+ * @param toolbox
+ * @param sidePanelId
+ * @returns
+ */
+function openSidePanel(toolbox, sidePanelId) {
+  let deferred = defer();
+  let chrome = Firebug.getChrome(toolbox);
+  let panel = toolbox.getPanel("webconsole")
+  let consoleOverlay = panel._firebugPanelOverlay;
+  let jsterm = consoleOverlay.getTerminal();
+
+  jsterm.once("sidebar-created", (eventName, sidebar) => {
+    if (!sidebar) {
+      reject(new Error("can't get the sidebar"));
+    }
+
+    sidebar.once(sidePanelId + "-ready", () => {
+      sidebar.select(sidePanelId);
+      deferred.resolve({
+        panel: panel,
+        sidePanel: sidebar.getTab(sidePanelId)
+      });
+    });
+  });
+
+  consoleOverlay.toggleSidebar();
+
+  return deferred.promise;
+}
+
 // Exports from this module
 exports.waitForMessage = waitForMessage;
+exports.openSidePanel = openSidePanel;
