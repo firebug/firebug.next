@@ -31,6 +31,25 @@ about how to install and activate the Add-on SDK.
 7. Run `jpm run -o <path to Add-on SDK> -b <file path to your Firefox binary>` in the Firebug.next directory to launch Firefox (you need Firefox [Nightly build](https://nightly.mozilla.org/) at the moment), which automatically creates a clean profile.
 If you wish to run it with an existing profile (e.g. to include FBTrace), first create a new profile via the [Profile Manager](https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-firefox-profiles), and then run `jpm run -o <path to Add-on SDK> -b <file path to your Firefox binary> -p <path to your Firefox profile (needs to start with /)>`.
 
+Examples
+--------
+
+Run Firebug with Firefox Nightly on OSX:
+
+`jpm run -b /Applications/FirefoxNightly.app`
+
+Build Firebug `.xpi` file for deployment and installation:
+
+`jpm xpi`
+
+Run Firebug test suite:
+
+`jpm test`
+
+Running tests requires some external modules, you need to download and install them:
+
+`nmp install`
+
 Further Resources
 -----------------
 
