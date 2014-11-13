@@ -26,6 +26,7 @@
 /build/
 /release/
 *.graphml
+*.xpi
 
 # Files from NPM
 /node_modules/
