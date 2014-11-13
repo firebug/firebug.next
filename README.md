@@ -48,7 +48,7 @@ Run Firebug test suite:
 
 Running tests requires some external modules, you need to download and install them:
 
-`nmp install`
+`npm install`
 
 Further Resources
 -----------------
