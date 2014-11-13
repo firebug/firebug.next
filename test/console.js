@@ -6,10 +6,15 @@ const { Firebug } = require("../lib/index.js");
 const { defer } = require("sdk/core/promise");
 
 /**
- * xxxHonza: TODO description
+ * Wait for a message displayed in the Console panel.
  *
- * @param toolbox
- * @param config
+ * @param {Toolbox} toolbox The current toolbox instance.
+ * @param {Object} config Configuration object with the following flags:
+ * {String} cssSelector CSS selector that identifies the message
+ * (or messages) to wait for.
+ *
+ * @returns {Promise} A promise that is resolved when a message(s)
+ * that matches provided CSS selector is displayed.
  */
 function waitForMessage(toolbox, config) {
   let deferred = defer();
@@ -39,11 +44,21 @@ function waitForMessage(toolbox, config) {
 }
 
 /**
- * xxxHonza: TODO description
+ * Open side panel in the Console panel. The API expects that the
+ * side panel is implemented using {@ToolSidebar} widget from
+ * the platform.
  *
- * @param toolbox
- * @param sidePanelId
- * @returns
+ * xxxHonza: this API should be used for any panel in the toolbox, but
+ * not every panel is using {@ToolSidebar}, see also:
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=1074710
+ *
+ * @param {Toolbox} toolbox The current toolbox instance.
+ * @param {String} sidePanelId ID of the side panel to be selected
+ * by default.
+ *
+ * @returns {Promise} A promise that is resolved when the side panel
+ * is opened and default panel selected and loaded (i.e. panel content
+ * iframe loaded and ready to use).
  */
 function openSidePanel(toolbox, sidePanelId) {
   let deferred = defer();
