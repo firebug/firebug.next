@@ -3,7 +3,7 @@
   "title": "Firebug",
   "id": "firebug@software.joehewitt.com",
   "description": "Next Firebug generation built on top of native Firefox developer tools",
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "author": "Firebug Working Group",
   "contributors": [
     "Jan Odvarko (Mozilla Corp.)",
