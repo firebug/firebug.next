@@ -23,7 +23,7 @@
 
 .theme-selected,
 .CodeMirror-hint-active {
-  background-color: #4c9ed9;
+  background-color: #4c9ed9 !important;
   color: #f5f7fa; /* Light foreground text */
 }
 
@@ -387,6 +387,31 @@ div.CodeMirror span.eval-text {
   -moz-border-end: 1px solid #aaa;
   border-color: #aaa; /* Needed for responsive container at low width. */
 }
+
+.consoletable .table-widget-body .devtools-side-splitter {
+  background-color: rgb(0, 0, 0) !important;
+  background:linear-gradient(#CBD4DE,#656A6E,#CBD4DE);
+  min-width: 1px !important;
+  width: 1px !important;
+  position:absolute;
+  height: 20% !important;
+  min-height: 20px !important;
+  /*margin: -1px -10px 0px 0px !important;*/
+}
+.table-widget-column .table-widget-cell{
+  width:102%;
+  margin: -1px -10px 0px 0px !important;
+}
+
+
+.table-widget-column .table-widget-cell:nth-child(odd){ 
+  background: #EFEFEF;
+}
+
+.table-widget-column .table-widget-cell:nth-child(even){
+  background: #FFFFFF;
+}
+
 
 .CodeMirror-hints,
 .CodeMirror-Tern-tooltip {
