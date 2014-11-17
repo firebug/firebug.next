@@ -3,14 +3,9 @@
 /******************************************************************************/
 /* Search Box */
 
-.theme-firebug textbox[type="fbSearchBox"] {
-  -moz-binding: url("chrome://firebug/skin/searchBox.xml#searchBox");
-}
 .theme-firebug textbox[type="fbSearchBox"] .panelFocusBound {
   -moz-user-focus: normal;
 }
-
-/******************************************************************************/
 
 .theme-firebug #fbSearchBox {
   min-width: 100px;

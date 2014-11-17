@@ -18,8 +18,8 @@ window.addEventListener("message", event => {
   port.onmessage = onMessage.bind(this);
 
   //xxxHonza: Ask for list of tabs (testing)
-  var str = '{"to": "root", "type": "listTabs"}';
-  var packet = JSON.parse(str);
+  let str = '{"to": "root", "type": "listTabs"}';
+  let packet = JSON.parse(str);
   port.postMessage(packet);
 }, false);
 
@@ -27,9 +27,9 @@ window.addEventListener("message", event => {
  * Callback for messages coming from the debuggee target.
  */
 function onMessage(event) {
-  var parentNode = window.document.getElementById("content");
+  let parentNode = window.document.getElementById("content");
 
-  var item = document.createElement("pre");
+  let item = document.createElement("pre");
   item.textContent = JSON.stringify(event.data, 2, 2);
   parentNode.appendChild(item);
 };
