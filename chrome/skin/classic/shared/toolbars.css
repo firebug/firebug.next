@@ -40,6 +40,8 @@
   border-radius: 2px;
   color: #141414;
   width: auto;
+  line-height: 12px;
+  font-size: 12px;
 }
 
 /* We might want to change this if toolbar buttons have icons,
