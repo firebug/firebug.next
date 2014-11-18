@@ -13,11 +13,11 @@
 }
 
 .theme-firebug #fbSearchBox:-moz-locale-dir(ltr) {
-  margin: 5px 0 4px 0;
+  margin: 4px 0;
 }
 
 .theme-firebug #fbSearchBox:-moz-locale-dir(rtl) {
-  margin: 5px 0 4px 0;
+  margin: 4px 0;
 }
 
 .theme-firebug .fbsearch-textbox[status="notfound"] {
