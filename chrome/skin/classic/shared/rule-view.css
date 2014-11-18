@@ -42,8 +42,8 @@
   font-weight: bold;
   color: black;
   border: none;
-  margin: 0 0 4px 0;
-  padding: 2px 4px;
+  margin: 4px 0 4px 0;
+  padding: 3px 4px 2px 4px;
   line-height: inherit;
   min-height: 0;
   background: #F0F0F0 linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent) repeat-x;
