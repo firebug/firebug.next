@@ -59,3 +59,4 @@ Further Resources
 * Coding Style: https://github.com/mozilla/addon-sdk/wiki/Coding-style-guide
 * DevTools Extension Examples: https://github.com/mozilla/addon-sdk/tree/devtools/examples
 * DevTools/Hacking: https://wiki.mozilla.org/DevTools/Hacking
+* Firefox Developer Edition: https://developer.mozilla.org/en-US/Firefox/Developer_Edition
