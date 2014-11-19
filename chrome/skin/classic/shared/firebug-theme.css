@@ -2,8 +2,8 @@
 
 /* This theme is based on light-theme.css */
 
-.theme-body {
-  background: #fcfcfc; /* Background - Editor */
+.theme-firebug .theme-body {
+  background: white; /* Background - Editor */
   color: #18191a;
 }
 
@@ -97,8 +97,8 @@
 .cm-s-mozilla .cm-def,
 .cm-s-mozilla .cm-property,
 .cm-s-mozilla .cm-qualifier,
-.variables-view-variable > .title > .name { /* blue */
-  color: hsl(208,56%,40%);
+.variables-view-variable > .title > .name {
+  color: #18191A;
 }
 
 .CodeMirror-Tern-completion-object:before {
@@ -131,8 +131,8 @@
 .cm-s-mozilla .cm-string,
 .cm-s-mozilla .cm-string-2,
 .variable-or-property .token-string,
-.CodeMirror-Tern-farg { /* Orange */
-  color: hsl(24,85%,39%);
+.CodeMirror-Tern-farg {
+  color: red;
 }
 
 .CodeMirror-Tern-completion-string:before,
@@ -278,14 +278,6 @@ div.CodeMirror span.eval-text {
 }
 
 /* Use white twisty when next to a selected item in markup view */
-.theme-selected ~ .theme-twisty {
-  background-position: -28px -14px;
-}
-
-.theme-selected ~ .theme-twisty[open] {
-  background-position: -42px -14px;
-}
-
 .theme-checkbox {
   display: inline-block;
   border: 0;
