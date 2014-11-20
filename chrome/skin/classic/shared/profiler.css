@@ -1,7 +1,11 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Performance */
+/* JS Profiler (aka Performance panel) */
+
+.theme-firebug .notice-container {
+  background-color: white;
+}
 
 #record-button,
 #empty-notice button,

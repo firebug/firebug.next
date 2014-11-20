@@ -3,3 +3,98 @@
 /******************************************************************************/
 /* Rule View */
 
+.ruleview {
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.ruleview-namecontainer > .ruleview-propertyname,
+.ruleview-propertycontainer > .ruleview-propertyvalue {
+  border-bottom: none;
+}
+
+.ruleview-namecontainer > .ruleview-propertyname {
+  color: darkgreen;
+}
+
+.ruleview-propertycontainer > .ruleview-propertyvalue {
+  color: darkblue;
+}
+
+.ruleview-rule + .ruleview-rule {
+  border-top: none;
+}
+
+.ruleview-rule-source label {
+  font-family: Lucida Grande, sans-serif;
+  font-weight: bold;
+  color: #0000FF;
+}
+
+.ruleview-selector > .ruleview-selector-matched,
+.ruleview-selector > .ruleview-selector-separator,
+.ruleview-selector > .ruleview-selector-unmatched {
+  color: black;
+}
+
+.theme-gutter.ruleview-header {
+  font-family: Lucida Grande, sans-serif;
+  font-weight: bold;
+  color: black;
+  border: none;
+  margin: 4px 0 4px 0;
+  padding: 3px 4px 2px 4px;
+  line-height: inherit;
+  min-height: 0;
+  background: #F0F0F0 linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent) repeat-x;
+}
+
+.ruleview-overridden {
+  text-decoration: none;
+}
+
+.ruleview-overridden .ruleview-propertyname,
+.ruleview-overridden .ruleview-propertyvalue {
+  text-decoration: line-through;
+}
+
+.ruleview-enableproperty:not([checked]) ~ .ruleview-namecontainer,
+.ruleview-enableproperty:not([checked]) ~ .ruleview-namecontainer *,
+.ruleview-enableproperty:not([checked]) ~ .ruleview-propertycontainer,
+.ruleview-enableproperty:not([checked]) ~ .ruleview-propertycontainer * {
+  color: #CCCCCC;
+}
+
+.ruleview-enableproperty:not([checked]) ~ .ruleview-computedlist * {
+  color: #CCCCCC;
+}
+
+/******************************************************************************/
+/* The Editor */
+
+.styleinspector-propertyeditor {
+  border: 1px solid #a0a0a0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/******************************************************************************/
+/* Disable/Enable */
+
+.ruleview-rule .theme-checkbox {
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-image: url(chrome://firebug/skin/disable.svg);
+  background-position:0 0;
+}
+
+.ruleview-rule .theme-checkbox:not([checked]){
+  filter: url(chrome://firebug/skin/filters.svg#grayscale);
+}
+
+.ruleview-rule .theme-checkbox[checked] {
+  background-position: 0 0;
+}
+
+.ruleview-property:not(:hover) .ruleview-enableproperty {
+  visibility: hidden;
+}

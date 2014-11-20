@@ -2,11 +2,14 @@
 
 "use strict";
 
-const { Trace, TraceError } = require("../lib/core/trace.js").get(module.id);
 const { Locale } = require("../lib/core/locale.js");
 
-exports["test locale (sync)"] = function(assert) {
+exports["test Locale module API"] = function(assert) {
   let text;
+
+  // xxxHonza: it would be better to have test-locale.properties file
+  // for this test, but registerStringBundle expects chrome URL...
+  Locale.registerStringBundle("chrome://firebug/locale/firebug.properties");
 
   // 1 item
   text = Locale.$STRP("firebug.storage.totalItems", [1]);

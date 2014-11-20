@@ -12,3 +12,10 @@ cause collisions with built-in styles (e.g. the MarkupView is using it). */
 .theme-firebug [collapsed="true"] {
   display: none;
 }
+
+/******************************************************************************/
+/* Search */
+
+.theme-firebug .jumpHighlight {
+  background-color: #C4F4FF !important;
+}

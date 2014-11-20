@@ -169,6 +169,10 @@ be toggle-side-panels button at the end at some point */
   background-color: rgba(112, 191, 83, 0.8); /* green */
 }
 
+.theme-firebug .requests-menu-subitem.requests-menu-waterfall {
+  background-image: none;
+}
+
 /******************************************************************************/
 /* Charts */
 
@@ -210,4 +214,62 @@ be toggle-side-panels button at the end at some point */
 .theme-firebug .chart-colored-blob[name=flash] {
   fill: rgba(84, 235, 159, 0.8); /* cyan */
   background: rgba(84, 235, 159, 0.8);
+}
+
+/******************************************************************************/
+/* Side panels */
+
+.theme-firebug #network-inspector-view .variables-view-scope > .title > .theme-twisty {
+  display: block;
+}
+
+.theme-firebug .devtools-toolbar > .name {
+  cursor: pointer;
+}
+
+.theme-firebug .variables-view-variable > .title > .name,
+.theme-firebug .variables-view-variable > .title > .separator {
+  font-weight: bold;
+}
+
+.theme-firebug .variables-view-variable > .title > .value {
+  color: #18191A;
+}
+
+/******************************************************************************/
+/* Headers side panel */
+
+.theme-firebug box.requests-menu-status:not([code]) {
+  background-color: rgba(143, 161, 178, 1); /* grey */
+}
+
+.theme-firebug box.requests-menu-status[code^="1"] {
+  background-color: rgba(0, 136, 204, 1); /* light blue */
+}
+
+.theme-firebug box.requests-menu-status[code^="2"] {
+  background-color: rgba(44, 187, 15, 1); /* green */
+}
+
+/* 3xx are triangles */
+.theme-firebug box.requests-menu-status[code^="3"] {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid rgba(217, 126, 0, 1); /* light orange */
+  border-radius: 0;
+}
+
+/* 4xx and 5xx are squares - error codes */
+.theme-firebug box.requests-menu-status[code^="4"] {
+  background-color: rgba(237, 38, 85, 1); /* red */
+  border-radius: 0; /* squares */
+}
+
+.theme-firebug box.requests-menu-status[code^="5"] {
+  background-color: rgba(184, 46, 229, 1); /* pink! */
+  border-radius: 0;
+  transform: rotate(45deg);
 }

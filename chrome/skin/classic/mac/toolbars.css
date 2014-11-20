@@ -1,0 +1,15 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Panel Toolbar Mac */
+
+/* Note the special selector part for the #resume button. */
+.theme-firebug toolbarbutton:-moz-any([checked="true"],
+  [selected="true"],
+  [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not(#resume) {
+  box-shadow: none;
+}
+  
+.theme-firebug toolbarbutton[type="menu-button"] > .toolbarbutton-menubutton-button {
+  padding: 3px 3px 0 3px;
+}
