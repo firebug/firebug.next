@@ -61,7 +61,6 @@
   -moz-border-bottom-colors: none !important;
   -moz-border-left-colors: none !important;
   border-image: none !important;
-  padding-bottom: 3px;
   color: inherit;
   box-shadow: none;
 }
@@ -77,4 +76,11 @@
   margin: 0;
   border: none;
   cursor: pointer;
+}
+
+/* Tab box */
+
+.theme-firebug #profile-content hbox:first-child {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  background-color: #DBEAF9;
 }
