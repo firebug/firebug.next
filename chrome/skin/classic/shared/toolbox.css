@@ -245,7 +245,6 @@
 .theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:not([disabled="true"]):hover,
 .theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:not([disabled="true"]):hover {
   border-top-width: 1px;
-  padding-top: 1px;
 }
 
 .theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up[disabled="true"],

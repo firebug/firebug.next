@@ -36,16 +36,20 @@ function loadFirebug() {
 exports.openToolbox = function(config) {
   // Set up default config flags
   config.panelId = config.panelId || "webconsole";
-  config.pageContent = config.pageContent ||
-    "<html><head></head><body><script></script></body></html>";
   config.inBackground = config.inBackground || false;
 
   // Make sure Firebug is loaded.
   loadFirebug();
 
-  let title = "testPage";
+  let title = config.pageName || "testPage";
   let url = host + title + ".html";
-  let server = serve({ name: title, content: config.pageContent });
+
+  // Start HTTP server
+  let server = serve({
+    name: title,
+    content: config.pageContent,
+    pathHandler: config.pathHandler
+  });
 
   // Open new browser tab.
   let browser = getMostRecentBrowserWindow();
@@ -72,15 +76,21 @@ exports.openToolbox = function(config) {
       options.toolbox = toolbox;
       options.panel = toolbox.getCurrentPanel();
       options.overlay = options.panel._firebugPanelOverlay;
+      options.browserTab = newTab;
 
       // Asynchronous clean up.
       options.cleanUp = function(done) {
         setTimeout(() => {
-          server.stop(() => {
+          if (server) {
+            server.stop(() => {
+              closeTab(newTab);
+              done();
+            });
+          } else {
             closeTab(newTab);
             done();
-          });
-        })
+          }
+        });
       }
 
       deferred.resolve(options);

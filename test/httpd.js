@@ -11,16 +11,21 @@ const basePath = pathFor("ProfD");
 const port = 8099;
 const host = "http://localhost:" + port + "/";
 
-function serve({ name, content }) {
+function serve({ name, content, pathHandler }) {
   content = content || "<html><head><title>" + name +
     "</title></head><body></body></html>";
 
   let server = startServerAsync(port, basePath);
-  let pagePath = file.join(basePath, name + ".html");
 
-  let pageStream = file.open(pagePath, "w");
-  pageStream.write(content);
-  pageStream.close();
+  if (pathHandler) {
+    server.registerPathHandler("/" + name + ".html", pathHandler);
+  } else {
+    let pagePath = file.join(basePath, name + ".html");
+    let pageStream = file.open(pagePath, "w");
+    pageStream.write(content);
+    pageStream.close();
+  }
+
   return server;
 }
 
