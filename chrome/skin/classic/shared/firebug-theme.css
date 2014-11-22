@@ -933,3 +933,9 @@ div.CodeMirror span.eval-text {
 .devtools-invisible-splitter {
   border-color: transparent;
 }
+
+.theme-firebug .panel-description {
+  margin: 4px;
+  font-family: Lucida Grande,Tahoma,sans-serif;
+  font-size: 11px;
+}
