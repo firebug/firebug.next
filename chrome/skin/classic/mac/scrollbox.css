@@ -3,6 +3,8 @@
 /******************************************************************************/
 /* Toolbox & Panel Tabs Mac OS X */
 
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up,
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down,
 .theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up,
 .theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-down,
 .theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up,
@@ -10,6 +12,8 @@
   padding: 3px 0 3px 0;
 }
 
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up:not([disabled=""]) .autorepeatbutton-icon,
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down:not([disabled=""]) .autorepeatbutton-icon,
 .theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up:not([disabled=""]) .autorepeatbutton-icon,
 .theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-down:not([disabled=""]) .autorepeatbutton-icon,
 .theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:not([disabled=""]) .autorepeatbutton-icon,
