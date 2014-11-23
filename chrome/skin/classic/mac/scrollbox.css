@@ -16,3 +16,13 @@
 .theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:not([disabled=""]) .autorepeatbutton-icon {
   padding: 3px;
 }
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up,
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down {
+  padding: 3px 0 3px 3px;
+}
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up:not([disabled=""]) .autorepeatbutton-icon,
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down:not([disabled=""]) .autorepeatbutton-icon {
+  padding: 0 3p 0 3px;
+}
