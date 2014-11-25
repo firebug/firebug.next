@@ -5,6 +5,7 @@
 .theme-body {
   background: #fcfcfc; /* Background - Editor */
   color: #18191a;
+  width: 100% !important;
 }
 
 .theme-sidebar {
@@ -172,8 +173,10 @@
 }
 
 .table-widget-column-header {
+  padding: 3px 13px 2px 4px !important;
+  font-size: 11px !important;
   font-family:sans-serif;
-  /*height: 20px !important;*/
+  height: 20px !important;
   min-height: 20px !important;
   font-weight: bold !important;
   color: #000000;
@@ -394,14 +397,13 @@ div.CodeMirror span.eval-text {
   min-width: 1px !important;
   width: 1px !important;
   position:absolute;
-  height: 20% !important;
-  min-height: 20px !important;
+  /*height: 20% !important;
+  min-height: 20px !important;*/
   /*margin: -1px -10px 0px 0px !important;*/
 }
-.table-widget-column .table-widget-cell{
-  width:102%;
+/*.table-widget-column .table-widget-cell{
   margin: -1px -10px 0px 0px !important;
-}
+}*/
 
 
 .table-widget-column .table-widget-cell:nth-child(odd){ 
