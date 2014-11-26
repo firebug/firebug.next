@@ -1,0 +1,9 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Filter Buttons */
+
+.theme-firebug .webconsole-filter-button > .toolbarbutton-menubutton-button:before {
+  font-size: 4px;
+  vertical-align: calc(50% - 4px);
+}

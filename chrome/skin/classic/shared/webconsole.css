@@ -49,10 +49,6 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
 /******************************************************************************/
 /* Filter Buttons */
 
-.theme-firebug .webconsole-filter-button {
-  line-height: 10px;
-}
-
 .theme-firebug .webconsole-filter-button > .toolbarbutton-menubutton-button:before {
   font-size: 3px;
   display: inline;
@@ -63,6 +59,13 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
   border-style: solid;
   padding-left: 5px;
   vertical-align: calc(50% - 3px);
+}
+
+/******************************************************************************/
+/* Filter field */
+
+.theme-firebug .hud-console-filter-toolbar .devtools-searchinput {
+  display: none;
 }
 
 /******************************************************************************/

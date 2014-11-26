@@ -1,0 +1,79 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Tab scrollbox and autorepeat buttons */
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up,
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down,
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up,
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-down,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down {
+  -moz-appearance: none;
+  width: 18px;
+  margin: 3px 0px 4px;
+  padding: 0px;
+  border: 1px solid rgb(170,188,207);
+  border-bottom: none;
+  border-top: none;
+}
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up:not([disabled="true"]):hover,
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down:not([disabled="true"]):hover,
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up:not([disabled="true"]):hover,
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-down:not([disabled="true"]):hover,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:not([disabled="true"]):hover,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:not([disabled="true"]):hover {
+  border-top-width: 1px;
+}
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up[disabled="true"],
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down[disabled="true"],
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up[disabled="true"],
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-down[disabled="true"],
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up[disabled="true"],
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down[disabled="true"] {
+  opacity: 0.4;
+}
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up,
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up {
+  border-left-style: none;
+  /*border-top-right-radius: 2px;*/
+}
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-up:-moz-locale-dir(rtl),
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-up:-moz-locale-dir(rtl),
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:-moz-locale-dir(rtl) {
+  border-left-style: solid;
+  border-right-style: none;
+  /*border-top-left-radius: 2px;
+  border-top-right-radius: 0px;*/
+}
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down,
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-down,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down {
+  border-right-style: none;
+  /*border-top-left-radius: 2px;*/
+}
+
+.theme-firebug #profile-content arrowscrollbox > .autorepeatbutton-down:-moz-locale-dir(rtl),
+.theme-firebug #toolbox-tabs arrowscrollbox > .autorepeatbutton-down:-moz-locale-dir(rtl),
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:-moz-locale-dir(rtl) {
+  border-left-style: none;
+  border-right-style: solid;
+  /*border-top-left-radius: 0px;
+  border-top-right-radius: 2px;*/
+}
+
+/* Make sure the bottom tab border blends with the content.
+Note that overflow: visible can't be used since the scroll box needs
+it to scroll the inner content (tab strip). */
+.theme-firebug #profile-content tabscrollbox > .arrowscrollbox-scrollbox,
+.theme-firebug .devtools-sidebar-tabs tabscrollbox > .arrowscrollbox-scrollbox,
+.theme-firebug #toolbox-tabs arrowscrollbox > .arrowscrollbox-scrollbox {
+  margin-bottom: -1px;
+  padding-bottom: 1px;
+}

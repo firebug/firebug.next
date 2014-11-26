@@ -6,6 +6,8 @@
 .property-view,
 .property-content {
   background-color: inherit;
+  font-family: Lucida Grande,Tahoma,sans-serif;
+  font-size: 11px;
 }
 
 .property-view {
@@ -53,4 +55,11 @@
   font-family: Lucida Grande, sans-serif;
   font-weight: bold;
   color: blue;
+}
+
+/******************************************************************************/
+/* Filter field */
+
+.theme-firebug .devtools-searchinput {
+  background-image: url(chrome://firebug/skin/filter.svg);
 }

@@ -3,3 +3,36 @@
 /******************************************************************************/
 /* Layout View */
 
+div#margins {
+  outline: none;
+}
+
+div#borders {
+  border-color: #D1C57A;
+}
+
+div#padding {
+  outline: 1px solid #D1C57A;
+}
+
+div#content {
+  border-color: #9BBFD1;
+}
+
+#main, #borders, #content {
+  border-style: solid;
+}
+
+#main, #header {
+  font-family: sans-serif;
+}
+
+div#main {
+  border-color: #929292;
+  color: black;
+  font-size: 12px;
+}
+
+div#header {
+  font-size: 12px;
+}
