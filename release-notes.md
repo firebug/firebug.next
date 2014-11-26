@@ -7,13 +7,21 @@ Next Firebug generation built on top of native Firefox developer tools
 ## Alpha Releases
 
 [``firebug-3.0.0-alpha.1``](https://getfirebug.com/releases/firebug/3.0/firebug-3.0.0-alpha.1.xpi)
-[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.1)
+[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.1),
+[fixed issues](http://issues.firebug.io/tagged/fixed/firebug-3.0.0-alpha.1)
 
 [``firebug-3.0.0-alpha.2``](https://getfirebug.com/releases/firebug/3.0/firebug-3.0.0-alpha.2.xpi)
-[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.2)
+[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.2),
+[fixed issues](http://issues.firebug.io/tagged/fixed/firebug-3.0.0-alpha.2)
 
 [``firebug-3.0.0-alpha.3``](https://getfirebug.com/releases/firebug/3.0/firebug-3.0.0-alpha.3.xpi)
-[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.3)
+[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.3),
+[fixed issues](http://issues.firebug.io/tagged/fixed/firebug-3.0.0-alpha.3)
 
+[``firebug-3.0.0-alpha.4``](https://getfirebug.com/releases/firebug/3.0/firebug-3.0.0-alpha.4.xpi)
+[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.4),
+[fixed issues](http://issues.firebug.io/tagged/fixed/firebug-3.0.0-alpha.4)
 
-TODO: link to fixed issues, see [issue #203](https://github.com/firebug/firebug.next/issues/203)
+## Beta Releases
+
+Beta milestone: https://github.com/firebug/firebug.next/milestones/beta

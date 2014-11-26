@@ -3,7 +3,7 @@
 "use strict";
 
 const { main, Firebug } = require("../lib/index.js");
-const { openToolbox } = require("dev/utils");
+const { openToolbox, closeToolbox } = require("dev/utils");
 const { defer } = require("sdk/core/promise");
 const { serve, host } = require("./httpd.js");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
@@ -30,8 +30,17 @@ function loadFirebug() {
  *
  * panelId {String} Id of the panel that should be selected by default
  * pageContent {String} Custom page content (HTML)
+ *
  * inBackground {Boolean} True if new tab should be opened in background.
  * Set to false if the new tab should be automatically selected.
+ *
+ * url {String} Url of the page that should be opened. The test HTTP server
+ * doesn't start if an URL is specified. Some tests don't need an HTML page
+ * and it's good practice to specify e.g. 'about:blank' to avoid starting
+ * the test server (which takes some time).
+ *
+ * browserTab {object} Parent browser tab for the toolbox. If no tab
+ * is specified new one is opened.
  */
 exports.openToolbox = function(config) {
   // Set up default config flags
@@ -41,29 +50,24 @@ exports.openToolbox = function(config) {
   // Make sure Firebug is loaded.
   loadFirebug();
 
-  let title = config.pageName || "testPage";
-  let url = host + title + ".html";
+  let server;
+  let url = config.url;
 
-  // Start HTTP server
-  let server = serve({
-    name: title,
-    content: config.pageContent,
-    pathHandler: config.pathHandler
-  });
+  // Start server only if default URL isn't provided
+  if (!url) {
+    config.title = config.pageName || "testPage";
+    url = host + config.title + ".html";
+    server = startServer(config);
+  }
 
-  // Open new browser tab.
-  let browser = getMostRecentBrowserWindow();
-  let newTab = openTab(browser, url, {
-    inBackground: config.inBackground
-  });
+  // Use specified browser tab or open a new one.
+  let newTab = config.browserTab ? config.browserTab :
+    openBrowserTab(url, config);
 
   // The result promise.
   let deferred = defer();
 
-  let tabBrowser = getBrowserForTab(newTab);
-  function onPageLoad() {
-    tabBrowser.removeEventListener("load", onPageLoad, true);
-
+  waitForPageLoad(newTab).then(() => {
     // Workaround for https://github.com/mozilla/addon-sdk/pull/1688
     let id = {
       prototype: {},
@@ -78,11 +82,11 @@ exports.openToolbox = function(config) {
       options.overlay = options.panel._firebugPanelOverlay;
       options.browserTab = newTab;
 
-      // Asynchronous clean up.
+      // Asynchronous clean up. Make sure to shutdown the server if running.
       options.cleanUp = function(done) {
         setTimeout(() => {
           if (server) {
-            server.stop(() => {
+            stopServer(server, () => {
               closeTab(newTab);
               done();
             });
@@ -93,13 +97,72 @@ exports.openToolbox = function(config) {
         });
       }
 
+      // Asynchronous toolbox destroy.
+      options.closeToolbox = function(toolbox) {
+        let deferred = defer();
+
+        // Fired after all panels are also destroyed.
+        toolbox.once("destroyed", (eventId, target) => {
+          deferred.resolve(options);
+        });
+
+        closeToolbox(toolbox.target.tab);
+        return deferred.promise;
+      }
+
+      // Resolve the return (page loaded & toolbox opened) promise.
       deferred.resolve(options);
     });
+  });
+
+  return deferred.promise;
+}
+
+/**
+ * Opens new browser tab.
+ */
+function openBrowserTab(url, config = {}) {
+  let browser = getMostRecentBrowserWindow();
+  return openTab(browser, url, {
+    inBackground: config.inBackground
+  });
+}
+
+/**
+ * Waits till specified tab/page is fully loaded.
+ *
+ * @param tab The tab we are waiting for.
+ */
+function waitForPageLoad(tab) {
+  let deferred = defer();
+  let tabBrowser = getBrowserForTab(tab);
+
+  function onPageLoad() {
+    tabBrowser.removeEventListener("load", onPageLoad, true);
+    deferred.resolve();
   }
 
   tabBrowser.addEventListener("load", onPageLoad, true);
-
   return deferred.promise;
+}
+
+/**
+ * Starts new instance of HTTP server.
+ */
+function startServer(config) {
+  // Start HTTP server
+  return serve({
+    name: config.title,
+    content: config.pageContent,
+    pathHandler: config.pathHandler
+  });
+}
+
+/**
+ * Destroy an existing instance of HTTP server.
+ */
+function stopServer(server, callback) {
+  return server.stop(callback);
 }
 
 // Exports from this module
