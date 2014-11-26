@@ -395,13 +395,13 @@ div.CodeMirror span.eval-text {
 }
 
 .consoletable .table-widget-body .devtools-side-splitter {
-  background-color: rgb(0, 0, 0) !important;
+  /*background-color: rgb(0, 0, 0) !important;*/
   background:linear-gradient(#CBD4DE,#656A6E,#CBD4DE);
   min-width: 1px !important;
   width: 1px !important;
-  position:absolute;
-  /*height: 20% !important;
-  min-height: 20px !important;*/
+  /*position:absolute;*/
+  height: 20% !important;
+  min-height: 20px !important;
   /*margin: -1px -10px 0px 0px !important;*/
 }
 
@@ -437,7 +437,7 @@ div.CodeMirror span.eval-text {
   height: 24px;
   line-height: 24px;
   box-sizing: border-box;
-  background: linear-gradient(#EEEFF4, #c5cbd9);
+  background: linear-gradient(#E7E7E7,#DADADA);
 }
 
 .devtools-toolbar {

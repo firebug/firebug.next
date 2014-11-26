@@ -38,6 +38,7 @@
   -moz-box-pack: start;
 }
 
+
 #panelSplitter > .panelSplitterBox,
 .theme-firebug .devtools-side-splitter > .panelSplitterBox {
   visibility: visible;
