@@ -6,6 +6,9 @@
   background: #fcfcfc; /* Background - Editor */
   color: #18191a;
   width: 100% !important;
+  border-bottom: 2px solid #D7D7D7 !important;
+  border-left: 2px solid #D7D7D7 !important;
+  border-right: 2px solid #D7D7D7 !important;
 }
 
 .theme-sidebar {
@@ -401,10 +404,10 @@ div.CodeMirror span.eval-text {
   min-height: 20px !important;*/
   /*margin: -1px -10px 0px 0px !important;*/
 }
-/*.table-widget-column .table-widget-cell{
-  margin: -1px -10px 0px 0px !important;
-}*/
 
+.consoletable .table-widget-body .devtools-side-splitter:last-of-type{
+  display:none;
+}
 
 .table-widget-column .table-widget-cell:nth-child(odd){ 
   background: #EFEFEF;
