@@ -5,3 +5,25 @@ within panel iframes */
 
 /*************************************************************************************************/
 /* Panel Content */
+
+#requests-menu-perf-notice-button {
+  -moz-appearance: none;
+  border: 1px solid #C4C4C4;
+  background-color: #E9E9E9;
+  color: #292E33;
+}
+
+.theme-firebug #requests-menu-reload-notice-button {
+  -moz-appearance: none;
+  font-size: medium;
+  color: #292E33;
+  border: 1px solid #C4C4C4;
+  background-color: #E9E9E9;
+  text-decoration: none;
+}
+
+#profiling-notice-button {
+  -moz-appearance: none;
+  border: 1px solid #C4C4C4;
+  background-color: #E9E9E9;
+}
