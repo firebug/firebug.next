@@ -69,6 +69,8 @@ exports.openToolbox = function(config) {
 
   waitForPageLoad(newTab).then(() => {
     // Workaround for https://github.com/mozilla/addon-sdk/pull/1688
+    // xxxHonza: TODO Merged, let's wait till it's in Nightly
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1091888
     let id = {
       prototype: {},
       id: config.panelId
