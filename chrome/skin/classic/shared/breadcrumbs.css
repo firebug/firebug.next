@@ -66,6 +66,7 @@ widgets.css is overwritten. */
   padding-right: 4px;
 }
 
+.theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item,
 .theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item-tag {
   cursor: pointer;
 }
