@@ -4,12 +4,25 @@
 /* Breadcrumbs */
 
 .theme-firebug .breadcrumbs-widget-item {
-  margin: 0 0 0 10px;
+  -moz-appearance: none;
+  margin: 0 1px 0 10px;
+  border: 1px solid transparent;
+  color: #141414;
+  border-radius: 2px;
   min-width: 0;
+  min-height: 0;
+  width: auto;
   padding: 0;
-  color: black;
   line-height: 18px;
-  min-height: 18px;
+  font-size: 12px;
+}
+
+.theme-firebug .breadcrumbs-widget-item:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)) no-repeat;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
+    0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 .theme-firebug .breadcrumbs-widget-item > .button-box {
