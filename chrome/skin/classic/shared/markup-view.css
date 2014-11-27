@@ -49,3 +49,7 @@
 .theme-firebug .theme-selected ~ .editor .close {
   color: #fff;
 }
+
+.theme-firebug .markupview-events {
+  font-size: 12px;
+}

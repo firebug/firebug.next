@@ -7,8 +7,85 @@
   background-color: white;
 }
 
-#record-button,
-#empty-notice button,
-#recording-notice button {
+.theme-firebug #record-button,
+.theme-firebug #empty-notice button,
+.theme-firebug #recording-notice button {
   list-style-image: url(chrome://firebug/skin/profile.svg);
+}
+
+.theme-firebug .notice-container {
+  background: #f0f1f2; /* Toolbars */
+  color: #585959; /* Grey foreground text */
+}
+
+.theme-firebug .recording-item-duration,
+.theme-firebug .recording-item-save {
+  color: #585959; /* Foreground (Text) - Grey */
+}
+
+/* Profile tabs */
+
+.theme-firebug #profile-content tab:first-child {
+  margin-left: 3px;
+}
+
+.theme-firebug #profile-content tab {
+  margin: 3px 0px -1px;
+  padding: 0px 2px 1px 0px;
+  border: 1px solid transparent !important;
+  border-radius: 4px 4px 0px 0px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #565656; /* Body Text */
+  box-shadow: none;
+  -moz-box-flex: 0;
+  background-color: transparent;
+  text-shadow: none;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  transition-property: opacity, transform;
+}
+
+.theme-firebug #profile-content tab:hover {
+  background-color: transparent;
+  border: 1px solid #C8C8C8 !important;
+}
+
+.theme-firebug #profile-content tab[selected] {
+  background-color: #ffffff;
+  border-width: 1px 1px 0px !important;
+  border-style: solid !important;
+  border-color: #AABCCF !important;
+  -moz-border-top-colors: none !important;
+  -moz-border-right-colors: none !important;
+  -moz-border-bottom-colors: none !important;
+  -moz-border-left-colors: none !important;
+  border-image: none !important;
+  color: inherit;
+  box-shadow: none;
+}
+
+/* New tab button */
+
+.theme-firebug #profile-newtab-button {
+  -moz-appearance: none;
+  background-color: transparent;
+  background-position: 4px 2px;
+  background-size: 54px 20px;
+  min-width: 26px;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tab box */
+
+.theme-firebug #profile-content hbox:first-child {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  background-color: #DBEAF9;
+}
+
+.theme-firebug #profile-content arrowscrollbox {
+  background-color: rgb(219, 234, 249) !important;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
