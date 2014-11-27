@@ -1,0 +1,12 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Breadcrumbs */
+
+.theme-firebug .breadcrumbs-widget-item {
+  padding: 2px !important;
+}
+
+.theme-firebug .breadcrumbs-widget-item:not(:first-child)::before {
+  margin: 0 5px 0 -5px !important;
+}
