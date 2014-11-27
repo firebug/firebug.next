@@ -43,14 +43,22 @@
   width: 5px;
 }
 
+/* Breadcrumbs Separators (reset selection styles) */
 .theme-firebug .breadcrumbs-widget-item[checked],
 .theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-id,
 .theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-tag,
 .theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-pseudo-classes,
 .theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-classes {
+  background: none;
   background-color: transparent;
   font-weight: bold;
   color: black;
+}
+
+/* The first rule is there only to make sure the default rule from
+widgets.css is overwritten. */
+.theme-firebug .breadcrumbs-widget-item[checked] + .breadcrumbs-widget-item {
+  background: none;
 }
 
 .theme-firebug .breadcrumbs-widget-item .breadcrumbs-widget-item-tag {
