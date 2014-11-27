@@ -6,9 +6,9 @@ const { main, Firebug } = require("../lib/index.js");
 const { openToolbox, closeToolbox } = require("dev/utils");
 const { defer } = require("sdk/core/promise");
 const { serve, host } = require("./httpd.js");
-const { getMostRecentBrowserWindow } = require("sdk/window/utils");
-const { openTab, getBrowserForTab, closeTab } = require("sdk/tabs/utils");
+const { closeTab } = require("sdk/tabs/utils");
 const { setTimeout } = require("sdk/timers");
+const { openBrowserTab, waitForPageLoad } = require("./window.js");
 
 /**
  * xxxHonza: design this API as asynchronous
@@ -117,34 +117,6 @@ exports.openToolbox = function(config) {
     });
   });
 
-  return deferred.promise;
-}
-
-/**
- * Opens new browser tab.
- */
-function openBrowserTab(url, config = {}) {
-  let browser = getMostRecentBrowserWindow();
-  return openTab(browser, url, {
-    inBackground: config.inBackground
-  });
-}
-
-/**
- * Waits till specified tab/page is fully loaded.
- *
- * @param tab The tab we are waiting for.
- */
-function waitForPageLoad(tab) {
-  let deferred = defer();
-  let tabBrowser = getBrowserForTab(tab);
-
-  function onPageLoad() {
-    tabBrowser.removeEventListener("load", onPageLoad, true);
-    deferred.resolve();
-  }
-
-  tabBrowser.addEventListener("load", onPageLoad, true);
   return deferred.promise;
 }
 
