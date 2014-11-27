@@ -6,7 +6,7 @@ within panel iframes */
 /*************************************************************************************************/
 /* Panel Content */
 
-#requests-menu-perf-notice-button {
+.theme-firebug #requests-menu-perf-notice-button {
   -moz-appearance: none;
   border: 1px solid #C4C4C4;
   background-color: #E9E9E9;
@@ -22,7 +22,7 @@ within panel iframes */
   text-decoration: none;
 }
 
-#profiling-notice-button {
+.theme-firebug #profiling-notice-button {
   -moz-appearance: none;
   border: 1px solid #C4C4C4;
   background-color: #E9E9E9;
