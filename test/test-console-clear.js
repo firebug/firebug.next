@@ -3,8 +3,10 @@
 "use strict";
 
 const { Cu } = require("chrome");
-const { openToolbox } = require("./common.js");
+const { loadFirebug } = require("./common.js");
 const { waitForMessage } = require("./console.js");
+const { getToolboxWhenReady, closeTab } = require("./toolbox.js");
+const { startServer, stopServer } = require("./httpd.js");
 
 // Content of the test page (one console log is coming from the content).
 const content =
@@ -13,14 +15,15 @@ const content =
   "</script></body></html>";
 
 exports["test Console clear button"] = function(assert, done) {
-  // Configuration flags for toolbox opening.
-  let config = {
-    panelId: "webconsole",
-    pageContent: content
-  };
+  loadFirebug();
 
-  // Start HTTP server, open new tab and the toolbox.
-  openToolbox(config).then(({toolbox, cleanUp, overlay}) => {
+  // Start HTTP server
+  let {server, url} = startServer({
+    pageContent: content
+  });
+
+  // Open the toolbox on our test page.
+  getToolboxWhenReady(url, "webconsole").then(({toolbox, overlay, tab}) => {
     assert.ok(overlay, "The Console panel must be overlaid");
 
     let doc = overlay.getPanelDocument();
@@ -40,7 +43,9 @@ exports["test Console clear button"] = function(assert, done) {
       let log = doc.querySelector(config.cssSelector);
       assert.ok(!log, "There must not be a log in the Console panel");
 
-      cleanUp(done);
+      // Close the tab an stop HTTP server.
+      closeTab(tab);
+      stopServer(server, done);
     });
   });
 };
