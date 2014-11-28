@@ -3,23 +3,29 @@
 "use strict";
 
 const { Cu } = require("chrome");
-const { openToolbox } = require("./common.js");
+const { loadFirebug } = require("./common.js");
 const { waitForMessage } = require("./console.js");
+const { getToolboxWhenReady, closeTab } = require("./toolbox.js");
+const { startServer, stopServer } = require("./httpd.js");
 
 const base64 = require("sdk/base64");
 
+/**
+ * This test opens the Toolbox on a page the sends server side log
+ * through HTTP headers (see onServerLogging). Consequently it waits
+ * till the log appears in the Console panel.
+ */
 exports["test Remote Logger"] = function(assert, done) {
-  // Configuration flags for toolbox opening. We want the Console panel
-  // to be selected by default, page name is 'serverLogging' and the
-  // request handler is implemented by 'onServerLogging' method.
-  let config = {
-    panelId: "webconsole",
+  loadFirebug();
+
+  // Start HTTP server
+  let {server, url} = startServer({
     pageName: "serverLogging",
     pathHandler: onServerLogging
-  };
+  });
 
-  // Start HTTP server, open new tab and the toolbox.
-  openToolbox(config).then(({toolbox, cleanUp, overlay, browserTab}) => {
+  // Open the toolbox and wait till it's ready.
+  getToolboxWhenReady(url, "webconsole").then(({toolbox, overlay, tab}) => {
     let doc = overlay.getPanelDocument();
     let filterButton = doc.querySelector("#firebug-serverlog-filter");
     assert.ok(filterButton, "The server log filter button must exist");
@@ -36,7 +42,9 @@ exports["test Remote Logger"] = function(assert, done) {
       assert.equal(result[0].textContent, expected,
         "The log message must be : " + expected);
 
-      cleanUp(done);
+      // Close the tab an stop HTTP server.
+      closeTab(tab);
+      stopServer(server, done);
     });
 
     // Reload the current tab.
