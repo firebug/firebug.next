@@ -29,7 +29,7 @@ function showToolbox(tab, panelId) {
 function getToolboxWhenReady(url, panelId, config = {}) {
   let deferred = defer();
 
-  getTabWhenReady("about:blank").then(({tab}) => {
+  getTabWhenReady(url).then(({tab}) => {
     showToolbox(tab, panelId).then(({toolbox}) => {
       deferred.resolve({toolbox: toolbox, tab: tab});
     });
