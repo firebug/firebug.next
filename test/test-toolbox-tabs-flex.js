@@ -24,7 +24,7 @@ exports["test Toolbox Tab Flex"] = function(assert, done) {
         "Tabs should not use flex for Firebug theme");
     }
 
-    Theme.toggle();
+    Theme.setCurrentTheme("light");
 
     tabs = doc.querySelectorAll(".devtools-tab");
     for (let tab of tabs) {
@@ -32,7 +32,7 @@ exports["test Toolbox Tab Flex"] = function(assert, done) {
         "Tabs should use flex for Light theme");
     }
 
-    Theme.toggle(true);
+    Theme.setCurrentTheme("firebug");
 
     cleanUp(done);
   });
