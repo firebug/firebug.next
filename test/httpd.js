@@ -31,3 +31,36 @@ function serve({ name, content, pathHandler }) {
 
 exports.serve = serve;
 exports.host = host;
+
+/**
+ * Launch a new instance of HTTP server.
+ *
+ * @param config
+ * @returns
+ */
+function startServer(config) {
+  let title = config.pageName || "test";
+  let url = host + title + ".html";
+
+  let server = serve({
+    name: title,
+    content: config.pageContent,
+    pathHandler: config.pathHandler
+  });
+
+  return {server: server, url: url};
+}
+
+/**
+ * Shutdown an existing instance of HTTP server.
+ *
+ * @param server
+ * @param callback
+ * @returns
+ */
+function stopServer(server, callback) {
+  return server.stop(callback);
+}
+
+exports.startServer = startServer;
+exports.stopServer = stopServer;

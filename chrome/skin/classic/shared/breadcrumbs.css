@@ -1,0 +1,105 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Breadcrumbs */
+
+.theme-firebug .breadcrumbs-widget-item {
+  -moz-appearance: none;
+  margin: 0 1px 0 10px;
+  border: 1px solid transparent;
+  color: #141414;
+  border-radius: 2px;
+  min-width: 0;
+  min-height: 0;
+  width: auto;
+  padding: 0;
+  line-height: 18px;
+  font-size: 12px;
+}
+
+.theme-firebug .breadcrumbs-widget-item:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)) no-repeat;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
+    0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.theme-firebug .breadcrumbs-widget-item > .button-box {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.theme-firebug .breadcrumbs-widget-item:first-child {
+  margin: 0;
+}
+
+.theme-firebug .breadcrumbs-widget-item:not(:first-child)::before {
+  content: url(chrome://firebug/skin/statusPathSeparator.svg);
+  position: relative;
+  left: -3px;
+  margin: 0 0 0 -5px;
+  padding: 0;
+  width: 5px;
+}
+
+/* Breadcrumbs Separators (reset selection styles) */
+.theme-firebug .breadcrumbs-widget-item[checked],
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-id,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-tag,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-pseudo-classes,
+.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-classes {
+  background: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: black;
+}
+
+/* The first rule is there only to make sure the default rule from
+widgets.css is overwritten. */
+.theme-firebug .breadcrumbs-widget-item[checked] + .breadcrumbs-widget-item {
+  background: none;
+}
+
+.theme-firebug .breadcrumbs-widget-item .breadcrumbs-widget-item-tag {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item,
+.theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item-tag {
+  cursor: pointer;
+}
+
+/******************************************************************************/
+/* Breadcrumbs Scrolling Buttons */
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down {
+  padding: 0;
+  box-shadow: none;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up:hover,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down:hover {
+  border: 1px transparent solid !important;
+  box-shadow: none !important;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up:active,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down:active {
+  background: none !important;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up > .toolbarbutton-icon {
+  background: url("chrome://global/skin/arrow/arrow-lft-sharp.gif") no-repeat 0 center / 5px 9px;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down > .toolbarbutton-icon {
+  background: url("chrome://global/skin/arrow/arrow-lft-sharp.gif") no-repeat 0 center / 5px 9px;
+}
+
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-up:not([disabled]):active:hover > .toolbarbutton-icon,
+.theme-firebug .breadcrumbs-widget-container .scrollbutton-down:not([disabled]):active:hover > .toolbarbutton-icon {
+  background-position: 0 center;
+}
