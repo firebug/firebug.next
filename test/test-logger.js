@@ -3,10 +3,10 @@
 "use strict";
 
 const { Cu } = require("chrome");
-const { loadFirebug } = require("./common.js");
 const { waitForMessage } = require("./console.js");
-const { getToolboxWhenReady, closeTab } = require("./toolbox.js");
+const { getToolboxWhenReady } = require("./toolbox.js");
 const { startServer, stopServer } = require("./httpd.js");
+const { closeTab } = require("./window.js");
 
 const base64 = require("sdk/base64");
 
@@ -16,8 +16,6 @@ const base64 = require("sdk/base64");
  * till the log appears in the Console panel.
  */
 exports["test Remote Logger"] = function(assert, done) {
-  loadFirebug();
-
   // Start HTTP server
   let {server, url} = startServer({
     pageName: "serverLogging",

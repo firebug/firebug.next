@@ -2,11 +2,10 @@
 
 "use strict";
 
-const { Cu } = require("chrome");
-const { loadFirebug } = require("./common.js");
 const { waitForMessage } = require("./console.js");
-const { getToolboxWhenReady, closeTab } = require("./toolbox.js");
+const { getToolboxWhenReady } = require("./toolbox.js");
 const { startServer, stopServer } = require("./httpd.js");
+const { closeTab } = require("./window.js");
 
 // Content of the test page (one console log is coming from the content).
 const content =
@@ -15,8 +14,6 @@ const content =
   "</script></body></html>";
 
 exports["test Console clear button"] = function(assert, done) {
-  loadFirebug();
-
   // Start HTTP server
   let {server, url} = startServer({
     pageContent: content

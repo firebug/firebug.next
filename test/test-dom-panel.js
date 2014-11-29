@@ -2,10 +2,8 @@
 
 "use strict";
 
-const { Cu } = require("chrome");
-const { loadFirebug } = require("./common.js");
 const { getToolDefinition, getToolboxWhenReady } = require("./toolbox.js");
-const { closeTab } = require("sdk/tabs/utils");
+const { closeTab } = require("./window.js");
 const { setTimeout } = require("sdk/timers");
 const { domPanelId } = require("../lib/dom/domPanel");
 
@@ -14,9 +12,6 @@ const { domPanelId } = require("../lib/dom/domPanel");
  * shows the toolbox and waits till the panel is refreshed.
  */
 exports["test DOM panel"] = function(assert, done) {
-  loadFirebug();
-
-  // Open a new tab and the toolbox on it.
   getToolboxWhenReady("about:blank", domPanelId).then(({toolbox, tab}) => {
     let tool = getToolDefinition(domPanelId);
     assert.ok(tool, "The DOM tool must exist!");

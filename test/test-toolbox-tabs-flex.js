@@ -2,8 +2,10 @@
 
 "use strict";
 
-const { openToolbox } = require("./common.js");
+const { getToolboxWhenReady } = require("./toolbox.js");
 const { Theme } = require("../lib/chrome/theme.js");
+const { closeTab } = require("./window.js");
+const { setTimeout } = require("sdk/timers");
 
 /**
  * Test for panel tabs customization. Firebug theme removes 'flex' attribute
@@ -11,11 +13,7 @@ const { Theme } = require("../lib/chrome/theme.js");
  * as expected.
  */
 exports["test Toolbox Tab Flex"] = function(assert, done) {
-  let config = {
-    panelId: "webconsole",
-  };
-
-  openToolbox(config).then(({toolbox, cleanUp}) => {
+  getToolboxWhenReady("about:blank").then(({toolbox, tab}) => {
     let doc = toolbox.doc;
     let tabs = doc.querySelectorAll(".devtools-tab");
 
@@ -34,7 +32,10 @@ exports["test Toolbox Tab Flex"] = function(assert, done) {
 
     Theme.setCurrentTheme("firebug");
 
-    cleanUp(done);
+    setTimeout(function() {
+      closeTab(tab);
+      done();
+    });
   });
 };
 
