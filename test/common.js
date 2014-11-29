@@ -18,6 +18,17 @@ function loadFirebug() {
   if (!Firebug.chromes) {
     main({loadReason: "install"});
   }
+
+  // xxxHonza: loadFirebug must be asynchronous FIXME
+  /*let deferred = defer();
+  if (!Firebug.chromes) {
+    main({loadReason: "install"});
+
+    // xxxHonza: wait till Firebug is fully initialized
+    // (e.g. logger actor registered and attached)
+    deferred.resolve();
+  }
+  return deferred.promise;*/
 };
 
 /**

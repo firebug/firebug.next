@@ -4,10 +4,10 @@
 
 const { Cu } = require("chrome");
 const { main, Firebug } = require("../lib/index.js");
-const { closeTab } = require("sdk/tabs/utils");
 const { closeToolbox } = require("dev/utils");
 const { getTabWhenReady } = require("./window.js");
 const { defer } = require("sdk/core/promise");
+const { loadFirebug } = require("./common.js");
 
 const { gDevTools } = Cu.import("resource:///modules/devtools/gDevTools.jsm", {});
 const { devtools } = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
@@ -27,20 +27,26 @@ function openToolbox(tab, panelId) {
   return deferred.promise;
 }
 
-function getToolboxWhenReady(url, panelId, config = {}) {
+function getToolboxWhenReady(url, panelId = "webconsole", config = {}) {
   let deferred = defer();
 
-  getTabWhenReady(url).then(({tab}) => {
-    openToolbox(tab, panelId).then(({toolbox}) => {
-      let options = {};
-      options.panel = toolbox.getCurrentPanel();
-      options.overlay = options.panel._firebugPanelOverlay;
-      options.tab = tab;
-      options.toolbox = toolbox;
+  loadFirebug();
 
-      deferred.resolve(options);
+  // xxxHonza: loadFirebug must be asynchronous FIXME
+  //loadFirebug().then(() => {
+    getTabWhenReady(url).then(({tab}) => {
+      openToolbox(tab, panelId).then(({toolbox}) => {
+        let options = {};
+        options.panel = toolbox.getCurrentPanel();
+        options.overlay = options.panel._firebugPanelOverlay;
+        options.tab = tab;
+        options.toolbox = toolbox;
+        options.chrome = Firebug.getChrome(toolbox);
+
+        deferred.resolve(options);
+      });
     });
-  });
+  //});
 
   return deferred.promise;
 }
@@ -49,5 +55,4 @@ function getToolboxWhenReady(url, panelId, config = {}) {
 exports.getToolDefinition = getToolDefinition;
 exports.openToolbox = openToolbox;
 exports.getToolboxWhenReady = getToolboxWhenReady;
-exports.closeTab = closeTab;
 exports.closeToolbox = closeToolbox;

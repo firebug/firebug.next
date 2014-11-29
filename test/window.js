@@ -5,6 +5,7 @@
 const { defer } = require("sdk/core/promise");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 const { openTab, getBrowserForTab } = require("sdk/tabs/utils");
+const { closeTab } = require("sdk/tabs/utils");
 
 /**
  * Opens new browser tab.
@@ -55,3 +56,4 @@ function waitForPageLoad(tab) {
 exports.openBrowserTab = openBrowserTab;
 exports.getTabWhenReady = getTabWhenReady;
 exports.waitForPageLoad = waitForPageLoad;
+exports.closeTab = closeTab;
