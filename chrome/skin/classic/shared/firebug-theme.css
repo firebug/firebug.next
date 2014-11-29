@@ -396,12 +396,16 @@ div.CodeMirror span.eval-text {
 
 .consoletable .table-widget-body .devtools-side-splitter {
   /*background-color: rgb(0, 0, 0) !important;*/
-  background:linear-gradient(#CBD4DE,#656A6E,#CBD4DE);
-  min-width: 1px !important;
-  width: 1px !important;
-  /*position:absolute;*/
-  height: 20% !important;
-  min-height: 20px !important;
+  /*background:linear-gradient(#CBD4DE,#656A6E,#CBD4DE);*/
+
+  
+  background: linear-gradient(#CBD4DE,#656A6E,#CBD4DE 20px, transparent 20px),
+      linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05) 20px, transparent 20px),
+      linear-gradient(transparent, rgba(0, 0, 0, 0.5) 10px, transparent 20px)
+      repeat-x transparent !important;
+  min-width: 1px;
+  width: 1px;
+  position:absolute;
   /*margin: -1px -10px 0px 0px !important;*/
 }
 
