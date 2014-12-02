@@ -6,6 +6,13 @@ const { openToolbox } = require("./common.js");
 const { executeCommand } = require("./command-line.js");
 const { waitForMessage } = require("./console.js");
 
+/**
+ * This test is intended for performance timing support.
+ * It opens the toolbox, selects the Console panel and
+ * executes 'window.performance.timing' expression on
+ * the command line. It consequently waits till the
+ * timing visualization appears in the Console panel.s
+ */
 exports["test Firebug theme"] = function(assert, done) {
   // Configuration flags for toolbox open.
   let config = {

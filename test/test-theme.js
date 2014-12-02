@@ -5,6 +5,9 @@
 const { loadFirebug } = require("./common.js");
 const { getMostRecentBrowserWindow } = require("sdk/window/utils");
 
+/**
+ * This test checks existence of the Firebug theme.
+ */
 exports["test Firebug theme"] = function(assert) {
   let browser = getMostRecentBrowserWindow();
 
