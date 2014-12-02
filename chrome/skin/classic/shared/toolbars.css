@@ -29,6 +29,10 @@
   height: 28px;
 }
 
+.theme-firebug toolbarseparator {
+  min-height: 0;
+}
+
 /******************************************************************************/
 /* Toolbar Buttons */
 
