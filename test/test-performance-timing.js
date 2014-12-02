@@ -11,7 +11,7 @@ const { waitForMessage } = require("./console.js");
  * It opens the toolbox, selects the Console panel and
  * executes 'window.performance.timing' expression on
  * the command line. It consequently waits till the
- * timing visualization appears in the Console panel.s
+ * timing visualization appears in the Console panel.
  */
 exports["test Firebug theme"] = function(assert, done) {
   // Configuration flags for toolbox open.
