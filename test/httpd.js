@@ -38,7 +38,7 @@ exports.host = host;
  * @param config
  * @returns
  */
-function startServer(config) {
+function startServer(config = {}) {
   let title = config.pageName || "test";
   let url = host + title + ".html";
 
