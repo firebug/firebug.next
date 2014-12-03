@@ -30,10 +30,7 @@ function openToolbox(tab, panelId) {
 function getToolboxWhenReady(url, panelId = "webconsole", config = {}) {
   let deferred = defer();
 
-  loadFirebug();
-
-  // xxxHonza: loadFirebug must be asynchronous FIXME
-  //loadFirebug().then(() => {
+  loadFirebug().then(() => {
     getTabWhenReady(url).then(({tab}) => {
       openToolbox(tab, panelId).then(({toolbox}) => {
         let options = {};
@@ -46,7 +43,7 @@ function getToolboxWhenReady(url, panelId = "webconsole", config = {}) {
         deferred.resolve(options);
       });
     });
-  //});
+  });
 
   return deferred.promise;
 }

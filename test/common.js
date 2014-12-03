@@ -15,20 +15,19 @@ const { openBrowserTab, waitForPageLoad } = require("./window.js");
  * TODO: description
  */
 function loadFirebug() {
-  if (!Firebug.chromes) {
-    main({loadReason: "install"});
-  }
+  let deferred = defer();
 
-  // xxxHonza: loadFirebug must be asynchronous FIXME
-  /*let deferred = defer();
   if (!Firebug.chromes) {
-    main({loadReason: "install"});
+    Firebug.target.once("initialized", () => {
+      deferred.resolve();
+    });
 
-    // xxxHonza: wait till Firebug is fully initialized
-    // (e.g. logger actor registered and attached)
+    main({loadReason: "install"});
+  } else {
     deferred.resolve();
   }
-  return deferred.promise;*/
+
+  return deferred.promise;
 };
 
 /**
@@ -58,9 +57,6 @@ exports.openToolbox = function(config) {
   config.panelId = config.panelId || "webconsole";
   config.inBackground = config.inBackground || false;
 
-  // Make sure Firebug is loaded.
-  loadFirebug();
-
   let server;
   let url = config.url;
 
@@ -88,43 +84,45 @@ exports.openToolbox = function(config) {
     };
 
     // Open the toolbox with given panel selected by default.
-    openToolbox(id).then(toolbox => {
-      let options = {};
-      options.toolbox = toolbox;
-      options.panel = toolbox.getCurrentPanel();
-      options.overlay = options.panel._firebugPanelOverlay;
-      options.browserTab = newTab;
+    loadFirebug().then(() => {
+      openToolbox(id).then(toolbox => {
+        let options = {};
+        options.toolbox = toolbox;
+        options.panel = toolbox.getCurrentPanel();
+        options.overlay = options.panel._firebugPanelOverlay;
+        options.browserTab = newTab;
 
-      // Asynchronous clean up. Make sure to shutdown the server if running.
-      options.cleanUp = function(done) {
-        setTimeout(() => {
-          if (server) {
-            stopServer(server, () => {
+        // Asynchronous clean up. Make sure to shutdown the server if running.
+        options.cleanUp = function(done) {
+          setTimeout(() => {
+            if (server) {
+              stopServer(server, () => {
+                closeTab(newTab);
+                done();
+              });
+            } else {
               closeTab(newTab);
               done();
-            });
-          } else {
-            closeTab(newTab);
-            done();
-          }
-        });
-      }
+            }
+          });
+        }
 
-      // Asynchronous toolbox destroy.
-      options.closeToolbox = function(toolbox) {
-        let deferred = defer();
+        // Asynchronous toolbox destroy.
+        options.closeToolbox = function(toolbox) {
+          let deferred = defer();
 
-        // Fired after all panels are also destroyed.
-        toolbox.once("destroyed", (eventId, target) => {
-          deferred.resolve(options);
-        });
+          // Fired after all panels are also destroyed.
+          toolbox.once("destroyed", (eventId, target) => {
+            deferred.resolve(options);
+          });
 
-        closeToolbox(toolbox.target.tab);
-        return deferred.promise;
-      }
+          closeToolbox(toolbox.target.tab);
+          return deferred.promise;
+        }
 
-      // Resolve the return (page loaded & toolbox opened) promise.
-      deferred.resolve(options);
+        // Resolve the return (page loaded & toolbox opened) promise.
+        deferred.resolve(options);
+      });
     });
   });
 
