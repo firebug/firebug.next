@@ -7,6 +7,7 @@ const { waitForMessage } = require("./console.js");
 const { getToolboxWhenReady } = require("./toolbox.js");
 const { startServer, stopServer } = require("./httpd.js");
 const { closeTab } = require("./window.js");
+const { System } = require("../lib/core/system.js");
 
 const base64 = require("sdk/base64");
 
@@ -16,6 +17,13 @@ const base64 = require("sdk/base64");
  * till the log appears in the Console panel.
  */
 exports["test Remote Logger"] = function(assert, done) {
+  // The logger doesn't support e10s yet.
+  if (System.isMultiprocessEnabled()) {
+    assert.ok(true, "The server log isn't supported in e10s");
+    done();
+    return;
+  }
+
   // Start HTTP server
   let {server, url} = startServer({
     pageName: "serverLogging",
