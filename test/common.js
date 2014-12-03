@@ -11,20 +11,26 @@ const { setTimeout } = require("sdk/timers");
 const { openBrowserTab, waitForPageLoad } = require("./window.js");
 
 /**
- * xxxHonza: design this API as asynchronous
- * TODO: description
+ * Load Firebug add-on. Tests that only verifies specific API don't
+ * have to load entire extension. However, tests that need to open the
+ * toolbox and check out specific panel or another piece of the UI needs
+ * to usually load entire extension.
+ * 
+ * @returns {Promise} Resolved when Firebug is fully initialized. This can
+ * happen asynchronously (e.g. some modules might require communication
+ * with the backend over RDP).
  */
 function loadFirebug() {
   let deferred = defer();
 
   if (!Firebug.chromes) {
     Firebug.target.once("initialized", () => {
-      deferred.resolve();
+      deferred.resolve(true);
     });
 
     main({loadReason: "install"});
   } else {
-    deferred.resolve();
+    deferred.resolve(false);
   }
 
   return deferred.promise;
