@@ -3,17 +3,17 @@
 "use strict";
 
 const { Cu } = require("chrome");
-const { openToolbox } = require("./common");
 const { openSidePanel, waitForMessage } = require("./console");
 const { Trace, TraceError } = require("../lib/core/trace").get(module.id);
 const { Wrapper } = require("../lib/core/wrapper");
+const { getToolboxWhenReady } = require("./toolbox.js");
+const { startServer, stopServer } = require("./httpd.js");
+const { closeTab } = require("./window.js");
 
 exports["test Command Editor"] = function(assert, done) {
-  let config = {
-    panelId: "webconsole",
-  };
+  let {server, url} = startServer();
 
-  openToolbox(config).then(({toolbox, cleanUp}) => {
+  getToolboxWhenReady(url, "webconsole").then(({toolbox, tab}) => {
     openSidePanel(toolbox, "commandEditor").then(({panel, sidePanel}) => {
       let iframe = sidePanel.querySelector(".iframe-commandEditor");
       if (iframe == null) {
@@ -32,11 +32,16 @@ exports["test Command Editor"] = function(assert, done) {
         then(() => runWithNoSelection(panel, editor, sidePanel, editorWin)).
         then(() => checkResult(toolbox, "\"no selection\"", panel)).
         then(() => clearBeforeDone(editor, panel)).
-        then(() => cleanUp(done));
+        then(() => cleanUp(tab));
     });
   });
 
   // Helpers (defined in scope of the test, so assert API is available)
+
+  function cleanUp(tab) {
+    closeTab(tab);
+    stopServer(server, done);
+  }
 
   function runWithSelection(panel, editor, sidePanel, win) {
     let instructions = "let a = \"no selection\";";

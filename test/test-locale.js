@@ -4,6 +4,9 @@
 
 const { Locale } = require("../lib/core/locale.js");
 
+/**
+ * This test is intended to test Locale API.
+ */
 exports["test Locale module API"] = function(assert) {
   let text;
 

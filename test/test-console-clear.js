@@ -13,6 +13,12 @@ const content =
   "console.log('hello')" +
   "</script></body></html>";
 
+/**
+ * This test check the Clear action and existence of the Clear button that
+ * is available on the Console panel. It opens the toolbox, selects the
+ * Console panel and wait for incoming log. As soon as the log arrives it
+ * clears the console and checks that it's empty.
+ */
 exports["test Console clear button"] = function(assert, done) {
   // Start HTTP server
   let {server, url} = startServer({
