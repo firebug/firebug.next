@@ -10,7 +10,7 @@ const { defer } = require("sdk/core/promise");
  *
  * @param {Toolbox} toolbox The current toolbox
  * @param {String} expr Expression to be evaluated
- * @param {Object} config Configuratio flags
+ * @param {Object} config Configuration flags
  */
 function executeCommand(toolbox, expr, config) {
   let chrome = Firebug.getChrome(toolbox);
