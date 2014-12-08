@@ -11,8 +11,7 @@ Firebug is free and open source software distributed under the
 
 Repository Structure
 --------------------
-Structure of the extension follows Jetpack standards. It's generated using the
-`cfx` tool
+Structure of the extension follows Jetpack standards.
 
 * **data** HTML pages, etc.
 * **chrome** Stylesheets, localization files, etc.
