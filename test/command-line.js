@@ -8,11 +8,9 @@ const { defer } = require("sdk/core/promise");
 /**
  * Executes JS expression on the Command Line or in the Command Editor.
  *
- * xxxHonza: TODO description
- *
- * @param {Toolbox} toolbox
- * @param {String} expr
- * @param {Object} config
+ * @param {Toolbox} toolbox The current toolbox
+ * @param {String} expr Expression to be evaluated
+ * @param {Object} config Configuration flags
  */
 function executeCommand(toolbox, expr, config) {
   let chrome = Firebug.getChrome(toolbox);
