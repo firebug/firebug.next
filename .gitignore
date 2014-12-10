@@ -37,3 +37,6 @@
 # Bash
 *.sh
 *.bat
+
+# Preferences
+prefs.json
