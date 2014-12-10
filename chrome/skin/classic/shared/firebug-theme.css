@@ -171,6 +171,13 @@
   border-color: #aaa;
 }
 
+/*overwrite widget.css to make sure the background colour on the variable view labels do not change*/
+
+.variables-view-scope{
+    -moz-user-focus:ignore;
+}
+
+
 .ruleview-colorswatch,
 .computedview-colorswatch,
 .ruleview-bezierswatch {
