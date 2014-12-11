@@ -65,3 +65,10 @@ html.theme-firebug,
 .theme-firebug #showall:hover {
   text-decoration: underline;
 }
+
+/******************************************************************************/
+/* Font Inspector */
+
+.theme-firebug #showall {
+  display: none;
+}

@@ -3,6 +3,10 @@
 /*************************************************************************************************/
 /* MarkupView */
 
+.theme-firebug #root-wrapper {
+  padding-left: 5px;
+}
+
 .theme-firebug .theme-fg-color3 {
   color: blue;
 }
