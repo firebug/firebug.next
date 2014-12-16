@@ -176,9 +176,9 @@
 /******************************************************************************/
 /* Variables Panel */
 
-/* overwrite widget.css for issue #229*/
-.theme-firebug .variables-view-scope { 
-    -moz-user-focus: ignore;
+/* Overwrite widget.css for issue #229 */
+.theme-firebug .variables-view-scope {
+  -moz-user-focus: ignore;
 }
 
 /******************************************************************************/
