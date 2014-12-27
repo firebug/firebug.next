@@ -27,7 +27,6 @@
 
 .theme-selected,
 .CodeMirror-hint-active {
-  background-color: #4c9ed9 !important;
   color: #f5f7fa; /* Light foreground text */
 }
 
@@ -178,7 +177,7 @@
 .table-widget-column-header {
   padding: 3px 13px 2px 4px !important;
   font-size: 11px !important;
-  font-family:sans-serif;
+  font-family: sans-serif;
   height: 20px !important;
   min-height: 20px !important;
   font-weight: bold !important;
@@ -186,7 +185,7 @@
 }
 
 .table-widget-cell > .console-string {
-  color:#FF0000 !important;
+  color: #FF0000 !important;
 }
 
 .table-widget-column-header[sorted="descending"]:not(:active) {
@@ -395,29 +394,24 @@ div.CodeMirror span.eval-text {
 }
 
 .consoletable .table-widget-body .devtools-side-splitter {
-  /*background-color: rgb(0, 0, 0) !important;*/
-  /*background:linear-gradient(#CBD4DE,#656A6E,#CBD4DE);*/
-
-  
   background: linear-gradient(#CBD4DE,#656A6E,#CBD4DE 20px, transparent 20px),
       linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05) 20px, transparent 20px),
       linear-gradient(transparent, rgba(0, 0, 0, 0.5) 10px, transparent 20px)
       repeat-x transparent !important;
   min-width: 1px;
   width: 1px;
-  position:absolute;
-  /*margin: -1px -10px 0px 0px !important;*/
+  position: absolute;
 }
 
-.consoletable .table-widget-body .devtools-side-splitter:last-of-type{
+.consoletable .table-widget-body .devtools-side-splitter:last-of-type {
   display:none;
 }
 
-.table-widget-column .table-widget-cell:nth-child(odd){ 
+.table-widget-column .table-widget-cell:nth-child(odd) { 
   background: #EFEFEF;
 }
 
-.table-widget-column .table-widget-cell:nth-child(even){
+.table-widget-column .table-widget-cell:nth-child(even) {
   background: #FFFFFF;
 }
 
@@ -441,7 +435,7 @@ div.CodeMirror span.eval-text {
   height: 24px;
   line-height: 24px;
   box-sizing: border-box;
-  background: linear-gradient(#E7E7E7,#DADADA);
+  background: linear-gradient(#E7E7E7, #DADADA);
 }
 
 .devtools-toolbar {
