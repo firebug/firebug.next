@@ -29,10 +29,13 @@
   height: 28px;
 }
 
+.theme-firebug toolbarseparator {
+  min-height: 0;
+}
+
 /******************************************************************************/
 /* Toolbar Buttons */
 
-.theme-firebug .breadcrumbs-widget-item,
 .theme-firebug toolbarbutton {
   -moz-appearance: none;
   margin-right: 1px;
@@ -40,6 +43,8 @@
   border-radius: 2px;
   color: #141414;
   width: auto;
+  line-height: 12px;
+  font-size: 12px;
 }
 
 /* We might want to change this if toolbar buttons have icons,
@@ -53,7 +58,6 @@ but for now do not allocate an extra space for images */
   padding: 0 !important;
 }
 
-.theme-firebug .breadcrumbs-widget-item:hover,
 .theme-firebug toolbarbutton:hover:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.2);
   background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
@@ -62,12 +66,13 @@ but for now do not allocate an extra space for images */
     0 0 2px rgba(0, 0, 0, 0.05);
 }
 
+/* Note the special selector part for the #resume button. */
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
   [selected="true"],
-  [open="true"]):not(.panelStatusLabel):not([disabled="true"]) {
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
-    0 0 2px rgba(0, 0, 0, 0.05);
+  [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not(#resume) {
+  border-color: rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset, 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]) {
@@ -124,7 +129,7 @@ but for now do not allocate an extra space for images */
   -moz-box-pack: center;
   -moz-box-align: center;
   margin: 0;
-  padding: 0 5px;
+  padding: 0 6px 0 7px;
 }
 
 .theme-firebug toolbarbutton[type="menu-button"]:not(:hover):not(:active):not(:-moz-any([checked="true"], [selected="true"], [open="true"])) > :-moz-any(.toolbarbutton-menu-dropmarker, .toolbarbutton-menubutton-dropmarker)::before {

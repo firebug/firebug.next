@@ -1,34 +1,12 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Panel Splitter */
-
-#panelSplitter {
-  background-color: rgb(231, 241, 251) !important;
-  border: none;
-  min-width: 5px;
-  max-width: 5px;
-}
-
-#panelSplitter[orient="vertical"] {
-  min-height: 5px;
-  max-height: 5px;
-  min-width: 0;
-  max-width: none;
-}
-
-#panelSplitter[orient=vertical] > .panelSplitterBox {
-  visibility: hidden;
-}
-
-/******************************************************************************/
 /* Built-in side-box splitter */
 
 .theme-firebug .devtools-side-splitter {
   background-color: rgb(231, 241, 251) !important;
   border: none;
   min-width: 5px;
-  box-align: start;
 
   -moz-margin-start: -1px;
 
@@ -38,8 +16,6 @@
   -moz-box-pack: start;
 }
 
-
-#panelSplitter > .panelSplitterBox,
 .theme-firebug .devtools-side-splitter > .panelSplitterBox {
   visibility: visible;
   height: 28px;

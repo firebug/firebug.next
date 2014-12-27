@@ -3,6 +3,10 @@
 /*************************************************************************************************/
 /* MarkupView */
 
+.theme-firebug #root-wrapper {
+  padding-left: 5px;
+}
+
 .theme-firebug .theme-fg-color3 {
   color: blue;
 }
@@ -37,15 +41,19 @@
   background-color: #3399ff;
 }
 
-.theme-selected ~ .editor,
-.theme-selected ~ .editor .theme-fg-color1,
-.theme-selected ~ .editor .theme-fg-color2,
-.theme-selected ~ .editor .theme-fg-color3,
-.theme-selected ~ .editor .theme-fg-color4,
-.theme-selected ~ .editor .theme-fg-color5,
-.theme-selected ~ .editor .theme-fg-color6,
-.theme-selected ~ .editor .theme-fg-color7,
+.theme-firebug .theme-selected ~ .editor,
+.theme-firebug .theme-selected ~ .editor .theme-fg-color1,
+.theme-firebug .theme-selected ~ .editor .theme-fg-color2,
+.theme-firebug .theme-selected ~ .editor .theme-fg-color3,
+.theme-firebug .theme-selected ~ .editor .theme-fg-color4,
+.theme-firebug .theme-selected ~ .editor .theme-fg-color5,
+.theme-firebug .theme-selected ~ .editor .theme-fg-color6,
+.theme-firebug .theme-selected ~ .editor .theme-fg-color7,
 .theme-firebug .theme-selected ~ .editor .open,
 .theme-firebug .theme-selected ~ .editor .close {
   color: #fff;
+}
+
+.theme-firebug .markupview-events {
+  font-size: 12px;
 }
