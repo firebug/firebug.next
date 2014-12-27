@@ -1,8 +1,6 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Debugger Panel Styles */
-
 /* Sources Panel */
 
 .theme-firebug #sources-pane > tabs {
@@ -104,6 +102,10 @@
   list-style-image: url(blackBox.svg);
 }
 
+.theme-firebug #pretty-print {
+  list-style-image: url(prettyPrint.svg);
+}
+
 .theme-firebug #toggle-breakpoints {
   list-style-image: url(toggleBreakpoints.svg);
 }
@@ -172,6 +174,14 @@
 }
 
 /******************************************************************************/
+/* Variables Panel */
+
+/* Overwrite widget.css for issue #229 */
+.theme-firebug .variables-view-scope {
+  -moz-user-focus: ignore;
+}
+
+/******************************************************************************/
 /* Callstack Panel */
 
 .theme-firebug #callstack-list {
@@ -212,105 +222,15 @@
   color: blue;
 }
 
-.theme-light #callstack-list .side-menu-widget-item:first-child {
+.theme-firebug #callstack-list .side-menu-widget-item:first-child {
   border-top: none;
 }
 
 /******************************************************************************/
 /* Breadcrumbs */
 
-/* Breadcrumbs Separators (reset selection styles) */
-.theme-firebug .breadcrumbs-widget-item[checked],
-.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-id,
-.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-tag,
-.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-pseudo-classes,
-.theme-firebug .breadcrumbs-widget-item[checked] .breadcrumbs-widget-item-classes {
-  background-color: transparent;
-  font-weight: bold;
-  color: black;
-}
-
-/* The first rule is there only to make sure the default rule from
-widgets.css is overwritten. */
-.theme-firebug .breadcrumbs-widget-item[checked] + .breadcrumbs-widget-item,
-.theme-firebug .breadcrumbs-widget-item {
-  padding-left: 13px;
-  background: url(chrome://firebug/skin/statusPathSeparator.svg) no-repeat center;
-  background-position: 0 10px;
-}
-
-.theme-firebug .breadcrumbs-widget-item:first-child {
-  padding-left: 10px;
-  background: none;
-}
-
 .theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item-id {
   display: none;
-}
-
-.theme-firebug .breadcrumbs-widget-container .breadcrumbs-widget-item-tag {
-  cursor: pointer;
-}
-
-/******************************************************************************/
-/* Breadcrumbs Scroll Buttons */
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up,
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down {
-  -moz-appearance: none;
-  width: 15px !important;
-  margin: 0;
-  padding: 0;
-  border: 1px solid rgb(170,188,207);
-  border-bottom: none;
-  border-top: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up:not([disabled="true"]):hover,
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:not([disabled="true"]):hover {
-  border-top-width: 1px;
-  padding-top: 1px;
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up[disabled="true"],
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down[disabled="true"] {
-  opacity: 0.4;
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up:hover,
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up {
-  background-image: url("chrome://global/skin/arrow/arrow-lft.gif") ;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-left-style: none;
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:hover,
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down {
-  background-image: url("chrome://global/skin/arrow/arrow-rit.gif");
-  background-position: center;
-  background-repeat: no-repeat;
-  border-right-style: none;
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up[disabled="true"] {
-  list-style-image: url("chrome://global/skin/arrow/arrow-lft-dis.gif");
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down[disabled="true"] {
-  list-style-image: url("chrome://global/skin/arrow/arrow-rit-dis.gif");
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-up:-moz-locale-dir(rtl) {
-  border-left-style: solid;
-  border-right-style: none;
-}
-
-.theme-firebug .breadcrumbs-widget-container > .scrollbutton-down:-moz-locale-dir(rtl) {
-  border-left-style: none;
-  border-right-style: solid;
 }
 
 /******************************************************************************/

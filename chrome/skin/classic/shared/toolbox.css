@@ -161,6 +161,7 @@
 
 .theme-firebug #toolbox-tab-options {
   margin-right: 4px;
+  background-color: white;
 }
 
 .theme-firebug #toolbox-tab-options::before {
@@ -221,53 +222,4 @@
 .theme-firebug #toolbox-dock-window > image,
 .theme-firebug #toolbox-close > image {
   filter: none !important;
-}
-
-/******************************************************************************/
-/* Tab scrollbox and autorepeat buttons */
-
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up,
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down {
-    -moz-appearance: none;
-    width: 18px;
-    margin: 3px 0px 4px;
-    padding: 0px;
-    border: 1px solid rgb(170,188,207);
-    border-bottom: none;
-    border-top: none;
-}
-
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:not([disabled="true"]):hover,
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:not([disabled="true"]):hover {
-    border-top-width: 1px;
-    padding-top: 1px;
-}
-
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up[disabled="true"],
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down[disabled="true"] {
-    opacity: 0.4;
-}
-
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up {
-    border-left-style: none;
-    /*border-top-right-radius: 2px;*/
-}
-
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-up:-moz-locale-dir(rtl) {
-    border-left-style: solid;
-    border-right-style: none;
-    /*border-top-left-radius: 2px;
-    border-top-right-radius: 0px;*/
-}
-
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down {
-    border-right-style: none;
-    /*border-top-left-radius: 2px;*/
-}
-
-.theme-firebug .devtools-sidebar-tabs tabscrollbox > .autorepeatbutton-down:-moz-locale-dir(rtl) {
-    border-left-style: none;
-    border-right-style: solid;
-    /*border-top-left-radius: 0px;
-    border-top-right-radius: 2px;*/
 }
