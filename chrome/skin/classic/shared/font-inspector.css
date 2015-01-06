@@ -72,3 +72,8 @@ html.theme-firebug,
 .theme-firebug #showall {
   display: none;
 }
+
+/* Workaround for: https://github.com/firebug/firebug.next/issues/257 */
+.theme-firebug .font-preview {
+  filter: invert(100%);
+}
