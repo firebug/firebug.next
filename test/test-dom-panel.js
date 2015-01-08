@@ -5,7 +5,7 @@
 const { getToolDefinition, getToolboxWhenReady } = require("./toolbox.js");
 const { closeTab } = require("./window.js");
 const { setTimeout } = require("sdk/timers");
-const { domPanelId } = require("../lib/dom/domPanel");
+const { domPanelId } = require("../lib/dom/dom-panel.js");
 
 /**
  * This test checks existence of the DOM panel. It opens a new tab,
