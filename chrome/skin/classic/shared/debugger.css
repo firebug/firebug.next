@@ -10,6 +10,7 @@
 .theme-firebug #sources-pane .dbg-source-item {
   padding: 0;
   padding-left: 17px;
+  cursor: pointer;
 }
 
 .theme-firebug #sources-pane .side-menu-widget-item-contents {
