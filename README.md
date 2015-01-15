@@ -52,6 +52,10 @@ Running tests requires some external modules, you need to download and install t
 
 `npm install`
 
+Start Contributing
+------------------
+Read our [wiki](https://github.com/firebug/firebug.next/wiki#start-contributing)
+
 Further Resources
 -----------------
 
