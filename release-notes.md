@@ -30,6 +30,10 @@ Next Firebug generation built on top of native Firefox developer tools
 [source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.6),
 [fixed issues](http://issues.firebug.io/tagged/fixed/firebug-3.0.0-alpha.6)
 
+[``firebug-3.0.0-alpha.7``](https://getfirebug.com/releases/firebug/3.0/firebug-3.0.0-alpha.7.xpi)
+[source](https://github.com/firebug/firebug.next/releases/tag/firebug-3.0.0-alpha.7),
+[fixed issues](http://issues.firebug.io/tagged/fixed/firebug-3.0.0-alpha.7)
+
 ## Beta Releases
 
 Beta milestone: https://github.com/firebug/firebug.next/milestones/beta
