@@ -226,6 +226,10 @@
   border-top: none;
 }
 
+.theme-firebug #callstack-list .side-menu-widget-item :-moz-any(label, hbox) {
+  cursor: pointer;
+}
+
 /******************************************************************************/
 /* Breadcrumbs */
 
