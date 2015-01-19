@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="react-0.12.2/build/react.js"></script>
-  <script src="lib/react.min.js"></script>
-  <style type="text/css">
-  body {
-    background-color: white;  
-  }
-  </style>
-</head>
-<body id="content"></body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap default CSS -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- Load RequireJS config file as the entry point module -->
+    <script data-main="config" src="../lib/requirejs/require.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <div id="response"></div>
+  </body>
 </html>
