@@ -13,7 +13,7 @@ const host = "http://localhost:" + port + "/";
 
 function serve({ name, content, pathHandler }) {
   content = content || "<!DOCTYPE html><html lang=\"en\">" +
-    "<head><meta charset=\"UTF-8\"><title>" + name +
+    "<head><meta charset=\"UTF-8\"/><title>" + name +
     "</title></head><body></body></html>";
 
   let server = startServerAsync(port, basePath);
