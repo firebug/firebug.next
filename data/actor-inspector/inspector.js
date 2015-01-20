@@ -6,6 +6,6 @@ define(function(require) {
 var { renderTabbedBox } = require("tabs");
 
 // Rendering
-renderTabbedBox();
+//renderTabbedBox();
 
 });

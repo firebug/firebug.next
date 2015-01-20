@@ -42,10 +42,14 @@ window.addEventListener("message", event => {
  * be handled by the page content script.
  */
 addMessageListener("firebug:command", event => {
+  let parentNode = window.document.getElementById("response");
+
   Trace.sysout("inspector-content.js; command", event);
 
   if (event.data.id == "refresh") {
-    onMessage(event.data);
+    let item = document.createElement("pre");
+    item.textContent = JSON.stringify(event.data.data, 2, 2);
+    parentNode.appendChild(item);
   }
 });
 
@@ -58,9 +62,9 @@ function onMessage(event) {
   Trace.sysout("inspector-content.js; onMessage from: " +
     event.data.from, event);
 
-  let item = document.createElement("pre");
-  item.textContent = JSON.stringify(event.data, 2, 2);
-  parentNode.appendChild(item);
+  //let item = document.createElement("pre");
+  //item.textContent = JSON.stringify(event.data, 2, 2);
+  //parentNode.appendChild(item);
 };
 
 /**

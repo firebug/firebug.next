@@ -42,8 +42,6 @@ function renderTabbedBox () {
   );
 }
 
-renderTabbedBox();
-
 // Exports from this module
 exports.renderTabbedBox = renderTabbedBox;
 
