@@ -2,6 +2,8 @@
 
 "use strict";
 
+(function({content, addMessageListener, sendAsyncMessage}) {
+
 /**
  * Content script loaded within inspector.html
  */
@@ -16,8 +18,11 @@ const window = content;
 
 var port;
 
-// Register listener for 'message' sent from the chrome scope.
-// The chrome uses message manager API to send RDP port to the debuggee.
+/**
+ * Register listener for 'message' sent from the chrome scope.
+ * The first message initializes a port that can be used to
+ * send RDP packets directly to the back-end.
+ */
 window.addEventListener("message", event => {
   // Port to debuggee (toolbox.target). The port represents communication
   // channel to the remote debugger server.
@@ -27,20 +32,31 @@ window.addEventListener("message", event => {
 
   // Register callback for incoming RDP packets.
   port.onmessage = onMessage.bind(this);
-
-  //xxxHonza: Ask for list of tabs (testing)
-  let str = '{"to": "root", "type": "listTabs"}';
-  let packet = JSON.parse(str);
-  port.postMessage(packet);
 }, false);
 
 /**
- * Callback for messages coming from the debuggee target.
+ * Listener for commands from the chrome scope. Commands can be fired
+ * by UI that is part of the chrome (XUL).
+ *
+ * xxxHonza: should be further distributed as DOM event, so it can
+ * be handled by the page content script.
+ */
+addMessageListener("firebug:command", event => {
+  Trace.sysout("inspector-content.js; command", event);
+
+  if (event.data.id == "refresh") {
+    onMessage(event.data);
+  }
+});
+
+/**
+ * Callback for messages coming from the debuggee target (aka the back-end).
  */
 function onMessage(event) {
   let parentNode = window.document.getElementById("response");
 
-  Trace.sysout("inspector-content.js; onMessage from: " + event.data.from, event);
+  Trace.sysout("inspector-content.js; onMessage from: " +
+    event.data.from, event);
 
   let item = document.createElement("pre");
   item.textContent = JSON.stringify(event.data, 2, 2);
@@ -64,3 +80,5 @@ function sendChromeMessage() {
   // Send message back the HelloWorldPanel.
   sendAsyncMessage("message", data, objects);
 }
+
+})(this);
