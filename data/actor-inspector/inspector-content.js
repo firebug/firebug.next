@@ -5,11 +5,11 @@
 (function({content, addMessageListener, sendAsyncMessage}) {
 
 /**
- * Content script loaded within inspector.html
+ * Frame script loaded within inspector.html
  */
-
 const Cu = Components.utils;
 
+// Tracing
 const { traceConsoleService } = Cu.import("resource://fbtrace/firebug-trace-service.js", {});
 const Trace = traceConsoleService.getTracer("extensions.firebug");
 
@@ -35,22 +35,27 @@ window.addEventListener("message", event => {
 }, false);
 
 /**
- * Listener for commands from the chrome scope. Commands can be fired
- * by UI that is part of the chrome (XUL).
- *
- * xxxHonza: should be further distributed as DOM event, so it can
- * be handled by the page content script.
+ * Listener for message from the inspector panel (chrome scope).
+ * It's further distributed as DOM event, so it can be handled by
+ * the page content script.
  */
-addMessageListener("firebug:command", event => {
-  let parentNode = window.document.getElementById("response");
+addMessageListener("firebug/event/message", message => {
+  const { type, data, origin, bubbles, cancelable } = message.data;
 
-  Trace.sysout("inspector-content.js; command", event);
+  Trace.sysout("inspector-content.js; message: " + message.name, message);
 
-  if (event.data.id == "refresh") {
-    let item = document.createElement("pre");
-    item.textContent = JSON.stringify(event.data.data, 2, 2);
-    parentNode.appendChild(item);
-  }
+  // xxxHonza: should we rather use Wrapper.cloneIntoContentScope
+  // instead of JSON.stringify.
+  const event = new content.MessageEvent(type, {
+    bubbles: bubbles,
+    cancelable: cancelable,
+    data: JSON.stringify(data, 2, 2),
+    origin: origin,
+    target: content,
+    source: content,
+  });
+
+  content.dispatchEvent(event);
 });
 
 /**
@@ -61,14 +66,10 @@ function onMessage(event) {
 
   Trace.sysout("inspector-content.js; onMessage from: " +
     event.data.from, event);
-
-  //let item = document.createElement("pre");
-  //item.textContent = JSON.stringify(event.data, 2, 2);
-  //parentNode.appendChild(item);
 };
 
 /**
- * For testing purposes.
+ * Send a message back to the Inspector panel (chrome scope).
  */
 function sendChromeMessage() {
   let data = {

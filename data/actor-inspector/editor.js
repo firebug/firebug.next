@@ -2,10 +2,4 @@
 
 define(function(require) {
 
-// Application modules
-var { renderTabbedBox } = require("tabs");
-
-// Rendering
-renderTabbedBox();
-
 });
