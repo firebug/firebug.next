@@ -50,7 +50,7 @@ var PoolTable = React.createClass({
           React.DOM.th({width: "25%"}, "Actor ID"),
           React.DOM.th({width: "25%"}, "Prefix"),
           React.DOM.th({width: "25%"}, "Parent"),
-          React.DOM.th({width: "25%"}, "Ctor Name")
+          React.DOM.th({width: "25%"}, "Constructor")
         ),
         React.DOM.tbody(null, rows)
       )
