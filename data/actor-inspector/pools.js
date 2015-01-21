@@ -32,11 +32,9 @@ var PoolTable = React.createClass({
   render: function() {
     var rows = [];
 
-    var actors = Object.keys(this.props);
-    for (var i in actors) {
-      var actorId = actors[i];
-      var actor = this.props[actorId];
-      rows.push(PoolRow(actor));
+    // Iterate array of actors.
+    for (var i in this.props) {
+      rows.push(PoolRow(this.props[i]));
     };
 
     return (
@@ -62,6 +60,14 @@ var PoolList = React.createClass({
 
     for (var i in this.props) {
       var pool = this.props[i];
+
+      // xxxHonza: there are actors stored as pools.
+      // See also: https://bugzilla.mozilla.org/show_bug.cgi?id=1119790#c1
+      if (!Array.isArray(pool)) {
+        pool.actorID = pool.actorID + " (not a pool)";
+        pool = [pool];
+      }
+
       pools.push(PoolTable(pool));
     };
 
