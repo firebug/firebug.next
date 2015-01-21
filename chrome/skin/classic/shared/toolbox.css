@@ -30,7 +30,7 @@
 
 .theme-firebug .devtools-sidebar-tabs tabs,
 .theme-firebug .devtools-sidebar-tabs tabscrollbox {
-  height: 27px;
+  height: 28px;
   background-color: rgb(219, 234, 249) !important;
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
