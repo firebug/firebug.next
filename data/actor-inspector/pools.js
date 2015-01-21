@@ -33,12 +33,19 @@ var PoolTable = React.createClass({
     var rows = [];
 
     // Iterate array of actors.
-    for (var i in this.props) {
-      rows.push(PoolRow(this.props[i]));
+    var actors = this.props.pool;
+    for (var i in actors) {
+      rows.push(PoolRow(actors[i]));
     };
 
+    // Pools are mixed with Actor objects (created using CreateClass).
+    var className = "poolTable";
+    if (this.props.actorClass) {
+      className += " actorClass";
+    }
+
     return (
-      React.DOM.table({className: "poolTable"},
+      React.DOM.table({className: className},
         React.DOM.thead({className: "poolRow"},
           React.DOM.th({width: "25%"}, "Actor ID"),
           React.DOM.th({width: "25%"}, "Prefix"),
@@ -61,14 +68,19 @@ var PoolList = React.createClass({
     for (var i in this.props) {
       var pool = this.props[i];
 
+      var actorClass = false;
+
       // xxxHonza: there are actors stored as pools.
       // See also: https://bugzilla.mozilla.org/show_bug.cgi?id=1119790#c1
       if (!Array.isArray(pool)) {
-        pool.actorID = pool.actorID + " (not a pool)";
         pool = [pool];
+        actorClass = true;
       }
 
-      pools.push(PoolTable(pool));
+      pools.push(PoolTable({
+        pool: pool,
+        actorClass: actorClass
+      }));
     };
 
     return (
@@ -79,14 +91,7 @@ var PoolList = React.createClass({
   }
 });
 
-var poolTable = React.createFactory(PoolTable);
 var poolList = React.createFactory(PoolList);
-
-var Pool = {
-  render: function(data, parentNode) {
-    React.render(poolTable(data), parentNode);
-  }
-}
 
 var Pools = {
   render: function(data, parentNode) {
@@ -95,7 +100,6 @@ var Pools = {
 }
 
 // Exports from this module
-exports.Pool = Pool;
 exports.Pools = Pools;
 
 });

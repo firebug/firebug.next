@@ -21,6 +21,7 @@ function onRefresh(event) {
   var pools = [packet.actorPool];
   pools.push.apply(pools, packet.extraPools.slice());
 
+  // xxxHonza: use setState to refresh.
   Pools.render(pools, globalActorsPane);
 }
 });
