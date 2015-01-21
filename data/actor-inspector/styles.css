@@ -30,6 +30,10 @@ a:focus {
 /******************************************************************************/
 /* Pool Table */
 
+.poolContainer {
+  font-size: 12px;
+}
+
 .poolTable {
   border: 1px solid rgb(221, 221, 221);
   width: 100%;

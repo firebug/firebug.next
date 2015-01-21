@@ -12,13 +12,13 @@ var React = require("react");
  */
 var PoolRow = React.createClass({
   render: function() {
-    var id = this.props.id;
-    var prefix = this.props.prefix;
-
+    var actor = this.props;
     return (
       React.DOM.tr({className: "poolRow"},
-        React.DOM.td({}, id),
-        React.DOM.td({}, prefix)
+        React.DOM.td({}, actor.actorID),
+        React.DOM.td({}, actor.prefix),
+        React.DOM.td({}, actor.parentID),
+        React.DOM.td({}, actor.ctor)
       )
     );
   }
@@ -36,14 +36,16 @@ var PoolTable = React.createClass({
     for (var i in actors) {
       var actorId = actors[i];
       var actor = this.props[actorId];
-      rows.push(PoolRow({id: actorId, prefix: actor.actorPrefix}));
+      rows.push(PoolRow(actor));
     };
 
     return (
       React.DOM.table({className: "poolTable"},
         React.DOM.thead({className: "poolRow"},
-          React.DOM.th({width: "50%"}, "Actor ID"),
-          React.DOM.th({width: "50%"}, "Prefix")
+          React.DOM.th({width: "25%"}, "Actor ID"),
+          React.DOM.th({width: "25%"}, "Prefix"),
+          React.DOM.th({width: "25%"}, "Parent"),
+          React.DOM.th({width: "25%"}, "Ctor Name")
         ),
         React.DOM.tbody(null, rows)
       )

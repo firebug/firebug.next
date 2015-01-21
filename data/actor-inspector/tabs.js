@@ -28,7 +28,8 @@ var TabbedBox = React.createClass({
           React.DOM.div({className: "actorPane", id: "globalActorsPane"})
         ),
         TabPane({eventKey: 2, tab: "Local Actors"},
-          React.DOM.div({className: "actorPane", id: "localActorsPane"})
+          React.DOM.div({className: "actorPane", id: "localActorsPane"},
+            "TODO")
         )
       )
     )
