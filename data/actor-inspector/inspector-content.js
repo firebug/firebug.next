@@ -42,7 +42,8 @@ window.addEventListener("message", event => {
 addMessageListener("firebug/event/message", message => {
   const { type, data, origin, bubbles, cancelable } = message.data;
 
-  Trace.sysout("inspector-content.js; message: " + message.name, message);
+  Trace.sysout("inspector-content.js; message: " + message.name +
+    ": " + type, message);
 
   // xxxHonza: should we rather use Wrapper.cloneIntoContentScope
   // instead of JSON.stringify.

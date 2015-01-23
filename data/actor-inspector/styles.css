@@ -46,8 +46,30 @@ a:focus {
   padding-left: 10px;
 }
 
-/******************************************************************************/
-
 .poolTable.actorClass {
   background-color: rgb(247, 247, 247);
+}
+
+/******************************************************************************/
+/* Packets */
+
+.panel-body {
+  padding: 2px 5px 2px 5px;
+}
+
+.packetListBox {
+  font-size: 12px;
+}
+
+.packetListBox .panel {
+  max-width: 75%;
+}
+
+.packetListBox .panel.receive {
+  background-color: rgb(223, 240, 216);
+}
+
+.packetListBox .panel.send {
+  background-color: rgb(252, 248, 227);
+  margin-left: 25%;
 }
