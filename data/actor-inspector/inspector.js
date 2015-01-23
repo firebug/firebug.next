@@ -3,6 +3,9 @@
 define(function(require, exports, module) {
 
 // Dependencies
+var $ = require("jquery");
+var React = require("react");
+
 var { Pools } = require("pools");
 var { renderTabbedBox } = require("tabs");
 var { PacketList } = require("packet-list");
@@ -14,11 +17,17 @@ window.addEventListener("receive-packet", onReceivePacket);
 
 var packets = [];
 
+// Initial panel rendering
+renderTabbedBox();
+
+// Render packet list.
+var packetList = React.renderComponent(PacketList(packets),
+  $("#tabPacketsPane").get(0));
+
 /**
  * Renders content of the Inspector panel.
  */
 function onRefresh(event) {
-  renderTabbedBox();
 
   var packet = JSON.parse(event.data);
   refreshActors(packet[0], "globalActorsPane");
@@ -43,6 +52,8 @@ function onSendPacket(event) {
     type: "send",
     packet: JSON.parse(event.data)
   });
+
+  refreshPackets();
 }
 
 function onReceivePacket(event) {
@@ -50,12 +61,23 @@ function onReceivePacket(event) {
     type: "receive",
     packet: JSON.parse(event.data)
   });
+
+  refreshPackets();
 }
 
-function refreshPackets(parentNodeId) {
-  var parentNode = document.getElementById(parentNodeId);
+// xxxHonza: refactor into an utility object.
+var timeout;
+function refreshPackets() {
+  if (timeout) {
+    clearTimeout(timeout);
+    timeout = null;
+  }
 
-  // xxxHonza: use setState to refresh.
-  PacketList.render(packets, parentNode);
+  // Refresh on timeout to avoid to many re-renderings.
+  timeout = setTimeout(() => {
+    packetList.setState({ data: packets });
+    timeout = null;
+  }, 200);
 }
+
 });

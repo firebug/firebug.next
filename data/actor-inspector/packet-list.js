@@ -30,38 +30,31 @@ var PacketRep = React.createClass({
 });
 
 /**
- * TODO docs
+ * @template This template represents a list of packets displayed
+ * inside the panel content.
  */
 var PacketListRep = React.createClass({
+  getInitialState: function() {
+    return { data: [] };
+  },
+
   render: function() {
-    var packets = [];
+    var output = [];
 
-    for (var i in this.props) {
-      var packet = this.props[i];
-
-      packets.push(PacketRep(packet));
+    var packets = this.state.data;
+    for (var i in packets) {
+      output.push(PacketRep(packets[i]));
     };
 
     return (
       React.DOM.div({className: "packetListBox"},
-        packets
+        output
       )
     );
   }
 });
 
-var packetListRep = React.createFactory(PacketListRep);
-
-/**
- * Public API
- */
-var PacketList = {
-  render: function(packets, parentNode) {
-    React.render(packetListRep(packets), parentNode);
-  }
-}
-
 // Exports from this module
-exports.PacketList = PacketList
+exports.PacketList = React.createFactory(PacketListRep);
 
 });
