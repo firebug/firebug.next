@@ -15,13 +15,18 @@ window.addEventListener("refresh", onRefresh);
 function onRefresh(event) {
   renderTabbedBox();
 
-  var globalActorsPane = document.getElementById("globalActorsPane");
   var packet = JSON.parse(event.data);
+  refreshActors(packet[0], "globalActorsPane");
+  refreshActors(packet[1], "tabActorsPane");
+}
 
-  var pools = [packet.actorPool];
-  pools.push.apply(pools, packet.extraPools.slice());
+function refreshActors(data, parentNodeId) {
+  var actorsPane = document.getElementById(parentNodeId);
+  var pools = [data.actorPool];
+  pools.push.apply(pools, data.extraPools.slice());
 
   // xxxHonza: use setState to refresh.
-  Pools.render(pools, globalActorsPane);
+  Pools.render(pools, actorsPane);
 }
+
 });
