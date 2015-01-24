@@ -4,7 +4,8 @@
 require.config({
   baseUrl: ".",
   paths: {
-    "react": "../lib/react/react.min",
+    "jquery": "../lib/jquery/jquery.min",
+    "react": "../lib/react/react",
     "bootstrap": "../lib/bootstrap/js/bootstrap.min",
     "react-bootstrap": "../lib/react-bootstrap/react-bootstrap.min",
   }
