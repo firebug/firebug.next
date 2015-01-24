@@ -10,3 +10,7 @@
 .theme-firebug #inspector-toolbar {
   padding-right: 2px;
 }
+
+.theme-firebug #inspector-sidebar toolbar {
+  height:28px;
+}
