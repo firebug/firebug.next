@@ -12,6 +12,7 @@ const TR = React.DOM.tr;
 const TD = React.DOM.td;
 const SPAN = React.DOM.span;
 const TABLE = React.DOM.table;
+const TBODY = React.DOM.tbody;
 
 /**
  * @template TODO docs
@@ -48,7 +49,6 @@ var TreeRowRep = React.createClass({
   onClick: function(event) {
     Trace.sysout("onclick", this)
   },
-
 });
 
 var TreeRow = React.createFactory(TreeRowRep);
@@ -71,7 +71,7 @@ var TreeViewRep = React.createClass({
 
     return (
       TABLE({className: "domTable", cellpadding: 0, cellspacing: 0},
-        rows
+        TBODY({}, rows)
       )
     );
   },
