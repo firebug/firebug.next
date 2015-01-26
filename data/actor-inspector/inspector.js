@@ -20,6 +20,7 @@ require("reps/object");
 
 // Initialization
 window.addEventListener("refresh", onRefresh);
+window.addEventListener("clear", onClear);
 window.addEventListener("send-packet", onSendPacket);
 window.addEventListener("receive-packet", onReceivePacket);
 
@@ -41,6 +42,11 @@ function onRefresh(event) {
   refreshActors(packet[0], "globalActorsPane");
   refreshActors(packet[1], "tabActorsPane");
   refreshPackets("tabPacketsPane");
+}
+
+function onClear() {
+  packets = [];
+  refreshPackets();
 }
 
 function refreshActors(data, parentNodeId) {
