@@ -79,7 +79,7 @@ function appendPacket(packet) {
   packets.push(packet);
 
   // xxxHonza: limit for now.
-  if (packets.length > 10) {
+  if (packets.length > 100) {
     packets.shift();
   }
 
