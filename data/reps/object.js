@@ -77,7 +77,7 @@ const Obj = React.createClass({
       });
     }
 
-    if (props.length > max) {
+    /*if (props.length > max) {
       props[props.length-1] = {
         object: "More...", // xxxHonza localization
         tag: Reps.Caption.tag,
@@ -88,7 +88,7 @@ const Obj = React.createClass({
     }
     else if (props.length > 0) {
       props[props.length-1].delim = "";
-    }
+    }*/
 
     return props;
   },
