@@ -5,6 +5,7 @@ define(function(require, exports, module) {
 // Dependencies
 var React = require("react");
 var ReactBootstrap = require("react-bootstrap");
+var { TreeView } = require("reps/tree-view");
 
 // Shortcuts
 var Panel = React.createFactory(ReactBootstrap.Panel);
@@ -24,7 +25,9 @@ var PacketRep = React.createClass({
     }
 
     return (
-      Panel({className: type}, label)
+      Panel({className: type},
+        TreeView(packet)
+      )
     );
   }
 });

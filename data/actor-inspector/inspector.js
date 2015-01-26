@@ -9,6 +9,14 @@ var React = require("react");
 var { Pools } = require("pools");
 var { renderTabbedBox } = require("tabs");
 var { PacketList } = require("packet-list");
+var { Reps } = require("reps/reps");
+
+// Reps
+require("reps/undefined");
+require("reps/string");
+require("reps/number");
+require("reps/array");
+require("reps/object");
 
 // Initialization
 window.addEventListener("refresh", onRefresh);
@@ -48,19 +56,26 @@ function refreshActors(data, parentNodeId) {
  * RDP Transport Listener
  */
 function onSendPacket(event) {
-  packets.push({
+  appendPacket({
     type: "send",
     packet: JSON.parse(event.data)
   });
-
-  refreshPackets();
 }
 
 function onReceivePacket(event) {
-  packets.push({
+  appendPacket({
     type: "receive",
     packet: JSON.parse(event.data)
   });
+}
+
+function appendPacket(packet) {
+  packets.push(packet);
+
+  // xxxHonza: limit for now.
+  if (packets.length > 10) {
+    packets.shift();
+  }
 
   refreshPackets();
 }
