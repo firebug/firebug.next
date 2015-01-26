@@ -19,11 +19,18 @@
   border: 0;
 }
 
-.theme-firebug #element-picker[checked="true"] {
+.theme-firebug #element-picker[checked="true"], .theme-firebug #element-picker:hover {
   filter: url("chrome://firebug/skin/filters.svg#darken");
-  background-image: url("chrome://firebug/skin/inspect.svg"), linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 2px;
+}
+
+.theme-firebug #element-picker[checked="true"] {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-image: url("chrome://firebug/skin/inspect.svg"), linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+}
+
+.theme-firebug #element-picker:hover {
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .theme-firebug #element-picker::before {
@@ -31,6 +38,10 @@
 }
 
 /* The player */
+
+.theme-firebug .animation-title {
+  padding: 3px 5px 6px 4px;
+}
 
 .theme-firebug .timeline,
 .theme-firebug .animation-title {
@@ -80,4 +91,14 @@
 
 .theme-firebug .timeline .toggle::-moz-focus-inner {
   border: 0;
+}
+
+/* Fonts */
+
+.theme-firebug #error-message,
+.theme-firebug .animation-title,
+.theme-firebug .timeline {
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  /* xxxFlorent: shouldn't we rather adapt --theme-content-color3? What impacts? */
+  color: #888;
 }
