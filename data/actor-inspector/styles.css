@@ -64,6 +64,7 @@ a:focus {
 
 .packetListBox .panel {
   max-width: 75%;
+  min-width: 330px;
 }
 
 .packetListBox .panel.receive {
