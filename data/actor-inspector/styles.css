@@ -69,9 +69,9 @@ a:focus {
 
 .packetListBox .panel.receive {
   background-color: rgb(223, 240, 216);
+  margin-left: 25%;
 }
 
 .packetListBox .panel.send {
   background-color: rgb(252, 248, 227);
-  margin-left: 25%;
 }
