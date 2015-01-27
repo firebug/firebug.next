@@ -9,6 +9,7 @@ var React = require("react");
 var { Pools } = require("pools");
 var { renderTabbedBox } = require("tabs");
 var { PacketList } = require("packet-list");
+var { Factories } = require("factories");
 var { Reps } = require("reps/reps");
 
 // Reps
@@ -37,11 +38,11 @@ var packetList = React.renderComponent(PacketList(packets),
  * Renders content of the Inspector panel.
  */
 function onRefresh(event) {
-
   var packet = JSON.parse(event.data);
   refreshActors(packet[0], "globalActorsPane");
   refreshActors(packet[1], "tabActorsPane");
   refreshPackets("tabPacketsPane");
+  refreshFactories(packet, "actorFactoriesPane");
 }
 
 function onClear() {
@@ -56,6 +57,13 @@ function refreshActors(data, parentNodeId) {
 
   // xxxHonza: use setState to refresh.
   Pools.render(pools, actorsPane);
+}
+
+function refreshFactories(packet, parentNodeId) {
+  var pane = document.getElementById(parentNodeId);
+
+  // xxxHonza: use setState to refresh.
+  Factories.render(packet, pane);
 }
 
 /**

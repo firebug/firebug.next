@@ -32,8 +32,11 @@ var TabbedBox = React.createClass({
         ),
         TabPane({eventKey: 3, tab: "Packets"},
           React.DOM.div({className: "actorPane", id: "tabPacketsPane"},
-            "History of sent/received packets + a filter"
+            "History of sent/received packets"
           )
+        ),
+        TabPane({eventKey: 4, tab: "Actor Factories"},
+          React.DOM.div({className: "actorPane", id: "actorFactoriesPane"})
         )
       )
     )
