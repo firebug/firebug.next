@@ -61,13 +61,13 @@ var FactoryList = React.createClass({
     // xxxHonza: localization
     return (
       React.DOM.div({className: "poolContainer"},
-        React.DOM.h4(null, "Main Proces - Global Factories"),
+        React.DOM.h4(null, "Main Process - Global Factories"),
         FactoryTable(main.factories.global),
-        React.DOM.h4(null, "Main Proces - Tab Factories"),
+        React.DOM.h4(null, "Main Process - Tab Factories"),
         FactoryTable(main.factories.tab),
-        React.DOM.h4(null, "Child Proces - Global Factories"),
+        React.DOM.h4(null, "Child Process - Global Factories"),
         FactoryTable(child.factories.global),
-        React.DOM.h4(null, "Child Proces - Tab Factories"),
+        React.DOM.h4(null, "Child Process - Tab Factories"),
         FactoryTable(child.factories.tab)
       )
     );
