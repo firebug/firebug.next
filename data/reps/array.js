@@ -24,8 +24,6 @@ var ItemRep = React.createClass(
     var delim = this.props.delim;
     var rep = Reps.getRep(object);
 
-    Trace.sysout("rep", rep);
-
     return (
       SPAN({}, rep({object: object}), delim)
     )
@@ -46,8 +44,6 @@ var ArrayRep = React.createClass(
     // xxxHonza: prefs["ObjectShortIteratorMax"]
     var displayed = mode == "short" ? 3 : 300;
     var items = this.arrayIterator(object, displayed);
-
-    Trace.sysout("array render", items);
 
     return (
       ObjectBox({className: "array", repObject: object,

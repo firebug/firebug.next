@@ -20,9 +20,11 @@ const TBODY = React.DOM.tbody;
 var TreeRowRep = React.createClass({
   render: function() {
     var member = this.props;
-    var rowClassName = "memberRow " + member.type + "Row";
+    var classNames = ["memberRow"];
+    classNames.push(member.type + "Row");
+
     if (member.hasChildren) {
-      rowClassName += "hasChildren";
+      classNames.push("hasChildren");
     }
 
     var rowStyle = {
@@ -32,7 +34,7 @@ var TreeRowRep = React.createClass({
     var valueRep = Reps.getRep(member.value);
 
     return (
-      TR({className: rowClassName, onClick: this.onClick.bind(this)},
+      TR({className: classNames.join(" "), onClick: this.onClick.bind(this)},
         TD({className: "memberLabelCell", style: rowStyle},
           SPAN({className: "memberLabel " + member.type + "Label"},
             member.name)
