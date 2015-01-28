@@ -23,7 +23,7 @@ Structure of the extension follows Jetpack standards.
 
 Hacking on Firebug.next (aka Firebug 3)
 ---------------------------------------
-1. Get [JPM](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm): `git clone https://github.com/mozilla/jpm`
+1. Get [JPM](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm): `git clone https://github.com/mozilla/jpm` ([CFX](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx) is not supported anymore)
 2. Switch to the JPM folder and [install](https://www.npmjs.org/doc/cli/npm-install.html) and [link](https://www.npmjs.org/doc/cli/npm-link.html) it via `npm install` and `npm link`. (Also needs to be done after fetching the latest changes to the JPM repo.)
 3. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
 4. (Optional) Install [FBTrace](https://github.com/firebug/tracing-console) in your Firefox dev profile
