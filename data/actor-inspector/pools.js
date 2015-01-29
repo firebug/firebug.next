@@ -16,9 +16,10 @@ var PoolRow = React.createClass({
     return (
       React.DOM.tr({className: "poolRow"},
         React.DOM.td({}, actor.actorID),
-        React.DOM.td({}, actor.prefix),
+        React.DOM.td({}, actor.actorPrefix),
+        React.DOM.td({}, actor.typeName),
         React.DOM.td({}, actor.parentID),
-        React.DOM.td({}, actor.ctor)
+        React.DOM.td({}, actor.constructor)
       )
     );
   }
@@ -47,10 +48,11 @@ var PoolTable = React.createClass({
     return (
       React.DOM.table({className: className},
         React.DOM.thead({className: "poolRow"},
-          React.DOM.th({width: "25%"}, "Actor ID"),
-          React.DOM.th({width: "25%"}, "Prefix"),
-          React.DOM.th({width: "25%"}, "Parent"),
-          React.DOM.th({width: "25%"}, "Constructor")
+          React.DOM.th({width: "20%"}, "Actor ID"),
+          React.DOM.th({width: "20%"}, "Prefix"),
+          React.DOM.th({width: "20%"}, "TypeName"),
+          React.DOM.th({width: "20%"}, "Parent"),
+          React.DOM.th({width: "20%"}, "Constructor")
         ),
         React.DOM.tbody(null, rows)
       )
