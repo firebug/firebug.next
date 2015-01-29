@@ -40,7 +40,7 @@
 /* The player */
 
 .theme-firebug .animation-title {
-  padding: 3px 5px 6px 4px;
+  padding: 6px 5px 6px 4px;
 }
 
 .theme-firebug .timeline,
@@ -99,6 +99,14 @@
 .theme-firebug .animation-title,
 .theme-firebug .timeline {
   font-family: Lucida Grande, Tahoma, sans-serif;
+}
+
+.theme-firebug #error-message {
   /* xxxFlorent: shouldn't we rather adapt --theme-content-color3? What impacts? */
-  color: #888;
+  color: #555;
+}
+
+.theme-firebug .animation-title,
+.theme-firebug .timeline {
+  color: black;
 }
