@@ -45,16 +45,21 @@ var PoolTable = React.createClass({
       className += " actorClass";
     }
 
+    var id = this.props.id ? "ID: " + this.props.id : "";
+
     return (
-      React.DOM.table({className: className},
-        React.DOM.thead({className: "poolRow"},
-          React.DOM.th({width: "20%"}, "Actor ID"),
-          React.DOM.th({width: "20%"}, "Prefix"),
-          React.DOM.th({width: "20%"}, "TypeName"),
-          React.DOM.th({width: "20%"}, "Parent"),
-          React.DOM.th({width: "20%"}, "Constructor")
-        ),
-        React.DOM.tbody(null, rows)
+      React.DOM.div({},
+        React.DOM.h4({}, "Pool" + id),
+        React.DOM.table({className: className},
+          React.DOM.thead({className: "poolRow"},
+            React.DOM.th({width: "20%"}, "Actor ID"),
+            React.DOM.th({width: "20%"}, "Prefix"),
+            React.DOM.th({width: "20%"}, "TypeName"),
+            React.DOM.th({width: "20%"}, "Parent"),
+            React.DOM.th({width: "20%"}, "Constructor")
+          ),
+          React.DOM.tbody(null, rows)
+        )
       )
     );
   }
@@ -68,7 +73,9 @@ var PoolList = React.createClass({
     var pools = [];
 
     for (var i in this.props) {
-      var pool = this.props[i];
+      var poolData = this.props[i];
+      var pool = poolData.pool;
+      var poolId = poolData.id;
 
       var actorClass = false;
 
@@ -81,7 +88,8 @@ var PoolList = React.createClass({
 
       pools.push(PoolTable({
         pool: pool,
-        actorClass: actorClass
+        actorClass: actorClass,
+        id: poolId
       }));
     };
 
