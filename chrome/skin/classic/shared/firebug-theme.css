@@ -112,6 +112,10 @@
   font-weight: bold;
 }
 
+.console-string{
+  color: #FF183C;
+}
+
 .theme-fg-color3,
 .cm-s-mozilla .cm-variable,
 .cm-s-mozilla .cm-tag,
