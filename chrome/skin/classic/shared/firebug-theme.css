@@ -107,13 +107,13 @@
 
 .theme-fg-color3,
 .cm-s-mozilla .kind-Object .cm-variable{ /* dark blue */
-  color: #006400;
+  color: var(--theme-firebug-object);
   font-style: normal;
   font-weight: bold;
 }
 
 .console-string{
-  color: #FF183C;
+  color: var(--theme-firebug-string);
 }
 
 .theme-fg-color3,
