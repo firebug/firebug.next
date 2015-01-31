@@ -16,6 +16,10 @@
   padding: 2px;
 }
 
+.theme-firebug #sources-pane .side-menu-widget-item :-moz-any(label, hbox) {
+  cursor: pointer;
+}
+
 .theme-firebug #sources-pane .side-menu-widget-group-title {
   border-bottom: none;
   margin: 0;

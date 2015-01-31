@@ -9,7 +9,7 @@ const { closeTab } = require("./window.js");
 
 // Content of the test page (one console log is coming from the content).
 const content =
-  "<html><head></head><body><script>" +
+  "<html><head><meta charset=\"UTF-8\"/></head><body><script>" +
   "console.log('hello')" +
   "</script></body></html>";
 

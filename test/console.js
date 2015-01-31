@@ -76,7 +76,7 @@ function openSidePanel(toolbox, sidePanelId) {
       sidebar.select(sidePanelId);
       deferred.resolve({
         panel: panel,
-        sidePanel: sidebar.getTab(sidePanelId)
+        sidePanel: sidebar.getTabPanel(sidePanelId)
       });
     });
   });

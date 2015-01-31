@@ -74,6 +74,12 @@
     "type": "bool",
     "value": false
   }, {
+    "name": "env",
+    "title": "Environment mode",
+    "description": "Set to 'production' by default, but you can use 'development' to get extra features for Firebug developers",
+    "type": "string",
+    "value": "production"
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
