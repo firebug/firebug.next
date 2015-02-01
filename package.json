@@ -17,7 +17,9 @@
     "Jakob Kaltenbrunner",
     "Nicolas Joseph",
     "Kartik Maji",
-    "Erik Vold"
+    "Erik Vold",
+    "Alistair Laing",
+    "Aakash Tyagi"
   ],
   "engines": {
     "firefox": ">=35.0a2 <=*"
