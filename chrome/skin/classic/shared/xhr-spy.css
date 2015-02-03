@@ -1,0 +1,257 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* XHR Spy*/
+
+.theme-firebug .xhrSpy .message-body {
+  background-image: url("chrome://firebug/skin/twistyClosed.svg");
+  background-position: 0 calc(0.5em - 5px);
+  padding-left: 15px;
+  background-size: 11px 11px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
+}
+
+.theme-firebug .xhrSpy .message-body .status {
+  float: right;
+}
+
+.theme-firebug .xhrSpy.open {
+  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+}
+
+/******************************************************************************/
+/* Firebug Net Panel */
+
+.netInfoBody {
+  margin: 15px 0 4px 0;
+  width: 100%;
+  display: table;
+  float: left;
+  font-family: Lucida Grande, Tahoma, sans-serif;
+}
+
+.netInfoTabs {
+}
+
+.netInfoTab {
+  position: relative;
+  top: -3px;
+  margin-top: 10px;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
+
+.netInfoTab:hover {
+  cursor: pointer;
+}
+
+.netInfoTab[selected="true"] {
+  cursor: default !important;
+  border-color: #D7D7D7;
+  border-radius: 4px 4px 0 0;
+  background-color: #FFFFFF;
+}
+
+.netInfoResponseSizeLimit {
+    font-family: Lucida Grande, Tahoma, sans-serif;
+    padding-top: 10px;
+    font-size: 11px;
+}
+
+.netInfoText {
+    display: none;
+    margin: 0;
+    border: 1px solid #D7D7D7;
+    border-right: none;
+    padding: 8px;
+    background-color: #FFFFFF;
+    font-family: monospace;
+    /*overflow-x: auto; HTML is damaged in case of big (2-3MB) responses */
+}
+
+.netInfoText[selected="true"] {
+    display: block;
+}
+
+.netInfoParamName {
+    padding: 0 10px 0 0;
+    font-family: Lucida Grande, Tahoma, sans-serif;
+    font-weight: bold;
+    vertical-align: top;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.netInfoParamValue {
+    width: 100%;
+}
+
+.netInfoHeadersText,
+.netInfoPostText,
+.netInfoPutText,
+.netInfoPatchText {
+    padding-top: 0;
+}
+
+.netInfoHeadersGroup,
+.netInfoPostParams,
+.netInfoPostSource {
+    margin-bottom: 4px;
+    border-bottom: 1px solid #D7D7D7;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    font-family: Lucida Grande, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #565656;
+}
+
+.netInfoCachedResponseHeadersBody {
+    color: gray;
+}
+
+.netInfoPostParamsTable,
+.netInfoPostPartsTable,
+.netInfoPostJSONTable,
+.netInfoPostXMLTable,
+.netInfoPostSVGTable,
+.netInfoPostSourceTable {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.netInfoPostContentType {
+    color: #bdbdbd;
+    padding-left: 50px;
+    font-weight: normal;
+}
+
+/*************************************************************************************************/
+/* HTML Preview & Resizer */
+
+.netInfoHtmlPreview {
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.netInfoHtmlText {
+    padding: 0;
+}
+
+.htmlPreviewResizer {
+    width: 100%;
+    height: 5px;
+    background-color: lightgrey;
+    cursor: s-resize;
+}
+
+/* When HTML preview resizing is in progress set the cursor for all elements
+   since the mouse doesn't have to be always just over the resizer and this
+   avoids cursor flashing. */
+body[resizingHtmlPreview="true"] * {
+    cursor: s-resize !important;
+}
+
+/* When HTML preview resizing is in progress mouse messages are not sent to
+   the iframe document. */
+body[resizingHtmlPreview="true"] .netInfoHtmlPreview {
+    pointer-events: none !important;
+}
+
+/*************************************************************************************************/
+/* Request & Response Headers */
+
+.netHeadersViewSource {
+    margin-left: 200px;
+}
+
+.netPostParameterSort {
+    margin-left: 30px;
+}
+
+.netHeadersViewSource,
+.netPostParameterSort {
+    color: #bdbdbd;
+    font-weight: normal;
+}
+
+.netHeadersViewSource:hover,
+.netPostParameterSort:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.netInfoHeadersTable > .netHeadersGroup > TABLE,
+.netInfoHeadersTable > .netHeadersGroup .netHeadersViewSource {
+    display: none;
+}
+
+.netInfoHeadersTable > .netHeadersGroup.opened > TABLE,
+.netInfoHeadersTable > .netHeadersGroup.opened .netHeadersViewSource {
+    display: inline-block;
+}
+
+.netInfoHeadersTable .netHeader {
+    cursor: pointer;
+    padding-left: 17px;
+    position: static;
+    -moz-user-select: none;
+}
+
+.netInfoHeadersTable .netHeadersViewSource {
+    display: inline-block;
+}
+
+/*************************************************************************************************/
+/* Net Activation Message */
+
+.netActivationRow {
+    background: rgb(238, 238, 238) !important;
+    font-weight: normal;
+    color: black;
+}
+
+.netActivationRow > TD {
+    vertical-align: middle !important;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.netActivationLabel {
+    padding-left: 28px;
+}
+
+/*************************************************************************************************/
+
+.netPageCol {
+    cursor: pointer;
+}
+
+.netPageSeparatorRow {
+    height: 5px !important;
+    background-color: rgb(238, 238, 238);
+}
+
+.netPageSeparatorLabel {
+    padding-left: 22px;
+    height: 5px !important;
+}
+
+.netPageRow {
+    background-color: rgb(255, 255, 255);
+}
+
+.netPageRow:hover {
+    background: #EFEFEF;
+}
+
+.netPageLabel {
+    padding: 1px 0 2px 18px !important;
+    font-weight: bold;
+}
