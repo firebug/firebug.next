@@ -3,6 +3,14 @@
 /******************************************************************************/
 /* XHR Spy*/
 
+.theme-firebug .xhrSpy.opened {
+  background: #FFFFFF linear-gradient(rgba(0, 0, 0, 0.1), transparent) repeat-x;
+}
+
+.theme-firebug .xhrSpy.opened:hover {
+  background-image: linear-gradient(rgba(214, 233, 246, 0.8), rgba(255, 255, 255, 1.6));
+}
+
 .theme-firebug .xhrSpy .message-body {
   background-image: url("chrome://firebug/skin/twistyClosed.svg");
   background-position: 0 calc(0.5em - 5px);
@@ -25,11 +33,12 @@
 /* Firebug Net Panel */
 
 .netInfoBody {
-  margin: 15px 0 4px 0;
+  margin: 15px 0 0 0;
   width: 100%;
   display: table;
   float: left;
   font-family: Lucida Grande, Tahoma, sans-serif;
+  font-size: 11px;
 }
 
 .netInfoTabs {
