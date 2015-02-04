@@ -130,6 +130,12 @@
     "type": "bool",
     "value": false
   }, {
+    "name": "netSortPostParameters",
+    "title": "netSortPostParameters",
+    "description": "",
+    "type": "bool",
+    "value": true
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",

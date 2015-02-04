@@ -3,6 +3,10 @@
 /******************************************************************************/
 /* xxxHonza: should we put those into panelbase.css? */
 
+.theme-firebug .netInfoTab.collapsed {
+  display: none;
+}
+
 .theme-firebug pre {
     margin: 0;
     font: inherit;
