@@ -92,7 +92,7 @@
     "title": "netRequestHeadersVisible",
     "description": "",
     "type": "bool",
-    "value": "true"
+    "value": true
   }, {
     "name": "netCachedHeadersVisible",
     "title": "netCachedHeadersVisible",
