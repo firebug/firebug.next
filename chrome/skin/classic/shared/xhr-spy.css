@@ -21,12 +21,12 @@
   display: block;
 }
 
-.theme-firebug .xhrSpy .message-body .status {
-  float: right;
+.theme-firebug .xhrSpy.opened .message-body {
+  background-image: url("chrome://firebug/skin/twistyOpen.svg");
 }
 
-.theme-firebug .xhrSpy.open {
-  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+.theme-firebug .xhrSpy .message-body .status {
+  float: right;
 }
 
 /******************************************************************************/
@@ -39,6 +39,7 @@
   float: left;
   font-family: Lucida Grande, Tahoma, sans-serif;
   font-size: 11px;
+  cursor: default;
 }
 
 .netInfoTabs {
