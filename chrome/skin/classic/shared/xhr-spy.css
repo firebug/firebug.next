@@ -91,6 +91,11 @@
     font-size: 11px;
 }
 
+.netInfoResponseDiscarded {
+  font-style: italic;
+  color: gray;
+}
+
 .netInfoText {
     display: none;
     margin: 0;
