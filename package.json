@@ -86,7 +86,7 @@
     "title": "netResponseHeadersVisible",
     "description": "",
     "type": "bool",
-    "value": "true"
+    "value": true
   }, {
     "name": "netRequestHeadersVisible",
     "title": "netRequestHeadersVisible",
@@ -98,31 +98,37 @@
     "title": "netCachedHeadersVisible",
     "description": "",
     "type": "bool",
-    "value": "false"
+    "value": false
   }, {
     "name": "netPostRequestHeadersVisible",
     "title": "netPostRequestHeadersVisible",
     "description": "",
     "type": "bool",
-    "value": "false"
+    "value": false
   }, {
     "name": "netParamNameLimit",
     "title": "netParamNameLimit",
     "description": "",
     "type": "integer",
-    "value": "25"
+    "value": 25
   }, {
     "name": "netDisplayedResponseLimit",
     "title": "netDisplayedResponseLimit",
     "description": "",
     "type": "integer",
-    "value": "102400"
+    "value": 102400
   }, {
     "name": "textWrapWidth",
     "title": "textWrapWidth",
     "description": "",
     "type": "integer",
-    "value": "100"
+    "value": 100
+  }, {
+    "name": "sortJsonPreview",
+    "title": "sortJsonPreview",
+    "description": "",
+    "type": "bool",
+    "value": false
   }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",

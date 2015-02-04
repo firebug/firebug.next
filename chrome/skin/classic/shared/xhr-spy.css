@@ -1,7 +1,20 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* XHR Spy*/
+/* xxxHonza: should we put those into panelbase.css? */
+
+.theme-firebug pre {
+    margin: 0;
+    font: inherit;
+}
+
+.theme-firebug code {
+    display:block;
+    white-space:pre;
+}
+
+/******************************************************************************/
+/* XHR Spy */
 
 .theme-firebug .xhrSpy.opened {
   background: #FFFFFF linear-gradient(rgba(0, 0, 0, 0.1), transparent) repeat-x;
