@@ -106,17 +106,6 @@
 }
 
 .theme-fg-color3,
-.cm-s-mozilla .kind-Object .cm-variable{ /* dark blue */
-  color: var(--theme-firebug-object);
-  font-style: normal;
-  font-weight: bold;
-}
-
-.console-string{
-  color: var(--theme-firebug-string);
-}
-
-.theme-fg-color3,
 .cm-s-mozilla .cm-variable,
 .cm-s-mozilla .cm-tag,
 .cm-s-mozilla .cm-header,
