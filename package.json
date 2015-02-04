@@ -106,6 +106,12 @@
     "type": "bool",
     "value": "false"
   }, {
+    "name": "netParamNameLimit",
+    "title": "netParamNameLimit",
+    "description": "",
+    "type": "integer",
+    "value": "25"
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
