@@ -217,6 +217,13 @@ be toggle-side-panels button at the end at some point */
 }
 
 /******************************************************************************/
+/* Side Bar */
+
+.theme-firebug .devtools-sidebar-tabs toolbar {
+  display: none;
+}
+
+/******************************************************************************/
 /* Side panels */
 
 .theme-firebug #network-inspector-view .variables-view-scope > .title > .theme-twisty {
