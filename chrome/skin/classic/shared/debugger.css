@@ -40,6 +40,14 @@
   cursor: pointer;
 }
 
+.theme-firebug #sources .black-boxed {
+  color: rgb(81, 81, 81);
+}
+
+#sources .selected .black-boxed {
+  color: rgb(0, 0, 0);
+}
+
 /******************************************************************************/
 /* Sources Panel Breakpoints */
 
