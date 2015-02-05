@@ -79,3 +79,64 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
   background-image: linear-gradient(rgb(144, 176, 144), rgb(99, 151, 99));
   border-color: rgb(76, 143, 76);
 }
+
+/******************************************************************************/
+/* console.table() */
+
+.theme-firebug .consoletable .theme-body {
+  width: 100% !important;
+  border-top: 1px solid #D7D7D7 !important;
+  border-bottom: 2px solid #D7D7D7 !important;
+  border-left: 1px solid #D7D7D7 !important;
+  border-right: 1px solid #D7D7D7 !important;
+}
+
+.theme-firebug .consoletable .table-widget-column-header {
+  padding: 3px 13px 2px 4px !important;
+  font-size: 11px !important;
+  font-family: sans-serif;
+  height: 20px !important;
+  min-height: 20px !important;
+  font-weight: bold !important;
+  color: #000000;
+}
+
+.theme-firebug .consoletable .table-widget-cell > .console-string {
+  color: #FF0000 !important;
+}
+
+.theme-firebug .consoletable .table-widget-column-header[sorted="descending"]:not(:active) {
+  background: url(chrome://firebug/skin/arrowDown.svg) no-repeat calc(100% - 4px);
+  background-color: #C5CBD9;
+}
+
+.theme-firebug .consoletable .table-widget-column-header[sorted="ascending"]:not(:active) {
+  background: url(chrome://firebug/skin/arrowUp.svg) no-repeat calc(100% - 4px);
+  background-color: #C5CBD9;
+}
+
+.theme-firebug .consoletable .table-widget-body .devtools-side-splitter {
+  background: linear-gradient(#CBD4DE,#656A6E,#CBD4DE 18px, transparent 18px),
+    linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05) 10px, transparent 18px),
+    linear-gradient(transparent, rgba(0, 0, 0, 0.5) 10px, transparent 18px)
+    repeat-x transparent !important;
+  min-width: 1px;
+  width: 1px;
+  position: absolute;
+}
+
+.theme-firebug .consoletable .table-widget-body .devtools-side-splitter:last-of-type {
+  display: none;
+}
+
+.theme-firebug .consoletable .table-widget-column .table-widget-cell:nth-child(odd) {
+  background: #EFEFEF;
+}
+
+.theme-firebug .consoletable .table-widget-column .table-widget-cell:nth-child(even) {
+  background: #FFFFFF;
+}
+
+.theme-firebug .consoletable .devtools-toolbar {
+  background: linear-gradient(#E7E7E7, #DADADA);
+}
