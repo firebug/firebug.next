@@ -36,4 +36,7 @@ Usage: @import url("firebug-style-variables.css");
   --theme-highlight-orange: hsl(24,85%,39%);
   --theme-highlight-red: #bf5656;
   --theme-highlight-pink: #b82ee5;
+
+  --theme-firebug-object: #006400; /*Green*/
+  --theme-firebug-string: #FF183C; /*Red*/
 }
