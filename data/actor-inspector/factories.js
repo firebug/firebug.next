@@ -3,7 +3,10 @@
 define(function(require, exports, module) {
 
 // Dependencies
+const { Reps } = require("reps/reps");
+
 var React = require("react");
+const { TR, TD, SPAN, TABLE, TBODY, THEAD, TH, DIV, H4 } = Reps.DOM;
 
 // Templates
 
@@ -14,10 +17,10 @@ var FactoryRow = React.createClass({
   render: function() {
     var factory = this.props;
     return (
-      React.DOM.tr({className: "poolRow"},
-        React.DOM.td({}, factory.name),
-        React.DOM.td({}, factory.prefix),
-        React.DOM.td({}, factory.ctor)
+      TR({className: "poolRow"},
+        TD({}, factory.name),
+        TD({}, factory.prefix),
+        TD({}, factory.ctor)
       )
     );
   }
@@ -37,13 +40,13 @@ var FactoryTable = React.createClass({
     };
 
     return (
-      React.DOM.table({className: "poolTable"},
-        React.DOM.thead({className: "poolRow"},
-          React.DOM.th({width: "33%"}, "Name"),
-          React.DOM.th({width: "33%"}, "Prefix"),
-          React.DOM.th({width: "33%"}, "Constructor")
+      TABLE({className: "poolTable"},
+        THEAD({className: "poolRow"},
+          TH({width: "33%"}, "Name"),
+          TH({width: "33%"}, "Prefix"),
+          TH({width: "33%"}, "Constructor")
         ),
-        React.DOM.tbody(null, rows)
+        TBODY(null, rows)
       )
     );
   }
@@ -60,14 +63,14 @@ var FactoryList = React.createClass({
 
     // xxxHonza: localization
     return (
-      React.DOM.div({className: "poolContainer"},
-        React.DOM.h4(null, "Main Process - Global Factories"),
+      DIV({className: "poolContainer"},
+        H4(null, "Main Process - Global Factories"),
         FactoryTable(main.factories.global),
-        React.DOM.h4(null, "Main Process - Tab Factories"),
+        H4(null, "Main Process - Tab Factories"),
         FactoryTable(main.factories.tab),
-        React.DOM.h4(null, "Child Process - Global Factories"),
+        H4(null, "Child Process - Global Factories"),
         FactoryTable(child.factories.global),
-        React.DOM.h4(null, "Child Process - Tab Factories"),
+        H4(null, "Child Process - Tab Factories"),
         FactoryTable(child.factories.tab)
       )
     );

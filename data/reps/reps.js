@@ -5,7 +5,7 @@
 define(function(require, exports, module) {
 
 // Dependencies
-var React = require("react");
+const React = require("react");
 
 // List of all registered reps.
 var reps = [];

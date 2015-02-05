@@ -3,7 +3,9 @@
 define(function(require, exports, module) {
 
 // Dependencies
-var React = require("react");
+const { Reps } = require("reps/reps");
+const React = require("react");
+const { TR, TD, SPAN, TABLE, TBODY, THEAD, TH, DIV, H4 } = Reps.DOM;
 
 // Templates
 
@@ -14,12 +16,12 @@ var PoolRow = React.createClass({
   render: function() {
     var actor = this.props;
     return (
-      React.DOM.tr({className: "poolRow"},
-        React.DOM.td({}, actor.actorID),
-        React.DOM.td({}, actor.actorPrefix),
-        React.DOM.td({}, actor.typeName),
-        React.DOM.td({}, actor.parentID),
-        React.DOM.td({}, actor.constructor)
+      TR({className: "poolRow"},
+        TD({}, actor.actorID),
+        TD({}, actor.actorPrefix),
+        TD({}, actor.typeName),
+        TD({}, actor.parentID),
+        TD({}, actor.constructor)
       )
     );
   }
@@ -48,17 +50,17 @@ var PoolTable = React.createClass({
     var id = this.props.id ? "ID: " + this.props.id : "";
 
     return (
-      React.DOM.div({},
-        React.DOM.h4({}, "Pool" + id),
-        React.DOM.table({className: className},
-          React.DOM.thead({className: "poolRow"},
-            React.DOM.th({width: "20%"}, "Actor ID"),
-            React.DOM.th({width: "20%"}, "Prefix"),
-            React.DOM.th({width: "20%"}, "TypeName"),
-            React.DOM.th({width: "20%"}, "Parent"),
-            React.DOM.th({width: "20%"}, "Constructor")
+      DIV({},
+        H4({}, "Pool" + id),
+        TABLE({className: className},
+          THEAD({className: "poolRow"},
+            TH({width: "20%"}, "Actor ID"),
+            TH({width: "20%"}, "Prefix"),
+            TH({width: "20%"}, "TypeName"),
+            TH({width: "20%"}, "Parent"),
+            TH({width: "20%"}, "Constructor")
           ),
-          React.DOM.tbody(null, rows)
+          TBODY(null, rows)
         )
       )
     );
@@ -94,7 +96,7 @@ var PoolList = React.createClass({
     };
 
     return (
-      React.DOM.div({className: "poolContainer"},
+      DIV({className: "poolContainer"},
         pools
       )
     );

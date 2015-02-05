@@ -3,11 +3,8 @@
 define(function(require, exports, module) {
 
 // Dependencies
-var React = require("react");
-
+const React = require("react");
 const { Reps } = require("reps/reps");
-
-// ReactJS
 const { TR, TD, SPAN, TABLE, TBODY } = Reps.DOM;
 
 /**

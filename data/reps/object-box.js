@@ -4,9 +4,10 @@
 
 define(function(require, exports, module) {
 
-var React = require("react");
-
-const SPAN = React.DOM.span;
+// Dependencies
+const React = require("react");
+const { Reps } = require("reps/reps");
+const { SPAN } = Reps.DOM;
 
 /**
  * @template TODO docs

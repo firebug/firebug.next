@@ -5,13 +5,10 @@
 define(function(require, exports, module) {
 
 // Dependencies
-var React = require("react");
-
+const React = require("react");
 const { Reps } = require("reps/reps");
 const { ObjectBox } = require("reps/object-box");
-
-const A = React.DOM.a;
-const SPAN = React.DOM.span;
+const { SPAN, A } = Reps.DOM;
 
 /**
  * @rep

@@ -3,9 +3,12 @@
 define(function(require, exports, module) {
 
 // Dependencies
-var React = require("react");
-var ReactBootstrap = require("react-bootstrap");
-var { TreeView } = require("reps/tree-view");
+const { Reps } = require("reps/reps");
+
+const React = require("react");
+const ReactBootstrap = require("react-bootstrap");
+const { TreeView } = require("reps/tree-view");
+const { DIV } = Reps.DOM;
 
 // Shortcuts
 var Panel = React.createFactory(ReactBootstrap.Panel);
@@ -52,7 +55,7 @@ var PacketList = React.createClass({
     };
 
     return (
-      React.DOM.div({className: "packetListBox"},
+      DIV({className: "packetListBox"},
         output
       )
     );

@@ -5,12 +5,11 @@
 define(function(require, exports, module) {
 
 // Dependencies
-var React = require("react");
-
+const React = require("react");
 const { Reps } = require("reps/reps");
 const { ObjectLink } = require("reps/object-link");
 
-const SPAN = React.DOM.span;
+const { SPAN } = Reps.DOM;
 
 /**
  * @template TODO docs
