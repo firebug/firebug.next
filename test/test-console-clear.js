@@ -2,9 +2,10 @@
 
 "use strict";
 
-const { Cu } = require("chrome");
-const { openToolbox } = require("./common.js");
 const { waitForMessage } = require("./console.js");
+const { getToolboxWhenReady } = require("./toolbox.js");
+const { startServer, stopServer } = require("./httpd.js");
+const { closeTab } = require("./window.js");
 
 // Content of the test page (one console log is coming from the content).
 const content =
@@ -12,15 +13,20 @@ const content =
   "console.log('hello')" +
   "</script></body></html>";
 
+/**
+ * This test check the Clear action and existence of the Clear button that
+ * is available on the Console panel. It opens the toolbox, selects the
+ * Console panel and wait for incoming log. As soon as the log arrives it
+ * clears the console and checks that it's empty.
+ */
 exports["test Console clear button"] = function(assert, done) {
-  // Configuration flags for toolbox opening.
-  let config = {
-    panelId: "webconsole",
+  // Start HTTP server
+  let {server, url} = startServer({
     pageContent: content
-  };
+  });
 
-  // Start HTTP server, open new tab and the toolbox.
-  openToolbox(config).then(({toolbox, cleanUp, overlay}) => {
+  // Open the toolbox on our test page.
+  getToolboxWhenReady(url, "webconsole").then(({toolbox, overlay, tab}) => {
     assert.ok(overlay, "The Console panel must be overlaid");
 
     let doc = overlay.getPanelDocument();
@@ -40,7 +46,9 @@ exports["test Console clear button"] = function(assert, done) {
       let log = doc.querySelector(config.cssSelector);
       assert.ok(!log, "There must not be a log in the Console panel");
 
-      cleanUp(done);
+      // Close the tab an stop HTTP server.
+      closeTab(tab);
+      stopServer(server, done);
     });
   });
 };

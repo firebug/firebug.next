@@ -2,10 +2,9 @@
 
 "use strict";
 
-const { openToolbox, closeToolbox } = require("./common.js");
-const { Theme } = require("../lib/chrome/theme.js");
-const { Firebug } = require("../lib/index.js");
 const { StartButton } = require("../lib/chrome/startButton.js");
+const { getToolboxWhenReady, closeToolbox } = require("./toolbox.js");
+const { closeTab } = require("./window.js");
 
 /**
  * Test for panel tabs customization. Firebug theme removes 'flex' attribute
@@ -13,22 +12,19 @@ const { StartButton } = require("../lib/chrome/startButton.js");
  * as expected.
  */
 exports["test Start Button"] = function(assert, done) {
-  let config = {
-    url: "about:blank",
-  };
-
-  openToolbox(config).then(({toolbox, closeToolbox}) => {
-    let chrome = Firebug.getChrome(toolbox);
+  getToolboxWhenReady("about:blank").then(({toolbox, chrome, tab}) => {
     let browserDoc = chrome.getBrowserDoc();
 
     let button = StartButton.getButton(browserDoc);
     let active = button.getAttribute("active");
     assert.equal(active, "true", "The start button must be active now");
 
-    closeToolbox(toolbox).then(({cleanUp}) => {
+    closeToolbox(tab).then(() => {
       let active = button.getAttribute("active");
       assert.ok(!active, "The start button must be deactivated now");
-      cleanUp(done);
+
+      closeTab(tab);
+      done();
     });
   });
 };

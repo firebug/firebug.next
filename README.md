@@ -2,7 +2,9 @@ Firebug.next [![Build Status](https://travis-ci.org/firebug/firebug.next.png)](h
 ============
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/firebug/firebug.next?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Next Firebug generation built on top of native Firefox developer tools
+Next Firebug generation built on top of native Firefox developer tools [getfirebug.com](https://getfirebug.com)
+
+[Download](https://addons.mozilla.org/en-US/firefox/addon/firebug/)
 
 License
 -------
@@ -11,8 +13,7 @@ Firebug is free and open source software distributed under the
 
 Repository Structure
 --------------------
-Structure of the extension follows Jetpack standards. It's generated using the
-`cfx` tool
+Structure of the extension follows Jetpack standards.
 
 * **data** HTML pages, etc.
 * **chrome** Stylesheets, localization files, etc.

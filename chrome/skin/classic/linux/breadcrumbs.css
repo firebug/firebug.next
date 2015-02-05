@@ -1,0 +1,15 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Breadcrumbs */
+
+.theme-firebug .breadcrumbs-widget-item {
+  padding: 2px !important;
+  line-height: 12px !important;
+  min-height: 12px !important;
+}
+
+.theme-firebug .breadcrumbs-widget-item:not(:first-child)::before {
+  margin: 0 5px 0 -7px !important;
+  padding-left: 0 !important;
+}
