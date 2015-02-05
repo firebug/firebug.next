@@ -1,0 +1,77 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* General */
+
+body {
+  background-color: white;
+}
+
+a:focus {
+  outline: none;
+}
+
+#content {
+  padding: 10px;
+  background-color: rgb(221, 221, 221);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+}
+
+/******************************************************************************/
+/* Tabs */
+
+.actorPane {
+  border: 1px solid rgb(221, 221, 221);
+  border-top: none;
+  padding: 10px;
+  background-color: white;
+}
+
+/******************************************************************************/
+/* Pool Table */
+
+.poolContainer {
+  font-size: 12px;
+}
+
+.poolTable {
+  border: 1px solid rgb(221, 221, 221);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.poolRow TD,
+.poolRow TH {
+  border-bottom: 1px solid rgb(221, 221, 221);
+  padding-left: 10px;
+}
+
+.poolTable.actorClass {
+  background-color: rgb(247, 247, 247);
+}
+
+/******************************************************************************/
+/* Packets */
+
+.panel-body {
+  /*padding: 2px 5px 2px 5px;*/
+  padding: 0;
+}
+
+.packetListBox {
+  font-size: 12px;
+}
+
+.packetListBox .panel {
+  max-width: 75%;
+  min-width: 330px;
+}
+
+.packetListBox .panel.receive {
+  background-color: rgb(223, 240, 216);
+  margin-left: 25%;
+}
+
+.packetListBox .panel.send {
+  background-color: rgb(252, 248, 227);
+}

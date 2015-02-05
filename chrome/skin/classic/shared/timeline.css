@@ -1,0 +1,14 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Timeline panel */
+
+.theme-firebug #record-button,
+.theme-firebug #profiling-notice-button {
+  list-style-image: url(chrome://firebug/skin/profile.svg);
+}
+
+.theme-firebug #filter-button {
+  list-style-image: url(chrome://firebug/skin/filter.svg);
+  height: 21px;
+}

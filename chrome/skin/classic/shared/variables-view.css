@@ -36,7 +36,7 @@
 
 .theme-firebug .variables-view-delete:not([disabled="true"]),
 .theme-firebug .variables-view-delete:hover:not([disabled="true"]),
-.theme-firebug toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
+.theme-firebug .variables-view-scope toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
   width: 16px;
   padding: 0;
   margin-right: 3px !important;
@@ -49,6 +49,6 @@
   filter: url(chrome://firebug/skin/filters.svg#darken);
 }
 
-.theme-firebug toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
+.theme-firebug .variables-view-scope toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
   filter: url(chrome://firebug/skin/filters.svg#deepDarken);
 }

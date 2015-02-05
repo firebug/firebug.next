@@ -2,7 +2,7 @@
 
 "use strict";
 
-const { StartButton } = require("../lib/chrome/startButton.js");
+const { StartButton } = require("../lib/chrome/start-button.js");
 const { getToolboxWhenReady, closeToolbox } = require("./toolbox.js");
 const { closeTab } = require("./window.js");
 

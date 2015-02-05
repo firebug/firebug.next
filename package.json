@@ -3,7 +3,7 @@
   "title": "Firebug",
   "id": "firebug@software.joehewitt.com",
   "description": "Next Firebug generation built on top of native Firefox developer tools",
-  "version": "3.0.0-alpha.6",
+  "version": "3.0.0-alpha.8",
   "author": "Firebug Working Group",
   "contributors": [
     "Jan Odvarko (Mozilla Corp.)",
@@ -17,7 +17,9 @@
     "Jakob Kaltenbrunner",
     "Nicolas Joseph",
     "Kartik Maji",
-    "Erik Vold"
+    "Erik Vold",
+    "Alistair Laing",
+    "Aakash Tyagi"
   ],
   "engines": {
     "firefox": ">=35.0a2 <=*"
@@ -73,6 +75,66 @@
     "description": "Disregard the current Firefox locale and use (en-US) locale as default.",
     "type": "bool",
     "value": false
+  }, {
+    "name": "env",
+    "title": "Environment mode",
+    "description": "Set to 'production' by default, but you can use 'development' to get extra features for Firebug developers",
+    "type": "string",
+    "value": "production"
+  }, {
+    "name": "netResponseHeadersVisible",
+    "title": "netResponseHeadersVisible",
+    "description": "",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "netRequestHeadersVisible",
+    "title": "netRequestHeadersVisible",
+    "description": "",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "netCachedHeadersVisible",
+    "title": "netCachedHeadersVisible",
+    "description": "",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netPostRequestHeadersVisible",
+    "title": "netPostRequestHeadersVisible",
+    "description": "",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netParamNameLimit",
+    "title": "netParamNameLimit",
+    "description": "",
+    "type": "integer",
+    "value": 25
+  }, {
+    "name": "netDisplayedResponseLimit",
+    "title": "netDisplayedResponseLimit",
+    "description": "",
+    "type": "integer",
+    "value": 102400
+  }, {
+    "name": "textWrapWidth",
+    "title": "textWrapWidth",
+    "description": "",
+    "type": "integer",
+    "value": 100
+  }, {
+    "name": "sortJsonPreview",
+    "title": "sortJsonPreview",
+    "description": "",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netSortPostParameters",
+    "title": "netSortPostParameters",
+    "description": "",
+    "type": "bool",
+    "value": true
   }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",

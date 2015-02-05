@@ -1,0 +1,112 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Animation Inspector */
+
+/* The inspect button */
+
+.theme-firebug #element-picker {
+  min-height: 24px;
+  min-width: 24px;
+  border: 0;
+  background-color: transparent;
+  background-image: url("chrome://firebug/skin/inspect.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.theme-firebug #element-picker::-moz-focus-inner {
+  border: 0;
+}
+
+.theme-firebug #element-picker[checked="true"], .theme-firebug #element-picker:hover {
+  filter: url("chrome://firebug/skin/filters.svg#darken");
+  border-radius: 2px;
+}
+
+.theme-firebug #element-picker[checked="true"] {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-image: url("chrome://firebug/skin/inspect.svg"), linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+}
+
+.theme-firebug #element-picker:hover {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.theme-firebug #element-picker::before {
+  background-image: none;
+}
+
+/* The player */
+
+.theme-firebug .animation-title {
+  padding: 6px 5px 6px 4px;
+}
+
+.theme-firebug .timeline,
+.theme-firebug .animation-title {
+  border-bottom: none;
+}
+
+.theme-firebug .time-display {
+  border-left: none;
+}
+
+.theme-firebug .timeline,
+.theme-firebug .animation-title,
+.theme-firebug .time-display,
+.theme-firebug #players {
+  background-color: transparent;
+}
+
+.theme-firebug .sliders-container {
+  border: 1px solid;
+  height: 14px;
+  margin-top: 2px;
+}
+
+/* The pause / continue button */
+
+.theme-firebug .playback-controls {
+  width: 30px;
+}
+
+.theme-firebug .timeline .toggle {
+  background-image: url("chrome://firebug/skin/pause.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+  border: none;
+  max-width: 24px;
+  margin-left: 5px;
+}
+
+.theme-firebug .timeline .toggle::before {
+  min-width:24px;
+}
+
+.theme-firebug .paused .timeline .toggle {
+  background-image: url("chrome://firebug/skin/continue.svg");
+}
+
+.theme-firebug .timeline .toggle::-moz-focus-inner {
+  border: 0;
+}
+
+/* Fonts */
+
+.theme-firebug #error-message,
+.theme-firebug .animation-title,
+.theme-firebug .timeline {
+  font-family: Lucida Grande, Tahoma, sans-serif;
+}
+
+.theme-firebug #error-message {
+  /* xxxFlorent: shouldn't we rather adapt --theme-content-color3? What impacts? */
+  color: #555;
+}
+
+.theme-firebug .animation-title,
+.theme-firebug .timeline {
+  color: black;
+}
