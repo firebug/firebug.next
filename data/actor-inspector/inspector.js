@@ -31,7 +31,7 @@ var packets = [];
 renderTabbedBox();
 
 // Render packet list.
-var packetList = React.renderComponent(PacketList(packets),
+var packetList = React.render(PacketList(packets),
   $("#tabPacketsPane").get(0));
 
 /**

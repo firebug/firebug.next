@@ -4,6 +4,9 @@
 
 define(function(require, exports, module) {
 
+// Dependencies
+var React = require("react");
+
 // List of all registered reps.
 var reps = [];
 var defaultRep;
@@ -107,6 +110,31 @@ var Reps =
       }
     }
   },
+
+  /**
+   * TODO: docs
+   */
+  get DOM() {
+    if (this.reactDom) {
+      return this.reactDom;
+    }
+
+    this.reactDom = {};
+
+    var factory = function(prop) {
+      return () => {
+        return React.DOM[prop].apply(React.DOM, arguments);
+      }
+    }
+
+    var props = Object.getOwnPropertyNames(React.DOM);
+    for (var i=0; i<props.length; i++) {
+      var prop = String.toUpperCase(props[i]);
+      this.reactDom[prop] = factory(props[i]);
+    }
+
+    return this.reactDom;
+  }
 };
 
 // Exports from this module

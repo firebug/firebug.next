@@ -13,7 +13,7 @@ var Panel = React.createFactory(ReactBootstrap.Panel);
 /**
  * TODO docs
  */
-var PacketRep = React.createClass({
+var Packet = React.createClass({
   render: function() {
     var type = this.props.type;
     var packet = this.props.packet;
@@ -26,17 +26,19 @@ var PacketRep = React.createClass({
 
     return (
       Panel({className: type},
-        TreeView(packet)
+        TreeView({data: packet})
       )
     );
   }
 });
 
+var PacketFactory = React.createFactory(Packet);
+
 /**
  * @template This template represents a list of packets displayed
  * inside the panel content.
  */
-var PacketListRep = React.createClass({
+var PacketList = React.createClass({
   getInitialState: function() {
     return { data: [] };
   },
@@ -46,7 +48,7 @@ var PacketListRep = React.createClass({
 
     var packets = this.state.data;
     for (var i in packets) {
-      output.push(PacketRep(packets[i]));
+      output.push(PacketFactory(packets[i]));
     };
 
     return (
@@ -58,6 +60,5 @@ var PacketListRep = React.createClass({
 });
 
 // Exports from this module
-exports.PacketList = React.createFactory(PacketListRep);
-
+exports.PacketList = React.createFactory(PacketList);
 });
