@@ -87,6 +87,18 @@
 .theme-firebug .cm-hr {color: #999;}
 .theme-firebug .cm-link {color: #00c;}
 
+.theme-fg-color3,
+.cm-s-mozilla .kind-Object .cm-variable{ /* dark blue */
+  color: var(--theme-firebug-object);
+  font-style: normal;
+  font-weight: bold;
+}
+
+.console-string{
+  color: var(--theme-firebug-string);
+}
+
+
 /******************************************************************************/
 /* Gutters */
 
