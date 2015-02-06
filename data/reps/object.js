@@ -153,10 +153,12 @@ function supportsObject(object, type) {
   return true;
 }
 
+var ObjFactory = React.createFactory(Obj);
+
 Reps.registerDefaultRep({
-  rep: React.createFactory(Obj),
+  rep: ObjFactory,
   supportsObject: supportsObject
 });
 
-exports.Number = React.createFactory(Number);
+exports.Obj = ObjFactory;
 });
