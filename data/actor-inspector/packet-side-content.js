@@ -20,14 +20,10 @@ window.addEventListener("select", onSelect);
  * Change the current selection (the currently displayed packet)
  */
 function onSelect(event) {
-  Trace.sysout("packetSideContent.onSelect; ", event);
-
   refresh(JSON.parse(event.data));
 }
 
 function refresh(packet) {
-  Trace.sysout("packetSideContent.refresh; packet:", packet);
-
   // xxxHonza: use setState.
   document.body.textContent = "";
   React.render(TreeView({data: packet}), document.body);

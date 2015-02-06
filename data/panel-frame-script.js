@@ -53,8 +53,8 @@ window.addEventListener("message", event => {
 function messageListener(message) {
   const { type, data, origin, bubbles, cancelable } = message.data;
 
-  Trace.sysout("inspector-content.js; message: " + message.name +
-    ": " + type, message);
+  //Trace.sysout("inspector-content.js; message: " + message.name +
+  //  ": " + type, message);
 
   // xxxHonza: should we rather use Wrapper.cloneIntoContentScope
   // instead of JSON.stringify.

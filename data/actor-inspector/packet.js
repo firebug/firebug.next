@@ -69,8 +69,6 @@ var Packet = React.createClass({
   // Event Handlers
 
   onClick: function(event) {
-    Trace.sysout("Packet.onClick", event);
-
     postChromeMessage("selection", this.props.packet);
   }
 });
