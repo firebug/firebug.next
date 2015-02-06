@@ -81,21 +81,19 @@ function onMessage(event) {
 };
 
 /**
- * Send a message back to the Inspector panel (chrome scope).
+ * Send a message back to the parent panel (chrome scope).
  */
-function sendChromeMessage() {
+function postChromeMessage(type, object, objects) {
   let data = {
-    message: "click on Hello World panel",
-    details: "Message from content script",
-    tag: event.target.tagName
+    type: type,
+    object: object,
   };
 
-  let objects = {
-     target: event.target 
-  };
-
-  // Send message back the HelloWorldPanel.
   sendAsyncMessage("message", data, objects);
 }
+
+Cu.exportFunction(postChromeMessage, window, {
+  defineAs: "postChromeMessage"
+});
 
 })(this);

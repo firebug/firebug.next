@@ -5,6 +5,9 @@
 
 body {
   background-color: white;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 a:focus {
@@ -25,6 +28,7 @@ a:focus {
   border-top: none;
   padding: 10px;
   background-color: white;
+  overflow: auto;
 }
 
 /******************************************************************************/
@@ -53,25 +57,67 @@ a:focus {
 /******************************************************************************/
 /* Packets */
 
-.panel-body {
-  /*padding: 2px 5px 2px 5px;*/
-  padding: 0;
-}
-
-.packetListBox {
+.packetPanel {
   font-size: 12px;
+  margin: 4px 0 4px 0;
+  font-size: 11px;
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  line-height: 15px;
 }
 
-.packetListBox .panel {
-  max-width: 75%;
-  min-width: 330px;
+.packetPanel .body {
+  display: inline-block;
+  padding: 2px 5px 2px 5px;
+  border: 1px solid #bfccd1;
+  border-radius: 3px;
+  white-space: pre-wrap !important;
+  word-break: break-all;
+  max-width: 90%;
 }
 
-.packetListBox .panel.receive {
-  background-color: rgb(223, 240, 216);
-  margin-left: 25%;
-}
-
-.packetListBox .panel.send {
+.packetPanel.send .body {
   background-color: rgb(252, 248, 227);
+}
+
+.packetPanel.receive .body {
+  background-color: rgb(223, 240, 216);
+  text-align: left;
+}
+
+.packetPanel.send {
+  text-align: left;
+}
+
+.packetPanel.receive {
+  text-align: right;
+}
+
+.packetPanel .type,
+.packetPanel .to,
+.packetPanel .from {
+  color: red;
+  font-family: monospace;
+}
+
+.packetPanel .to {
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.packetPanel .info {
+  color: gray;
+  font-size: 10px;
+  text-align: right;
+}
+
+.packetPanel .arrow {
+  margin: 0 5px 0 5px;
+}
+
+.packetPanel.receive .arrow {
+  margin-left: 0;
+}
+
+.packetPanel .from {
+  padding-bottom: 5px;
 }

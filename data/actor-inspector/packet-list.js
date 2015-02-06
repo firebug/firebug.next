@@ -3,39 +3,12 @@
 define(function(require, exports, module) {
 
 // Dependencies
-const { Reps } = require("reps/reps");
-
 const React = require("react");
-const ReactBootstrap = require("react-bootstrap");
-const { TreeView } = require("reps/tree-view");
-const { DIV } = Reps.DOM;
+const { Reps } = require("reps/reps");
+const { Packet } = require("./packet");
 
 // Shortcuts
-var Panel = React.createFactory(ReactBootstrap.Panel);
-
-/**
- * TODO docs
- */
-var Packet = React.createClass({
-  render: function() {
-    var type = this.props.type;
-    var packet = this.props.packet;
-    var label = (type == "send") ?
-      ("To: " + packet.to) : ("From: "+ packet.from);
-
-    if (packet.type) {
-      label += ", Type: " + packet.type;
-    }
-
-    return (
-      Panel({className: type},
-        TreeView({data: packet})
-      )
-    );
-  }
-});
-
-var PacketFactory = React.createFactory(Packet);
+const { DIV } = Reps.DOM;
 
 /**
  * @template This template represents a list of packets displayed
@@ -51,7 +24,7 @@ var PacketList = React.createClass({
 
     var packets = this.state.data;
     for (var i in packets) {
-      output.push(PacketFactory(packets[i]));
+      output.push(Packet(packets[i]));
     };
 
     return (
