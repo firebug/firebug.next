@@ -28,11 +28,11 @@
 .theme-firebug .theme-twisty {
   background-size: 11px 11px;
   background-position: 0 1px;
-  background-image: url("chrome://firebug/skin/twistyClosed.svg");
+  background-image: url("chrome://firebug-os/skin/twistyClosed.svg");
 }
 
 .theme-firebug .theme-twisty[open] {
-  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
   background-size: 11px 11px;
   background-position: 0 1px;
 }
