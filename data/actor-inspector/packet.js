@@ -30,8 +30,8 @@ var Packet = React.createClass({
     var classNames = ["packetPanel", type];
 
     // xxxHonza TODO: HACK, FIXME
-    var time = new Date();
-    var size = JSON.stringify(this.props.packet).length;
+    var size = Str.formatSize(this.props.size);
+    var time = this.props.time;
 
     // Use String.formatTime, but how to access from the content?
     var timeText = time.toLocaleTimeString() + "." + time.getMilliseconds();
@@ -50,7 +50,7 @@ var Packet = React.createClass({
               DIV({}, packet.error),
               DIV({}, packet.message)
             ),
-            DIV({className: "info"}, timeText + ", " + size + " B")
+            DIV({className: "info"}, timeText + ", " + size)
           )
         )
       );
@@ -62,7 +62,7 @@ var Packet = React.createClass({
             SPAN({className: "type"},"\"" + packet.type + "\""),
             IMG({className: "arrow", src: "./arrow.svg"}),
             SPAN({className: "to"}, packet.to),
-            DIV({className: "info"}, timeText + ", " + size + " B")
+            DIV({className: "info"}, timeText + ", " + size)
           )
         )
       );
@@ -77,7 +77,7 @@ var Packet = React.createClass({
             DIV({className: "preview"},
               Obj({object: packet})
             ),
-            DIV({className: "info"}, timeText + ", " + size + " B")
+            DIV({className: "info"}, timeText + ", " + size)
           )
         )
       );
