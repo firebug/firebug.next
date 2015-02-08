@@ -8,6 +8,7 @@ define(function(require, exports, module) {
 const React = require("react");
 const { Reps } = require("reps/reps");
 const { ObjectLink } = require("reps/object-link");
+const { Caption } = require("reps/caption");
 
 const { SPAN } = Reps.DOM;
 
@@ -51,7 +52,7 @@ const Obj = React.createClass({
     }
   },
 
-  propIterator: function (object, max) {
+  propIterator: function(object, max) {
     function isInterestingProp(t, value) {
       return (t == "boolean" || t == "number" || (t == "string" && value) ||
         (t == "object" && value && value.toString));
@@ -76,23 +77,21 @@ const Obj = React.createClass({
       });
     }
 
-    /*if (props.length > max) {
-      props[props.length-1] = {
-        object: "More...", // xxxHonza localization
-        tag: Reps.Caption.tag,
-        name: "",
-        equal: "",
-        delim: ""
-      };
+    // xxxHonza: localization
+    if (props.length > max) {
+      props.push(Caption({
+        object: "more...",
+      }));
     }
     else if (props.length > 0) {
-      props[props.length-1].delim = "";
-    }*/
+      props[props.length-1]._owner.props.delim = "";
+    }
 
     return props;
   },
 
   getProps: function (props, object, max, filter) {
+    Trace.sysout("max " + max)
     max = max || 3;
     if (!object) {
       return [];
@@ -116,10 +115,10 @@ const Obj = React.createClass({
 
         var t = typeof(value);
         if (filter(t, value)) {
-          var rep = Reps.getRep(value);
+          //var rep = Reps.getRep(value);
           //let tag = rep.tinyTag || rep.shortTag || rep.tag;
           if ((t == "object" || t == "function") && value) {
-            value = rep.getTitle(value);
+            //value = rep.getTitle(value);
             /*if (rep.titleTag) {
               tag = rep.titleTag;
             } else {
@@ -127,12 +126,14 @@ const Obj = React.createClass({
             }*/
           }
 
-          props.push(rep({
-            object: value
-          }));
-
-          /*props.push({tag: tag, name: name, object: value,
-            equal: ": ", delim: ", "});*/
+          var prop = PropRep({
+            mode: "short",
+            name: name,
+            object: value,
+            equal: ": ",
+            delim: ", "
+          });
+          props.push(prop);
         }
       }
     }
@@ -145,6 +146,26 @@ const Obj = React.createClass({
       // which does not have permission to read the history
     }
   },
+});
+
+/**
+ * @rep
+ */
+var PropRep = React.createClass(
+/** @lends PropRep */
+{
+  render: function(){
+    var object = this.props.object;
+    var REP = Reps.getRep(object);
+    return (
+      SPAN({},
+        SPAN({"class": "nodeName"}, this.props.name),
+        SPAN({"class": "objectEqual", role: "presentation"}, this.props.equal),
+        REP({object: object}),
+        SPAN({"class": "objectComma", role: "presentation"}, this.props.delim)
+      )
+    )
+  }
 });
 
 // Registration

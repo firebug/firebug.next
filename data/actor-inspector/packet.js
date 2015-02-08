@@ -36,12 +36,26 @@ var Packet = React.createClass({
     // Use String.formatTime, but how to access from the content?
     var timeText = time.toLocaleTimeString() + "." + time.getMilliseconds();
 
+    // xxxHonza: localization
     if (packet.error) {
       classNames.push("error");
+      return (
+        DIV({className: classNames.join(" "), onClick: this.onClick},
+          DIV({className: "body"},
+            DIV({className: "from"},
+              IMG({className: "arrow", src: "./arrow.svg"}),
+              SPAN({}, packet.from)
+            ),
+            DIV({className: "errorMessage"},
+              DIV({}, packet.error),
+              DIV({}, packet.message)
+            ),
+            DIV({className: "info"}, timeText + ", " + size + " B")
+          )
+        )
+      );
     }
-
-    // xxxHonza: localization
-    if (type == "send") {
+    else if (type == "send") {
       return (
         DIV({className: classNames.join(" "), onClick: this.onClick},
           DIV({className: "body"},
@@ -59,10 +73,6 @@ var Packet = React.createClass({
             DIV({className: "from"},
               IMG({className: "arrow", src: "./arrow.svg"}),
               SPAN({}, packet.from)
-            ),
-            DIV({className: "errorMessage"},
-              DIV({}, packet.error),
-              DIV({}, packet.message)
             ),
             DIV({className: "preview"},
               Obj({object: packet})

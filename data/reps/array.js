@@ -13,19 +13,21 @@ const { SPAN, A } = Reps.DOM;
 /**
  * @rep
  */
-var ItemRep = React.createClass(
+var ItemRep = React.createFactory(React.createClass(
 /** @lends ItemRep */
 {
   render: function(){
-    var object = this.props;
+    var object = this.props.object;
     var delim = this.props.delim;
-    var rep = Reps.getRep(object);
-
+    var REP = Reps.getRep(object);
     return (
-      SPAN({}, rep({object: object}), delim)
+      SPAN({},
+        REP({object: object}),
+        delim
+      )
     )
   }
-});
+}));
 
 /**
  * @rep
@@ -39,12 +41,11 @@ var ArrayRep = React.createClass(
     var hasTwisty = this.hasSpecialProperties(object);
 
     // xxxHonza: prefs["ObjectShortIteratorMax"]
-    var displayed = mode == "short" ? 3 : 300;
-    var items = this.arrayIterator(object, displayed);
+    var max = (mode == "short") ? 3 : 300;
+    var items = this.arrayIterator(object, max);
 
     return (
-      ObjectBox({className: "array", repObject: object,
-        onClick: this.onToggleProperties},
+      ObjectBox({className: "array", onClick: this.onToggleProperties},
         A({className: "objectLink", onclick: this.onClickBracket},
           SPAN({className: "arrayLeftBracket", role: "presentation"}, "[")
         ),
@@ -70,9 +71,9 @@ var ArrayRep = React.createClass(
         var value = array[i];
 
         // Cycle detected
-        if (value === array) {
-          value = new Reps.ReferenceObj(value);
-        }
+        //if (value === array) {
+        //  value = new Reps.ReferenceObj(value);
+        //}
 
         items.push(ItemRep({object: value, delim: delim}));
       }
@@ -133,9 +134,14 @@ var ArrayRep = React.createClass(
     return false;
   },
 
+  // Event Handlers
+
   onToggleProperties: function(event) {
     // xxxHonza: TODO
   },
+
+  onClickBracket: function(event) {
+  }
 });
 
 // Registration

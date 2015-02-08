@@ -71,7 +71,6 @@ a:focus {
   border: 1px solid #bfccd1;
   border-radius: 3px;
   white-space: pre-wrap !important;
-  word-break: break-all;
   max-width: 90%;
 }
 
