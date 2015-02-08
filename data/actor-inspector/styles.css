@@ -92,6 +92,10 @@ a:focus {
   text-align: right;
 }
 
+.packetPanel.error .body {
+  background-color: rgb(255, 221, 221);
+}
+
 .packetPanel .type,
 .packetPanel .to,
 .packetPanel .from {
@@ -120,4 +124,9 @@ a:focus {
 
 .packetPanel .from {
   padding-bottom: 5px;
+}
+
+.packetPanel .errorMessage {
+  color: red;
+  margin-bottom: 5px;
 }

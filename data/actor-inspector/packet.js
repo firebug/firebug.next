@@ -36,6 +36,10 @@ var Packet = React.createClass({
     // Use String.formatTime, but how to access from the content?
     var timeText = time.toLocaleTimeString() + "." + time.getMilliseconds();
 
+    if (packet.error) {
+      classNames.push("error");
+    }
+
     // xxxHonza: localization
     if (type == "send") {
       return (
@@ -55,6 +59,10 @@ var Packet = React.createClass({
             DIV({className: "from"},
               IMG({className: "arrow", src: "./arrow.svg"}),
               SPAN({}, packet.from)
+            ),
+            DIV({className: "errorMessage"},
+              DIV({}, packet.error),
+              DIV({}, packet.message)
             ),
             DIV({className: "preview"},
               Obj({object: packet})
