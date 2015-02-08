@@ -14,17 +14,18 @@ const { ObjectBox } = require("reps/object-box");
  */
 const Number = React.createClass({
   render: function() {
+    var value = this.props.object;
     if (this.props.mode == "tiny") {
       return (
         ObjectBox({className: "number"},
-          this.props.value
+          value
         )
       )
     }
     else {
       return (
         ObjectBox({className: "number"},
-          this.stringify(this.props.value)
+          this.stringify(value)
         )
       )
     }
