@@ -173,6 +173,13 @@
   white-space: normal;
 }
 
+.objectBox-object {
+  font-family: Lucida Grande, sans-serif;
+  font-weight: bold;
+  color: DarkGreen;
+  white-space: pre-wrap;
+}
+
 .objectBox-string,
 .objectBox-text,
 .objectBox-number,

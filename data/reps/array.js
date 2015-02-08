@@ -75,7 +75,10 @@ var ArrayRep = React.createClass(
         //  value = new Reps.ReferenceObj(value);
         //}
 
-        items.push(ItemRep({object: value, delim: delim}));
+        items.push(ItemRep({
+          object: value,
+          delim: delim
+        }));
       }
       catch (exc) {
         items.push(ItemRep({object: exc, delim: delim}));

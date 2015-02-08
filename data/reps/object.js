@@ -8,6 +8,7 @@ define(function(require, exports, module) {
 const React = require("react");
 const { Reps } = require("reps/reps");
 const { ObjectLink } = require("reps/object-link");
+const { ObjectBox } = require("reps/object-box");
 const { Caption } = require("reps/caption");
 
 const { SPAN } = Reps.DOM;
@@ -20,8 +21,9 @@ const Obj = React.createClass({
     var object = this.props.object;
     var props = this.shortPropIterator(object);
 
+    // xxxHonza: ObjectLink doeesn't wrap the Arrayr rep, why?
     return (
-      ObjectLink({className: "object"},
+      ObjectBox({className: "object"},
         SPAN({className: "objectTitle"}, this.getTitle(object)),
         SPAN({className: "objectLeftBrace", role: "presentation"}, "{"),
         props,
@@ -91,7 +93,6 @@ const Obj = React.createClass({
   },
 
   getProps: function (props, object, max, filter) {
-    Trace.sysout("max " + max)
     max = max || 3;
     if (!object) {
       return [];

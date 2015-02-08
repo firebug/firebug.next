@@ -160,7 +160,7 @@ var TreeRow = React.createFactory(React.createClass({
       "paddingLeft": (member.level * 16) + "px",
     };
 
-    var valueRep = Reps.getRep(member.value);
+    var VALUE = Reps.getRep(member.value);
 
     return (
       TR({className: classNames.join(" "), onClick: this.onClick},
@@ -170,7 +170,7 @@ var TreeRow = React.createFactory(React.createClass({
         ),
         TD({className: "memberValueCell"},
           SPAN({},
-            valueRep({object: member.value})
+            VALUE({object: member.value})
           )
         )
       )
