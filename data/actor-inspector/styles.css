@@ -104,25 +104,24 @@ a:focus {
   font-family: monospace;
 }
 
-.packetPanel .to {
-  font-family: monospace;
-  font-weight: bold;
-}
-
 .packetPanel .info {
   color: gray;
   font-size: 10px;
   text-align: right;
+  margin-left: 20px;
+  display: inline-flex;
+  font-family: monospace;
+  float: right;
+  padding-top: 2px;
 }
 
 .packetPanel .arrow {
   margin: 0 5px 0 5px;
 }
 
-.packetPanel.receive .arrow {
-  margin-left: 0;
+.packetPanel .arrow.hide {
+  display: none;
 }
-
 .packetPanel .from {
   padding-bottom: 5px;
 }
