@@ -27,14 +27,22 @@ var Packet = React.createClass({
       label += ", Type: " + packet.type;
     }
 
+    var mode = "tiny";
     var classNames = ["packetPanel", type];
 
     // xxxHonza TODO: HACK, FIXME
-    var time = new Date();
-    var size = JSON.stringify(this.props.packet).length;
+    var size = Str.formatSize(this.props.size);
+    var time = this.props.time;
 
     // Use String.formatTime, but how to access from the content?
     var timeText = time.toLocaleTimeString() + "." + time.getMilliseconds();
+    var previewData = {
+      packet: packet
+    }
+
+    if (packet.error) {
+      classNames.push("error");
+    }
 
     // xxxHonza: localization
     if (type == "send") {
@@ -44,7 +52,7 @@ var Packet = React.createClass({
             SPAN({className: "type"},"\"" + packet.type + "\""),
             IMG({className: "arrow", src: "./arrow.svg"}),
             SPAN({className: "to"}, packet.to),
-            DIV({className: "info"}, timeText + ", " + size + " B")
+            DIV({className: "info"}, timeText + ", " + size)
           )
         )
       );
@@ -56,10 +64,14 @@ var Packet = React.createClass({
               IMG({className: "arrow", src: "./arrow.svg"}),
               SPAN({}, packet.from)
             ),
-            DIV({className: "preview"},
-              Obj({object: packet})
+            DIV({className: "errorMessage"},
+              DIV({}, packet.error),
+              DIV({}, packet.message)
             ),
-            DIV({className: "info"}, timeText + ", " + size + " B")
+            DIV({className: "preview"},
+              TreeView({data: previewData, mode: mode})
+            ),
+            DIV({className: "info"}, timeText + ", " + size)
           )
         )
       );

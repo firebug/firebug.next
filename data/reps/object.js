@@ -8,7 +8,10 @@ define(function(require, exports, module) {
 const React = require("react");
 const { Reps } = require("reps/reps");
 const { ObjectLink } = require("reps/object-link");
+const { ObjectBox } = require("reps/object-box");
+const { Caption } = require("reps/caption");
 
+// Shortcuts
 const { SPAN } = Reps.DOM;
 
 /**
@@ -19,8 +22,9 @@ const Obj = React.createClass({
     var object = this.props.object;
     var props = this.shortPropIterator(object);
 
+    // xxxHonza: ObjectLink doeesn't wrap the Array rep, why?
     return (
-      ObjectLink({className: "object"},
+      ObjectBox({className: "object"},
         SPAN({className: "objectTitle"}, this.getTitle(object)),
         SPAN({className: "objectLeftBrace", role: "presentation"}, "{"),
         props,
@@ -30,7 +34,7 @@ const Obj = React.createClass({
   },
 
   getTitle: function() {
-    return "Object";
+    return ""; //"Object";
   },
 
   longPropIterator: function (object) {
@@ -51,7 +55,7 @@ const Obj = React.createClass({
     }
   },
 
-  propIterator: function (object, max) {
+  propIterator: function(object, max) {
     function isInterestingProp(t, value) {
       return (t == "boolean" || t == "number" || (t == "string" && value) ||
         (t == "object" && value && value.toString));
@@ -76,18 +80,18 @@ const Obj = React.createClass({
       });
     }
 
-    /*if (props.length > max) {
-      props[props.length-1] = {
-        object: "More...", // xxxHonza localization
-        tag: Reps.Caption.tag,
-        name: "",
-        equal: "",
-        delim: ""
-      };
+    // xxxHonza: localization
+    if (props.length > max) {
+      props.pop();
+      props.push(Caption({
+        object: Locale.$STR("reps.more"),
+      }));
     }
     else if (props.length > 0) {
-      props[props.length-1].delim = "";
-    }*/
+      // Remove the last comma.
+      // xxxHonza: is it ok to access the '_store' object?
+      props[props.length-1]._store.props.delim = "";
+    }
 
     return props;
   },
@@ -99,6 +103,7 @@ const Obj = React.createClass({
     }
 
     var len = 0;
+    var mode = this.props.mode;
 
     try {
       for (var name in object) {
@@ -116,10 +121,10 @@ const Obj = React.createClass({
 
         var t = typeof(value);
         if (filter(t, value)) {
-          var rep = Reps.getRep(value);
+          //var rep = Reps.getRep(value);
           //let tag = rep.tinyTag || rep.shortTag || rep.tag;
           if ((t == "object" || t == "function") && value) {
-            value = rep.getTitle(value);
+            //value = rep.getTitle(value);
             /*if (rep.titleTag) {
               tag = rep.titleTag;
             } else {
@@ -127,12 +132,14 @@ const Obj = React.createClass({
             }*/
           }
 
-          props.push(rep({
-            object: value
+          props.push(PropRep({
+            mode: "short",
+            name: name,
+            object: value,
+            equal: ": ",
+            delim: ", ",
+            mode: mode,
           }));
-
-          /*props.push({tag: tag, name: name, object: value,
-            equal: ": ", delim: ", "});*/
         }
       }
     }
@@ -145,6 +152,27 @@ const Obj = React.createClass({
       // which does not have permission to read the history
     }
   },
+});
+
+/**
+ * @rep
+ */
+var PropRep = React.createClass(
+/** @lends PropRep */
+{
+  render: function(){
+    var object = this.props.object;
+    var mode = this.props.mode;
+    var TAG = Reps.getRep(object);
+    return (
+      SPAN({},
+        SPAN({"class": "nodeName"}, this.props.name),
+        SPAN({"class": "objectEqual", role: "presentation"}, this.props.equal),
+        TAG({object: object, mode: mode}),
+        SPAN({"class": "objectComma", role: "presentation"}, this.props.delim)
+      )
+    )
+  }
 });
 
 // Registration

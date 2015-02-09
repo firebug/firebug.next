@@ -72,14 +72,18 @@ function refreshFactories(packet, parentNodeId) {
 function onSendPacket(event) {
   appendPacket({
     type: "send",
-    packet: JSON.parse(event.data)
+    packet: JSON.parse(event.data),
+    size: event.data.length,
+    time: new Date()
   });
 }
 
 function onReceivePacket(event) {
   appendPacket({
     type: "receive",
-    packet: JSON.parse(event.data)
+    packet: JSON.parse(event.data),
+    size: event.data.length,
+    time: new Date()
   });
 }
 

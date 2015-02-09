@@ -59,7 +59,7 @@ a:focus {
 
 .packetPanel {
   font-size: 12px;
-  margin: 4px 0 4px 0;
+  margin-bottom: 6px;
   font-size: 11px;
   font-family: Lucida Grande, Tahoma, sans-serif;
   line-height: 15px;
@@ -71,8 +71,9 @@ a:focus {
   border: 1px solid #bfccd1;
   border-radius: 3px;
   white-space: pre-wrap !important;
-  word-break: break-all;
   max-width: 90%;
+  min-width: 270px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.0));
 }
 
 .packetPanel.send .body {
@@ -90,6 +91,10 @@ a:focus {
 
 .packetPanel.receive {
   text-align: right;
+}
+
+.packetPanel.error .body {
+  background-color: rgb(255, 221, 221);
 }
 
 .packetPanel .type,
@@ -120,4 +125,9 @@ a:focus {
 
 .packetPanel .from {
   padding-bottom: 5px;
+}
+
+.packetPanel .errorMessage {
+  color: red;
+  margin-bottom: 5px;
 }

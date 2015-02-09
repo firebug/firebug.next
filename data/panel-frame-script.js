@@ -9,23 +9,8 @@
  */
 const Cu = Components.utils;
 
-// Tracing
-const { traceConsoleService } = Cu.import("resource://fbtrace/firebug-trace-service.js", {});
-const Trace = traceConsoleService.getTracer("extensions.firebug");
-
 const document = content.document;
 const window = content;
-
-/**
- * Export Trace object into the content scope
- */
-var ContentTrace = Cu.createObjectIn(window, {
-  defineAs: "Trace"
-});
-
-Cu.exportFunction(Trace.sysout, ContentTrace, {
-  defineAs: "sysout"
-});
 
 var port;
 
