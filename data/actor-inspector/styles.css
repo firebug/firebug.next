@@ -72,6 +72,7 @@ a:focus {
   border-radius: 3px;
   white-space: pre-wrap !important;
   max-width: 90%;
+  min-width: 270px;
   background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.0));
 }
 
