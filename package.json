@@ -139,7 +139,7 @@
     "name": "sizePrecision",
     "title": "sizePrecision",
     "description": "",
-    "type": "number",
+    "type": "integer",
     "value": 1
   }, {
     "name": "replaceTabs",
