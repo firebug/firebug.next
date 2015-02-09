@@ -21,7 +21,7 @@ const Obj = React.createClass({
     var object = this.props.object;
     var props = this.shortPropIterator(object);
 
-    // xxxHonza: ObjectLink doeesn't wrap the Arrayr rep, why?
+    // xxxHonza: ObjectLink doeesn't wrap the Array rep, why?
     return (
       ObjectBox({className: "object"},
         SPAN({className: "objectTitle"}, this.getTitle(object)),
@@ -33,7 +33,7 @@ const Obj = React.createClass({
   },
 
   getTitle: function() {
-    return "Object";
+    return ""; //"Object";
   },
 
   longPropIterator: function (object) {
@@ -82,11 +82,13 @@ const Obj = React.createClass({
     // xxxHonza: localization
     if (props.length > max) {
       props.push(Caption({
-        object: "more...",
+        object: Locale.$STR("reps.more"),
       }));
     }
     else if (props.length > 0) {
-      props[props.length-1]._owner.props.delim = "";
+      // Remove the last comma.
+      // xxxHonza: is it ok to access the '_store' object?
+      props[props.length-1]._store.props.delim = "";
     }
 
     return props;

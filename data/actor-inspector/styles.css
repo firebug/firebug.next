@@ -59,7 +59,7 @@ a:focus {
 
 .packetPanel {
   font-size: 12px;
-  margin: 4px 0 4px 0;
+  margin-bottom: 6px;
   font-size: 11px;
   font-family: Lucida Grande, Tahoma, sans-serif;
   line-height: 15px;
@@ -72,6 +72,7 @@ a:focus {
   border-radius: 3px;
   white-space: pre-wrap !important;
   max-width: 90%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.0));
 }
 
 .packetPanel.send .body {
