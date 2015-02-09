@@ -8,6 +8,9 @@ define(function(require, exports, module) {
 const React = require("react");
 const { Reps } = require("reps/reps");
 const { ObjectBox } = require("reps/object-box");
+const { Caption } = require("reps/caption");
+
+// Shortcuts
 const { SPAN, A } = Reps.DOM;
 
 /**
@@ -36,13 +39,19 @@ var ArrayRep = React.createClass(
 /** @lends ArrayRep */
 {
   render: function() {
-    var mode = this.props.mode;
+    var mode = this.props.mode || "short";
     var object = this.props.object;
     var hasTwisty = this.hasSpecialProperties(object);
 
-    // xxxHonza: prefs["ObjectShortIteratorMax"]
-    var max = (mode == "short") ? 3 : 300;
-    var items = this.arrayIterator(object, max);
+    var items;
+
+    if (mode == "tiny") {
+      items = object.length;
+    } else {
+      // xxxHonza: prefs["ObjectShortIteratorMax"]
+      var max = (mode == "short") ? 3 : 300;
+      items = this.arrayIterator(object, max);
+    }
 
     return (
       ObjectBox({className: "array", onClick: this.onToggleProperties},
@@ -85,15 +94,12 @@ var ArrayRep = React.createClass(
       }
     }
 
-    // xxxHonza:
-    /*if (array.length > max + 1) {
-      items[max] = {
-        object: (array.length-max) + " " +
-          Locale.$STR("firebug.reps.more") + "...",
-        tag: Reps.Caption.tag,
-        delim: ""
-      };
-    }*/
+    if (array.length > max + 1) {
+      items.pop();
+      items.push(Caption({
+        object: Locale.$STR("reps.more"),
+      }));
+    }
 
     return items;
   },

@@ -27,6 +27,7 @@ var Packet = React.createClass({
       label += ", Type: " + packet.type;
     }
 
+    var mode = "tiny";
     var classNames = ["packetPanel", type];
 
     // xxxHonza TODO: HACK, FIXME
@@ -35,27 +36,16 @@ var Packet = React.createClass({
 
     // Use String.formatTime, but how to access from the content?
     var timeText = time.toLocaleTimeString() + "." + time.getMilliseconds();
+    var previewData = {
+      packet: packet
+    }
 
-    // xxxHonza: localization
     if (packet.error) {
       classNames.push("error");
-      return (
-        DIV({className: classNames.join(" "), onClick: this.onClick},
-          DIV({className: "body"},
-            DIV({className: "from"},
-              IMG({className: "arrow", src: "./arrow.svg"}),
-              SPAN({}, packet.from)
-            ),
-            DIV({className: "errorMessage"},
-              DIV({}, packet.error),
-              DIV({}, packet.message)
-            ),
-            DIV({className: "info"}, timeText + ", " + size)
-          )
-        )
-      );
     }
-    else if (type == "send") {
+
+    // xxxHonza: localization
+    if (type == "send") {
       return (
         DIV({className: classNames.join(" "), onClick: this.onClick},
           DIV({className: "body"},
@@ -74,8 +64,12 @@ var Packet = React.createClass({
               IMG({className: "arrow", src: "./arrow.svg"}),
               SPAN({}, packet.from)
             ),
+            DIV({className: "errorMessage"},
+              DIV({}, packet.error),
+              DIV({}, packet.message)
+            ),
             DIV({className: "preview"},
-              Obj({object: packet})
+              TreeView({data: previewData, mode: mode})
             ),
             DIV({className: "info"}, timeText + ", " + size)
           )

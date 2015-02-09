@@ -11,6 +11,7 @@ const { ObjectLink } = require("reps/object-link");
 const { ObjectBox } = require("reps/object-box");
 const { Caption } = require("reps/caption");
 
+// Shortcuts
 const { SPAN } = Reps.DOM;
 
 /**
@@ -81,6 +82,7 @@ const Obj = React.createClass({
 
     // xxxHonza: localization
     if (props.length > max) {
+      props.pop();
       props.push(Caption({
         object: Locale.$STR("reps.more"),
       }));
@@ -101,6 +103,7 @@ const Obj = React.createClass({
     }
 
     var len = 0;
+    var mode = this.props.mode;
 
     try {
       for (var name in object) {
@@ -129,14 +132,14 @@ const Obj = React.createClass({
             }*/
           }
 
-          var prop = PropRep({
+          props.push(PropRep({
             mode: "short",
             name: name,
             object: value,
             equal: ": ",
-            delim: ", "
-          });
-          props.push(prop);
+            delim: ", ",
+            mode: mode,
+          }));
         }
       }
     }
@@ -159,12 +162,13 @@ var PropRep = React.createClass(
 {
   render: function(){
     var object = this.props.object;
-    var REP = Reps.getRep(object);
+    var mode = this.props.mode;
+    var TAG = Reps.getRep(object);
     return (
       SPAN({},
         SPAN({"class": "nodeName"}, this.props.name),
         SPAN({"class": "objectEqual", role: "presentation"}, this.props.equal),
-        REP({object: object}),
+        TAG({object: object, mode: mode}),
         SPAN({"class": "objectComma", role: "presentation"}, this.props.delim)
       )
     )
