@@ -148,11 +148,29 @@
     "type": "integer",
     "value": 10240
   }, {
-    "name": "defaultLogDir",
+    "name": "netexport.defaultLogDir",
     "title": "defaultLogDir",
     "description": "",
     "type": "string",
     "value": ""
+  }, {
+    "name": "netexport.jsonpCallback",
+    "title": "JSONP callback name for HARP files",
+    "description": "Specifies JSONP callback name for HAR files wrapped in a function call (JSONP, HARP)",
+    "type": "string",
+    "value": "jsonpCallback"
+  }, {
+    "name": "netexport.showPreview",
+    "title": "showPreview",
+    "description": "",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netexport.viewerURL",
+    "title": "viewerURL",
+    "description": "",
+    "type": "string",
+    "value": "http://www.softwareishard.com/har/viewer"
   }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
