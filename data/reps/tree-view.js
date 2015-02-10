@@ -19,12 +19,15 @@ var TreeView = React.createFactory(React.createClass({
 
   render: function() {
     var rows = [];
+    var mode = this.props.mode;
+
     var renderMembers = function(members) {
       for (var i in members) {
         var member = members[i];
         rows.push(TreeRow({
           key: member.key,
-          data: member
+          data: member,
+          mode: mode
         }));
 
         if (member.children && member.children.length && member.open) {
@@ -160,8 +163,7 @@ var TreeRow = React.createFactory(React.createClass({
       "paddingLeft": (member.level * 16) + "px",
     };
 
-    var valueRep = Reps.getRep(member.value);
-
+    var TAG = Reps.getRep(member.value);
     return (
       TR({className: classNames.join(" "), onClick: this.onClick},
         TD({className: "memberLabelCell", style: rowStyle},
@@ -170,7 +172,7 @@ var TreeRow = React.createFactory(React.createClass({
         ),
         TD({className: "memberValueCell"},
           SPAN({},
-            valueRep({object: member.value})
+            TAG({object: member.value, mode: this.props.mode})
           )
         )
       )

@@ -8,24 +8,29 @@ define(function(require, exports, module) {
 const React = require("react");
 const { Reps } = require("reps/reps");
 const { ObjectBox } = require("reps/object-box");
+const { Caption } = require("reps/caption");
+
+// Shortcuts
 const { SPAN, A } = Reps.DOM;
 
 /**
  * @rep
  */
-var ItemRep = React.createClass(
+var ItemRep = React.createFactory(React.createClass(
 /** @lends ItemRep */
 {
   render: function(){
-    var object = this.props;
+    var object = this.props.object;
     var delim = this.props.delim;
-    var rep = Reps.getRep(object);
-
+    var REP = Reps.getRep(object);
     return (
-      SPAN({}, rep({object: object}), delim)
+      SPAN({},
+        REP({object: object}),
+        delim
+      )
     )
   }
-});
+}));
 
 /**
  * @rep
@@ -34,17 +39,22 @@ var ArrayRep = React.createClass(
 /** @lends ArrayRep */
 {
   render: function() {
-    var mode = this.props.mode;
+    var mode = this.props.mode || "short";
     var object = this.props.object;
     var hasTwisty = this.hasSpecialProperties(object);
 
-    // xxxHonza: prefs["ObjectShortIteratorMax"]
-    var displayed = mode == "short" ? 3 : 300;
-    var items = this.arrayIterator(object, displayed);
+    var items;
+
+    if (mode == "tiny") {
+      items = object.length;
+    } else {
+      // xxxHonza: prefs["ObjectShortIteratorMax"]
+      var max = (mode == "short") ? 3 : 300;
+      items = this.arrayIterator(object, max);
+    }
 
     return (
-      ObjectBox({className: "array", repObject: object,
-        onClick: this.onToggleProperties},
+      ObjectBox({className: "array", onClick: this.onToggleProperties},
         A({className: "objectLink", onclick: this.onClickBracket},
           SPAN({className: "arrayLeftBracket", role: "presentation"}, "[")
         ),
@@ -70,26 +80,26 @@ var ArrayRep = React.createClass(
         var value = array[i];
 
         // Cycle detected
-        if (value === array) {
-          value = new Reps.ReferenceObj(value);
-        }
+        //if (value === array) {
+        //  value = new Reps.ReferenceObj(value);
+        //}
 
-        items.push(ItemRep({object: value, delim: delim}));
+        items.push(ItemRep({
+          object: value,
+          delim: delim
+        }));
       }
       catch (exc) {
         items.push(ItemRep({object: exc, delim: delim}));
       }
     }
 
-    // xxxHonza:
-    /*if (array.length > max + 1) {
-      items[max] = {
-        object: (array.length-max) + " " +
-          Locale.$STR("firebug.reps.more") + "...",
-        tag: Reps.Caption.tag,
-        delim: ""
-      };
-    }*/
+    if (array.length > max + 1) {
+      items.pop();
+      items.push(Caption({
+        object: Locale.$STR("reps.more"),
+      }));
+    }
 
     return items;
   },
@@ -133,9 +143,14 @@ var ArrayRep = React.createClass(
     return false;
   },
 
+  // Event Handlers
+
   onToggleProperties: function(event) {
     // xxxHonza: TODO
   },
+
+  onClickBracket: function(event) {
+  }
 });
 
 // Registration

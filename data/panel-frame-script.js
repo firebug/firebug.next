@@ -2,30 +2,15 @@
 
 "use strict";
 
-(function({content, addMessageListener, sendAsyncMessage}) {
+(function({content, addMessageListener, sendAsyncMessage, removeMessageListener}) {
 
 /**
  * Frame script loaded within inspector.html
  */
 const Cu = Components.utils;
 
-// Tracing
-const { traceConsoleService } = Cu.import("resource://fbtrace/firebug-trace-service.js", {});
-const Trace = traceConsoleService.getTracer("extensions.firebug");
-
 const document = content.document;
 const window = content;
-
-/**
- * Export Trace object into the content scope
- */
-var ContentTrace = Cu.createObjectIn(window, {
-  defineAs: "Trace"
-});
-
-Cu.exportFunction(Trace.sysout, ContentTrace, {
-  defineAs: "sysout"
-});
 
 var port;
 
@@ -50,7 +35,7 @@ window.addEventListener("message", event => {
  * It's further distributed as DOM event, so it can be handled by
  * the page content script.
  */
-addMessageListener("firebug/event/message", message => {
+function messageListener(message) {
   const { type, data, origin, bubbles, cancelable } = message.data;
 
   //Trace.sysout("inspector-content.js; message: " + message.name +
@@ -68,7 +53,14 @@ addMessageListener("firebug/event/message", message => {
   });
 
   content.dispatchEvent(event);
-});
+};
+
+addMessageListener("firebug/event/message", messageListener);
+
+window.addEventListener("unload", event => {
+  removeMessageListener("firebug/event/message", messageListener);
+})
+
 
 /**
  * Callback for messages coming from the debuggee target (aka the back-end).
@@ -81,21 +73,19 @@ function onMessage(event) {
 };
 
 /**
- * Send a message back to the Inspector panel (chrome scope).
+ * Send a message back to the parent panel (chrome scope).
  */
-function sendChromeMessage() {
+function postChromeMessage(type, object, objects) {
   let data = {
-    message: "click on Hello World panel",
-    details: "Message from content script",
-    tag: event.target.tagName
+    type: type,
+    object: object,
   };
 
-  let objects = {
-     target: event.target 
-  };
-
-  // Send message back the HelloWorldPanel.
   sendAsyncMessage("message", data, objects);
 }
+
+Cu.exportFunction(postChromeMessage, window, {
+  defineAs: "postChromeMessage"
+});
 
 })(this);

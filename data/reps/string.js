@@ -14,12 +14,14 @@ const { ObjectBox } = require("reps/object-box");
  */
 const String = React.createClass({
   render: function() {
+    var text = this.props.object;
     if (this.props.mode == "short") {
       return (
-        ObjectBox({className: "undefined"}, "undefined")
+        ObjectBox({className: "string"},
+          "\"" + cropMultipleLines(text) + "\""
+        )
       )
     } else {
-      var text = this.props.object;
       return (
         ObjectBox({className: "string"},
           "\"" + cropMultipleLines(text) + "\""

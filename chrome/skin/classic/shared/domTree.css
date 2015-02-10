@@ -10,6 +10,7 @@
 .domTable {
   font-size: 11px;
   font-family: Lucida Grande, Tahoma, sans-serif;
+  line-height: 15px;
 }
 
 .domTable > tbody > tr > td {

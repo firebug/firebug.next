@@ -28,6 +28,9 @@ var Reps =
    * @param object {Object} Object to be rendered in the UI. This
    * can be generic JS object as well as a grip (handle to a remote
    * debuggee object).
+   *
+   * xxxHonza: should be renamed to getTag (it doesn't return the rep
+   * object itself, but underlying template).
    */
   getRep: function(object) {
     var type = typeof(object);

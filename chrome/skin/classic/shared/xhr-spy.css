@@ -8,13 +8,13 @@
 }
 
 .theme-firebug pre {
-    margin: 0;
-    font: inherit;
+  margin: 0;
+  font: inherit;
 }
 
 .theme-firebug code {
-    display:block;
-    white-space:pre;
+  display:block;
+  white-space:pre;
 }
 
 /******************************************************************************/
@@ -86,64 +86,64 @@
 }
 
 .netInfoResponseSizeLimit {
-    font-family: Lucida Grande, Tahoma, sans-serif;
-    padding-top: 10px;
-    font-size: 11px;
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  padding-top: 10px;
+  font-size: 11px;
 }
 
-.netInfoResponseDiscarded {
+.netInfoBodiesDiscarded {
   font-style: italic;
   color: gray;
 }
 
 .netInfoText {
-    display: none;
-    margin: 0;
-    border: 1px solid #D7D7D7;
-    padding: 8px;
-    background-color: #FFFFFF;
-    font-family: monospace;
-    /*overflow-x: auto; HTML is damaged in case of big (2-3MB) responses */
+  display: none;
+  margin: 0;
+  border: 1px solid #D7D7D7;
+  padding: 8px;
+  background-color: #FFFFFF;
+  font-family: monospace;
+  /*overflow-x: auto; HTML is damaged in case of big (2-3MB) responses */
 }
 
 .netInfoText[selected="true"] {
-    display: block;
+  display: block;
 }
 
 .netInfoParamName {
-    padding: 0 10px 0 0;
-    font-family: Lucida Grande, Tahoma, sans-serif;
-    font-weight: bold;
-    vertical-align: top;
-    text-align: right;
-    white-space: nowrap;
+  padding: 0 10px 0 0;
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  font-weight: bold;
+  vertical-align: top;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .netInfoParamValue {
-    width: 100%;
+  width: 100%;
 }
 
 .netInfoHeadersText,
 .netInfoPostText,
 .netInfoPutText,
 .netInfoPatchText {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 .netInfoHeadersGroup,
 .netInfoPostParams,
 .netInfoPostSource {
-    margin-bottom: 4px;
-    border-bottom: 1px solid #D7D7D7;
-    padding-top: 8px;
-    padding-bottom: 2px;
-    font-family: Lucida Grande, Tahoma, sans-serif;
-    font-weight: bold;
-    color: #565656;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #D7D7D7;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  font-family: Lucida Grande, Tahoma, sans-serif;
+  font-weight: bold;
+  color: #565656;
 }
 
 .netInfoCachedResponseHeadersBody {
-    color: gray;
+  color: gray;
 }
 
 .netInfoPostParamsTable,
@@ -152,137 +152,137 @@
 .netInfoPostXMLTable,
 .netInfoPostSVGTable,
 .netInfoPostSourceTable {
-    margin-bottom: 10px;
-    width: 100%;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .netInfoPostContentType {
-    color: #bdbdbd;
-    padding-left: 50px;
-    font-weight: normal;
+  color: #bdbdbd;
+  padding-left: 50px;
+  font-weight: normal;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* HTML Preview & Resizer */
 
 .netInfoHtmlPreview {
-    border: 0;
-    width: 100%;
-    height: 100%;
+  border: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .netInfoHtmlText {
-    padding: 0;
+  padding: 0;
 }
 
 .htmlPreviewResizer {
-    width: 100%;
-    height: 5px;
-    background-color: lightgrey;
-    cursor: s-resize;
+  width: 100%;
+  height: 5px;
+  background-color: lightgrey;
+  cursor: s-resize;
 }
 
 /* When HTML preview resizing is in progress set the cursor for all elements
    since the mouse doesn't have to be always just over the resizer and this
    avoids cursor flashing. */
 body[resizingHtmlPreview="true"] * {
-    cursor: s-resize !important;
+  cursor: s-resize !important;
 }
 
 /* When HTML preview resizing is in progress mouse messages are not sent to
    the iframe document. */
 body[resizingHtmlPreview="true"] .netInfoHtmlPreview {
-    pointer-events: none !important;
+  pointer-events: none !important;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Request & Response Headers */
 
 .netHeadersViewSource {
-    margin-left: 200px;
+  margin-left: 200px;
 }
 
 .netPostParameterSort {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .netHeadersViewSource,
 .netPostParameterSort {
-    color: #bdbdbd;
-    font-weight: normal;
+  color: #bdbdbd;
+  font-weight: normal;
 }
 
 .netHeadersViewSource:hover,
 .netPostParameterSort:hover {
-    color: blue;
-    cursor: pointer;
+  color: blue;
+  cursor: pointer;
 }
 
 .netInfoHeadersTable > .netHeadersGroup > table,
 .netInfoHeadersTable > .netHeadersGroup .netHeadersViewSource {
-    display: none;
+  display: none;
 }
 
 .netInfoHeadersTable > .netHeadersGroup.opened > table,
 .netInfoHeadersTable > .netHeadersGroup.opened .netHeadersViewSource {
-    display: inline-block;
+  display: inline-block;
 }
 
 .netInfoHeadersTable .netHeader {
-    cursor: pointer;
-    padding-left: 17px;
-    position: static;
-    -moz-user-select: none;
+  cursor: pointer;
+  padding-left: 17px;
+  position: static;
+  -moz-user-select: none;
 }
 
 .netInfoHeadersTable .netHeadersViewSource {
-    display: inline-block;
+  display: inline-block;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 /* Net Activation Message */
 
 .netActivationRow {
-    background: rgb(238, 238, 238) !important;
-    font-weight: normal;
-    color: black;
+  background: rgb(238, 238, 238) !important;
+  font-weight: normal;
+  color: black;
 }
 
 .netActivationRow > TD {
-    vertical-align: middle !important;
-    padding-top: 2px;
-    padding-bottom: 2px;
+  vertical-align: middle !important;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .netActivationLabel {
-    padding-left: 28px;
+  padding-left: 28px;
 }
 
-/*************************************************************************************************/
+/******************************************************************************/
 
 .netPageCol {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .netPageSeparatorRow {
-    height: 5px !important;
-    background-color: rgb(238, 238, 238);
+  height: 5px !important;
+  background-color: rgb(238, 238, 238);
 }
 
 .netPageSeparatorLabel {
-    padding-left: 22px;
-    height: 5px !important;
+  padding-left: 22px;
+  height: 5px !important;
 }
 
 .netPageRow {
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
 
 .netPageRow:hover {
-    background: #EFEFEF;
+  background: #EFEFEF;
 }
 
 .netPageLabel {
-    padding: 1px 0 2px 18px !important;
-    font-weight: bold;
+  padding: 1px 0 2px 18px !important;
+  font-weight: bold;
 }

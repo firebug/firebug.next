@@ -136,6 +136,18 @@
     "type": "bool",
     "value": true
   }, {
+    "name": "sizePrecision",
+    "title": "sizePrecision",
+    "description": "",
+    "type": "integer",
+    "value": 1
+  }, {
+    "name": "netDisplayedPostBodyLimit",
+    "title": "netDisplayedPostBodyLimit",
+    "description": "",
+    "type": "integer",
+    "value": 10240
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
