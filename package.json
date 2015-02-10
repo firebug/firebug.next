@@ -172,6 +172,24 @@
     "type": "string",
     "value": "http://www.softwareishard.com/har/viewer"
   }, {
+    "name": "netexport.beaconServerURL",
+    "title": "beaconServerURL",
+    "description": "URL of the server where the collected data should be send to",
+    "type": "string",
+    "value": "http://www.showslow.com/beacon/har/"
+  }, {
+    "name": "netexport.sendToConfirmation",
+    "title": "sendToConfirmation",
+    "description": "Display confirmation before uploading collected data to the server yes/no",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "netexport.includeResponseBodies",
+    "title": "includeResponseBodies",
+    "description": "Specifies whether the response bodies of requests should be included in the export",
+    "type": "bool",
+    "value": true
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",

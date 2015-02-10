@@ -1,0 +1,29 @@
+/* See license.txt for terms of usage */
+ 
+/******************************************************************************/
+
+#netExportAuto {
+  list-style-image: url(chrome://firebug/skin/net-export/autoexport-regular.png);
+}
+
+#netExportAuto:hover {
+  list-style-image: url(chrome://firebug/skin/net-export/autoexport-hover.png);
+}
+
+#netExportAuto[state="active"] {
+  list-style-image: url(chrome://firebug/skin/net-export/autoexport-active.png);
+}
+
+#netExportAuto[state="inprogress"] {
+  list-style-image: url(chrome://firebug/skin/net-export/autoexport-animated.png);
+}
+
+/******************************************************************************/
+
+.netExportUploadProgress {
+   min-width: 30px;
+   min-height: 10px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   border: 0px;
+}
