@@ -148,6 +148,12 @@
     "type": "integer",
     "value": 10240
   }, {
+    "name": "defaultLogDir",
+    "title": "defaultLogDir",
+    "description": "",
+    "type": "string",
+    "value": ""
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
