@@ -190,6 +190,12 @@
     "type": "bool",
     "value": true
   }, {
+    "name": "netexport.saveFiles",
+    "title": "saveFiles",
+    "description": "If true, page resources are saved as files",
+    "type": "bool",
+    "value": false
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
