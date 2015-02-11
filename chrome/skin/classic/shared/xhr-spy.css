@@ -123,13 +123,6 @@
   width: 100%;
 }
 
-.netInfoHeadersText,
-.netInfoPostText,
-.netInfoPutText,
-.netInfoPatchText {
-  padding-top: 0;
-}
-
 .netInfoHeadersGroup,
 .netInfoPostParams,
 .netInfoPostSource {
