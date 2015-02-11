@@ -33,7 +33,7 @@
 
 .theme-firebug #sources-pane .side-menu-widget-group-title label {
   padding-left: 17px;
-  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
   background-position: 0 calc(0.5em - 3px);
   background-size: 11px 11px;
   background-repeat: no-repeat;
