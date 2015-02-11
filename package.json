@@ -196,6 +196,18 @@
     "type": "bool",
     "value": false
   }, {
+    "name": "netexport.alwaysEnableAutoExport",
+    "title": "alwaysEnableAutoExport",
+    "description": "Auto export feature is enabled by default",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netexport.secretToken",
+    "title": "secretToken",
+    "description": "Secret token for exposing export API to the content (user page). If empty, no API are exposed",
+    "type": "string",
+    "value": ""
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
