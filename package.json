@@ -220,6 +220,18 @@
     "type": "bool",
     "value": false
   }, {
+    "name": "netexport.pageLoadedTimeout",
+    "title": "pageLoadedTimeout",
+    "description": "Number of milliseconds to wait after the last page request to declare the page loaded",
+    "type": "integer",
+    "value": 1500
+  }, {
+    "name": "netexport.timeout",
+    "title": "timeout",
+    "description": "Number of milliseconds to wait after the page is exported even if not loaded yet. Set to zero to switch off this feature.",
+    "type": "integer",
+    "value": 60000
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
