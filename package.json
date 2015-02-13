@@ -208,6 +208,18 @@
     "type": "string",
     "value": ""
   }, {
+    "name": "netexport.autoExportToFile",
+    "title": "autoExportToFile",
+    "description": "Auto export feature stores results into a local file",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "netexport.autoExportToServer",
+    "title": "autoExportToServer",
+    "description": "Auto export feature sends results to the server",
+    "type": "bool",
+    "value": false
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
