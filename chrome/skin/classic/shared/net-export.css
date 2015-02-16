@@ -1,0 +1,10 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Net Export */
+
+.theme-firebug #netExport.active {
+  border-color: rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset, 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
