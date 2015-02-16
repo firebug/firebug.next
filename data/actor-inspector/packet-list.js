@@ -24,6 +24,11 @@ var PacketList = React.createClass({
 
     var packets = this.state.data;
     for (var i in packets) {
+      if (this.state.searchFilter &&
+         JSON.stringify(packets[i]).indexOf(this.state.searchFilter) < 0) {
+        // filter out packets which don't match the filter
+        continue;
+      }
       output.push(Packet(packets[i]));
     };
 
