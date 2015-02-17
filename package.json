@@ -149,6 +149,12 @@
     "type": "integer",
     "value": 10240
   }, {
+    "name": "replaceTabs",
+    "title": "Number of spaces for displaying tabs",
+    "description": "The number of spaces used for displaying tabs inside the Script panel",
+    "type": "integer",
+    "value": 4
+  }, {
     "name": "netexport.defaultLogDir",
     "title": "defaultLogDir",
     "description": "",
@@ -159,7 +165,7 @@
     "title": "JSONP callback name for HARP files",
     "description": "Specifies JSONP callback name for HAR files wrapped in a function call (JSONP, HARP)",
     "type": "string",
-    "value": "jsonpCallback"
+    "value": "onInputData"
   }, {
     "name": "netexport.showPreview",
     "title": "showPreview",
@@ -239,10 +245,10 @@
     "type": "bool",
     "value": false
   }, {
-    "name": "replaceTabs",
-    "title": "Number of spaces for displaying tabs",
-    "description": "The number of spaces used for displaying tabs inside the Script panel",
-    "type": "integer",
-    "value": 4
+    "name": "netexport.autoExportHarp",
+    "title": "autoExportHarp",
+    "description": "",
+    "type": "bool",
+    "value": false
   }]
 }
