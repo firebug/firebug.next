@@ -28,6 +28,11 @@ window.addEventListener("message", event => {
 
   // Register callback for incoming RDP packets.
   port.onmessage = onMessage.bind(this);
+
+  // An example showing how to send RPD packet.
+  //let str = '{"to": "root", "type": "listTabs"}';
+  //let packet = JSON.parse(str);
+  //port.postMessage(packet);
 }, false);
 
 /**

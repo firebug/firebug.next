@@ -18,17 +18,10 @@ const { DIV, SPAN, BR, IMG } = Reps.DOM;
  */
 var Packet = React.createClass({
   render: function() {
-    var type = this.props.type;
     var packet = this.props.packet;
-    var label = (type == "send") ?
-      ("To: " + packet.to) : ("From: "+ packet.from);
-
-    if (packet.type) {
-      label += ", Type: " + packet.type;
-    }
-
+    var type = packet.type ? "\"" + packet.type + "\"" : "";
     var mode = "tiny";
-    var classNames = ["packetPanel", type];
+    var classNames = ["packetPanel", this.props.type];
 
     // xxxHonza TODO: HACK, FIXME
     var size = Str.formatSize(this.props.size);
@@ -44,15 +37,20 @@ var Packet = React.createClass({
       classNames.push("error");
     }
 
+    var imgClassNames = ["arrow"];
+    if (!type) {
+      imgClassNames.push("hide");
+    }
+
     // xxxHonza: localization
-    if (type == "send") {
+    if (this.props.type == "send") {
       return (
         DIV({className: classNames.join(" "), onClick: this.onClick},
           DIV({className: "body"},
-            SPAN({className: "type"},"\"" + packet.type + "\""),
-            IMG({className: "arrow", src: "./arrow.svg"}),
+            SPAN({className: "type"}, type),
+            IMG({className: imgClassNames.join(" "), src: "./arrow.svg"}),
             SPAN({className: "to"}, packet.to),
-            DIV({className: "info"}, timeText + ", " + size)
+            SPAN({className: "info"}, timeText + ", " + size)
           )
         )
       );
@@ -61,8 +59,10 @@ var Packet = React.createClass({
         DIV({className: classNames.join(" "), onClick: this.onClick},
           DIV({className: "body"},
             DIV({className: "from"},
-              IMG({className: "arrow", src: "./arrow.svg"}),
-              SPAN({}, packet.from)
+              SPAN({}, packet.from),
+              IMG({className: imgClassNames.join(" "), src: "./arrow.svg"}),
+              SPAN({}, type),
+              SPAN({className: "info"}, timeText + ", " + size)
             ),
             DIV({className: "errorMessage"},
               DIV({}, packet.error),
@@ -70,8 +70,7 @@ var Packet = React.createClass({
             ),
             DIV({className: "preview"},
               TreeView({data: previewData, mode: mode})
-            ),
-            DIV({className: "info"}, timeText + ", " + size)
+            )
           )
         )
       );

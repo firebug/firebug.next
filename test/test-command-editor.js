@@ -54,12 +54,12 @@ exports["test Command Editor"] = function(assert, done) {
     selectInEditor(editor, {line: 0, ch: selectionStart},
       {line: 0, ch: instructions.length});
 
-    triggerEvaluate(panel, win);
+    triggerEvaluate(panel, sidePanel);
   }
 
   function runWithNoSelection(panel, editor, sidePanel, win) {
     selectInEditor(editor, {line: 0, ch: 0}, {line: 0, ch: 0});
-    triggerEvaluate(panel, win);
+    triggerEvaluate(panel, sidePanel);
   }
 
   function checkResult(toolbox, expected, panel) {
@@ -93,9 +93,9 @@ exports["test Command Editor"] = function(assert, done) {
     );
   }
 
-  function triggerEvaluate(panel, editorWin) {
+  function triggerEvaluate(panel, sidePanel) {
     panel._firebugPanelOverlay.clearConsole();
-    let sidePanelDoc = editorWin.parent.document;
+    let sidePanelDoc = sidePanel.ownerDocument;
     sidePanelDoc.querySelector("#firebug-commandeditor-run").click();
   }
 };
