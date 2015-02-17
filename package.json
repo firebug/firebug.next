@@ -152,7 +152,7 @@
     "name": "netexport.defaultLogDir",
     "title": "defaultLogDir",
     "description": "",
-    "type": "string",
+    "type": "directory",
     "value": ""
   }, {
     "name": "netexport.jsonpCallback",
