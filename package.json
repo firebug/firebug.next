@@ -155,6 +155,12 @@
     "type": "integer",
     "value": 4
   }, {
+    "name": "allPagesActivation",
+    "title": "allPagesActivation",
+    "description": "",
+    "type": "string",
+    "value": "none"
+  }, {
     "name": "netexport.defaultLogDir",
     "title": "defaultLogDir",
     "description": "",
