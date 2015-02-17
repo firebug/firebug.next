@@ -232,6 +232,12 @@
     "type": "integer",
     "value": 60000
   }, {
+    "name": "netexport.compress",
+    "title": "compress",
+    "description": "If true, HAR files are compressed",
+    "type": "bool",
+    "value": false
+  }, {
     "name": "replaceTabs",
     "title": "Number of spaces for displaying tabs",
     "description": "The number of spaces used for displaying tabs inside the Script panel",
