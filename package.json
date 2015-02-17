@@ -22,7 +22,7 @@
     "Aakash Tyagi"
   ],
   "engines": {
-    "firefox": ">=35.0a2 <=*"
+    "firefox": ">=37.0a2 <=*"
   },
   "updateURL": "https://getfirebug.com/releases/firebug/3.0/update.rdf",
   "icon": "chrome://firebug/skin/firebugBig.png",
