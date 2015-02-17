@@ -39,6 +39,7 @@
   "devDependencies": {
     "addon-httpd": "0.0.1"
   },
+  "preferences-branch": "firebug",
   "preferences": [{
     "name": "debugStartup",
     "title": "Execute start-up sequence for debugging",
