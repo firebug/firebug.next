@@ -110,6 +110,10 @@
   display: block;
 }
 
+.netInfoResponseText.image {
+  line-height: 0;
+}
+
 .netInfoParamName {
   padding: 0 10px 0 0;
   font-family: Lucida Grande, Tahoma, sans-serif;
