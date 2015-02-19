@@ -29,8 +29,8 @@
 }
 
 .theme-firebug .xhrSpy .message-body {
-  background-image: url("chrome://firebug/skin/twistyClosed.svg");
-  background-position: 0 calc(0.5em - 5px);
+  background-image: url("chrome://firebug-os/skin/twistyClosed.svg");
+  background-position: 0 0;
   padding-left: 15px;
   background-size: 11px 11px;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 }
 
 .theme-firebug .xhrSpy.opened .message-body {
-  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
 }
 
 .theme-firebug .xhrSpy .message-body .status {
@@ -108,6 +108,10 @@
 
 .netInfoText[selected="true"] {
   display: block;
+}
+
+.netInfoResponseText.image {
+  line-height: 0;
 }
 
 .netInfoParamName {

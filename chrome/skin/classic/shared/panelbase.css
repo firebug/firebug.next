@@ -9,7 +9,7 @@
 
 /* Do not use 'collapsed' as a class name. It's too simple name that can
 cause collisions with built-in styles (e.g. the MarkupView is using it). */
-.theme-firebug [collapsed="true"] {
+.theme-firebug [fb-collapsed="true"] {
   display: none;
 }
 

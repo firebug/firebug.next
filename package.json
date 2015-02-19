@@ -3,7 +3,7 @@
   "title": "Firebug",
   "id": "firebug@software.joehewitt.com",
   "description": "Next Firebug generation built on top of native Firefox developer tools",
-  "version": "3.0.0-alpha.8",
+  "version": "3.0.0-alpha.9",
   "author": "Firebug Working Group",
   "contributors": [
     "Jan Odvarko (Mozilla Corp.)",
@@ -22,7 +22,7 @@
     "Aakash Tyagi"
   ],
   "engines": {
-    "firefox": ">=35.0a2 <=*"
+    "firefox": ">=37.0a2 <=*"
   },
   "updateURL": "https://getfirebug.com/releases/firebug/3.0/update.rdf",
   "icon": "chrome://firebug/skin/firebugBig.png",
@@ -39,6 +39,7 @@
   "devDependencies": {
     "addon-httpd": "0.0.1"
   },
+  "preferences-branch": "firebug",
   "preferences": [{
     "name": "debugStartup",
     "title": "Execute start-up sequence for debugging",
@@ -153,5 +154,107 @@
     "description": "The number of spaces used for displaying tabs inside the Script panel",
     "type": "integer",
     "value": 4
+  }, {
+    "name": "allPagesActivation",
+    "title": "allPagesActivation",
+    "description": "",
+    "type": "string",
+    "value": "none"
+  }, {
+    "name": "netexport.defaultLogDir",
+    "title": "defaultLogDir",
+    "description": "",
+    "type": "directory",
+    "value": ""
+  }, {
+    "name": "netexport.jsonpCallback",
+    "title": "JSONP callback name for HARP files",
+    "description": "Specifies JSONP callback name for HAR files wrapped in a function call (JSONP, HARP)",
+    "type": "string",
+    "value": "onInputData"
+  }, {
+    "name": "netexport.showPreview",
+    "title": "showPreview",
+    "description": "",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netexport.viewerURL",
+    "title": "viewerURL",
+    "description": "",
+    "type": "string",
+    "value": "http://www.softwareishard.com/har/viewer"
+  }, {
+    "name": "netexport.beaconServerURL",
+    "title": "beaconServerURL",
+    "description": "URL of the server where the collected data should be send to",
+    "type": "string",
+    "value": "http://www.showslow.com/beacon/har/"
+  }, {
+    "name": "netexport.sendToConfirmation",
+    "title": "sendToConfirmation",
+    "description": "Display confirmation before uploading collected data to the server yes/no",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "netexport.includeResponseBodies",
+    "title": "includeResponseBodies",
+    "description": "Specifies whether the response bodies of requests should be included in the export",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "netexport.saveFiles",
+    "title": "saveFiles",
+    "description": "If true, page resources are saved as files",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netexport.alwaysEnableAutoExport",
+    "title": "alwaysEnableAutoExport",
+    "description": "Auto export feature is enabled by default",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netexport.secretToken",
+    "title": "secretToken",
+    "description": "Secret token for exposing export API to the content (user page). If empty, no API are exposed",
+    "type": "string",
+    "value": ""
+  }, {
+    "name": "netexport.autoExportToFile",
+    "title": "autoExportToFile",
+    "description": "Auto export feature stores results into a local file",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "netexport.autoExportToServer",
+    "title": "autoExportToServer",
+    "description": "Auto export feature sends results to the server",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netexport.pageLoadedTimeout",
+    "title": "pageLoadedTimeout",
+    "description": "Number of milliseconds to wait after the last page request to declare the page loaded",
+    "type": "integer",
+    "value": 1500
+  }, {
+    "name": "netexport.timeout",
+    "title": "timeout",
+    "description": "Number of milliseconds to wait after the page is exported even if not loaded yet. Set to zero to switch off this feature.",
+    "type": "integer",
+    "value": 60000
+  }, {
+    "name": "netexport.compress",
+    "title": "compress",
+    "description": "If true, HAR files are compressed",
+    "type": "bool",
+    "value": false
+  }, {
+    "name": "netexport.autoExportHarp",
+    "title": "autoExportHarp",
+    "description": "",
+    "type": "bool",
+    "value": false
   }]
 }

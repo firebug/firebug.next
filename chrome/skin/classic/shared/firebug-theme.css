@@ -260,7 +260,7 @@ div.CodeMirror span.eval-text {
 
 .theme-twisty {
   cursor: pointer;
-  background-image: url("chrome://firebug/skin/twistyClosed.svg");
+  background-image: url("chrome://firebug-os/skin/twistyClosed.svg");
   background-position: 0 calc(0.5em - 3px);
   background-size: 11px 11px;
 }
@@ -270,7 +270,7 @@ div.CodeMirror span.eval-text {
 }
 
 .theme-twisty[open] {
-  background-image: url("chrome://firebug/skin/twistyOpen.svg");
+  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
 }
 
 .theme-twisty[invisible] {
