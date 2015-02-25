@@ -34,8 +34,14 @@ var FactoryTable = React.createClass({
   render: function() {
     var rows = [];
 
-    var factories = this.props;
+    var factories = this.props.factories;
     for (var i in factories) {
+      if (this.props.searchFilter &&
+          JSON.stringify(factories[i]).indexOf(this.props.searchFilter) < 0) {
+        // filter out packets which don't match the filter
+        continue;
+      }
+
       rows.push(FactoryRow(factories[i]));
     };
 
@@ -56,22 +62,30 @@ var FactoryTable = React.createClass({
  * TODO docs
  */
 var FactoryList = React.createClass({
+  getInitialState: function() {
+    return {
+      main: {factories: {}},
+      child: {factories: {}},
+      searchFilter: null
+    };
+  },
   render: function() {
     var mainGlobal = [];
-    var main = this.props[0];
-    var child = this.props[1];
+    var main = this.state.main;
+    var child = this.state.child;
+    var searchFilter = this.state.searchFilter;
 
     // xxxHonza: localization
     return (
       DIV({className: "poolContainer"},
         H4(null, "Main Process - Global Factories"),
-        FactoryTable(main.factories.global),
+        FactoryTable({ factories: main.factories.global, searchFilter: searchFilter }),
         H4(null, "Main Process - Tab Factories"),
-        FactoryTable(main.factories.tab),
+        FactoryTable({ factories: main.factories.tab, searchFilter: searchFilter }),
         H4(null, "Child Process - Global Factories"),
-        FactoryTable(child.factories.global),
+        FactoryTable({ factories: child.factories.global, searchFilter: searchFilter }),
         H4(null, "Child Process - Tab Factories"),
-        FactoryTable(child.factories.tab)
+        FactoryTable({ factories: child.factories.tab, searchFilter: searchFilter })
       )
     );
   }
@@ -80,8 +94,8 @@ var FactoryList = React.createClass({
 var factoryList = React.createFactory(FactoryList);
 
 var Factories = {
-  render: function(packet, parentNode) {
-    React.render(factoryList(packet), parentNode);
+  render: function(parentNode) {
+    return React.render(factoryList(), parentNode);
   }
 }
 

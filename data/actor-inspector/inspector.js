@@ -19,12 +19,6 @@ require("reps/number");
 require("reps/array");
 require("reps/object");
 
-// Initialization
-window.addEventListener("refresh", onRefresh);
-window.addEventListener("clear", onClear);
-window.addEventListener("send-packet", onSendPacket);
-window.addEventListener("receive-packet", onReceivePacket);
-
 var packets = [];
 
 // Initial panel rendering
@@ -32,17 +26,36 @@ renderTabbedBox();
 
 // Render packet list.
 var packetList = React.render(PacketList(packets),
-  $("#tabPacketsPane").get(0));
+                              document.querySelector("#tabPacketsPane"));
+var globalActorsPane = Pools.render(document.querySelector("#globalActorsPane"));
+var tabActorsPane = Pools.render(document.querySelector("#tabActorsPane"));
+var actorFactoriesPane = Factories.render(document.querySelector("#actorFactoriesPane"));
+
+// Initialization
+window.addEventListener("refresh", onRefresh);
+window.addEventListener("clear", onClear);
+window.addEventListener("send-packet", onSendPacket);
+window.addEventListener("receive-packet", onReceivePacket);
+window.addEventListener("search", onSearch);
 
 /**
  * Renders content of the Inspector panel.
  */
 function onRefresh(event) {
   var packet = JSON.parse(event.data);
-  refreshActors(packet[0], "globalActorsPane");
-  refreshActors(packet[1], "tabActorsPane");
-  refreshPackets("tabPacketsPane");
-  refreshFactories(packet, "actorFactoriesPane");
+  refreshActors(packet[0], globalActorsPane);
+  refreshActors(packet[1], tabActorsPane);
+  refreshFactories(packet[0], packet[1]);
+  refreshPackets();
+}
+
+function onSearch(event) {
+  var value = JSON.parse(event.data);
+
+  packetList.setState({ searchFilter: value });
+  globalActorsPane.setState({ searchFilter: value });
+  tabActorsPane.setState({ searchFilter: value });
+  actorFactoriesPane.setState({ searchFilter: value });
 }
 
 function onClear() {
@@ -50,20 +63,15 @@ function onClear() {
   refreshPackets();
 }
 
-function refreshActors(data, parentNodeId) {
-  var actorsPane = document.getElementById(parentNodeId);
+function refreshActors(data, poolPane) {
   var pools = [data.actorPool];
   pools.push.apply(pools, data.extraPools.slice());
 
-  // xxxHonza: use setState to refresh.
-  Pools.render(pools, actorsPane);
+  poolPane.setState({pools: pools});
 }
 
-function refreshFactories(packet, parentNodeId) {
-  var pane = document.getElementById(parentNodeId);
-
-  // xxxHonza: use setState to refresh.
-  Factories.render(packet, pane);
+function refreshFactories(main, child) {
+  actorFactoriesPane.setState({main: main, child: child});
 }
 
 /**
