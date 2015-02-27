@@ -3,7 +3,7 @@
 "use strict";
 
 const { StartButton } = require("../lib/chrome/start-button.js");
-const { getToolboxWhenReady, closeToolbox } = require("./toolbox.js");
+const { getToolboxWhenReady, closeToolbox, waitUntil } = require("./toolbox.js");
 const { closeTab } = require("./window.js");
 
 /**
@@ -16,14 +16,21 @@ exports["test Start Button"] = function(assert, done) {
     let browserDoc = chrome.getBrowserDoc();
 
     let button = StartButton.getButton(browserDoc);
-    let active = button.getAttribute("active");
-    assert.equal(active, "true", "The start button must be active now");
 
-    closeToolbox(tab).then(() => {
+    waitUntil(() => button.getAttribute("active") === "true", 5000).then(() => {
       let active = button.getAttribute("active");
-      assert.ok(!active, "The start button must be deactivated now");
 
-      closeTab(tab);
+      assert.equal(active, "true", "The start button must be active now");
+
+      closeToolbox(tab).then(() => {
+        let active = button.getAttribute("active");
+        assert.ok(!active, "The start button must be deactivated now");
+
+        closeTab(tab);
+        done();
+      });
+    }, (e) => {
+      assert.fail("Test timed out waiting the start button to become active");
       done();
     });
   });
