@@ -12,7 +12,8 @@ const { TR, TD, SPAN, TABLE, TBODY, THEAD, TH, DIV, H4 } = Reps.DOM;
 /**
  * TODO docs
  */
-var PoolRow = React.createClass({
+var PoolRow = React.createFactory(React.createClass({
+  displayName: "PoolRow",
   render: function() {
     var actor = this.props;
     return (
@@ -25,13 +26,14 @@ var PoolRow = React.createClass({
       )
     );
   }
-});
+}));
 
 /**
  * TODO docs
  * xxxHonza: localization
  */
-var PoolTable = React.createClass({
+var PoolTable = React.createFactory(React.createClass({
+  displayName: "PoolTable",
   render: function() {
     var rows = [];
 
@@ -43,6 +45,7 @@ var PoolTable = React.createClass({
         // filter out packets which don't match the filter
         continue;
       }
+      actors[i].key = actors[i].actorID;
       rows.push(PoolRow(actors[i]));
     };
 
@@ -70,12 +73,13 @@ var PoolTable = React.createClass({
       )
     );
   }
-});
+}));
 
 /**
  * TODO docs
  */
-var PoolList = React.createClass({
+var PoolList = React.createFactory(React.createClass({
+  displayName: "PoolList",
   getInitialState: function() {
     return {
       pools: []
@@ -102,6 +106,7 @@ var PoolList = React.createClass({
         pool: pool,
         actorClass: actorClass,
         id: poolId,
+        key: i,
         searchFilter: this.state.searchFilter
       }));
     };
@@ -112,13 +117,11 @@ var PoolList = React.createClass({
       )
     );
   }
-});
-
-var poolList = React.createFactory(PoolList);
+}));
 
 var Pools = {
   render: function(parentNode) {
-    return React.render(poolList(), parentNode);
+    return React.render(PoolList(), parentNode);
   }
 }
 

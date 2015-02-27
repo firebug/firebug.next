@@ -13,6 +13,7 @@ const { ObjectBox } = require("reps/object-box");
  * @template TODO docs
  */
 const Number = React.createClass({
+  displayName: "Number",
   render: function() {
     var value = this.props.object;
     if (this.props.mode == "tiny") {

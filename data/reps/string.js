@@ -13,6 +13,7 @@ const { ObjectBox } = require("reps/object-box");
  * @template TODO docs
  */
 const String = React.createClass({
+  displayName: "String",
   render: function() {
     var text = this.props.object;
     if (this.props.mode == "short") {
