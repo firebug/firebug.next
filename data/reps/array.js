@@ -19,6 +19,7 @@ const { SPAN, A } = Reps.DOM;
 var ItemRep = React.createFactory(React.createClass(
 /** @lends ItemRep */
 {
+  displayName: "ItemRep",
   render: function(){
     var object = this.props.object;
     var delim = this.props.delim;
@@ -38,6 +39,7 @@ var ItemRep = React.createFactory(React.createClass(
 var ArrayRep = React.createClass(
 /** @lends ArrayRep */
 {
+  displayName: "ArrayRep",
   render: function() {
     var mode = this.props.mode || "short";
     var object = this.props.object;
@@ -85,18 +87,20 @@ var ArrayRep = React.createClass(
         //}
 
         items.push(ItemRep({
+          key: i,
           object: value,
           delim: delim
         }));
       }
       catch (exc) {
-        items.push(ItemRep({object: exc, delim: delim}));
+        items.push(ItemRep({object: exc, delim: delim, key: i}));
       }
     }
 
     if (array.length > max + 1) {
       items.pop();
       items.push(Caption({
+        key: "more",
         object: Locale.$STR("reps.more"),
       }));
     }

@@ -11,6 +11,7 @@ const { TR, TD, SPAN, TABLE, TBODY } = Reps.DOM;
  * @template TODO docs
  */
 var TreeView = React.createFactory(React.createClass({
+  displayName: "TreeView",
   getInitialState: function() {
     return { data: {}, uid: 0 };
   },
@@ -138,6 +139,7 @@ var TreeView = React.createFactory(React.createClass({
  * @template TODO docs
  */
 var TreeRow = React.createFactory(React.createClass({
+  displayName: "TreeRow",
   getInitialState: function() {
     return { data: {} };
   },

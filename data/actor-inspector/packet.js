@@ -17,6 +17,7 @@ const { DIV, SPAN, BR, IMG } = Reps.DOM;
  * TODO docs
  */
 var Packet = React.createClass({
+  displayName: "Packet",
   render: function() {
     var packet = this.props.packet;
     var type = packet.type ? "\"" + packet.type + "\"" : "";

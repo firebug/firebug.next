@@ -13,10 +13,11 @@ const { SPAN } = Reps.DOM;
  * @template TODO docs
  */
 const Caption = React.createClass({
+  displayName: "Caption",
   render: function() {
     return (
-      SPAN({"class": "caption"}, this.props.object)
-    )
+      SPAN({"className": "caption"}, this.props.object)
+    );
   },
 });
 
