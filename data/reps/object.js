@@ -18,6 +18,7 @@ const { SPAN } = Reps.DOM;
  * @template TODO docs
  */
 const Obj = React.createClass({
+  displayName: "Obj",
   render: function() {
     var object = this.props.object;
     var props = this.shortPropIterator(object);
@@ -84,6 +85,7 @@ const Obj = React.createClass({
     if (props.length > max) {
       props.pop();
       props.push(Caption({
+        key: "more",
         object: Locale.$STR("reps.more"),
       }));
     }
@@ -133,6 +135,7 @@ const Obj = React.createClass({
           }
 
           props.push(PropRep({
+            key: name,
             mode: "short",
             name: name,
             object: value,
@@ -157,23 +160,24 @@ const Obj = React.createClass({
 /**
  * @rep
  */
-var PropRep = React.createClass(
+var PropRep = React.createFactory(React.createClass(
 /** @lends PropRep */
 {
+  displayName: "PropRep",
   render: function(){
     var object = this.props.object;
     var mode = this.props.mode;
     var TAG = Reps.getRep(object);
     return (
       SPAN({},
-        SPAN({"class": "nodeName"}, this.props.name),
-        SPAN({"class": "objectEqual", role: "presentation"}, this.props.equal),
+        SPAN({"className": "nodeName"}, this.props.name),
+        SPAN({"className": "objectEqual", role: "presentation"}, this.props.equal),
         TAG({object: object, mode: mode}),
-        SPAN({"class": "objectComma", role: "presentation"}, this.props.delim)
+        SPAN({"className": "objectComma", role: "presentation"}, this.props.delim)
       )
-    )
+    );
   }
-});
+}));
 
 // Registration
 

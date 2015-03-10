@@ -24,6 +24,7 @@ function handleSelect(selectedKey) {
 
 // xxxHonza: TODO: localization
 var TabbedBox = React.createClass({
+  displayName: "TabbedBox",
   render: function() {
     return (
       TabbedArea({activeKey: key, onSelect: handleSelect},

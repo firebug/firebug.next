@@ -13,6 +13,7 @@ const { ObjectBox } = require("reps/object-box");
  * @template TODO docs
  */
 const Undefined = React.createClass({
+  displayName: "UndefinedRep",
   render: function() {
     return (
       ObjectBox({className: "undefined"},

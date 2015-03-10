@@ -13,7 +13,8 @@ const { TR, TD, SPAN, TABLE, TBODY, THEAD, TH, DIV, H4 } = Reps.DOM;
 /**
  * TODO docs
  */
-var FactoryRow = React.createClass({
+var FactoryRow = React.createFactory(React.createClass({
+  displayName: "FactoryRow",
   render: function() {
     var factory = this.props;
     return (
@@ -24,13 +25,14 @@ var FactoryRow = React.createClass({
       )
     );
   }
-});
+}));
 
 /**
  * TODO docs
  * xxxHonza: localization
  */
-var FactoryTable = React.createClass({
+var FactoryTable = React.createFactory(React.createClass({
+  displayName: "FactoryTable",
   render: function() {
     var rows = [];
 
@@ -42,6 +44,7 @@ var FactoryTable = React.createClass({
         continue;
       }
 
+      factories[i].key = factories[i].prefix + factories[i].name;
       rows.push(FactoryRow(factories[i]));
     };
 
@@ -56,12 +59,13 @@ var FactoryTable = React.createClass({
       )
     );
   }
-});
+}));
 
 /**
  * TODO docs
  */
-var FactoryList = React.createClass({
+var FactoryList = React.createFactory(React.createClass({
+  displayName: "FactoryList",
   getInitialState: function() {
     return {
       main: {factories: {}},
@@ -89,13 +93,11 @@ var FactoryList = React.createClass({
       )
     );
   }
-});
-
-var factoryList = React.createFactory(FactoryList);
+}));
 
 var Factories = {
   render: function(parentNode) {
-    return React.render(factoryList(), parentNode);
+    return React.render(FactoryList(), parentNode);
   }
 }
 

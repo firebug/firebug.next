@@ -13,6 +13,7 @@ const { A } = Reps.DOM;
  * @template TODO docs
  */
 const ObjectLink = React.createClass({
+  displayName: "ObjectLink",
   render: function() {
     var className = this.props.className;
     var objectClassName = className ? " objectLink-" + className : "";
