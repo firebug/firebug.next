@@ -15,6 +15,22 @@ require("reps/object");
 
 // Event Listeners Registration
 window.addEventListener("select", onSelect);
+window.addEventListener("search", onSearch);
+
+var packetTreeView;
+var searchFilter;
+
+function onSearch(event) {
+  if (!packetTreeView) {
+    return;
+  }
+
+  window.searchFilter = JSON.parse(event.data);
+
+  packetTreeView.setState({
+    searchFilter: window.searchFilter
+  });
+}
 
 /**
  * Change the current selection (the currently displayed packet)
@@ -26,7 +42,10 @@ function onSelect(event) {
 function refresh(packet) {
   // xxxHonza: use setState.
   document.body.textContent = "";
-  React.render(TreeView({data: packet}), document.body);
+  packetTreeView = React.render(TreeView({data:packet}), document.body);
+  packetTreeView.setState({
+    searchFilter: window.searchFilter
+  });
 }
 
 });

@@ -16,3 +16,7 @@
 .domTable > tbody > tr > td {
   border-bottom: 1px solid #EFEFEF;
 }
+
+.hidden {
+  display: none;
+}
