@@ -11,8 +11,9 @@ const { TR, TD, SPAN, TABLE, TBODY } = Reps.DOM;
  * @template TODO docs
  */
 var TreeView = React.createFactory(React.createClass({
+  displayName: "TreeView",
   getInitialState: function() {
-    return { data: {}, uid: 0 };
+    return { data: {}, uid: 0, searchFilter: null };
   },
 
   // Rendering
@@ -20,6 +21,7 @@ var TreeView = React.createFactory(React.createClass({
   render: function() {
     var rows = [];
     var mode = this.props.mode;
+    var state = this.state;
 
     var renderMembers = function(members) {
       for (var i in members) {
@@ -27,7 +29,8 @@ var TreeView = React.createFactory(React.createClass({
         rows.push(TreeRow({
           key: member.key,
           data: member,
-          mode: mode
+          mode: mode,
+          searchFilter: state.searchFilter
         }));
 
         if (member.children && member.children.length && member.open) {
@@ -56,7 +59,7 @@ var TreeView = React.createFactory(React.createClass({
 
   componentDidMount: function() {
     var members = this.initMembers(this.props.data, 0);
-    this.setState({data: members});
+    this.setState({data: members, searchFilter: this.props.searchFilter});
   },
 
   initMembers: function(parent, level) {
@@ -138,8 +141,9 @@ var TreeView = React.createFactory(React.createClass({
  * @template TODO docs
  */
 var TreeRow = React.createFactory(React.createClass({
+  displayName: "TreeRow",
   getInitialState: function() {
-    return { data: {} };
+    return { data: {}, searchFilter: null };
   },
 
   componentDidMount: function() {
@@ -157,6 +161,12 @@ var TreeRow = React.createFactory(React.createClass({
 
     if (member.open) {
       classNames.push("opened");
+    }
+
+    if (this.props.searchFilter &&
+        (member.name.indexOf(this.props.searchFilter) < 0 &&
+          JSON.stringify(member.value).indexOf(this.props.searchFilter) < 0)) {
+      classNames.push("hidden");
     }
 
     var rowStyle = {

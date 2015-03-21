@@ -7,6 +7,7 @@ const { main, Firebug } = require("../lib/index.js");
 const { closeToolbox } = require("dev/utils");
 const { getTabWhenReady } = require("./window.js");
 const { defer } = require("sdk/core/promise");
+const { setInterval, clearInterval } = require("sdk/timers");
 const { loadFirebug } = require("./common.js");
 
 const { gDevTools } = Cu.import("resource:///modules/devtools/gDevTools.jsm", {});
@@ -48,8 +49,28 @@ function getToolboxWhenReady(url, panelId = "webconsole", config = {}) {
   return deferred.promise;
 }
 
+function waitUntil(checkCb, timeout) {
+  let deferred = defer();
+  let now = Date.now();
+
+  let intervalId = setInterval(function() {
+    if (timeout && Date.now() - now >= timeout) {
+      clearInterval(intervalId);
+      deferred.reject();
+    }
+
+    if (checkCb()) {
+      clearInterval(intervalId);
+      deferred.resolve();
+    }
+  }, 250);
+
+  return deferred.promise;
+}
+
 // Exports from this module
 exports.getToolDefinition = getToolDefinition;
 exports.openToolbox = openToolbox;
 exports.getToolboxWhenReady = getToolboxWhenReady;
 exports.closeToolbox = closeToolbox;
+exports.waitUntil = waitUntil;

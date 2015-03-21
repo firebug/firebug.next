@@ -13,6 +13,7 @@ const { SPAN } = Reps.DOM;
  * @template TODO docs
  */
 const ObjectBox = React.createClass({
+  displayName: "ObjectBox",
   render: function() {
     var className = this.props.className;
     var boxClassName = className ? " objectBox-" + className : "";

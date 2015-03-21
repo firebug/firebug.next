@@ -12,7 +12,8 @@ const { TR, TD, SPAN, TABLE, TBODY, THEAD, TH, DIV, H4 } = Reps.DOM;
 /**
  * TODO docs
  */
-var PoolRow = React.createClass({
+var PoolRow = React.createFactory(React.createClass({
+  displayName: "PoolRow",
   render: function() {
     var actor = this.props;
     return (
@@ -25,19 +26,26 @@ var PoolRow = React.createClass({
       )
     );
   }
-});
+}));
 
 /**
  * TODO docs
  * xxxHonza: localization
  */
-var PoolTable = React.createClass({
+var PoolTable = React.createFactory(React.createClass({
+  displayName: "PoolTable",
   render: function() {
     var rows = [];
 
     // Iterate array of actors.
     var actors = this.props.pool;
     for (var i in actors) {
+      if (this.props.searchFilter &&
+          JSON.stringify(actors[i]).indexOf(this.props.searchFilter) < 0) {
+        // filter out packets which don't match the filter
+        continue;
+      }
+      actors[i].key = actors[i].actorID;
       rows.push(PoolRow(actors[i]));
     };
 
@@ -65,17 +73,23 @@ var PoolTable = React.createClass({
       )
     );
   }
-});
+}));
 
 /**
  * TODO docs
  */
-var PoolList = React.createClass({
+var PoolList = React.createFactory(React.createClass({
+  displayName: "PoolList",
+  getInitialState: function() {
+    return {
+      pools: []
+    };
+  },
   render: function() {
     var pools = [];
 
-    for (var i in this.props) {
-      var poolData = this.props[i];
+    for (var i in this.state.pools) {
+      var poolData = this.state.pools[i];
       var pool = poolData.pool;
       var poolId = poolData.id;
 
@@ -91,7 +105,9 @@ var PoolList = React.createClass({
       pools.push(PoolTable({
         pool: pool,
         actorClass: actorClass,
-        id: poolId
+        id: poolId,
+        key: i,
+        searchFilter: this.state.searchFilter
       }));
     };
 
@@ -101,13 +117,11 @@ var PoolList = React.createClass({
       )
     );
   }
-});
-
-var poolList = React.createFactory(PoolList);
+}));
 
 var Pools = {
-  render: function(data, parentNode) {
-    React.render(poolList(data), parentNode);
+  render: function(parentNode) {
+    return React.render(PoolList(), parentNode);
   }
 }
 

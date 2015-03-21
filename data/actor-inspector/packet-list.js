@@ -15,6 +15,7 @@ const { DIV } = Reps.DOM;
  * inside the panel content.
  */
 var PacketList = React.createClass({
+  displayName: "PacketList",
   getInitialState: function() {
     return { data: [] };
   },
@@ -24,6 +25,12 @@ var PacketList = React.createClass({
 
     var packets = this.state.data;
     for (var i in packets) {
+      if (this.state.searchFilter &&
+         JSON.stringify(packets[i]).indexOf(this.state.searchFilter) < 0) {
+        // filter out packets which don't match the filter
+        continue;
+      }
+      packets[i].key = i;
       output.push(Packet(packets[i]));
     };
 
