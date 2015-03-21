@@ -4,8 +4,7 @@ Firebug.next [![Build Status](https://travis-ci.org/firebug/firebug.next.png)](h
 
 Next Firebug generation built on top of native Firefox developer tools [getfirebug.com](https://getfirebug.com)
 
-* [Download](https://addons.mozilla.org/en-US/firefox/addon/firebug/)
-* [Release Notes](https://github.com/firebug/firebug.next/releases)
+* [Download + Release Notes](https://github.com/firebug/firebug.next/releases)
 
 License
 -------
