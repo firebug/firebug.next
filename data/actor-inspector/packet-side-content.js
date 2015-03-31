@@ -14,8 +14,8 @@ require("reps/array");
 require("reps/object");
 
 // Event Listeners Registration
-window.addEventListener("select", onSelect);
-window.addEventListener("search", onSearch);
+window.addEventListener("devtools:select", onSelect);
+window.addEventListener("devtools:search", onSearch);
 
 var packetTreeView;
 var searchFilter;

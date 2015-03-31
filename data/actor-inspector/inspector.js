@@ -32,11 +32,11 @@ var tabActorsPane = Pools.render(document.querySelector("#tabActorsPane"));
 var actorFactoriesPane = Factories.render(document.querySelector("#actorFactoriesPane"));
 
 // Initialization
-window.addEventListener("refresh", onRefresh);
-window.addEventListener("clear", onClear);
-window.addEventListener("send-packet", onSendPacket);
-window.addEventListener("receive-packet", onReceivePacket);
-window.addEventListener("search", onSearch);
+window.addEventListener("devtools:refresh", onRefresh);
+window.addEventListener("devtools:clear", onClear);
+window.addEventListener("devtools:send-packet", onSendPacket);
+window.addEventListener("devtools:receive-packet", onReceivePacket);
+window.addEventListener("devtools:search", onSearch);
 
 /**
  * Renders content of the Inspector panel.
