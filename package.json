@@ -256,5 +256,11 @@
     "description": "",
     "type": "bool",
     "value": false
+  }, {
+    "name": "netexport.defaultFileName",
+    "title": "defaultFileName",
+    "description": "",
+    "type": "string",
+    "value": ""
   }]
 }
