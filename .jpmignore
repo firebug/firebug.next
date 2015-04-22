@@ -1,0 +1,17 @@
+# Doc Files
+/docs/
+
+# Test Files
+/test/
+
+# GIT
+/.git/
+
+# Other files
+.gitignore
+.jpmignore
+.jshintrc
+.project
+
+# Existing packages
+*.xpi
