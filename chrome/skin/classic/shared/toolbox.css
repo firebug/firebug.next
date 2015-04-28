@@ -24,7 +24,7 @@
   Use !important to override even the rule in webconsole.css that uses
   ID in the selector. */
 .theme-firebug .devtools-tabbar,
-.theme-firebug .devtools-sidebar-tabs > tabs {
+.theme-firebug .devtools-sidebar-tabs tabs {
   border-bottom: 1px solid rgb(170, 188, 207) !important;
 }
 
