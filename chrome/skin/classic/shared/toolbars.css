@@ -3,7 +3,8 @@
 /******************************************************************************/
 /* Panel Toolbar */
 
-.theme-firebug toolbar {
+.theme-firebug toolbar,
+.theme-firebug .devtools-toolbar {
   -moz-appearance: none;
   border-bottom: 1px solid rgb(170, 188, 207);
   background-color: rgb(219, 234, 249) !important;
