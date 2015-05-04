@@ -10,14 +10,3 @@
   min-height: 5px;
   max-height: 5px;
 }
-
-/******************************************************************************/
-/* Firebug Start Button */
-
-#firebug-start-button .toolbarbutton-icon {
-  filter: url(chrome://firebug/skin/filters.svg#grayscale);
-}
-
-#firebug-start-button[active="true"] .toolbarbutton-icon {
-  filter: none;
-}
