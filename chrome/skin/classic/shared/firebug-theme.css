@@ -300,7 +300,7 @@ div.CodeMirror span.eval-text {
 
 .theme-tooltip-panel .panel-arrowcontent {
   padding: 4px;
-  background: rgba(255, 255, 255, .9);
+  background: white;
   border-radius: 5px;
   box-shadow: none;
   border: 3px solid #d9e1e8;
