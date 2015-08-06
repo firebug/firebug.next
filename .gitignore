@@ -34,6 +34,9 @@
 # Extensions
 /firebug@software.joehewitt.com
 
+bootstrap.js
+install.rdf
+
 # Bash
 *.sh
 *.bat
