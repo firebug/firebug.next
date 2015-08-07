@@ -3,7 +3,7 @@
   "title": "Firebug",
   "id": "firebug@software.joehewitt.com",
   "description": "Next Firebug generation built on top of native Firefox developer tools",
-  "version": "3.0.0-alpha.12",
+  "version": "3.0.0-alpha.13",
   "author": "Firebug Working Group",
   "contributors": [
     "Jan Odvarko (Mozilla Corp.)",
@@ -22,7 +22,7 @@
     "Aakash Tyagi"
   ],
   "engines": {
-    "firefox": ">=37.0a2 <=*"
+    "firefox": ">=39.0a2 <=*"
   },
   "updateURL": "https://getfirebug.com/releases/firebug/3.0/update.rdf",
   "icon": "chrome://firebug/skin/firebugBig.png",
