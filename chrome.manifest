@@ -1,8 +1,9 @@
-content firebug             chrome/content/
-skin firebug classic/1.0    chrome/skin/classic/shared/
+content firebug                 chrome/content/
 
-skin firebug-os classic/1.0 chrome/skin/classic/shared/
-skin firebug-os classic/1.0 chrome/skin/classic/mac/ os=Darwin
-skin firebug-os classic/1.0 chrome/skin/classic/linux/ os=Linux
+skin    firebug                 classic/1.0   chrome/skin/classic/shared/
+skin    firebug-os              classic/1.0   chrome/skin/classic/shared/
+skin    firebug-os              classic/1.0   chrome/skin/classic/mac/ os=Darwin
+skin    firebug-os              classic/1.0   chrome/skin/classic/linux/ os=Linux
+skin    firebug-firebug.sdk   classic/1.0   node_modules/firebug.sdk/skin/classic/shared/
 
-locale  firebug en-US       chrome/locale/en-US/
+locale  firebug en-US           chrome/locale/en-US/

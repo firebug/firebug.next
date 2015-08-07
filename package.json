@@ -36,6 +36,9 @@
   "bugs": {
     "url": "https://github.com/firebug/firebug.next/issues"
   },
+  "dependencies": {
+    "firebug.sdk": "0.x"
+  },
   "devDependencies": {
     "addon-httpd": "0.0.1"
   },
