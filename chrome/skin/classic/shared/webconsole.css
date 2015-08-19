@@ -128,3 +128,19 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
 .theme-firebug .consoletable .devtools-toolbar {
   background: linear-gradient(#E7E7E7, #DADADA);
 }
+
+/******************************************************************************/
+/* Error and warning message styles */
+
+.theme-firebug .message > .icon {
+    margin:0 6px 0 0;
+}
+
+.theme-firebug .message[severity="error"] {
+    color:#FF0000;
+    background-color:#FFEBEB;
+}
+
+.theme-firebug .message[severity="warn"] {
+    background-color:#FFFFC8;
+}
