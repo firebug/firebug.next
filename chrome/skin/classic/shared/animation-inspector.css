@@ -110,3 +110,14 @@
 .theme-firebug .timeline {
   color: black;
 }
+
+/******************************************************************************/
+/* Toolbar & Preview Text */
+
+.theme-firebug #toolbar.theme-toolbar {
+  height: 27px;
+}
+
+.theme-firebug #toolbar.theme-toolbar .label {
+  font-family: Lucida Grande,Tahoma,sans-serif;
+}

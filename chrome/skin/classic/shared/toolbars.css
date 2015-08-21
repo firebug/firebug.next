@@ -3,6 +3,7 @@
 /******************************************************************************/
 /* Panel Toolbar */
 
+.theme-firebug .theme-toolbar,
 .theme-firebug toolbar,
 .theme-firebug .devtools-toolbar {
   -moz-appearance: none;
@@ -26,6 +27,7 @@
   padding: 0;
 }
 
+.theme-firebug .theme-toolbar,
 .theme-firebug .devtools-toolbar {
   height: 28px;
 }
