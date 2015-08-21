@@ -529,7 +529,7 @@ div.CodeMirror span.eval-text {
 .devtools-searchinput {
   -moz-appearance: none;
   margin: 0 3px;
-  border: 1px solid;
+  border: 1px solid #aabccf;
   border-radius: 2px;
   padding: 4px 6px;
 }

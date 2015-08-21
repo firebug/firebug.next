@@ -72,3 +72,14 @@ html.theme-firebug,
 .theme-firebug #showall {
   display: none;
 }
+
+/******************************************************************************/
+/* Toolbar & Preview Text */
+
+.theme-firebug .preview-input-toolbar {
+  padding: 1px;
+}
+
+.theme-firebug #preview-text-input.devtools-textinput {
+  line-height: 17px;
+}
