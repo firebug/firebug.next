@@ -72,7 +72,6 @@ but for now do not allocate an extra space for images */
 }
 
 /* Note the special selector part for the #resume button. */
-.theme-firebug .devtools-button:-moz-any([checked="true"],
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
   [selected="true"],
   [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not(#resume) {
