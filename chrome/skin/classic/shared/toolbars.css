@@ -37,6 +37,7 @@
 /******************************************************************************/
 /* Toolbar Buttons */
 
+.theme-firebug .devtools-button,
 .theme-firebug toolbarbutton {
   -moz-appearance: none;
   margin-right: 1px;
@@ -59,6 +60,7 @@ but for now do not allocate an extra space for images */
   padding: 0 !important;
 }
 
+.theme-firebug .devtools-button:hover:not([disabled="true"]),
 .theme-firebug toolbarbutton:hover:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.2);
   background: transparent linear-gradient(rgba(255, 255, 255, 0.4),
@@ -68,6 +70,7 @@ but for now do not allocate an extra space for images */
 }
 
 /* Note the special selector part for the #resume button. */
+.theme-firebug .devtools-button:-moz-any([checked="true"],
 .theme-firebug toolbarbutton:-moz-any([checked="true"],
   [selected="true"],
   [open="true"]):not(.panelStatusLabel):not([disabled="true"]):not(#resume) {
@@ -76,12 +79,14 @@ but for now do not allocate an extra space for images */
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset, 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
+.theme-firebug .devtools-button:hover:active:not([disabled="true"]),
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.1) inset,
     0 0 2px rgba(0, 0, 0, 0.05);
 }
 
+.theme-firebug .devtools-button:hover:active:not([disabled="true"]):not([type="menu-button"])
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
   background-repeat: no-repeat;
