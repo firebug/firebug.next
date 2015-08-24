@@ -2,6 +2,15 @@
 
 /******************************************************************************/
 
+.perfTimingTable  {
+  border-spacing: 0;
+}
+
+.perfTimingTable td,
+.perfTimingTable th {
+  padding: 0;
+}
+
 .perfTimingBox {
   position: relative;
   height: 17px;
