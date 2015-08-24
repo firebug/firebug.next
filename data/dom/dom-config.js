@@ -9,5 +9,5 @@ require.config({
   }
 });
 
-// Load the main tooltip module
+// Load the main module
 requirejs(["dom"]);
