@@ -118,6 +118,20 @@ XhrUtils.isURLEncodedRequest = function(file) {
   return value && value.startsWith(mimeType);
 }
 
+XhrUtils.isMultiPartRequest = function(file) {
+  if (!file.request.postData) {
+    return false;
+  }
+
+  var text = file.request.postData.text;
+  if (!text) {
+    return false;
+  }
+
+  text = text.toLowerCase();
+  return text.startsWith("content-type: multipart/form-data");
+}
+
 // Exports from this module
 exports.XhrUtils = XhrUtils;
 });

@@ -44,7 +44,7 @@ var PostTab = React.createClass({
 
       // xxxHonza: localization, real spinner
       return (
-        DOM.div("Loading...")
+        DOM.div({}, "Loading...")
       );
     }
 
@@ -56,6 +56,12 @@ var PostTab = React.createClass({
       var lines = text.split("\n");
       var params = Url.parseURLEncodedText(lines[lines.length-1]);
       text = HeaderList({headers: params});
+    }
+
+    // Multipart post data are parsed and nicely rendered
+    // using special template.
+    if (text && XhrUtils.isMultiPartRequest(file)) {
+      // xxxHonza: TODO FIXME
     }
 
     return (
