@@ -18,14 +18,10 @@ const { XhrBody } = createFactories(require("./xhr-body.js"));
 const spies = XhrStore.spies;
 const XHTML_NS = "http://www.w3.org/1999/xhtml";
 
-
 /**
- * This function handles
+ * This function handles network events sent to the Console panel.
  */
 function onXhrLog(log) {
-  Trace.sysout("xhr-spy.logXhr; " + (log.update ? log.response.updateType :
-    log.response.actor), log);
-
   // The 'from' field is set only in case of a 'networkEventUpdate' packet.
   // The initial 'networkEvent' packet uses 'actor'.
   // Check if Spy object is already created for this event actor and
@@ -43,14 +39,24 @@ function onXhrLog(log) {
   }
 
   if (log.update) {
-    spy.onUpdateBody(response);
+    spy.updateBody(response);
   }
 
   return true;
 }
 
 /**
- * TODO: docs
+ * This object represents XHR log in the Console panel. It's associated
+ * with an existing log and so, also with an existing element in the DOM.
+ *
+ * The object neither render no request for more data by default. It only
+ * reqisters a click listener to the associated log entry (a network event)
+ * and changes the class attribute of the log entry, so a twisty icon
+ * appears to indicates that there are more details displayed if the
+ * log entry is expanded.
+ *
+ * When the user expands the log, data are requested from the backend
+ * and rendered directly within the Console iframe.
  */
 function XhrSpy(log) {
   this.initialize(log);
@@ -60,7 +66,7 @@ XhrSpy.prototype =
 /** @lends XhrSpy */
 {
   initialize: function(log) {
-    Trace.sysout("XhrSpy.initialize; ", log);
+    Trace.sysout("XhrSpy.initialize; " + log.response.actor, log);
 
     // 'this.log' field is following HAR spec.
     // http://www.softwareishard.com/blog/har-12-spec/
@@ -68,11 +74,22 @@ XhrSpy.prototype =
     this.parentNode = log.node;
     this.log.request.queryString = Url.parseURLParams(this.log.request.url);
 
+    // Initialize available updates set. Some data are available
+    // immediately and don't have specific update event.
+    this.availableUpdates = new Set();
+    this.availableUpdates.add("requestHeaders");
+    this.availableUpdates.add("requestPostData");
+
     // Mark the log as XHR Spy class, this makes the log (among other thing)
     // expandable. If expanded, the user can see detailed information
     // about the XHR.
     this.parentNode.classList.add("xhrSpy");
 
+    // Register a click listener.
+    this.addClickListener();
+  },
+
+  addClickListener: function() {
     // Add an event listener to toggle the expanded state when clicked.
     // The event bubbling is canceled if the user clicks on the log
     // itself (not on the expanded body), so opening of the default
@@ -89,8 +106,6 @@ XhrSpy.prototype =
       // Avoid the default modal dialog
       Events.cancelEvent(event);
     }, true);
-
-    this.onUpdateBody = this.onUpdateBody.bind(this);
   },
 
   onToggleBody: function(event) {
@@ -119,7 +134,10 @@ XhrSpy.prototype =
     }
   },
 
-  onUpdateBody: function(response) {
+  updateBody: function(response) {
+    Trace.sysout("XhrSpy.updateBody; " + response.updateType, response);
+
+    this.availableUpdates.add(response.updateType);
     this.refresh();
   },
 
@@ -170,7 +188,11 @@ XhrSpy.prototype =
   // Actions
 
   requestData: function(method) {
-    XhrStore.requestData(this.log.actor, method);
+    // Request for more data from the backend should be done only
+    // if the data are already available on the backend.
+    if (this.availableUpdates.has(method)) {
+      XhrStore.requestData(this.log.actor, method);
+    }
   },
 
   getLongString: function(stringGrip) {

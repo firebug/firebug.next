@@ -18,21 +18,16 @@ function XhrStore() {
 XhrStore.prototype =
 /** @lends XhrStore */
 {
-  requestData: function(actor, method) {
-    Trace.sysout("XhrStore.requestData; for: " +
-      actor + ": " + method);
-
-    this.postChromeMessage("requestData", {
-      actor: actor,
-      method: method
-    });
-  },
-
   // Communication Channel
 
   onContentMessage: function(event) {
     var data = event.data;
     var args = data.args;
+
+    // xxxHonza: for now we are handling just this event.
+    if (data.type != "requestData") {
+      return;
+    }
 
     Trace.sysout("XhrStore.onContentMessage; " + data.type + ", " +
       args.method, event);
@@ -75,13 +70,36 @@ XhrStore.prototype =
     }
   },
 
-  // Message Handlers
+  // Requesting XHR data (from the backend)
+
+  requestData: function(actor, method) {
+    Trace.sysout("XhrStore.requestData; for: " +
+      actor + ": " + method);
+
+    var key = actor + ":" + method;
+
+    // Check pending requests.
+    if (this.requests.has(key)) {
+      return;
+    }
+
+    this.requests.set(key, true);
+
+    this.postChromeMessage("requestData", {
+      actor: actor,
+      method: method
+    });
+  },
 
   onRequestData: function(method, response) {
-    var spy = this.spies.get(response.from);
+    var actor = response.from;
+    var spy = this.spies.get(actor);
     if (!spy) {
       return;
     }
+
+    var key = actor + ":" + method;
+    this.requests.delete(key);
 
     switch (method) {
       case "requestHeaders":
@@ -120,9 +138,9 @@ XhrStore.prototype =
     var file = this.getFile(response.from);
     var content = response.content;
 
-    file.response.content.text = content.text;
-    file.response.content.transferredSize = content.transferredSize;
-    file.response.content.size = content.size;
+    for (var p in content) {
+      file.response.content[p] = content[p];
+    }
 
     // Resolve long string xxxHonza
     /*var text = response.content.text;
