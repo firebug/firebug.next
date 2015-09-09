@@ -1,0 +1,154 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Constants */
+
+:root {
+  --xhr-spy-border: #d7d7d7;
+  --xhr-spy-background: white;
+  --xhr-spy-font-family: Lucida Grande, Tahoma, sans-serif;
+  --xhr-spy-font-size: 11px;
+}
+
+/******************************************************************************/
+/* XHR Spy (customization of the XHR Console log) */
+
+.theme-firebug .xhrSpy.opened {
+  background: #FFFFFF linear-gradient(rgba(0, 0, 0, 0.1), transparent) repeat-x;
+}
+
+.theme-firebug .xhrSpy.opened:hover {
+  background-image: linear-gradient(rgba(214, 233, 246, 0.8), rgba(255, 255, 255, 1.6));
+}
+
+.theme-firebug .xhrSpy .message-body {
+  background-image: url("chrome://firebug-os/skin/twistyClosed.svg");
+  background-position: 0 0;
+  padding-left: 15px;
+  background-size: 11px 11px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
+}
+
+.theme-firebug .xhrSpy.opened .message-body {
+  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
+}
+
+.theme-firebug .xhrSpy .message-body .status {
+  float: right;
+}
+
+/******************************************************************************/
+/* XHR Spy Tabs Customization */
+
+.theme-firebug .xhrSpy .tabs {
+  background-color: transparent;
+  background-image: none;
+}
+
+.theme-firebug .xhrSpy .tabs .tabs-navigation {
+  font-family: var(--xhr-spy-font-family);
+  font-size: var(--xhr-spy-font-size);
+  font-weight: bold;
+  text-decoration: none;
+  padding-top: 0;
+  padding-left: 7px;
+  height: auto;
+  border-bottom: 1px solid var(--xhr-spy-border);
+}
+
+/* This is the trick that makes the tab bottom border invisible */
+.theme-firebug .xhrSpy .tabs .tabs-menu-item {
+  position: relative;
+  bottom: -1px;
+}
+
+.theme-firebug .xhrSpy .tabs .tabs-menu-item a {
+  padding: 4px 6px;
+  color: black;
+}
+
+.theme-firebug .xhrSpy .tabs .tabs-menu-item.is-active a {
+  background-color: var(--xhr-spy-background);
+  border-color: var(--xhr-spy-border);
+  border-bottom-color: transparent;
+}
+
+.theme-firebug .xhrSpy .tabs .tabs-menu-item.is-active:hover a {
+  background-color: var(--xhr-spy-background) !important;
+  border-color: var(--xhr-spy-border) !important;
+  border-bottom-color: transparent !important;
+}
+
+.theme-firebug .xhrSpy .tabs .tab-panel {
+  border: 1px solid var(--xhr-spy-border);
+  border-top: none;
+  padding: 10px;
+}
+
+/******************************************************************************/
+/* XHR Info Body */
+
+.theme-firebug .xhrSpy .netInfoBody {
+  font-family: var(--xhr-spy-font-family);
+  font-size: var(--xhr-spy-font-size);
+  margin: 10px 0 0 0;
+  width: 100%;
+  display: table;
+  float: left;
+  cursor: default;
+}
+
+.theme-firebug .xhrSpy .netInfoBody *:focus {
+  outline: 0;
+}
+
+/******************************************************************************/
+/* Headers Tab */
+
+.netHeadersGroup {
+  padding-bottom: 10px;
+  line-height: 13px;
+}
+
+.netInfoHeadersGroup {
+  padding-bottom: 3px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid var(--xhr-spy-border);
+  font-weight: bold;
+  color: #565656;
+}
+
+.netInfoHeadersTable .netHeader {
+  cursor: pointer;
+  padding-left: 17px;
+  position: static;
+  -moz-user-select: none;
+}
+
+.netInfoParamName {
+  padding: 0 10px 0 0;
+  font-weight: bold;
+  vertical-align: top;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.netInfoParamValue {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+/******************************************************************************/
+/* Response Tab */
+
+.netInfoBodiesDiscarded {
+  font-style: italic;
+  color: gray;
+}
+
+.netInfoResponseContent {
+  font-family: monospace;
+  word-wrap: break-word;
+}

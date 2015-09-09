@@ -5,6 +5,7 @@ define(function(require, exports, module) {
 // Dependencies
 const { renderJson } = require("./json-viewer.js");
 const { renderTiming } = require("./performance-timing.js");
+const { onXhrLog } = require("./xhr/xhr-spy.js");
 
 /**
  * Listen for messages from the Console panel (chrome scope).
@@ -16,8 +17,13 @@ addEventListener("firebug/chrome/message", event => {
   case "renderJson":
     renderJson(data.args);
     break;
+
   case "renderTiming":
     renderTiming(data.args);
+    break;
+
+  case "onXhrLog":
+    onXhrLog(data.args);
     break;
   }
 }, true);
