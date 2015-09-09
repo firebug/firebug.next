@@ -58,12 +58,12 @@ var ResponseTab = React.createClass({
     }
 
     var content = file.response.content;
-    if (!content.text) {
+    if (!content || !content.text) {
       actions.requestData("responseContent");
 
       // xxxHonza: localization, real spinner
       return (
-        DOM.div("Loading...")
+        DOM.div({}, "Loading...")
       );
     }
 
@@ -71,7 +71,7 @@ var ResponseTab = React.createClass({
       if (typeof content.text == "object") {
         // xxxHonza: localization, real spinner
         return (
-          DOM.div("Loading image...")
+          DOM.div({}, "Loading image...")
         );
       }
 
