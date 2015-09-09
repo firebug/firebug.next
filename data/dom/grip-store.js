@@ -2,7 +2,6 @@
 
 define(function(require, exports, module) {
 
-// FireQuery
 const { Dispatcher } = require("./dispatcher");
 
 // Implementation
