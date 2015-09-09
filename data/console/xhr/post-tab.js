@@ -7,10 +7,13 @@ const React = require("react");
 // Firebug.SDK
 const { createFactories } = require("reps/rep-utils");
 const { Url } = require("reps/core/url");
+const { TreeView } = require("reps/tree-view");
+const { Reps } = require("reps/repository");
 
 // XHR Spy
 const { HeaderList } = createFactories(require("./headers.js"));
 const { XhrUtils } = require("./xhr-utils.js");
+const { Json } = require("./json.js");
 
 // Constants
 const DOM = React.DOM;
@@ -26,6 +29,19 @@ var PostTab = React.createClass({
     return {
       data: {}
     };
+  },
+
+  isJson: function(content) {
+    return Json.isJSON(content.mimeType, content.text);
+  },
+
+  parseJson: function(file) {
+    var postData = file.request.postData;
+    if (!postData) {
+      return null;
+    }
+    var jsonString = new String(postData.text);
+    return Json.parseJSONString(jsonString, "http://" + file.request.url);
   },
 
   render: function() {
@@ -62,6 +78,16 @@ var PostTab = React.createClass({
     // using special template.
     if (text && XhrUtils.isMultiPartRequest(file)) {
       // xxxHonza: TODO FIXME
+    }
+
+    if (this.isJson(postData)) {
+      var json = this.parseJson(file);
+      if (json) {
+        return TreeView({
+          data: json,
+          mode: "tiny"
+        });
+      }
     }
 
     return (

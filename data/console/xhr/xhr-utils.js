@@ -104,7 +104,7 @@ XhrUtils.getHeaderValue = function(headers, name) {
 }
 
 XhrUtils.isURLEncodedRequest = function(file) {
-  var mimeType = "application/x-www-form-urlencoded;";
+  var mimeType = "application/x-www-form-urlencoded";
 
   var postData = file.request.postData;
   if (postData && postData.text) {

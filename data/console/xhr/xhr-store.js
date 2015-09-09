@@ -29,7 +29,7 @@ XhrStore.prototype =
       return;
     }
 
-    Trace.sysout("XhrStore.onContentMessage; " + data.type + ", " +
+    Trace.sysout("XhrStore.onContentMessage; " + data.type + ": " +
       args.method, event);
 
     switch (data.type) {

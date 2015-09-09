@@ -49,6 +49,15 @@ var XhrBody = React.createClass({
       )
     );
 
+    // URL parameters tab
+    if (hasParams) {
+      panels.push(
+        TabPanel({className: "params", title: Locale.$STR("xhrSpy.params")},
+          ParamsTab({data: data, actions: actions})
+        )
+      );
+    }
+
     // Posted data tab
     if (hasPostData) {
       panels.push(
@@ -64,15 +73,6 @@ var XhrBody = React.createClass({
         ResponseTab({data: data, actions: actions})
       )
     );
-
-    // URL parameters tab
-    if (hasParams) {
-      panels.push(
-        TabPanel({className: "params", title: Locale.$STR("xhrSpy.params")},
-          ParamsTab({data: data, actions: actions})
-        )
-      );
-    }
 
     // Cookies tab
     if (hasCoookies) {

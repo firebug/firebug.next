@@ -188,11 +188,17 @@ XhrSpy.prototype =
   // Actions
 
   requestData: function(method) {
+    Trace.sysout("XhrSpy.requestData; " + method, this.log);
+
     // Request for more data from the backend should be done only
     // if the data are already available on the backend.
-    if (this.availableUpdates.has(method)) {
-      XhrStore.requestData(this.log.actor, method);
-    }
+    // xxxHonza: the udpates are not sent sometimes.
+    /*if (!this.availableUpdates.has(method)) {
+      Trace.sysout("XhrSpy.requestData; Not available!");
+      return;
+    }*/
+
+    XhrStore.requestData(this.log.actor, method);
   },
 
   getLongString: function(stringGrip) {
