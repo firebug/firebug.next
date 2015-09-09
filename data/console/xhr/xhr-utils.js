@@ -89,7 +89,7 @@ XhrUtils.isImage = function(contentType) {
   return mimeCategoryMap[contentType] == "image";
 }
 
-XhrUtils.findHeader = function(headers, name) {
+XhrUtils.getHeaderValue = function(headers, name) {
   if (!headers) {
     return null;
   }
@@ -101,6 +101,21 @@ XhrUtils.findHeader = function(headers, name) {
       return headers[i].value;
     }
   }
+}
+
+XhrUtils.isURLEncodedRequest = function(file) {
+  var mimeType = "application/x-www-form-urlencoded;";
+
+  var postData = file.request.postData;
+  if (postData && postData.text) {
+    var text = postData.text.toLowerCase();
+    if (text.startsWith("content-type: " + mimeType)) {
+      return true;
+    }
+  }
+
+  var value = XhrUtils.getHeaderValue(file.request.headers, "content-type");
+  return value && value.startsWith(mimeType);
 }
 
 // Exports from this module

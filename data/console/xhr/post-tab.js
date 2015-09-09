@@ -3,8 +3,14 @@
 define(function(require, exports, module) {
 
 const React = require("react");
+
+// Firebug.SDK
 const { createFactories } = require("reps/rep-utils");
+const { Url } = require("reps/core/url");
+
+// XHR Spy
 const { HeaderList } = createFactories(require("./headers.js"));
+const { XhrUtils } = require("./xhr-utils.js");
 
 // Constants
 const DOM = React.DOM;
@@ -24,15 +30,15 @@ var PostTab = React.createClass({
 
   render: function() {
     var actions = this.props.actions;
-    var data = this.props.data;
+    var file = this.props.data;
 
-    if (data.discardRequestBody) {
+    if (file.discardRequestBody) {
       return DOM.span({className: "netInfoBodiesDiscarded"},
         Locale.$STR("xhrSpy.requestBodyDiscarded")
       );
     }
 
-    var postData = data.request.postData;
+    var postData = file.request.postData;
     if (!postData) {
       actions.requestData("requestPostData");
 
@@ -42,10 +48,20 @@ var PostTab = React.createClass({
       );
     }
 
+    var text = postData.text;
+
+    // URL encoded post data are nicely rendered as a list
+    // of parameters.
+    if (text && XhrUtils.isURLEncodedRequest(file)) {
+      var lines = text.split("\n");
+      var params = Url.parseURLEncodedText(lines[lines.length-1]);
+      text = HeaderList({headers: params});
+    }
+
     return (
       DOM.div({className: "PostTabBox"},
         DOM.div({className: "panelContent netInfoResponseContent"},
-          postData.text
+          text
         )
       )
     );

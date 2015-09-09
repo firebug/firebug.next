@@ -11,15 +11,14 @@ const { Reps } = require("reps/repository");
 
 // XHR Spy
 const { Json } = require("./json.js");
-const { Headers } = createFactories(require("./headers.js"));
 const { XhrUtils } = require("./xhr-utils.js");
 
 // Shortcuts
 const DOM = React.DOM;
 
 /**
- * This template represents the 'Headers' panel
- * s responsible for rendering its content.
+ * This template represents the 'Response' panel and is responsible
+ * for rendering HTTP response body.
  */
 var ResponseTab = React.createClass({
   displayName: "ResponseTab",
@@ -34,10 +33,10 @@ var ResponseTab = React.createClass({
     return Json.isJSON(content.mimeType, content.text);
   },
 
-  parseJson: function(data) {
-    var content = data.response.content;
+  parseJson: function(file) {
+    var content = file.response.content;
     var jsonString = new String(content.text);
-    return Json.parseJSONString(jsonString, "http://" + data.request.url);
+    return Json.parseJSONString(jsonString, "http://" + file.request.url);
   },
 
   isImage: function(content) {
@@ -50,15 +49,15 @@ var ResponseTab = React.createClass({
 
   render: function() {
     var actions = this.props.actions;
-    var data = this.props.data;
+    var file = this.props.data;
 
-    if (data.discardResponseBody) {
+    if (file.discardResponseBody) {
       return DOM.span({className: "netInfoBodiesDiscarded"},
         Locale.$STR("xhrSpy.responseBodyDiscarded")
       );
     }
 
-    var content = data.response.content;
+    var content = file.response.content;
     if (!content.text) {
       actions.requestData("responseContent");
 
@@ -83,7 +82,7 @@ var ResponseTab = React.createClass({
     }
 
     if (this.isJson(content)) {
-      var json = this.parseJson(data);
+      var json = this.parseJson(file);
       if (json) {
         return TreeView({
           data: json,
