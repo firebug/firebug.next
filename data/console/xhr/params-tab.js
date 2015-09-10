@@ -27,7 +27,7 @@ var ParamsTab = React.createClass({
     var data = this.props.data;
 
     return (
-      DOM.div({className: "ParamsTabBox"},
+      DOM.div({className: "paramsTabBox"},
         DOM.div({className: "panelContent"},
           HeaderList({headers: data.request.queryString})
         )

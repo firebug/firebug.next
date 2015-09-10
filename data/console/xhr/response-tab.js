@@ -127,7 +127,7 @@ var ResponseTab = React.createClass({
     }
 
     return (
-      DOM.div({className: "ResponseTabBox"},
+      DOM.div({className: "responseTabBox"},
         DOM.div({className: "panelContent netInfoResponseContent"},
           text
         )

@@ -91,7 +91,7 @@ var PostTab = React.createClass({
     }
 
     return (
-      DOM.div({className: "PostTabBox"},
+      DOM.div({className: "postTabBox"},
         DOM.div({className: "panelContent netInfoResponseContent"},
           text
         )

@@ -25,7 +25,7 @@ var CookiesTab = React.createClass({
     var data = this.props.data;
 
     return (
-      DOM.div({className: "CookiesTabBox"},
+      DOM.div({className: "cookiesTabBox"},
         DOM.div({className: "panelContent"},
           "cookies"
         )
