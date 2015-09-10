@@ -14,8 +14,8 @@ const { PostTab } = createFactories(require("./post-tab.js"));
 /**
  * This template renders the basic XHR info body.
  */
-var XhrBody = React.createClass({
-  displayName: "XhrBody",
+var NetInfoBody = React.createClass({
+  displayName: "NetInfoBody",
 
   getInitialState: function() {
     return {
@@ -98,5 +98,5 @@ var XhrBody = React.createClass({
 });
 
 // Exports from this module
-exports.XhrBody = XhrBody;
+exports.NetInfoBody = NetInfoBody;
 });

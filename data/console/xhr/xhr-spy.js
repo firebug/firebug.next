@@ -11,7 +11,7 @@ const { Dom } = require("reps/core/dom");
 const { createFactories } = require("reps/rep-utils");
 
 // XHR Spy
-const { XhrBody } = createFactories(require("./xhr-body.js"));
+const { NetInfoBody } = createFactories(require("./net-info-body.js"));
 const { DataProvider } = require("./data-provider.js");
 
 // Constants
@@ -145,7 +145,7 @@ XhrSpy.prototype =
    * Close XHR inline preview body.
    */
   closeBody: function() {
-    this.xhrBodyBox.parentNode.removeChild(this.xhrBodyBox);
+    this.netInfoBodyBox.parentNode.removeChild(this.netInfoBodyBox);
   },
 
   /**
@@ -160,9 +160,9 @@ XhrSpy.prototype =
     // rendering within webconsole.xul (i.e. XUL document) we need
     // to explicitly specify HTML namespace.
     var doc = messageBody.ownerDocument;
-    this.xhrBodyBox = doc.createElementNS(XHTML_NS, "div");
-    this.xhrBodyBox.classList.add("netInfoBody");
-    messageBody.appendChild(this.xhrBodyBox);
+    this.netInfoBodyBox = doc.createElementNS(XHTML_NS, "div");
+    this.netInfoBodyBox.classList.add("netInfoBody");
+    messageBody.appendChild(this.netInfoBodyBox);
 
     this.refresh();
   },
@@ -173,16 +173,16 @@ XhrSpy.prototype =
   refresh: function() {
     Trace.sysout("XhrSpy.refresh;", this.file);
 
-    if (!this.xhrBodyBox) {
+    if (!this.netInfoBodyBox) {
       return;
     }
 
-    var body = XhrBody({
+    var body = NetInfoBody({
       data: this.file,
       actions: this
     });
 
-    React.render(body, this.xhrBodyBox);
+    React.render(body, this.netInfoBodyBox);
   },
 
   // Actions
