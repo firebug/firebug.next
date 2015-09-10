@@ -23,7 +23,7 @@ var Json = {};
 /**
  * TODO: docs
  */
-Json.parseJSONString = function(jsonString, originURL) {
+Json.parseJSONString = function(jsonString) {
   if (!jsonString.length) {
     return null;
   }
@@ -80,34 +80,34 @@ Json.parseJSONString = function(jsonString, originURL) {
 
   // Give up if we don't have valid start, to avoid some unnecessary overhead.
   first = firstNonWs(jsonString);
-  if (first !== "[" && first !== "{" && isNaN(first) && first !== '"')
-      return null;
+  if (first !== "[" && first !== "{" && isNaN(first) && first !== '"') {
+    return null;
+  }
 
   // Remove JavaScript comments, quote non-quoted identifiers, and merge
   // multi-line structures like |{"a": 1} \n {"b": 2}| into a single JSON
   // object [{"a": 1}, {"b": 2}].
   jsonString = pseudoJsonToJson(jsonString);
 
-  try
-  {
-      return JSON.parse(jsonString);
+  try {
+    return JSON.parse(jsonString);
+  } catch (err) {
+    Trace.sysout("Json.parseJSONString; ERROR " + err, {
+      err: err,
+      json: jsonString
+    });
   }
-  catch (exc)
-  {
-    TraceError.sysout("jsonviewer.parseJSON FAILS on " + originURL +
-      " with EXCEPTION " + exc, {e: exc, json: jsonString});
-    }
 
-    return null;
+  return null;
 };
 
 function firstNonWs(str)
 {
-    for (var i = 0, len = str.length; i < len; i++)
-    {
-        var ch = str[i];
-        if (ch !== " " && ch !== "\n" && ch !== "\t" && ch !== "\r")
-          return ch;
+  for (var i = 0, len = str.length; i < len; i++) {
+    var ch = str[i];
+    if (ch !== " " && ch !== "\n" && ch !== "\t" && ch !== "\r") {
+      return ch;
+    }
   }
   return "";
 }
