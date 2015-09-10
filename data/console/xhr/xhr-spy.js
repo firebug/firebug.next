@@ -11,11 +11,11 @@ const { Dom } = require("reps/core/dom");
 const { createFactories } = require("reps/rep-utils");
 
 // XHR Spy
-const { XhrStore } = require("./xhr-store.js");
 const { XhrBody } = createFactories(require("./xhr-body.js"));
+const { DataProvider } = require("./data-provider.js");
 
 // Constants
-const spies = XhrStore.spies;
+const spies = new Map();
 const XHTML_NS = "http://www.w3.org/1999/xhtml";
 
 /**
@@ -68,11 +68,11 @@ XhrSpy.prototype =
   initialize: function(log) {
     Trace.sysout("XhrSpy.initialize; " + log.response.actor, log);
 
-    // 'this.log' field is following HAR spec.
+    // 'this.file' field is following HAR spec.
     // http://www.softwareishard.com/blog/har-12-spec/
-    this.log = log.response;
+    this.file = log.response;
     this.parentNode = log.node;
-    this.log.request.queryString = Url.parseURLParams(this.log.request.url);
+    this.file.request.queryString = Url.parseURLParams(this.file.request.url);
 
     // Initialize available updates set. Some data are available
     // immediately and don't have specific update event.
@@ -152,7 +152,7 @@ XhrSpy.prototype =
    * Render XHR inline preview body.
    */
   renderBody: function() {
-    Trace.sysout("XhrSpy.renderBody;", this.log);
+    Trace.sysout("XhrSpy.renderBody;", this.file);
 
     var messageBody = this.parentNode.querySelector(".message-body-wrapper");
 
@@ -171,14 +171,14 @@ XhrSpy.prototype =
    * Render top level ReactJS component.
    */
   refresh: function() {
-    Trace.sysout("XhrSpy.refresh;", this.log);
+    Trace.sysout("XhrSpy.refresh;", this.file);
 
     if (!this.xhrBodyBox) {
       return;
     }
 
     var body = XhrBody({
-      data: this.log,
+      data: this.file,
       actions: this
     });
 
@@ -188,28 +188,103 @@ XhrSpy.prototype =
   // Actions
 
   requestData: function(method) {
-    Trace.sysout("XhrSpy.requestData; " + method, this.log);
+    Trace.sysout("XhrSpy.requestData; " + method, this.file);
 
     // Request for more data from the backend should be done only
     // if the data are already available on the backend.
-    // xxxHonza: the udpates are not sent sometimes.
+    // xxxHonza: the updates are not sent sometimes.
     /*if (!this.availableUpdates.has(method)) {
       Trace.sysout("XhrSpy.requestData; Not available!");
       return;
     }*/
 
-    XhrStore.requestData(this.log.actor, method);
+    DataProvider.requestData(this.file.actor, method).then(args => {
+      this.onRequestData(method, args.response);
+    });
   },
 
-  getLongString: function(stringGrip) {
-    XhrStore.getLongString(stringGrip);
+  onRequestData: function(method, response) {
+    Trace.sysout("XhrSpy.onRequestData; " + method, response);
+
+    var result;
+    switch (method) {
+      case "requestHeaders":
+        result = this.onRequestHeaders(response);
+        break;
+      case "responseHeaders":
+        result = this.onResponseHeaders(response);
+        break;
+      case "requestCookies":
+        result = this.onRequestCookies(response);
+        break;
+      case "responseContent":
+        result = this.onResponseContent(response);
+        break;
+      case "requestPostData":
+        result = this.onRequestPostData(response);
+        break;
+    }
+
+    result.then(value => {
+      this.refresh();
+    });
   },
 
-  resolveLongString: function(object, propName) {
+  onRequestHeaders: function(response) {
+    this.file.request.headers = response.headers;
+
+    return this.resolveHeaders(this.file.request.headers);
+  },
+
+  onResponseHeaders: function(response) {
+    this.file.response.headers = response.headers;
+
+    return this.resolveHeaders(this.file.response.headers);
+  },
+
+  onResponseContent: function(response) {
+    var content = response.content;
+
+    for (var p in content) {
+      this.file.response.content[p] = content[p];
+    }
+
+    // Resolve long string xxxHonza
+    /*var text = response.content.text;
+    if (typeof text == "object") {
+      DataProvider.getLongString(text).then(value => {
+        response.content.text = value;
+      })
+    }*/
+
+    return Promise.resolve();
+  },
+
+  onRequestPostData: function(response) {
+    this.file.request.postData = response.postData;
+    return Promise.resolve();
+  },
+
+  resolveHeaders: function(headers) {
+    var promises = [];
+
+    for (var header of headers) {
+      if (typeof header.value == "object") {
+        promises.push(this.resolveString(header.value).then(value => {
+          header.value = value;
+        }));
+      }
+    }
+
+    return Promise.all(promises);
+  },
+
+  resolveString: function(object, propName) {
     var stringGrip = object[propName];
     if (typeof stringGrip == "object") {
-      XhrStore.getLongString(stringGrip).then(response => {
-        object[propName] = response;
+      DataProvider.resolveString(stringGrip).then(args => {
+        object[propName] = args.response;
+        this.refresh();
       });
     }
   }

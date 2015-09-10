@@ -12,6 +12,7 @@ const { Reps } = require("reps/repository");
 // XHR Spy
 const { Json } = require("./json.js");
 const { XhrUtils } = require("./xhr-utils.js");
+const { ResponseSizeLimit } = createFactories(require("./response-size-limit.js"));
 
 // Shortcuts
 const DOM = React.DOM;
@@ -29,23 +30,43 @@ var ResponseTab = React.createClass({
     };
   },
 
+  // Response Types
+
   isJson: function(content) {
+    if (isLongString(content.text)) {
+      return false;
+    }
+
     return Json.isJSON(content.mimeType, content.text);
   },
 
   parseJson: function(file) {
     var content = file.response.content;
+    if (isLongString(content.text)) {
+      return;
+    }
+
     var jsonString = new String(content.text);
     return Json.parseJSONString(jsonString, "http://" + file.request.url);
   },
 
   isImage: function(content) {
+    if (isLongString(content.text)) {
+      return false;
+    }
+
     return XhrUtils.isImage(content.mimeType);
   },
 
   isXml: function(content) {
+    if (isLongString(content.text)) {
+      return false;
+    }
+
     return false;
   },
+
+  // Rendering
 
   render: function() {
     var actions = this.props.actions;
@@ -81,25 +102,45 @@ var ResponseTab = React.createClass({
       )
     }
 
+    var text = content.text;
+
     if (this.isJson(content)) {
       var json = this.parseJson(file);
       if (json) {
-        return TreeView({
+        text = TreeView({
           data: json,
           mode: "tiny"
         });
       }
     }
 
+    // Response limit check (a long string)
+    if (typeof content.text == "object") {
+      text = DOM.div({},
+        text.initial,
+        ResponseSizeLimit({
+          actions: this.props.actions,
+          data: content,
+          message: Locale.$STR("xhrSpy.responseSizeLimitMessage")
+        })
+      );
+    }
+
     return (
       DOM.div({className: "ResponseTabBox"},
         DOM.div({className: "panelContent netInfoResponseContent"},
-          content.text
+          text
         )
       )
     );
   }
 });
+
+// Helpers
+
+function isLongString(text) {
+  return typeof text == "object";
+}
 
 // Exports from this module
 exports.ResponseTab = ResponseTab;

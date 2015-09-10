@@ -152,3 +152,16 @@
   font-family: monospace;
   word-wrap: break-word;
 }
+
+/******************************************************************************/
+/* Response Size Limit */
+
+.netInfoResponseSizeLimit {
+  font-family: var(--xhr-spy-font-family);
+  font-size: var(--xhr-spy-font-size);
+  padding-top: 10px;
+}
+
+.netInfoResponseSizeLimit .objectLink {
+  color: #00c;
+}
