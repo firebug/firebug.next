@@ -3,6 +3,8 @@
 define(function(require, exports, module) {
 
 const React = require("react");
+const { createFactories } = require("reps/rep-utils");
+const { NetInfoGroupList } = createFactories(require("./net-info-groups.js"));
 
 // Shortcuts
 const DOM = React.DOM;
@@ -22,12 +24,35 @@ var CookiesTab = React.createClass({
 
   render: function() {
     var actions = this.props.actions;
-    var data = this.props.data;
+    var file = this.props.data;
+
+    var cookies = file.request.cookies;
+    if (!cookies || !cookies.length) {
+      actions.requestData("requestCookies");
+
+      // xxxHonza: localization, real spinner
+      return (
+        DOM.div({}, "Loading...")
+      );
+    }
+
+    // The cookie panel displays two groups of cookies:
+    // 1) Response Cookies
+    // 2) Request Cookies
+    var groups = [{
+      name: Locale.$STR("xhrSpy.responseCookies"),
+      params: file.response.cookies
+    }, {
+      name: Locale.$STR("xhrSpy.requestCookies"),
+      params: file.request.cookies
+    }];
 
     return (
       DOM.div({className: "cookiesTabBox"},
         DOM.div({className: "panelContent"},
-          "cookies"
+          NetInfoGroupList({
+            groups: groups
+          })
         )
       )
     );

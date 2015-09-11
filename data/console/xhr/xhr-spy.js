@@ -217,6 +217,9 @@ XhrSpy.prototype =
       case "requestCookies":
         result = this.onRequestCookies(response);
         break;
+      case "responseCookies":
+        result = this.onResponseCookies(response);
+        break;
       case "responseContent":
         result = this.onResponseContent(response);
         break;
@@ -263,6 +266,16 @@ XhrSpy.prototype =
   onRequestPostData: function(response) {
     this.file.request.postData = response.postData;
     return Promise.resolve();
+  },
+
+  onRequestCookies: function(response) {
+    this.file.request.cookies = response.cookies;
+    return this.resolveHeaders(this.file.request.cookies);
+  },
+
+  onResponseCookies: function(response) {
+    this.file.response.cookies = response.cookies;
+    return this.resolveHeaders(this.file.response.cookies);
   },
 
   resolveHeaders: function(headers) {

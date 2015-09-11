@@ -4,7 +4,7 @@ define(function(require, exports, module) {
 
 const React = require("react");
 const { createFactories } = require("reps/rep-utils");
-const { Headers } = createFactories(require("./headers.js"));
+const { NetInfoGroupList } = createFactories(require("./net-info-groups.js"));
 
 const DOM = React.DOM;
 
@@ -32,10 +32,18 @@ var HeadersTab = React.createClass({
       actions.requestData("responseHeaders");
     }
 
+    var groups = [{
+      name: Locale.$STR("xhrSpy.responseHeaders"),
+      params: data.response.headers
+    }, {
+      name: Locale.$STR("xhrSpy.requestHeaders"),
+      params: data.request.headers
+    }]
+
     return (
       DOM.div({className: "headersTabBox"},
         DOM.div({className: "panelContent"},
-          Headers({data: data})
+          NetInfoGroupList({groups: groups})
         )
       )
     );

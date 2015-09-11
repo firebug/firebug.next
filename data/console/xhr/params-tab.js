@@ -4,7 +4,7 @@ define(function(require, exports, module) {
 
 const React = require("react");
 const { createFactories } = require("reps/rep-utils");
-const { HeaderList } = createFactories(require("./headers.js"));
+const { NetInfoParams } = createFactories(require("./net-info-groups.js"));
 
 // Constants
 const DOM = React.DOM;
@@ -29,7 +29,7 @@ var ParamsTab = React.createClass({
     return (
       DOM.div({className: "paramsTabBox"},
         DOM.div({className: "panelContent"},
-          HeaderList({headers: data.request.queryString})
+          NetInfoParams({headers: data.request.queryString})
         )
       )
     );

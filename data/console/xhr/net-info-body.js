@@ -10,9 +10,19 @@ const { ResponseTab } = createFactories(require("./response-tab.js"));
 const { ParamsTab } = createFactories(require("./params-tab.js"));
 const { CookiesTab } = createFactories(require("./cookies-tab.js"));
 const { PostTab } = createFactories(require("./post-tab.js"));
+const { XhrUtils } = require("./xhr-utils.js");
 
 /**
- * This template renders the basic XHR info body.
+ * This template renders the basic Network log info body. It's not
+ * visible by default, the user needs to expand the network log
+ * to see it.
+ *
+ * There is set of tabs displaying details about network events:
+ * 1) Headers - request and response headers
+ * 2) Params - URL parameters
+ * 3) Response - response body
+ * 4) Cookies - request and response cookies
+ * 5) Post - posted data
  */
 var NetInfoBody = React.createClass({
   displayName: "NetInfoBody",
@@ -28,15 +38,23 @@ var NetInfoBody = React.createClass({
     this.setState({tabActive: index});
   },
 
+  hasCookies: function() {
+    var data = this.state.data || this.props.data;
+    var request = data.request;
+    var response = data.response;
+
+    return XhrUtils.getHeaderValue(request.headers, "Cookie") ||
+      XhrUtils.getHeaderValue(response.headers, "Cookie");
+  },
+
   getTabPanels: function() {
     var actions = this.props.actions;
     var data = this.state.data || this.props.data;
     var request = data.request;
     var response = data.response;
 
-    // Flags for optional tabs
-    var hasCoookies = request.cookies && request.cookies.length ||
-      response.cookies && response.cookies.length;
+    // Flags for optional tabs. Some tabs are visible only if there
+    // are data to display.
     var hasParams = request.queryString && request.queryString.length;
     var hasPostData = request.bodySize > 0;
 
@@ -75,7 +93,7 @@ var NetInfoBody = React.createClass({
     );
 
     // Cookies tab
-    if (hasCoookies) {
+    if (this.hasCookies()) {
       panels.push(
         TabPanel({className: "cookies", title: Locale.$STR("xhrSpy.cookies")},
           CookiesTab({data: data, actions: actions})

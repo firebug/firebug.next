@@ -11,7 +11,7 @@ const { TreeView } = require("reps/tree-view");
 const { Reps } = require("reps/repository");
 
 // XHR Spy
-const { HeaderList } = createFactories(require("./headers.js"));
+const { NetInfoParams } = createFactories(require("./net-info-groups.js"));
 const { XhrUtils } = require("./xhr-utils.js");
 const { Json } = require("./json.js");
 
@@ -71,7 +71,7 @@ var PostTab = React.createClass({
     if (text && XhrUtils.isURLEncodedRequest(file)) {
       var lines = text.split("\n");
       var params = Url.parseURLEncodedText(lines[lines.length-1]);
-      text = HeaderList({headers: params});
+      text = NetInfoParams({headers: params});
     }
 
     // Multipart post data are parsed and nicely rendered
