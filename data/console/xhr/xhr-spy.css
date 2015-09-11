@@ -105,7 +105,7 @@
 }
 
 /******************************************************************************/
-/* Headers Tab */
+/* Net Info Groups */
 
 .theme-firebug .netInfoGroup {
   padding-bottom: 10px;
@@ -122,7 +122,7 @@
 
 .theme-firebug .netInfoGroupTitle {
   cursor: pointer;
-  padding-left: 17px;
+  padding-left: 15px;
   position: static;
   -moz-user-select: none;
 }
@@ -138,6 +138,15 @@
 .theme-firebug .netInfoParamValue {
   width: 100%;
   word-wrap: break-word;
+}
+
+.theme-firebug .netInfoGroupTitle {
+  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
+  background-position: 0 2px;
+  background-size: 11px 11px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
 }
 
 /******************************************************************************/
