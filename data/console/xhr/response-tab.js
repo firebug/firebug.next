@@ -13,6 +13,7 @@ const { Reps } = require("reps/repository");
 const { Json } = require("./json.js");
 const { XhrUtils } = require("./xhr-utils.js");
 const { ResponseSizeLimit } = createFactories(require("./response-size-limit.js"));
+const { XmlView } = createFactories(require("./xml-view.js"));
 
 // Shortcuts
 const DOM = React.DOM;
@@ -63,7 +64,31 @@ var ResponseTab = React.createClass({
       return false;
     }
 
-    return false;
+    return XhrUtils.isHTML(content.mimeType);
+  },
+
+  parseXml: function(file) {
+    var content = file.response.content;
+    if (isLongString(content.text)) {
+      return;
+    }
+
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(content.text, "text/xml");
+
+    var root = doc.documentElement;
+
+    // Error handling
+    var nsURI = "http://www.mozilla.org/newlayout/xml/parsererror.xml";
+    if (root.namespaceURI == nsURI && root.nodeName == "parsererror") {
+      Trace.sysout("ResponseTab.parseXml: ERROR ", {
+        value: root.firstChild.nodeValue,
+        error: root.lastChild.textContent
+      });
+      return;
+    }
+
+    return doc;
   },
 
   // Rendering
@@ -110,6 +135,15 @@ var ResponseTab = React.createClass({
         text = TreeView({
           data: json,
           mode: "tiny"
+        });
+      }
+    }
+
+    if (this.isXml(content)) {
+      var doc = this.parseXml(file);
+      if (doc) {
+        text = XmlView({
+          object: doc
         });
       }
     }

@@ -34,6 +34,7 @@ const mimeCategoryMap =
   "application/octet-stream": "bin",
   "text/html": "html",
   "text/xml": "html",
+  "application/xml": "html",
   "application/rss+xml": "html",
   "application/atom+xml": "html",
   "application/xhtml+xml": "html",
@@ -87,6 +88,12 @@ XhrUtils.isImage = function(contentType) {
   contentType = contentType.split(";")[0];
   contentType = contentType.trim();
   return mimeCategoryMap[contentType] == "image";
+}
+
+XhrUtils.isHTML = function(contentType) {
+  contentType = contentType.split(";")[0];
+  contentType = contentType.trim();
+  return mimeCategoryMap[contentType] == "html";
 }
 
 XhrUtils.getHeaderValue = function(headers, name) {
