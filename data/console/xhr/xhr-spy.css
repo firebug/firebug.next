@@ -107,12 +107,12 @@
 /******************************************************************************/
 /* Headers Tab */
 
-.netHeadersGroup {
+.theme-firebug .netInfoGroup {
   padding-bottom: 10px;
   line-height: 13px;
 }
 
-.netInfoHeadersGroup {
+.theme-firebug .netInfoGroupBox {
   padding-bottom: 3px;
   margin-bottom: 7px;
   border-bottom: 1px solid var(--xhr-spy-border);
@@ -120,14 +120,14 @@
   color: #565656;
 }
 
-.netInfoHeadersTable .netHeader {
+.theme-firebug .netInfoGroupTitle {
   cursor: pointer;
   padding-left: 17px;
   position: static;
   -moz-user-select: none;
 }
 
-.netInfoParamName {
+.theme-firebug .netInfoParamName {
   padding: 0 10px 0 0;
   font-weight: bold;
   vertical-align: top;
@@ -135,7 +135,7 @@
   white-space: nowrap;
 }
 
-.netInfoParamValue {
+.theme-firebug .netInfoParamValue {
   width: 100%;
   word-wrap: break-word;
 }
@@ -143,12 +143,12 @@
 /******************************************************************************/
 /* Response Tab */
 
-.netInfoBodiesDiscarded {
+.theme-firebug .netInfoBodiesDiscarded {
   font-style: italic;
   color: gray;
 }
 
-.netInfoResponseContent {
+.theme-firebug .netInfoResponseContent {
   font-family: monospace;
   word-wrap: break-word;
 }
@@ -156,12 +156,12 @@
 /******************************************************************************/
 /* Response Size Limit */
 
-.netInfoResponseSizeLimit {
+.theme-firebug .netInfoResponseSizeLimit {
   font-family: var(--xhr-spy-font-family);
   font-size: var(--xhr-spy-font-size);
   padding-top: 10px;
 }
 
-.netInfoResponseSizeLimit .objectLink {
+.theme-firebug .netInfoResponseSizeLimit .objectLink {
   color: #00c;
 }

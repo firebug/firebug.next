@@ -16,41 +16,54 @@ const DOM = React.DOM;
  * of the 'Headers' panel. It displays HTTP headers groups such as
  * received or response headers.
  */
-var Headers = React.createClass({
-  displayName: "Headers",
+var NetInfoGroupList = React.createClass({
+  displayName: "NetInfoGroupList",
 
   getInitialState: function() {
     return {
-      data: {}
+      groups: []
     };
   },
 
   render: function() {
-    var data = this.props.data;
-    var responseHeaders = data ? data.response.headers : [];
-    var requestHeaders = data ? data.request.headers : [];
+    var groups = this.props.groups.map(group => {
+      return NetInfoGroupFactory({
+        name: group.name,
+        params: group.params
+      });
+    });
 
     return (
-      DOM.div({className: "netInfoHeadersTable"},
-        DOM.div({className: "netHeadersGroup"},
-          DOM.div({className: "netInfoHeadersGroup"},
-            DOM.span({className: "netHeader twisty"},
-              Locale.$STR("xhrSpy.responseHeaders")
-            )
-          ),
-          DOM.table({cellPadding: 0, cellSpacing: 0},
-            HeaderListFactory({headers: responseHeaders})
+      DOM.div({className: "netInfoGroupListTable"},
+        groups
+      )
+    );
+  }
+});
+
+/**
+ * TODO
+ */
+var NetInfoGroup = React.createClass({
+  displayName: "NetInfoGroup",
+
+  getInitialState: function() {
+    return {
+      name: "",
+      params: []
+    };
+  },
+
+  render: function() {
+    return (
+      DOM.div({className: "netInfoGroup"},
+        DOM.div({className: "netInfoGroupBox"},
+          DOM.span({className: "netInfoGroupTitle twisty"},
+            this.props.name
           )
         ),
-        DOM.div({className: "netHeadersGroup"},
-          DOM.div({className: "netInfoHeadersGroup"},
-            DOM.span({className: "netHeader twisty"},
-              Locale.$STR("xhrSpy.requestHeaders")
-            )
-          ),
-          DOM.table({cellPadding: 0, cellSpacing: 0},
-            HeaderListFactory({headers: requestHeaders})
-          )
+        DOM.table({cellPadding: 0, cellSpacing: 0},
+          NetInfoParamsFactory({headers: this.props.params})
         )
       )
     );
@@ -58,11 +71,11 @@ var Headers = React.createClass({
 });
 
 /**
- * This template renders headers list,
- * name + value pairs.
+ * This template renders list of parameters within a group.
+ * It's essentially a list of name + value pairs.
  */
-var HeaderList = React.createClass({
-  displayName: "HeaderList",
+var NetInfoParams = React.createClass({
+  displayName: "NetInfoParams",
 
   getInitialState: function() {
     return {
@@ -99,9 +112,12 @@ var HeaderList = React.createClass({
   }
 });
 
-const HeaderListFactory = React.createFactory(HeaderList);
+// Factories for internal usage
+const NetInfoParamsFactory = React.createFactory(NetInfoParams);
+const NetInfoGroupFactory = React.createFactory(NetInfoGroup);
 
 // Exports from this module
-exports.Headers = Headers;
-exports.HeaderList = HeaderList;
+exports.NetInfoGroupList = NetInfoGroupList;
+exports.NetInfoGroup = NetInfoGroup;
+exports.NetInfoParams = NetInfoParams;
 });
