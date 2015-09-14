@@ -14,6 +14,7 @@ const { Json } = require("./json.js");
 const { XhrUtils } = require("./xhr-utils.js");
 const { ResponseSizeLimit } = createFactories(require("./response-size-limit.js"));
 const { XmlView } = createFactories(require("./xml-view.js"));
+const { NetInfoGroupList } = createFactories(require("./net-info-groups.js"));
 
 // Shortcuts
 const DOM = React.DOM;
@@ -93,16 +94,130 @@ var ResponseTab = React.createClass({
 
   // Rendering
 
+  renderJson: function(file) {
+    var content = file.response.content;
+    if (!this.isJson(content)) {
+      return;
+    }
+
+    var json = this.parseJson(file);
+    if (!json) {
+      return;
+    }
+
+    return {
+      content: TreeView({data: json,mode: "tiny"}),
+      name: Locale.$STR("xhrSpy.json")
+    }
+  },
+
+  renderImage: function(file) {
+    var content = file.response.content;
+    if (!this.isImage(content)) {
+      return;
+    }
+
+    var dataUri = "data:" + content.mimeType + ";base64," + content.text;
+    return {
+      content: DOM.img({src: dataUri}),
+      name: Locale.$STR("xhrSpy.image")
+    }
+  },
+
+  renderXml: function(file) {
+    var content = file.response.content;
+    if (!this.isXml(content)) {
+      return;
+    }
+
+    var doc = this.parseXml(file);
+    if (!doc) {
+      return;
+    }
+
+    return {
+      content: XmlView({object: doc}),
+      name: Locale.$STR("xhrSpy.xml")
+    }
+  },
+
+  /**
+   * If full response text is available, let's try to parse and
+   * present nicely according to the underlying format.
+   */
+  renderFormattedResponse: function(file) {
+    var content = file.response.content;
+    if (typeof content.text == "object") {
+      return;
+    }
+
+    var group = this.renderJson(file);
+    if (group) {
+      return group;
+    }
+
+    group = this.renderImage(file);
+    if (group) {
+      return group;
+    }
+
+    group = this.renderXml(file);
+    if (group) {
+      return group;
+    }
+  },
+
+  renderRawResponse: function(file) {
+    var group;
+    var content = file.response.content;
+
+    // The response might reached the limit, so check if we are
+    // dealing with a long string.
+    if (typeof content.text == "object") {
+      group = {
+        name: Locale.$STR("xhrSpy.rawData"),
+        content: DOM.div({},
+          content.text.initial,
+          ResponseSizeLimit({
+            actions: this.props.actions,
+            data: content,
+            message: Locale.$STR("xhrSpy.responseSizeLimitMessage")
+          })
+        )
+      }
+    } else {
+      group = {
+        name: Locale.$STR("xhrSpy.rawData"),
+        content: DOM.div({className: "netInfoResponseContent"},
+          content.text
+        )
+      }
+    }
+
+    return group;
+  },
+
+  /**
+   * The response panel displays two groups:
+   *
+   * 1) Formatted response (in case of supported format, e.g. JSON, XML, etc.)
+   * 2) Raw response data (always displayed if not discarded)
+   */
   render: function() {
     var actions = this.props.actions;
     var file = this.props.data;
 
+    // If response bodies are discarded (not collected) let's just
+    // display a info message indicating what to do to collect even
+    // response bodies.
     if (file.discardResponseBody) {
       return DOM.span({className: "netInfoBodiesDiscarded"},
         Locale.$STR("xhrSpy.responseBodyDiscarded")
       );
     }
 
+    // Response bodies are collected, but not received from the
+    // backend yet.
     var content = file.response.content;
     if (!content || !content.text) {
       actions.requestData("responseContent");
@@ -113,57 +228,23 @@ var ResponseTab = React.createClass({
       );
     }
 
-    if (this.isImage(content)) {
-      if (typeof content.text == "object") {
-        // xxxHonza: localization, real spinner
-        return (
-          DOM.div({}, "Loading image...")
-        );
-      }
+    var groups = [];
 
-      var dataUri = "data:" + content.mimeType + ";base64," + content.text;
-      return (
-        DOM.img({src: dataUri})
-      )
+    // Try to parse the response for better UI representation.
+    var group = this.renderFormattedResponse(file);
+    if (group) {
+      groups.push(group);
     }
 
-    var text = content.text;
-
-    if (this.isJson(content)) {
-      var json = this.parseJson(file);
-      if (json) {
-        text = TreeView({
-          data: json,
-          mode: "tiny"
-        });
-      }
-    }
-
-    if (this.isXml(content)) {
-      var doc = this.parseXml(file);
-      if (doc) {
-        text = XmlView({
-          object: doc
-        });
-      }
-    }
-
-    // Response limit check (a long string)
-    if (typeof content.text == "object") {
-      text = DOM.div({},
-        text.initial,
-        ResponseSizeLimit({
-          actions: this.props.actions,
-          data: content,
-          message: Locale.$STR("xhrSpy.responseSizeLimitMessage")
-        })
-      );
-    }
+    // The raw response is always rendered.
+    groups.push(this.renderRawResponse(file));
 
     return (
       DOM.div({className: "responseTabBox"},
-        DOM.div({className: "panelContent netInfoResponseContent"},
-          text
+        DOM.div({className: "panelContent"},
+          NetInfoGroupList({
+            groups: groups
+          })
         )
       )
     );

@@ -29,7 +29,8 @@ var NetInfoGroupList = React.createClass({
     var groups = this.props.groups.map(group => {
       return NetInfoGroupFactory({
         name: group.name,
-        params: group.params
+        params: group.params,
+        content: group.content
       });
     });
 
@@ -42,7 +43,9 @@ var NetInfoGroupList = React.createClass({
 });
 
 /**
- * TODO
+ * TODO: docs
+ * this.props.params
+ * this.props.content
  */
 var NetInfoGroup = React.createClass({
   displayName: "NetInfoGroup",
@@ -50,11 +53,18 @@ var NetInfoGroup = React.createClass({
   getInitialState: function() {
     return {
       name: "",
-      params: []
+      params: [],
+      content: null
     };
   },
 
   render: function() {
+    var content = this.props.content;
+
+    if (!content && this.props.params) {
+      content = NetInfoParamsFactory({headers: this.props.params});
+    }
+
     return (
       DOM.div({className: "netInfoGroup"},
         DOM.div({className: "netInfoGroupBox"},
@@ -62,8 +72,8 @@ var NetInfoGroup = React.createClass({
             this.props.name
           )
         ),
-        DOM.table({cellPadding: 0, cellSpacing: 0},
-          NetInfoParamsFactory({headers: this.props.params})
+        DOM.div({},
+          content
         )
       )
     );
@@ -105,8 +115,10 @@ var NetInfoParams = React.createClass({
     });
 
     return (
-      DOM.tbody({},
-        rows
+      DOM.table({cellPadding: 0, cellSpacing: 0},
+        DOM.tbody({},
+          rows
+        )
       )
     )
   }
