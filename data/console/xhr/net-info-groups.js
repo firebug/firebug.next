@@ -26,7 +26,15 @@ var NetInfoGroupList = React.createClass({
   },
 
   render: function() {
-    var groups = this.props.groups.map(group => {
+    var groups = this.props.groups;
+
+    // Filter out empty groups.
+    groups = groups.filter(group => {
+      return (group.params && group.params.length) || group.content
+    });
+
+    // Render
+    groups = groups.map(group => {
       return NetInfoGroupFactory({
         name: group.name,
         params: group.params,
