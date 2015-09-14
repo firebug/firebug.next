@@ -239,6 +239,12 @@ var ResponseTab = React.createClass({
     // The raw response is always rendered.
     groups.push(this.renderRawResponse(file));
 
+    // The raw response is collapsed by default if the nice formatted
+    // version is available.
+    if (groups.length == 2) {
+      groups[1].open = false;
+    }
+
     return (
       DOM.div({className: "responseTabBox"},
         DOM.div({className: "panelContent"},

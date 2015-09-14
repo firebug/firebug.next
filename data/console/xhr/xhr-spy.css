@@ -108,23 +108,49 @@
 /* Net Info Groups */
 
 .theme-firebug .netInfoGroup {
-  padding-bottom: 18px;
   line-height: 13px;
-}
-
-.theme-firebug .netInfoGroupBox {
-  padding-bottom: 3px;
-  margin-bottom: 7px;
-  border-bottom: 1px solid var(--xhr-spy-border);
   font-weight: bold;
   color: #565656;
+  padding-bottom: 6px;
+}
+
+/* Last group doesn't need bottom padding */
+.theme-firebug .netInfoGroup:last-child {
+  padding-bottom: 0;
+}
+
+.theme-firebug .netInfoGroup:last-child .netInfoGroupContent {
+  padding-bottom: 0;
 }
 
 .theme-firebug .netInfoGroupTitle {
   cursor: pointer;
   padding-left: 15px;
-  position: static;
   -moz-user-select: none;
+  background-image: url("chrome://firebug-os/skin/twistyClosed.svg");
+  background-position: 0 2px;
+  background-size: 11px 11px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* Toggle group twisty icon */
+.theme-firebug .netInfoGroup.opened .netInfoGroupTitle {
+  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
+}
+
+/* Group content is expandable/collapsible by clicking on the title*/
+.theme-firebug .netInfoGroupContent {
+  padding-top: 7px;
+  margin-top: 3px;
+  padding-bottom: 14px;
+  border-top: 1px solid var(--xhr-spy-border);
+  display: none;
+}
+
+/* Toggle group visibility */
+.theme-firebug .netInfoGroup.opened .netInfoGroupContent {
+  display: block;
 }
 
 .theme-firebug .netInfoParamName {
@@ -138,15 +164,6 @@
 .theme-firebug .netInfoParamValue {
   width: 100%;
   word-wrap: break-word;
-}
-
-.theme-firebug .netInfoGroupTitle {
-  background-image: url("chrome://firebug-os/skin/twistyOpen.svg");
-  background-position: 0 2px;
-  background-size: 11px 11px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  display: block;
 }
 
 /******************************************************************************/

@@ -35,15 +35,11 @@ var NetInfoGroupList = React.createClass({
 
     // Render
     groups = groups.map(group => {
-      return NetInfoGroupFactory({
-        name: group.name,
-        params: group.params,
-        content: group.content
-      });
+      return NetInfoGroupFactory(group);
     });
 
     return (
-      DOM.div({className: "netInfoGroupListTable"},
+      DOM.div({className: "netInfoGroupList"},
         groups
       )
     );
@@ -60,10 +56,15 @@ var NetInfoGroup = React.createClass({
 
   getInitialState: function() {
     return {
+      open: true,
       name: "",
       params: [],
       content: null
     };
+  },
+
+  onToggle: function(event) {
+    this.setState({open: !this.state.open});
   },
 
   render: function() {
@@ -73,14 +74,20 @@ var NetInfoGroup = React.createClass({
       content = NetInfoParamsFactory({headers: this.props.params});
     }
 
+    var open = this.state.open;
+    if (typeof this.props.open != "undefined") {
+      open = this.props.open;
+    }
+
+    var className = open ? "opened" : "";
+
     return (
-      DOM.div({className: "netInfoGroup"},
-        DOM.div({className: "netInfoGroupBox"},
-          DOM.span({className: "netInfoGroupTitle twisty"},
-            this.props.name
-          )
+      DOM.div({className: "netInfoGroup" + " " + className},
+        DOM.span({className: "netInfoGroupTitle twisty",
+          onClick: this.onToggle},
+          this.props.name
         ),
-        DOM.div({},
+        DOM.div({className: "netInfoGroupContent"},
           content
         )
       )
