@@ -24,7 +24,7 @@ function loadFirebug() {
   let deferred = defer();
 
   if (!Firebug.chromes) {
-    Firebug.target.once("initialized", () => {
+    Firebug.Dispatcher.once("initialized", () => {
       deferred.resolve(true);
     });
 
