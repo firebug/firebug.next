@@ -115,6 +115,7 @@ be toggle-side-panels button at the end at some point */
 
 .theme-firebug .side-menu-widget-item.selected {
   background: #EFEFEF;
+  color: black;
 }
 
 /******************************************************************************/
