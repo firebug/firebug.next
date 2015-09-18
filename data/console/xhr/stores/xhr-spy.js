@@ -19,33 +19,6 @@ const spies = new Map();
 const XHTML_NS = "http://www.w3.org/1999/xhtml";
 
 /**
- * This function handles network events sent to the Console panel.
- */
-function onXhrLog(log) {
-  // The 'from' field is set only in case of a 'networkEventUpdate' packet.
-  // The initial 'networkEvent' packet uses 'actor'.
-  // Check if Spy object is already created for this event actor and
-  // if there is none make sure to create one.
-  var response = log.response;
-  var spy = response.from ? spies.get(response.from) : null;
-  var netEvent = typeof response.isXHR == "boolean";
-  if (!spy && netEvent) {
-    spy = new XhrSpy(log);
-    spies.set(response.actor, spy);
-  }
-
-  if (!spy) {
-    return false;
-  }
-
-  if (log.update) {
-    spy.update(response);
-  }
-
-  return true;
-}
-
-/**
  * This object represents XHR log in the Console panel. It's associated
  * with an existing log and so, also with an existing element in the DOM.
  *
@@ -304,5 +277,5 @@ XhrSpy.prototype =
 };
 
 // Exports from this module
-exports.onXhrLog = onXhrLog;
+exports.XhrSpy = XhrSpy;
 });
