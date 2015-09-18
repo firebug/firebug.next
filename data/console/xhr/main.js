@@ -3,10 +3,11 @@
 define(function(require, exports, module) {
 
 // Dependencies
-const spies = require("./stores/xhr-store.js");
+const store = require("./stores/xhr-store.js");
+const { actions } = require("./actions.js");
 
-const dispatcher = Fluxify.createDispatcher({spies});
-const actions = Fluxify.bindActionCreators(spies.actions, dispatcher.dispatch);
+const dispatcher = Fluxify.createDispatcher({store});
+const _actions = Fluxify.bindActionCreators(actions, dispatcher.dispatch);
 
 
 /**
@@ -17,9 +18,9 @@ const actions = Fluxify.bindActionCreators(spies.actions, dispatcher.dispatch);
  */
 function onXhrLog(log) {
   if (log.update) {
-    actions.updateXhrSpy(log);
+    _actions.updateXhrSpy(log);
   } else {
-    actions.addXhrSpy(log);
+    _actions.addXhrSpy(log);
   }
 }
 

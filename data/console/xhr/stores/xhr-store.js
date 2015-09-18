@@ -9,7 +9,7 @@ const initialState = {
   spies: new Map(),
 };
 
-// Action Handling
+// Store Update
 
 /**
  * 
@@ -29,6 +29,8 @@ function update(state = initialState, action, emitChange) {
 
   return state;
 }
+
+// Actions Handlers
 
 /**
  * A new XHR request has been initiated. Let's create a new
@@ -57,34 +59,6 @@ function onUpdateXhrSpy(state, action, emitChange) {
   emitChange("updateXhrSpy", spy);
 }
 
-// Actions
-
-var actions = {
-  addXhrSpy: function(log) {
-    return (dispatch, getState) => {
-      dispatch({
-        type: constants.XHR_SPY_ADD,
-        payload: {
-          log: log
-        }
-      });
-    }
-  },
-
-  updateXhrSpy: function(log) {
-    return (dispatch, getState) => {
-      dispatch({
-        type: constants.XHR_SPY_UPDATE,
-        payload: {
-          log: log
-        }
-      });
-    }
-  }
-}
-
 // Exports from this module
 exports.update = update;
-exports.actions = actions;
-
 });
