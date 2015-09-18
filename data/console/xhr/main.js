@@ -3,7 +3,7 @@
 define(function(require, exports, module) {
 
 // Dependencies
-const spies = require("./stores/xhr-spies.js");
+const spies = require("./stores/xhr-store.js");
 
 const dispatcher = Fluxify.createDispatcher({spies});
 const actions = Fluxify.bindActionCreators(spies.actions, dispatcher.dispatch);
