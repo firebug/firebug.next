@@ -5,7 +5,7 @@ define(function(require, exports, module) {
 // Dependencies
 const { renderJson } = require("./json-viewer.js");
 const { renderTiming } = require("./performance-timing.js");
-const { onXhrLog } = require("./xhr/xhr-spy.js");
+const { onXhrLog } = require("./xhr/stores/xhr-spy.js");
 
 /**
  * Listen for messages from the Console panel (chrome scope).

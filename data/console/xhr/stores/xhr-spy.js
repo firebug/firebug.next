@@ -11,7 +11,7 @@ const { Dom } = require("reps/core/dom");
 const { createFactories } = require("reps/rep-utils");
 
 // XHR Spy
-const { NetInfoBody } = createFactories(require("./net-info-body.js"));
+const { NetInfoBody } = createFactories(require("../components/net-info-body.js"));
 const { DataProvider } = require("./data-provider.js");
 
 // Constants
@@ -39,7 +39,7 @@ function onXhrLog(log) {
   }
 
   if (log.update) {
-    spy.updateBody(response);
+    spy.update(response);
   }
 
   return true;
@@ -108,6 +108,13 @@ XhrSpy.prototype =
     }, true);
   },
 
+  update: function(response) {
+    Trace.sysout("XhrSpy.update; " + response.updateType, response);
+
+    this.availableUpdates.add(response.updateType);
+    this.refresh();
+  },
+
   onToggleBody: function(event) {
     if (!Events.isLeftClick(event)) {
       return;
@@ -132,13 +139,6 @@ XhrSpy.prototype =
       logRow.setAttribute("aria-expanded", "false");
       this.closeBody();
     }
-  },
-
-  updateBody: function(response) {
-    Trace.sysout("XhrSpy.updateBody; " + response.updateType, response);
-
-    this.availableUpdates.add(response.updateType);
-    this.refresh();
   },
 
   /**
