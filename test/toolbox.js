@@ -10,8 +10,7 @@ const { defer } = require("sdk/core/promise");
 const { setInterval, clearInterval } = require("sdk/timers");
 const { loadFirebug } = require("./common.js");
 
-const { gDevTools } = Cu.import("resource:///modules/devtools/gDevTools.jsm", {});
-const { devtools } = Cu.import("resource://gre/modules/devtools/Loader.jsm", {});
+const { devtools, gDevTools } = require("firebug.sdk/lib/core/devtools.js");
 
 function getToolDefinition(toolId) {
   return gDevTools.getToolDefinition(toolId);
