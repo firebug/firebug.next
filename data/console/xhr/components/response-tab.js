@@ -10,8 +10,8 @@ const { TreeView } = require("reps/tree-view");
 const { Reps } = require("reps/repository");
 
 // XHR Spy
-const { Json } = require("./json.js");
-const { XhrUtils } = require("./xhr-utils.js");
+const { Json } = require("../utils/json.js");
+const { XhrUtils } = require("../utils/xhr-utils.js");
 const { ResponseSizeLimit } = createFactories(require("./response-size-limit.js"));
 const { XmlView } = createFactories(require("./xml-view.js"));
 const { NetInfoGroupList } = createFactories(require("./net-info-groups.js"));

@@ -10,7 +10,7 @@ const { ResponseTab } = createFactories(require("./response-tab.js"));
 const { ParamsTab } = createFactories(require("./params-tab.js"));
 const { CookiesTab } = createFactories(require("./cookies-tab.js"));
 const { PostTab } = createFactories(require("./post-tab.js"));
-const { XhrUtils } = require("./xhr-utils.js");
+const { XhrUtils } = require("../utils/xhr-utils.js");
 
 /**
  * This template renders the basic Network log info body. It's not

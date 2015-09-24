@@ -12,8 +12,8 @@ const { Reps } = require("reps/repository");
 
 // XHR Spy
 const { NetInfoParams } = createFactories(require("./net-info-groups.js"));
-const { XhrUtils } = require("./xhr-utils.js");
-const { Json } = require("./json.js");
+const { XhrUtils } = require("../utils/xhr-utils.js");
+const { Json } = require("../utils/json.js");
 
 // Constants
 const DOM = React.DOM;

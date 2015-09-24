@@ -11,7 +11,7 @@ const { Dom } = require("reps/core/dom");
 const { createFactories } = require("reps/rep-utils");
 
 // XHR Spy
-const { NetInfoBody } = createFactories(require("./net-info-body.js"));
+const { NetInfoBody } = createFactories(require("./components/net-info-body.js"));
 const { DataProvider } = require("./data-provider.js");
 
 // Constants
