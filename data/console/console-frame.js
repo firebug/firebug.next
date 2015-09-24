@@ -3,7 +3,6 @@
 define(function(require, exports, module) {
 
 // Dependencies
-const { renderJson } = require("./json-viewer.js");
 const { renderTiming } = require("./performance-timing.js");
 const { onXhrLog } = require("./xhr/xhr-spy.js");
 
@@ -14,10 +13,6 @@ addEventListener("firebug/chrome/message", event => {
   var data = event.data;
 
   switch (data.type) {
-  case "renderJson":
-    renderJson(data.args);
-    break;
-
   case "renderTiming":
     renderTiming(data.args);
     break;
