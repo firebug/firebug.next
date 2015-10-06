@@ -74,11 +74,7 @@ var NetInfoGroup = React.createClass({
       content = NetInfoParamsFactory({headers: this.props.params});
     }
 
-    var open = this.state.open;
-    if (typeof this.props.open != "undefined") {
-      open = this.props.open;
-    }
-
+    var open = this.state.open || this.props.open;
     var className = open ? "opened" : "";
 
     return (
