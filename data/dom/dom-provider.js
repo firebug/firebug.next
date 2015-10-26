@@ -45,7 +45,17 @@ DomProvider.prototype =
       return new Property(key, properties[key]);
     });
 
-    function sortName(a, b) { return a.name > b.name ? 1 : -1; }
+    function sortName(a, b) {
+      // Display non-enumerable properties at the end.
+      if (!a.value.enumerable && b.value.enumerable) {
+        return 1;
+      }
+      if (a.value.enumerable && !b.value.enumerable) {
+        return -1;
+      }
+
+      return a.name > b.name ? 1 : -1;
+    }
     children.sort(sortName);
 
     var length = children ? children.length : "";
