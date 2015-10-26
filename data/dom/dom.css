@@ -12,3 +12,24 @@ body {
 .domTable > tbody > tr:last-child > td {
   border-bottom: none;
 }
+
+/* Do not display bottom border for the last DOM tree row */
+.domTable > tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+.domTable td.memberValueCell {
+  padding-left: 16px;
+}
+
+/* Read only properties have a padlock */
+.domTable tr:not(.writable) td.memberValueCell {
+  background: url("chrome://firebug/skin/readOnlyProp.svg") no-repeat;
+  background-position: 1px 6px;
+  background-size: 10px 10px;
+}
+
+/* Non-enumerable properties are grayed out */
+.domTable tr:not(.enumerable) td.memberValueCell {
+  opacity: 0.6;
+}

@@ -35,6 +35,7 @@ var DomContent = React.createClass(
           key: "content",
           data: grip,
           provider: this.props.provider,
+          decorator: this.props.decorator,
           mode: this.props.mode
         })
       )

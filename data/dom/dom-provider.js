@@ -125,4 +125,5 @@ function Property(name, value) {
 
 // Exports from this module
 exports.DomProvider = DomProvider;
+exports.Property = Property;
 });

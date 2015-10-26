@@ -11,6 +11,7 @@ const { Reps } = require("reps/repository");
 
 // Firebug
 const { DomProvider } = require("./dom-provider");
+const { DomDecorator } = require("./dom-decorator");
 const { GripStore } = require("./grip-store");
 const { Dispatcher } = require("./dispatcher");
 const { DomContent } = require("./dom-content");
@@ -37,6 +38,7 @@ function initialize(grip) {
   var store = new GripStore();
   var content = DomContent({
     provider: new DomProvider(store),
+    decorator: new DomDecorator(),
     data: rootGrip,
     mode: "tiny"
   });
