@@ -77,17 +77,6 @@
   box-shadow: none;
 }
 
-/* Highlight debugger tab when it's paused and not selected.
-   There is also execution pointer displayed in the tab indicating
-   that the debugger is paused. */
-.theme-firebug #toolbox-tab-jsdebugger.devtools-tab:not([selected])[highlighted] {
-  background-color: rgba(89, 178, 234, .2);
-  background-image: url(chrome://firebug/skin/executionPointer.svg);
-  background-repeat: no-repeat;
-  padding-left: 13px !important;
-  background-position: 3px 7px, 0 0;
-}
-
 .theme-firebug .devtools-tab spacer,
 .theme-firebug .devtools-tab image {
   display: none;
@@ -105,6 +94,20 @@
 .theme-firebug #panelSideBox .devtools-tab:first-child,
 .theme-firebug .devtools-sidebar-tabs tab:first-child {
   margin-left: 5px;
+}
+
+/******************************************************************************/
+/* Debugger Panel Tab */
+
+/* Highlight debugger tab when it's paused and not selected.
+   There is also execution pointer displayed in the tab indicating
+   that the debugger is paused. */
+.theme-firebug #toolbox-tab-jsdebugger.devtools-tab:not([selected])[highlighted] {
+  background-color: rgba(89, 178, 234, .2);
+  background-image: url(chrome://firebug/skin/executionPointer.svg);
+  background-repeat: no-repeat;
+  padding-left: 13px !important;
+  background-position: 3px 7px, 0 0;
 }
 
 /******************************************************************************/
