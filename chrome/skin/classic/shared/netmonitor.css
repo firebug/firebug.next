@@ -272,3 +272,15 @@ be toggle-side-panels button at the end at some point */
   border-radius: 0;
   transform: rotate(45deg);
 }
+
+/******************************************************************************/
+/* Side panel Headers (hide details) */
+
+/* Make more space in the Headers side bar by hiding duplicated info */
+.theme-firebug .tabpanel-content #headers-summary-url,
+.theme-firebug .tabpanel-content #headers-summary-method,
+.theme-firebug .tabpanel-content #headers-summary-address,
+.theme-firebug .tabpanel-content #headers-summary-status,
+.theme-firebug .tabpanel-content #headers-summary-version {
+  display: none;
+}
