@@ -100,28 +100,31 @@ be toggle-side-panels button at the end at some point */
   padding: 0;
 }
 
-.theme-firebug .side-menu-widget-item:hover {
-  background: #EFEFEF;
-}
-
 .theme-firebug .requests-menu-subitem {
   padding: 1px;
 }
 
-.theme-firebug .side-menu-widget-item.selected {
-  background: #EFEFEF;
-  color: black;
-}
-
-/******************************************************************************/
-/* Column Values Colors */
-
+/* HTTP Status Column */
 .theme-firebug .requests-menu-subitem.requests-menu-icon-and-file {
   font-weight: bold;
 }
 
+/* Method Column */
 .theme-firebug .requests-menu-subitem.requests-menu-status-and-method {
   color: rgb(128, 128, 128);
+}
+
+/* Selection */
+.theme-firebug .side-menu-widget-item.selected .requests-menu-timings-total,
+.theme-firebug .side-menu-widget-item.selected .requests-menu-icon-and-file,
+.theme-firebug .side-menu-widget-item.selected .requests-menu-status-and-method,
+.theme-firebug .side-menu-widget-item.selected {
+  background: #3399ff;
+  color: white;
+}
+
+.theme-firebug .side-menu-widget-item:not(.selected):hover {
+  background: #EFEFEF;
 }
 
 /******************************************************************************/
