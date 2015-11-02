@@ -68,6 +68,11 @@ in the Light theme to make it invisible. Let's fix that in Firebug theme. */
   display: none;
 }
 
+/* But, make the field visible in the Browser console */
+#devtools-webconsole.theme-firebug .hud-console-filter-toolbar .devtools-searchinput {
+  display: -moz-box;
+}
+
 /******************************************************************************/
 /* console.table() */
 
