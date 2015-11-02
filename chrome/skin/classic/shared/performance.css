@@ -3,6 +3,14 @@
 /******************************************************************************/
 /* Performance Panel */
 
+.theme-firebug {
+  --cell-border-color: rgba(0,0,0,0.15);
+  --cell-border-color-light: rgba(0,0,0,0.1);
+  --focus-cell-border-color: rgba(0,0,0,0.3);
+  --row-alt-background-color: rgba(76,158,217,0.1);
+  --row-hover-background-color: rgba(76,158,217,0.2);
+}
+
 .theme-firebug #performance-pane .notice-container {
   background-color: white;
 }
