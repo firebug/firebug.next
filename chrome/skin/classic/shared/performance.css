@@ -1,0 +1,17 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Performance Panel */
+
+.theme-firebug #performance-pane #filter-button {
+  list-style-image: url(chrome://firebug/skin/timeline-filter.svg#filter-open);
+  min-width: 24px;
+}
+
+.theme-firebug #performance-pane #filter-button[disabled] {
+  list-style-image: url(chrome://firebug/skin/timeline-filter.svg#filter-disabled);
+}
+
+.theme-firebug #performance-pane #filter-button[open] {
+  list-style-image: url(chrome://firebug/skin/timeline-filter.svg#filter-open);
+}
