@@ -540,11 +540,12 @@ div.CodeMirror span.eval-text {
   padding: 0;
   -moz-padding-start: 22px;
   -moz-padding-end: 12px;
-  background-position: 8px center;
-  background-size: 11px 11px;
+  background-position: 4px center;
+  background-size: 14px 14px;
   background-repeat: no-repeat;
   font-size: inherit;
   border-color: #aabccf;
+  background-image: url(search.svg);
 }
 
 .devtools-searchinput:-moz-locale-dir(rtl) {
