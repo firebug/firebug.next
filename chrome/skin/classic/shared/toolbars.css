@@ -7,7 +7,7 @@
 .theme-firebug toolbar,
 .theme-firebug .devtools-toolbar {
   -moz-appearance: none;
-  border-bottom: 1px solid rgb(170, 188, 207);
+  border-bottom: 1px solid rgb(170, 188, 207) !important;
   background-color: rgb(219, 234, 249) !important;
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
@@ -29,18 +29,24 @@
 
 .theme-firebug .theme-toolbar,
 .theme-firebug .devtools-toolbar {
-  height: 28px;
+  height: 28px !important;
 }
 
 .theme-firebug toolbarseparator {
   min-height: 0;
 }
 
+.theme-firebug .theme-toolbar .label {
+  font-family: Lucida Grande,Tahoma,sans-serif;
+}
+
 /******************************************************************************/
 /* Toolbar Buttons */
 
+.theme-firebug .theme-toolbar button,
 .theme-firebug .devtools-button,
 .theme-firebug toolbarbutton {
+  background-color: transparent;
   -moz-appearance: none;
   margin-right: 1px;
   border: 1px solid transparent;
@@ -62,6 +68,7 @@ but for now do not allocate an extra space for images */
   padding: 0 !important;
 }
 
+.theme-firebug .theme-toolbar button:hover:not([disabled="true"]),
 .theme-firebug .devtools-button:hover:not([disabled="true"]),
 .theme-firebug toolbarbutton:hover:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.2);
@@ -80,6 +87,7 @@ but for now do not allocate an extra space for images */
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset, 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
+.theme-firebug .theme-toolbar button:hover:active:not([disabled="true"]),
 .theme-firebug .devtools-button:hover:active:not([disabled="true"]),
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]) {
   border-color: rgba(0, 0, 0, 0.3);
@@ -87,10 +95,16 @@ but for now do not allocate an extra space for images */
     0 0 2px rgba(0, 0, 0, 0.05);
 }
 
+.theme-firebug .theme-toolbar button:hover:active:not([disabled="true"]):not([type="menu-button"]),
 .theme-firebug .devtools-button:hover:active:not([disabled="true"]):not([type="menu-button"])
 .theme-firebug toolbarbutton:hover:active:not([disabled="true"]):not([type="menu-button"]) {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
   background-repeat: no-repeat;
+}
+
+/* Used e.g. by the Animation side panel */
+.theme-firebug .devtools-button::before {
+  filter: url(filters.svg#invert);
 }
 
 /******************************************************************************/

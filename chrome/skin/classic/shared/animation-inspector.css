@@ -112,12 +112,15 @@
 }
 
 /******************************************************************************/
-/* Toolbar & Preview Text */
+/* Toolbar */
 
-.theme-firebug #toolbar.theme-toolbar {
-  height: 27px;
+.theme-firebug #timeline-toolbar.theme-toolbar button {
+  margin-left: 5px;
+  border-width: 1px;
+  min-height: 22px;
+  min-width: 22px;
 }
 
-.theme-firebug #toolbar.theme-toolbar .label {
-  font-family: Lucida Grande,Tahoma,sans-serif;
+.theme-firebug #timeline-toolbar.theme-toolbar #timeline-current-time {
+  margin-left: 15px;
 }
