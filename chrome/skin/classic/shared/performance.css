@@ -17,6 +17,13 @@
 }
 
 /******************************************************************************/
+/* Options */
+
+.theme-firebug #performance-pane #performance-options-button {
+  display: none;
+}
+
+/******************************************************************************/
 /* Filter button */
 
 .theme-firebug #performance-pane #filter-button {
