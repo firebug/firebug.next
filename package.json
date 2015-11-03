@@ -26,7 +26,7 @@
   },
   "updateURL": "https://getfirebug.com/releases/firebug/3.0/update.rdf",
   "icon": "chrome://firebug/skin/firebugBig.png",
-  "license": "BSD License",
+  "license": "BSD-3-Clause",
   "homepage": "https://getfirebug.com/",
   "main": "lib/index",
   "repository": {
