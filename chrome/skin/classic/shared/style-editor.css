@@ -17,10 +17,6 @@
   -moz-box-flex: 0;
 }
 
-.theme-firebug .stylesheet-details-container .devtools-side-splitter {
-  display: none;
-}
-
 /* xxxHonza: if the flex is set to 1 the height of the toolbar
 in the Style Editor panel is 26px and not 27px why? FIX ME */
 .theme-firebug #panelToolbar {
@@ -47,6 +43,14 @@ in the Style Editor panel is 26px and not 27px why? FIX ME */
 
 /******************************************************************************/
 /* Media Side Bar */
+
+.theme-firebug #style-editor-chrome #panelSideBox {
+  min-width: 200px;
+}
+
+.theme-firebug .stylesheet-details-container .devtools-side-splitter {
+  display: none;
+}
 
 .theme-firebug .stylesheet-sidebar {
   display: none !important;
