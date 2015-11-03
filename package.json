@@ -40,7 +40,7 @@
     "firebug.sdk": "0.x"
   },
   "devDependencies": {
-    "addon-httpd": "0.0.1"
+    "addon-httpd": "0.x"
   },
   "preferences-branch": "firebug",
   "preferences": [{
