@@ -24,7 +24,7 @@ Hacking on Firebug.next (aka Firebug 3)
 ---------------------------------------
 1. Get [JPM](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm): `git clone https://github.com/mozilla/jpm` ([CFX](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx) is not supported anymore)
 2. Switch to the JPM folder and [install](https://www.npmjs.org/doc/cli/npm-install.html) and [link](https://www.npmjs.org/doc/cli/npm-link.html) it via `npm install` and `npm link`. (Also needs to be done after fetching the latest changes to the JPM repo.)
-3. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next`
+3. Get the Firebug.next repo: `git clone https://github.com/firebug/firebug.next` and install its dependencies via `npm install`
 4. (Optional) Install [FBTrace](https://github.com/firebug/tracing-console) in your Firefox dev profile
 5. Run `jpm run -b <file path to your Firefox binary>` in the Firebug.next directory to launch Firefox (you need Firefox [Nightly build](https://nightly.mozilla.org/) at the moment), which automatically creates a clean profile.
 If you wish to run it with an existing profile (e.g. to include FBTrace), first create a new profile via the [Profile Manager](https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-firefox-profiles), and then run `jpm run -b <file path to your Firefox binary> -p <path to your Firefox profile (needs to start with /)>`.
