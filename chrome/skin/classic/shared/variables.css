@@ -10,9 +10,9 @@
 
   --theme-tab-toolbar-background: #ebeced;
   --theme-toolbar-background: #f0f1f2;
-  --theme-selection-background: #4c9ed9;
+  --theme-selection-background: #3399ff;
   --theme-selection-background-semitransparent: rgba(76, 158, 217, .23);
-  --theme-selection-color: #f5f7fa;
+  --theme-selection-color: white;
   --theme-splitter-color: #aaaaaa;
   --theme-comment: #757873;
 

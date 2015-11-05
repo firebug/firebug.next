@@ -34,7 +34,11 @@ in the Style Editor panel is 26px and not 27px why? FIX ME */
 }
 
 .theme-firebug .splitview-nav > li.splitview-active {
-  background-color: #3399ff;
+  background-color: var(--theme-selection-background);
+}
+
+.theme-firebug .splitview-nav > li.splitview-active .stylesheet-more {
+  color: var(--theme-selection-color);
 }
 
 .theme-firebug .disabled > .stylesheet-enabled {
