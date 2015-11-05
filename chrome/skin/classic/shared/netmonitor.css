@@ -36,7 +36,7 @@ be toggle-side-panels button at the end at some point */
 }
 
 .theme-firebug #requests-menu-toolbar {
-  height: 16px;
+  height: 16px !important;
 }
 
 .theme-firebug .requests-menu-header {
