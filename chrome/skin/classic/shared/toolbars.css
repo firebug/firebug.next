@@ -10,6 +10,7 @@
   border-bottom: 1px solid rgb(170, 188, 207) !important;
   background-color: rgb(219, 234, 249) !important;
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  padding-right: 4px;
 }
 
 .theme-firebug #panelToolbar,
@@ -55,6 +56,15 @@
   width: auto;
   line-height: 12px;
   font-size: 12px;
+  /* The icon is absolutely positioned in the button using ::before */
+  position: relative;
+}
+
+.theme-firebug .theme-toolbar button,
+.theme-firebug .devtools-button {
+  border-width: 1px !important;
+  min-height: 21px;
+  min-width: 24px;
 }
 
 /* We might want to change this if toolbar buttons have icons,
@@ -102,14 +112,55 @@ but for now do not allocate an extra space for images */
   background-repeat: no-repeat;
 }
 
-/* Used e.g. by the Animation side panel */
+/* Used e.g. by the Animation side panel and Memory panel*/
+.theme-firebug .devtools-toolbarbutton::before,
 .theme-firebug .devtools-button::before {
   filter: url(filters.svg#invert);
+}
+
+.theme-firebug .devtools-button::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -8px 0 0 -8px;
+  background-repeat: no-repeat;
+}
+
+.theme-firebug .devtools-button[disabled]::before,
+.theme-firebug .devtools-button:disabled::before {
+  opacity: 0.5;
+}
+
+@media (min-resolution: 1.1dppx) {
+  .theme-firebug .devtools-button::before {
+    background-size: 32px;
+  }
+}
+
+/******************************************************************************/
+/* Toolbar Stuff */
+
+.theme-firebug .devtools-toolbar span,
+.theme-firebug .devtools-toolbar select,
+.theme-firebug .devtools-toolbar input {
+  vertical-align: middle;
+}
+
+.theme-firebug .devtools-toolbar select {
+  border: 1px solid transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6) inset, 0 0 1px rgba(255, 255, 255, 0.6) inset,
+    0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 /******************************************************************************/
 /* Win */
 
+.theme-firebug .devtools-button,
 .theme-firebug toolbarbutton {
   padding: 1px 3px;
 }
@@ -131,7 +182,6 @@ but for now do not allocate an extra space for images */
 .theme-firebug .toolbarbutton-menu-dropmarker {
   padding: 3px 7px;
 }
-
 
 .theme-firebug toolbarbutton[type="menu-button"] {
   padding: 0 !important;

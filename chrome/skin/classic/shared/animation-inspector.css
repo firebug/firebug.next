@@ -1,8 +1,6 @@
 /* See license.txt for terms of usage */
 
 /******************************************************************************/
-/* Animation Inspector */
-
 /* The inspect button */
 
 .theme-firebug #element-picker {
@@ -37,6 +35,7 @@
   background-image: none;
 }
 
+/******************************************************************************/
 /* The player */
 
 .theme-firebug .animation-title {

@@ -1,0 +1,64 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Memory Panel */
+
+#memory-tool {
+  --sidebar-width: auto;
+  /**
+   * If --heap-tree-row-height changes, be sure to change HEAP_TREE_ROW_HEIGHT
+   * in `devtools/client/memory/components/heap.js`.
+   */
+  --heap-tree-row-height: 14px;
+  --heap-tree-header-height: 19px;
+}
+
+/******************************************************************************/
+/* Toolbar */
+
+.theme-firebug .devtools-toolbar > .toolbar-group {
+  margin-inline-start: 0px;
+  border-inline-start: 0px;
+}
+
+.theme-firebug .devtools-toolbar .toolbar-group span,
+.theme-firebug .devtools-toolbar .toolbar-group select,
+.theme-firebug .devtools-toolbar .toolbar-group input {
+  vertical-align: middle;
+}
+
+/******************************************************************************/
+/* Take Snapshot Content Button */
+
+.theme-firebug .heap-view-panel .devtools-toolbarbutton {
+  -moz-appearance: none;
+  font-size: medium;
+  color: #292E33;
+  border: 1px solid #C4C4C4;
+  background-color: #E9E9E9;
+  text-decoration: none;
+}
+
+/******************************************************************************/
+/* Result Table */
+
+.theme-firebug .heap-view-panel .header > span,
+.theme-firebug .heap-view-panel .heap-tree-item > span {
+  width: 15%;
+}
+
+.theme-firebug .heap-view-panel .header > span {
+  cursor: pointer;
+  -moz-user-select: none;
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
+  padding: 0 !important;
+  font-weight: bold;
+  background: linear-gradient(
+          rgba(255, 255, 255, 0.05),
+          rgba(0, 0, 0, 0.05)),
+      radial-gradient(1px 60% at right,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 80%) repeat-x #C8D2DC;
+  color: #000000;
+  white-space: nowrap;
+}
