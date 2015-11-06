@@ -40,7 +40,7 @@ var DomView = createView(PanelView,
       provider: new DomProvider(store),
       decorator: new DomDecorator(),
       data: this.rootGrip,
-      mode: "short"
+      mode: "tiny"
     });
 
     this.theApp = React.render(content, document.querySelector("#content"));
