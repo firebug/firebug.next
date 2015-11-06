@@ -8,6 +8,7 @@ var React = require("react");
 // Firebug SDK
 const { TreeView } = require("reps/tree-view");
 const { Reps } = require("reps/repository");
+const { PanelView, createView } = require("firebug.sdk/lib/panel-view");
 
 // Firebug
 const { DomProvider } = require("./dom-provider");
@@ -16,94 +17,55 @@ const { GripStore } = require("./grip-store");
 const { Dispatcher } = require("./dispatcher");
 const { DomContent } = require("./dom-content");
 
-var theApp;
-
-// xxxHonza: API in this file implements mostly the communication
-// between content and chrome scope. It duplicates API already
-// presented in markup-view-content.js
-// It would be great to have common module that can be included
-// in a content scope and installing the communication channel
-// automatically.
-
-var rootGrip;
-
 /**
- * Render panel content (expandable tree)
+ * This object represents a view that is responsible for
+ * rendering the content - DOM (Document Object Model) of
+ * the associated page.
  */
-function initialize(grip) {
-  rootGrip = JSON.parse(grip);
+var DomView = createView(PanelView,
+/** @lends DomView */
+{
+  rootGrip: null,
 
-  Trace.sysout("DomMain.initialize;" + DomProvider, rootGrip);
+  /**
+   * Render the top level application component.
+   */
+  initialize: function(config) {
+    this.rootGrip = JSON.parse(config.rootGrip);
 
-  var store = new GripStore();
-  var content = DomContent({
-    provider: new DomProvider(store),
-    decorator: new DomDecorator(),
-    data: rootGrip,
-    mode: "tiny"
-  });
+    Trace.sysout("DomView.initialize;", this.rootGrip);
 
-  theApp = React.render(content, document.querySelector("#content"));
-}
+    var store = new GripStore(this);
+    var content = DomContent({
+      provider: new DomProvider(store),
+      decorator: new DomDecorator(),
+      data: this.rootGrip,
+      mode: "short"
+    });
 
-/**
- * Update content
- */
-Dispatcher.on("update", event => {
-  Trace.sysout("MarkupTooltip; Update " + event.from, {
-    event: event,
-    theApp: theApp
-  });
+    this.theApp = React.render(content, document.querySelector("#content"));
+  },
 
-  theApp.setState({
-    forceUpdate: (event.grip.actor == rootGrip.actor),
-    data: theApp.state.data
-  });
+  // Messages from the chrome scope.
+
+  refresh: function(rootGrip) {
+    Trace.sysout("DomView.refresh;", rootGrip);
+
+    if (!rootGrip) {
+      rootGrip = this.rootGrip;
+    }
+
+    this.theApp.setState({
+      forceUpdate: (rootGrip.actor == this.rootGrip.actor),
+      data: this.theApp.state.data
+    });
+  },
+
+  onSearch: function(filter) {
+    var text = filter.text;
+    var reverse = filter.reverse;
+  },
 });
 
-/**
- * Listen for messages from the Inspector panel (chrome scope).
- */
-addEventListener("firebug/chrome/message", event => {
-  var data = event.data;
-  switch (data.type) {
-  case "initialize":
-    initialize(data.args);
-    break;
-  }
-}, true);
-
-/**
- * Post message to the chrome through DOM event dispatcher.
- * (there is no message manager for the markupview.xhtml frame).
- */
-function postChromeMessage(type, args) {
-  var data = {
-    type: type,
-    args: args,
-  };
-
-  var event = new MessageEvent("firebug/content/message", {
-    bubbles: true,
-    cancelable: true,
-    data: data,
-  });
-
-  dispatchEvent(event);
-}
-
-/**
- * Navigation within the toolbox
- */
-function onNavigate(event) {
-  var target = event.target;
-  var repObject = event.detail.repObject;
-
-  postChromeMessage("navigate", repObject);
-}
-addEventListener("fbsdk:navigate", onNavigate, true);
-
-// Final initialize message posted to the chrome indicating that
-// all content modules has been successfully loaded.
-postChromeMessage("ready");
+// End of dom.js
 });

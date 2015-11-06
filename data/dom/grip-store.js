@@ -2,15 +2,14 @@
 
 define(function(require, exports, module) {
 
-const { Dispatcher } = require("./dispatcher");
-
 // Implementation
-function GripStore() {
+function GripStore(view) {
+  this.view = view;
+
+  this.onChromeEvent = this.onChromeEvent.bind(this);
+  addEventListener("firebug.sdk/chrome-event", this.onChromeEvent);
+
   this.cache = new Map();
-
-  addEventListener("firebug/chrome/message",
-    this.onContentMessage.bind(this));
-
   this.requests = new Map();
 }
 
@@ -22,6 +21,19 @@ function GripStore() {
 GripStore.prototype =
 /** @lends GripStore */
 {
+  // Handle chrome messages
+
+  onChromeEvent: function(event) {
+    var data = event.data;
+    var method = data.method;
+    var args = data.args;
+
+    if (method == "onPrototypeAndProperties") {
+      data.processed = true;
+      this.onPrototypeAndProperties(args);
+    }
+  },
+
   // Grip Properties Provider
 
   getPrototypeAndProperties: function(grip) {
@@ -49,7 +61,7 @@ GripStore.prototype =
     // server side (asynchronously).
     grip = JSON.parse(JSON.stringify(grip));
     this.cache.set(grip.actor, grip);
-    this.postChromeMessage("getPrototypeAndProperties", grip);
+    this.view.postChromeMessage("getPrototypeAndProperties", grip);
 
     var promise = new Promise((resolve, reject) => {
       this.requests.set(grip.actor, {
@@ -88,40 +100,10 @@ GripStore.prototype =
     this.requests.delete(response.from);
 
     entry.promise.then(props => {
-      Dispatcher.dispatch("update", {
-        from: response.from,
-        grip: grip,
-      });
+      this.view.refresh(grip);
     })
 
     entry.resolve(grip.ownProperties);
-  },
-
-  // Communication Channel
-
-  onContentMessage: function(event) {
-    var { data } = event;
-
-    switch (data.type) {
-    case "prototypeAndProperties":
-      this.onPrototypeAndProperties(data.args);
-      break;
-    }
-  },
-
-  postChromeMessage: function(type, args) {
-    var data = {
-      type: type,
-      args: args
-    };
-
-    var event = new MessageEvent("firebug/content/message", {
-      bubbles: true,
-      cancelable: true,
-      data: data,
-    });
-
-    dispatchEvent(event);
   },
 };
 

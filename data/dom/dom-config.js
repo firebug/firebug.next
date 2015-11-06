@@ -6,6 +6,7 @@ require.config({
   paths: {
     "react": "../lib/react/react",
     "reps": "../../node_modules/firebug.sdk/lib/reps",
+    "firebug.sdk": "../../node_modules/firebug.sdk"
   }
 });
 
