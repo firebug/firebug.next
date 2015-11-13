@@ -179,6 +179,11 @@
   word-wrap: break-word;
 }
 
+.theme-firebug .netInfoBody .responseTabBox img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
 /******************************************************************************/
 /* Response Size Limit */
 
