@@ -6,3 +6,7 @@
 .fbsearch-splitter {
   opacity: 0.01;
 }
+
+.fbsearch-textbox .textbox-search-icon {
+  display: none;
+}
