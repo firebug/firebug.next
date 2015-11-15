@@ -14,13 +14,6 @@ be toggle-side-panels button at the end at some point */
 }
 
 /******************************************************************************/
-/* Filter field */
-
-.theme-firebug .devtools-searchinput {
-  display: none;
-}
-
-/******************************************************************************/
 /* Sidebar */
 
 /* Hide the original toggle side-bar button */
@@ -86,6 +79,13 @@ be toggle-side-panels button at the end at some point */
       radial-gradient(1px 60% at right,
           rgba(0, 0, 0, 0.8) 0%,
           transparent 80%);
+}
+
+.theme-firebug .requests-menu-filter-button,
+.theme-firebug .devtools-searchinput,
+.theme-firebug #requests-menu-clear-button,
+.theme-firebug .devtools-sidebar-alltabs {
+  display: none;
 }
 
 /******************************************************************************/
