@@ -33,7 +33,7 @@ var DomView = createView(PanelView,
   initialize: function(config) {
     this.rootGrip = JSON.parse(config.rootGrip);
 
-    Trace.sysout("DomView.initialize;", this.rootGrip);
+    Trace.sysout("DomView.initialize; " + this.rootGrip.actor, this.rootGrip);
 
     var store = new GripStore(this);
     var content = DomContent({
@@ -49,19 +49,21 @@ var DomView = createView(PanelView,
   // Messages from the chrome scope.
 
   refresh: function(rootGrip) {
-    Trace.sysout("DomView.refresh;", rootGrip);
+    Trace.sysout("DomView.refresh; " + rootGrip.actor, rootGrip);
 
-    if (!rootGrip) {
-      rootGrip = this.rootGrip;
-    }
+    let forceUpdate = rootGrip.actor == this.rootGrip.actor;
 
     this.theApp.setState({
       forceUpdate: (rootGrip.actor == this.rootGrip.actor),
-      data: this.theApp.state.data
+      data: rootGrip
     });
+
+    this.rootGrip = rootGrip;
   },
 
   onSearch: function(filter) {
+    Trace.sysout("DomView.onSearch; " + filter.text, filter);
+
     var text = filter.text;
     var reverse = filter.reverse;
   },
