@@ -83,8 +83,7 @@ be toggle-side-panels button at the end at some point */
 
 .theme-firebug .requests-menu-filter-button,
 .theme-firebug .devtools-searchinput,
-.theme-firebug #requests-menu-clear-button,
-.theme-firebug .devtools-sidebar-alltabs {
+.theme-firebug #requests-menu-clear-button {
   display: none;
 }
 

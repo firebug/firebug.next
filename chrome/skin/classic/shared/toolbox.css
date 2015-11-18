@@ -96,6 +96,11 @@
   margin-left: 5px;
 }
 
+/* Do not display the All Tabs button opening a menu-popup with list of tabs */
+.theme-firebug .devtools-sidebar-alltabs {
+  display: none;
+}
+
 /******************************************************************************/
 /* Debugger Panel Tab */
 
