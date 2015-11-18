@@ -1,0 +1,48 @@
+/* See license.txt for terms of usage */
+
+/******************************************************************************/
+/* Performance Panel */
+
+.theme-firebug {
+  --cell-border-color: rgba(0,0,0,0.15);
+  --cell-border-color-light: rgba(0,0,0,0.1);
+  --focus-cell-border-color: rgba(0,0,0,0.3);
+  --row-alt-background-color: rgba(76,158,217,0.1);
+  --row-hover-background-color: rgba(76,158,217,0.2);
+}
+
+.theme-firebug #performance-pane .notice-container {
+  background-color: white;
+}
+
+.theme-firebug #performance-pane .devtools-toolbarbutton {
+  border: 1px solid lightgrey;
+}
+
+.theme-firebug #performance-pane .devtools-toolbarbutton:hover {
+  background-color: rgb(232, 232, 232);
+  cursor: pointer;
+}
+
+/******************************************************************************/
+/* Options */
+
+.theme-firebug #performance-pane #performance-options-button {
+  display: none;
+}
+
+/******************************************************************************/
+/* Filter button */
+
+.theme-firebug #performance-pane #filter-button {
+  list-style-image: url(chrome://firebug/skin/timeline-filter.svg#filter-open);
+  min-width: 24px;
+}
+
+.theme-firebug #performance-pane #filter-button[disabled] {
+  list-style-image: url(chrome://firebug/skin/timeline-filter.svg#filter-disabled);
+}
+
+.theme-firebug #performance-pane #filter-button[open] {
+  list-style-image: url(chrome://firebug/skin/timeline-filter.svg#filter-open);
+}
