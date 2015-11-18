@@ -286,3 +286,14 @@ be toggle-side-panels button at the end at some point */
 .theme-firebug .tabpanel-content #headers-summary-version {
   display: none;
 }
+
+/* The general info in the Headers panel is hidden in Firebug theme */
+.theme-firebug #headers-tabpanel.tabpanel-content .devtools-toolbar {
+  display: none;
+}
+
+/* Headers separators are toolbars, but they have different height */
+.theme-firebug #headers-tabpanel.tabpanel-content .title.devtools-toolbar {
+  display: -moz-box;
+  height: 20px !important;
+}
