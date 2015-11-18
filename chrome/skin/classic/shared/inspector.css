@@ -14,3 +14,7 @@
 .theme-firebug #inspector-sidebar toolbar {
   height:28px;
 }
+
+.theme-firebug #inspector-pane-toggle {
+  display: none;
+}
