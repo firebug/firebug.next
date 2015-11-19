@@ -13,6 +13,12 @@
   padding-right: 4px;
 }
 
+/* The vbox for panel content also uses theme-toolbar class from some reason
+ but it shouldn't have the padding as defined above, so fix it here */
+.theme-firebug #toolbox-deck > .toolbox-panel.theme-toolbar {
+  padding-right: 0;
+}
+
 .theme-firebug #panelToolbar,
 .theme-firebug .devtools-toolbar {
   padding: 3px;
