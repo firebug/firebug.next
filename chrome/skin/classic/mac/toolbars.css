@@ -13,3 +13,9 @@
 .theme-firebug toolbarbutton[type="menu-button"] > .toolbarbutton-menubutton-button {
   padding: 3px 3px 0 3px;
 }
+
+/* The  copy button in the Command Editor needs to be aligned with the other buttons */
+.theme-firebug #firebug-commandeditor-copy .toolbarbutton-menubutton-button label {
+  padding-top: 0;
+  padding-bottom: 3px;
+}
