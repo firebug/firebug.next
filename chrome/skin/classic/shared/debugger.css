@@ -193,6 +193,12 @@
   -moz-user-focus: ignore;
 }
 
+/* Sections titles (toolbars) in Variables panel they have different height */
+.theme-firebug #variables-tabpanel .title.devtools-toolbar {
+  display: -moz-box;
+  height: 20px !important;
+}
+
 /******************************************************************************/
 /* Callstack Panel */
 
